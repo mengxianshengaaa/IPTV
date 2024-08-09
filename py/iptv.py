@@ -384,7 +384,7 @@ for url in urls:
                         urlx = item.get('url')
                         # 如果url字段中包含','，并且包含'udp'、'rtp'或':1111'，则将urlx设置为"aaaaaaaa"
                         if ',' in urlx or 'udp' in urlx or 'rtp' in urlx or ':1111' in urlx:
-                             urlx = f"aaaaaaaa"
+                             urlx = f"aaaaaaaa"  #无意义字符串，表示值为空而已
                         # 这里有几个条件判断，但被注释掉了，看起来是想根据urlx的内容来决定urld的值
                         # 判断urlx是否包含'http'，如果包含，则直接使用urlx作为urld
                         if 'http' in urlx:
