@@ -381,7 +381,7 @@ for url in urls:
                         name = item.get('name')
                         urlx = item.get('url')
                         if 'udp' in urlx or 'rtp' in urlx:
-                            pass
+                            continue  # 跳过包含'udp'或'rtp'的行
                         if 'http' in urlx:
                             urld = f"{urlx}"
                         else:
