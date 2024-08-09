@@ -30,9 +30,8 @@ urls = [
     "https://fofa.info/result?qbase64=IlpIR1hUViIgJiYgcmVnaW9uPSJndWFuZ2Rvbmci",#广东
     "https://fofa.info/result?qbase64=IlpIR1hUViIgJiYgcmVnaW9uPSJHdWFuZ2RvbmciICYmIGNpdHk9InNoYW50b3Ui",#广东汕头
     "https://fofa.info/result?qbase64=IlpIR1hUViIgJiYgcmVnaW9uPSJHdWFuZ2RvbmciICYmIHBvcnQ9IjIyMjMi",#广东2223
-    #"https://fofa.info/result?qbase64=IlpIR1hUViIgJiYgcmVnaW9uPSJIZW5hbiI%3D",#河南
-    #"https://fofa.info/result?qbase64=IlpIR1hUViIgJiYgcmVnaW9uPSJoZWJlaSI%3D",#河北
-    #"https://fofa.info/result?qbase64=IlpIR1hUViIgJiYgcmVnaW9uPSJzaWNodWFuIg%3D%3D",#四川  
+    "https://fofa.info/result?qbase64=IlpIR1hUViIgJiYgcmVnaW9uPSJIZW5hbiI%3D",#河南
+    "https://fofa.info/result?qbase64=IlpIR1hUViIgJiYgcmVnaW9uPSJoZWJlaSI%3D",#河北
 ]
 #定义网址替换规则
 def modify_urls(url):
@@ -123,7 +122,7 @@ for url in urls:
                     # 按行分割数据
              lines = json_data.split('\n')
              for line in lines:
-                 if 'm3u' in line and ('udp' not in line or 'rtp' not in line):  #行中需包含m3u，但排除udp和trp
+                 if 'hls' in line and ('udp' not in line or 'rtp' not in line):  #行中需包含m3u，但排除udp和trp
                         line = line.strip()
                         if line:
                             name, channel_url = line.split(',')
@@ -278,12 +277,12 @@ for line in fileinput.input("iptv.txt", inplace=True):  #打开文件，并对�
 
 #定义智慧桌面采集地址
 urls = [
-    #"https://fofa.info/result?qbase64=ImlwdHYvbGl2ZS96aF9jbi5qcyIgJiYgcG9ydD0iMTExMSI%3D",  # 1111
-    #"https://fofa.info/result?qbase64=ImlwdHYvbGl2ZS96aF9jbi5qcyIgJiYgY291bnRyeT0iQ04iICYmIHJlZ2lvbj0i5rKz5YyXIg%3D%3D",  #河北
+    "https://fofa.info/result?qbase64=ImlwdHYvbGl2ZS96aF9jbi5qcyIgJiYgcG9ydD0iMTExMSI%3D",  # 1111
+    "https://fofa.info/result?qbase64=ImlwdHYvbGl2ZS96aF9jbi5qcyIgJiYgY291bnRyeT0iQ04iICYmIHJlZ2lvbj0i5rKz5YyXIg%3D%3D",  #河北
     "https://fofa.info/result?qbase64=ImlwdHYvbGl2ZS96aF9jbi5qcyIgJiYgY291bnRyeT0iQ04iICYmIHJlZ2lvbj0i5bm%2F5LicIg%3D%3D",  #广东
-    #"https://fofa.info/result?qbase64=ImlwdHYvbGl2ZS96aF9jbi5qcyIgJiYgY291bnRyeT0iQ04iICYmIHJlZ2lvbj0ibGlhb25pbmci"    #辽宁
-    #"https://fofa.info/result?qbase64=ImlwdHYvbGl2ZS96aF9jbi5qcyIgJiYgY291bnRyeT0iQ04iICYmIHJlZ2lvbj0i5rKz5Y2XIg%3D%3D",  # 河南
-    #"https://fofa.info/result?qbase64=ImlwdHYvbGl2ZS96aF9jbi5qcyIgJiYgcmVnaW9uPSJIdWJlaSIg",#湖北
+    "https://fofa.info/result?qbase64=ImlwdHYvbGl2ZS96aF9jbi5qcyIgJiYgY291bnRyeT0iQ04iICYmIHJlZ2lvbj0ibGlhb25pbmci"    #辽宁
+    "https://fofa.info/result?qbase64=ImlwdHYvbGl2ZS96aF9jbi5qcyIgJiYgY291bnRyeT0iQ04iICYmIHJlZ2lvbj0i5rKz5Y2XIg%3D%3D",  # 河南
+    "https://fofa.info/result?qbase64=ImlwdHYvbGl2ZS96aF9jbi5qcyIgJiYgcmVnaW9uPSJIdWJlaSIg",#湖北
     "https://fofa.info/result?qbase64=ImlwdHYvbGl2ZS96aF9jbi5qcyIgJiYgcG9ydD0iODE4MSIgJiYgY2l0eT0iR3VpZ2FuZyI%3D",  #贵港8181
     "https://fofa.info/result?qbase64=ImlwdHYvbGl2ZS96aF9jbi5qcyIgJiYgY2l0eT0ieXVsaW4i",#玉林
     "https://fofa.info/result?qbase64=ImlwdHYvbGl2ZS96aF9jbi5qcyIgJiYgcmVnaW9uPSJmdWppYW4i",#福建
@@ -542,34 +541,7 @@ filter_lines("iptv.txt", "iptv.txt")
 
 
 
-################################################按网址去重，此段代码多余，为了方便变更暂时保留
-def remove_duplicates(input_file, output_file):
-    # 用于存储已经遇到的URL和包含genre的行
-    seen_urls = set()
-    seen_lines_with_genre = set()
-    # 用于存储最终输出的行
-    output_lines = []
-    # 打开输入文件并读取所有行
-    with open(input_file, 'r', encoding='utf-8') as f:
-        lines = f.readlines()
-        print("去重前的行数：", len(lines))
-        # 遍历每一行
-        for line in lines:
-            # 使用正则表达式查找URL和包含genre的行,默认最后一行
-            urls = re.findall(r'[https]?[http]?[P2p]?[mitv]?://(?:[a-zA-Z]|[0-9]|[$-_@.&+]|[!*\\(\\),]|(?:%[0-9a-fA-F][0-9a-fA-F]))+', line)
-            genre_line = re.search(r'\bgenre\b', line, re.IGNORECASE) is not None
-            # 如果找到URL并且该URL尚未被记录
-            if urls and urls[0] not in seen_urls:
-                seen_urls.add(urls[0])
-                output_lines.append(line)
-            # 如果找到包含genre的行，无论是否已被记录，都写入新文件
-            if genre_line:
-                output_lines.append(line)
-    # 将结果写入输出文件
-    with open(output_file, 'w', encoding='utf-8') as f:
-        f.writelines(output_lines)
-    print("去重后的行数：", len(output_lines))
-remove_duplicates('iptv.txt', 'iptv.txt')
+
 
 ###################################################打开文件，并对其进行行内关键词原地替换再次规范频道名，若无异类频道名，此段代码可删   
 for line in fileinput.input("iptv.txt", inplace=True):                    #
