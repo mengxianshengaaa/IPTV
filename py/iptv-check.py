@@ -21,6 +21,8 @@ import cv2
 from bs4 import BeautifulSoup
 from urllib.parse import urlparse
 from translate import Translator  # 导入Translator类，用于文本翻译
+
+
 # 扫源测绘空间地址
 # 搜素关键词："iptv/live/zh_cn.js" && country="CN" && region="Hunan" && city="changsha"
 # 搜素关键词："ZHGXTV" && country="CN" && region="Hunan" && city="changsha"
@@ -34,6 +36,8 @@ urls = [
     #"https://fofa.info/result?qbase64=IlpIR1hUViIgJiYgcmVnaW9uPSJoZWJlaSI%3D",#河北
     #"https://fofa.info/result?qbase64=IlpIR1hUViIgJiYgcmVnaW9uPSJzaWNodWFuIg%3D%3D",#四川  
 ]
+
+
 #定义网址替换规则
 def modify_urls(url):
     modified_urls = []
@@ -48,6 +52,8 @@ def modify_urls(url):
         modified_url = f"{base_url}{modified_ip}{port}{ip_end}"
         modified_urls.append(modified_url)
     return modified_urls
+
+
 #定义超时时间以及是否返回正确的状态码
 def is_url_accessible(url):
     try:
@@ -58,6 +64,8 @@ def is_url_accessible(url):
         pass
     return None
 results = []
+
+
 for url in urls:
     # 创建一个Chrome WebDriver实例
     chrome_options = Options()
@@ -239,6 +247,8 @@ for url in urls:
                 continue
         except:
             continue
+
+
 channels = []
 for result in results:
     line = result.strip()
@@ -250,6 +260,8 @@ with open("iptv.txt", 'w', encoding='utf-8') as file:
         file.write(result + "\n")
         print(result)
 print("频道列表文件iptv.txt获取完成！")
+
+
 for line in fileinput.input("iptv.txt", inplace=True):  #打开文件，并对其进行关键词原地替换
     line = line.replace("河南河南", "河南")
     line = line.replace("河南河南", "河南")  
@@ -269,6 +281,8 @@ for line in fileinput.input("iptv.txt", inplace=True):  #打开文件，并对�
     line = line.replace("都市生活", "都市")               
     line = line.replace("都市生活6", "都市")                   
     print(line, end="")  #设置end=""，避免输出多余的换行符
+
+
 #定义智慧桌面采集地址
 urls = [
     #"https://fofa.info/result?qbase64=ImlwdHYvbGl2ZS96aF9jbi5qcyIgJiYgcG9ydD0iMTExMSI%3D",  # 1111
@@ -282,6 +296,7 @@ urls = [
     #"https://fofa.info/result?qbase64=ImlwdHYvbGl2ZS96aF9jbi5qcyIgJiYgcmVnaW9uPSJmdWppYW4i",#福建
     #"https://fofa.info/result?qbase64=ImlwdHYvbGl2ZS96aF9jbi5qcyIgJiYgY291bnRyeT0iQ04iICYmIHJlZ2lvbj0i5bm%2F6KW%2FIg%3D%3D",    #广西 壮族iptv
 ]
+
 def modify_urls(url):
     modified_urls = []
     ip_start_index = url.find("//") + 2
@@ -295,6 +310,8 @@ def modify_urls(url):
         modified_url = f"{base_url}{modified_ip}{port}{ip_end}"
         modified_urls.append(modified_url)
     return modified_urls
+
+
 def is_url_accessible(url):
     try:
         response = requests.get(url, timeout=3)          #//////////////////
@@ -303,6 +320,8 @@ def is_url_accessible(url):
     except requests.exceptions.RequestException:
         pass
     return None
+
+
 results = []
 for url in urls:
     # 创建一个Chrome WebDriver实例
@@ -497,6 +516,8 @@ for url in urls:
                 continue
         except:
             continue
+
+
 channels = []
 for result in results:
     line = result.strip()
@@ -508,28 +529,23 @@ with open("iptv.txt", 'a', encoding='utf-8') as file:           #打开文本以
         file.write(result + "\n")
         print(result)
 print("频道列表文件iptv.txt追加写入成功！")
-#这里排序IP段去重放在了原文件头
-#这里排序IP段去重放在了原文件头
-#这里排序IP段去重放在了原文件头
-#这里排序IP段去重放在了原文件头
-#这里排序IP段去重放在了原文件头
-#这里排序IP段去重放在了原文件头
-#这里排序IP段去重放在了原文件头
+
+
 ###################################################去除列表中的组播地址以及CCTV和卫视
 def filter_lines(input_file, output_file):
     with open(input_file, 'r', encoding='utf-8') as file:
         lines = file.readlines()
     filtered_lines = []
     for line in lines:
-        if ('hls' in line and 'm3u' in line) or ('tsfile' in line and 'm3u' in line):  #行中包含m3u的同时还要包含hls或者tsfile
+        if ('hls' in line and 'm3u' in line) or ('tsfile' in line and '10.10' in line):  #行中包含m3u的同时还要包含hls或者tsfile
           if 'udp' not in line and 'rtp' not in line:   # and 'CCTV' not in line and '卫视' not in line  排除组播地址
             filtered_lines.append(line)
     with open(output_file, 'w', encoding='utf-8') as output_file:
         output_file.writelines(filtered_lines)
 filter_lines("iptv.txt", "iptv.txt")
 print(f"文件已过滤完成")
-########################################################################################################################################################################################
-########################################################################################################################################################################################
+
+
 ##########################################################IP段去重
 import re
 def deduplicate_lines(input_file_path, output_file_path):
@@ -564,6 +580,8 @@ input_file_path = 'iptv.txt'
 output_file_path = 'iptv.txt'
 deduplicate_lines(input_file_path, output_file_path)
 ################################################################################
+
+
 #################################################### 对整理好的频道列表测试HTTP连接
 # 函数：获取视频分辨率
 def get_video_resolution(video_path, timeout=0.8):
@@ -574,6 +592,8 @@ def get_video_resolution(video_path, timeout=0.8):
     height = int(cap.get(cv2.CAP_PROP_FRAME_HEIGHT))
     cap.release()
     return (width, height)
+
+
 # 函数：处理每一行
 def process_line(line, output_file, order_list, valid_count, invalid_count, total_lines):
     parts = line.strip().split(',')
@@ -595,6 +615,8 @@ def process_line(line, output_file, order_list, valid_count, invalid_count, tota
             invalid_count[0] += 1
     with threading.Lock():
         print(f"有效: {valid_count[0]}, 无效: {invalid_count[0]}, 总数: {total_lines}, 进度: {(valid_count[0] + invalid_count[0]) / total_lines * 100:.2f}%")
+
+
 # 函数：多线程工作
 def worker(task_queue, output_file, order_list, valid_count, invalid_count, total_lines):
     while True:
@@ -605,6 +627,7 @@ def worker(task_queue, output_file, order_list, valid_count, invalid_count, tota
             break
         finally:
             task_queue.task_done()
+            
 # 主函数
 def main(source_file_path, output_file_path):
     order_list = []
@@ -630,6 +653,8 @@ if __name__ == "__main__":
     source_file_path = 'iptv.txt'  # 替换为你的源文件路径
     output_file_path = '检测结果.txt'  # 替换为你的输出文件路径,不要后缀名
     main(source_file_path, output_file_path)
+
+
 ####################### 提示用户输入文件名（拖入文件操作）打开用户指定的文件对不规范频道名再次替换
 file_path = '检测结果.txt'
 # 检查文件是否存在
@@ -736,6 +761,8 @@ replacements = {
     	"CCTV7CCTV7": "CCTV7",
     	"CCTV10CCTV10": "CCTV10"
 }
+
+
 with open('酒店源.txt', 'w', encoding='utf-8') as new_file:
     for line in lines:
         # 去除行尾的换行符
@@ -750,7 +777,7 @@ with open('酒店源.txt', 'w', encoding='utf-8') as new_file:
             # 将替换后的逗号前部分和逗号后部分重新组合成一行，并写入新文件
             new_line = f'{before_comma},{parts[1]}\n' if len(parts) > 1 else f'{before_comma}\n'
             new_file.write(new_line)
-#
+
 #####################################定义替换规则的字典,对整行内的多余标识内容进行替换
 replacements = {
     	"（）": "",
@@ -790,7 +817,8 @@ with open('酒店源.txt', 'w', encoding='utf-8') as new_file:
             line = line.replace(old, new)
         new_file.write(line)
 print("替换完成，新文件已保存。")
-#
+
+
 ###############################################################################文本排序
 # 打开原始文件读取内容，并写入新文件
 with open('酒店源.txt', 'r', encoding='utf-8') as file:
@@ -809,7 +837,8 @@ with open('酒店源.txt', "w", encoding="utf-8") as file:
     for line in sorted_lines:
         file.write(line)
 print(f"文件已排序并保存为: {output_file_path}")
-#
+
+
 ##########################################################################################简体转繁体
 # 创建一个OpenCC对象，指定转换的规则为繁体字转简体字
 converter = OpenCC('t2s.json')#繁转简
@@ -822,7 +851,8 @@ simplified_text = converter.convert(traditional_text)
 # 将转换后的简体字写入txt文件
 with open('酒店源.txt', 'w', encoding='utf-8') as file:
     file.write(simplified_text)
-#
+
+
 ########################################################################定义关键词分割规则,分类提取
 def check_and_write_file(input_file, output_file, keywords):
     # 使用 split(', ') 而不是 split(',') 来分割关键词
@@ -845,6 +875,8 @@ def check_and_write_file(input_file, output_file, keywords):
         print(f"未提取到关键词，{output_file} 已被删除。")
     else:
         print(f"文件已提取关键词并保存为: {output_file}")
+
+
 # 按类别提取关键词并写入文件
 check_and_write_file('酒店源.txt',  'a0.txt',  keywords="央视频道, 8K, 4K, 4k")
 check_and_write_file('酒店源.txt',  'a.txt',  keywords="央视频道, CCTV, 8K, 4K, 爱上4K, 纯享, 风云剧场, 怀旧剧场, 影迷, 高清电影, 动作电影, 每日影院, 全球大片, 第一剧场, 家庭影院, 影迷电影, 星光, 华语, 美国大片, 峨眉")
@@ -863,7 +895,8 @@ check_and_write_file('酒店源.txt',  'e.txt',  keywords="港澳频道, TVB, �
 check_and_write_file('酒店源.txt',  'f.txt',  keywords="省市频道, 湖北, 武汉, 河北, 广东, 河南, 陕西, 四川, 湖南, 广西, 石家庄, 南宁, 汕头, 揭阳, 普宁, 福建, 辽宁")
 check_and_write_file('酒店源.txt',  'o1.txt',  keywords="其他频道, 新闻, 综合, 文艺, 电视, 公共, 科教, 教育, 民生, 轮播, 套, 法制, 文化, 经济, 生活")
 check_and_write_file('酒店源.txt',  'o.txt',  keywords="其他频道, , ")
-#
+
+
 #对生成的文件进行合并
 file_contents = []
 file_paths = ["e.txt", "a0.txt", "a.txt", "a1.txt", "b.txt", "c.txt", "c1.txt", "c2.txt", "d.txt", "f.txt", "o1.txt", "o.txt"]  # 替换为实际的文件路径列表
@@ -877,7 +910,8 @@ for file_path in file_paths:
 # 写入合并后的文件
 with open("去重.txt", "w", encoding="utf-8") as output:
     output.write('\n'.join(file_contents))
-#
+
+
 ##################################################################### 打开文档并读取所有行 ，对提取后重复的频道去重
 with open('去重.txt', 'r', encoding="utf-8") as file:
  lines = file.readlines()
@@ -892,6 +926,8 @@ for line in lines:
 # 将唯一的行写入新的文档 
 with open('酒店源.txt', 'w', encoding="utf-8") as file:
  file.writelines(unique_lines)
+
+
 #任务结束，删除不必要的过程文件
 files_to_remove = ['去重.txt', "2.txt", "iptv.txt", "e.txt", "a0.txt", "a.txt", "a1.txt", "b.txt", "c.txt", "c1.txt", "c2.txt", "d.txt", "f.txt", "o1.txt", "o.txt", "检测结果.txt"]
 for file in files_to_remove:
