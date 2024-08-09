@@ -392,10 +392,7 @@ for url in urls:
                         # 如果urlx不包含'http'，则将base_url和urlx拼接作为urld
                         else:
                             urld = f"{url_x}{urlx}"
-        except:
-        # 如果在try块中发生异常，则执行这里的代码
-        # 这里没有具体的异常处理代码，只是占位符
-            pass
+
                         if name and urld:
                             name = name.replace("高清电影", "影迷电影")                            
                             name = name.replace("中央", "CCTV")
