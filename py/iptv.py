@@ -537,7 +537,7 @@ def filter_lines(input_file, output_file):
     for line in lines:
         #if 'hls' in line or 'tsfile' in line:
         if '2223' in line:
-          if 'udp' not in line and 'rtp' not in line and 'CCTV' not in line and '卫视' not in line:
+          if 'udp' not in line and 'rtp' not in line:   # and 'CCTV' not in line and '卫视' not in line
             filtered_lines.append(line)
     with open(output_file, 'w', encoding='utf-8') as output_file:
         output_file.writelines(filtered_lines)
