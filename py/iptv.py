@@ -123,7 +123,7 @@ for url in urls:
                     # 按行分割数据
              lines = json_data.split('\n')
              for line in lines:
-                 if 'udp' not in line and 'rtp' not in line:
+                 if 'm3u' in line and ('udp' not in line or 'rtp' not in line):  #行中需包含m3u，但排除udp和trp
                         line = line.strip()
                         if line:
                             name, channel_url = line.split(',')
