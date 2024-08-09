@@ -540,7 +540,7 @@ def filter_lines(input_file, output_file):
     with open(output_file, 'w', encoding='utf-8') as output_file:
         output_file.writelines(filtered_lines)
 filter_lines("iptv.txt", "iptv.txt")
-
+print(f"文件已过滤完成")
 ########################################################################################################################################################################################
 #################文本排序
 
@@ -597,6 +597,7 @@ def deduplicate_lines(input_file_path, output_file_path):
     with open(output_file_path, 'w', encoding='utf-8') as file:
         for line in seen_combinations.values():
             file.write(line + '\n')
+print(f"IP段去重完成")            
 # 调用函数
 input_file_path = 'iptv.txt'
 output_file_path = 'iptv.txt'
