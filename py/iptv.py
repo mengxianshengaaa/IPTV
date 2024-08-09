@@ -161,7 +161,6 @@ for url in valid_urls:
         # 打印异常信息，实际使用中可能需要更详细的异常处理
         print(f"Request failed: {e}")
 
-                 if name and urld:
                             name = name.replace("高清电影", "影迷电影")                            
                             name = name.replace("中央", "CCTV")
                             name = name.replace("高清", "")
