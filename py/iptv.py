@@ -497,8 +497,8 @@ for url in urls:
                             results.append(f"{name},{urld}")
             except:
                 continue
-        except:
-            continue
+    except:
+        continue
 channels = []
 for result in results:
     line = result.strip()
