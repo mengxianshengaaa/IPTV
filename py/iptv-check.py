@@ -603,28 +603,6 @@ output_file_path = 'iptv.txt'
 deduplicate_lines(input_file_path, output_file_path)
 ################################################################################
 
-###################################################打开文件，并对其进行行内关键词原地替换再次规范频道名，若无异类频道名，此段代码可删   
-for line in fileinput.input("iptv.txt", inplace=True):                    #
-    line = line.replace("CHC电影", "影迷电影")             
-    line = line.replace("湖北公共新闻", "湖北公共")             
-    line = line.replace("CHC电影", "影迷电影")             
-    line = line.replace("CHC电影", "影迷电影")             
-    line = line.replace("河南影视", "河南电视剧")                            
-    line = line.replace("公共新闻", "公共")                                
-    line = line.replace("广东河南", "广东")                                         
-    line = line.replace("公共,http://58.51", "湖北公共新闻,http://58.51")                                           
-    line = line.replace("", "")                                           
-    line = line.replace("", "")                                           
-    line = line.replace("", "")                              
-    line = line.replace("影视文化", "影视")                            
-    line = line.replace("武汉影视", "武汉电视剧")                            
-    line = line.replace("公共新闻,http://58.", "湖北公共新闻,http://58.")                            
-    line = line.replace("湖北公共,", "湖北公共新闻,")                                              
-    line = line.replace("湖北湖北", "湖北")                                              
-    line = line.replace("深圳影视", "深圳电视剧")             
-    print(line, end="")  #设置end=""，避免输出多余的换行符
-
-
 #################################################### 对整理好的频道列表测试HTTP连接
 # 函数：获取视频分辨率
 def get_video_resolution(video_path, timeout=0.8):
@@ -680,7 +658,7 @@ def main(source_file_path, output_file_path):
     with open(source_file_path, 'r', encoding='utf-8') as source_file:
         lines = source_file.readlines()
 
-    with open(output_file_path + '.txt', 'w', encoding='utf-8') as output_file:
+    with open(output_file_path, 'w', encoding='utf-8') as output_file:
         # 创建线程池
         with ThreadPoolExecutor(max_workers=64) as executor:
             # 创建并启动工作线程
@@ -698,7 +676,7 @@ def main(source_file_path, output_file_path):
 
 if __name__ == "__main__":
     source_file_path = 'iptv.txt'  # 替换为你的源文件路径
-    output_file_path = '检测结果'  # 替换为你的输出文件路径,不要后缀名
+    output_file_path = '检测结果.txt'  # 替换为你的输出文件路径,不要后缀名
     main(source_file_path, output_file_path)
 ####################### 提示用户输入文件名（拖入文件操作）打开用户指定的文件对不规范频道名再次替换
 file_path = '检测结果.txt'
