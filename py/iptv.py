@@ -372,7 +372,7 @@ for url in urls:
                         name = item.get('name')
                         urlx = item.get('url')
                         # 如果url字段中包含','，并且包含'udp'、'rtp'或':1111'，则跳过
-                        if ',' not in urlx and 'udp' not in urlx anf 'rtp' not in urlx:
+                        if ',' not in urlx and 'udp' not in urlx and 'rtp' not in urlx:
                              pass  #无意义字符串，表示值为空而已
                         # 判断urlx是否包含'http'，如果包含，则直接使用urlx作为urld
                         if 'http' in urlx:
