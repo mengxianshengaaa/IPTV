@@ -123,9 +123,7 @@ for url in urls:
                     # 按行分割数据
              lines = json_data.split('\n')
              for line in lines:
-                # 检查当前行是否包含'udp'或'rtp'字符串
-                 if 'udp' in line or 'rtp' in line:
-                        continue  # 如果行包含'udp'或'rtp'，则跳过当前循环迭代
+                 if 'udp' not in line and 'rtp' not in line:
                         line = line.strip()
                         if line:
                             name, channel_url = line.split(',')
@@ -366,27 +364,15 @@ for url in urls:
         print(url)
     # 遍历网址列表，获取JSON文件并解析
     for url in valid_urls:
-        try:
-            # 发送GET请求获取JSON文件，设置超时时间为0.5秒
-            ip_start_index = url.find("//") + 2
-            ip_dot_start = url.find(".") + 1
-            ip_index_second = url.find("/", ip_dot_start)
-            base_url = url[:ip_start_index]  # http:// or https://
-            ip_address = url[ip_start_index:ip_index_second]
-            url_x = f"{base_url}{ip_address}"
-            json_url = f"{url}"
-            response = requests.get(json_url, timeout=3)                        #///////////////
-            json_data = response.json()
             try:
                 # 解析JSON文件，获取name和url字段
                 for item in json_data['data']:
                     if isinstance(item, dict):
                         name = item.get('name')
                         urlx = item.get('url')
-                        # 如果url字段中包含','，并且包含'udp'、'rtp'或':1111'，则将urlx设置为"aaaaaaaa"
-                        if ',' in urlx or 'udp' in urlx or 'rtp' in urlx or ':1111' in urlx:
-                             urlx = f"aaaaaaaa"  #无意义字符串，表示值为空而已
-                        # 这里有几个条件判断，但被注释掉了，看起来是想根据urlx的内容来决定urld的值
+                        # 如果url字段中包含','，并且包含'udp'、'rtp'或':1111'，则跳过
+                        if ',' in urlx or 'udp' in urlx or 'rtp' in urlx:
+                             pass  #无意义字符串，表示值为空而已
                         # 判断urlx是否包含'http'，如果包含，则直接使用urlx作为urld
                         if 'http' in urlx:
                             urld = f"{urlx}"
