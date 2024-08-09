@@ -125,9 +125,9 @@ for url in urls:
              for line in lines:
                 # 检查当前行是否包含'udp'或'rtp'字符串
                  if 'udp' in line or 'rtp' in line:
-                    continue  # 如果行包含'udp'或'rtp'，则跳过当前循环迭代
-                    line = line.strip()
-                    if line:
+                        continue  # 如果行包含'udp'或'rtp'，则跳过当前循环迭代
+                        line = line.strip()
+                        if line:
                             name, channel_url = line.split(',')
                             urls = channel_url.split('/', 3)
                             url_data = json_url.split('/', 3)
