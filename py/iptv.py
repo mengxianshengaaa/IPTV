@@ -124,7 +124,6 @@ for url in urls:
              lines = json_data.split('\n')
              for line in lines:
                  if 'udp' not in line and 'rtp' not in line:
-                        pass
                         line = line.strip()
                         if line:
                             name, channel_url = line.split(',')
@@ -285,7 +284,6 @@ urls = [
     #"https://fofa.info/result?qbase64=ImlwdHYvbGl2ZS96aF9jbi5qcyIgJiYgY291bnRyeT0iQ04iICYmIHJlZ2lvbj0ibGlhb25pbmci"    #辽宁
     #"https://fofa.info/result?qbase64=ImlwdHYvbGl2ZS96aF9jbi5qcyIgJiYgY291bnRyeT0iQ04iICYmIHJlZ2lvbj0i5rKz5Y2XIg%3D%3D",  # 河南
     #"https://fofa.info/result?qbase64=ImlwdHYvbGl2ZS96aF9jbi5qcyIgJiYgcmVnaW9uPSJIdWJlaSIg",#湖北
-    "https://fofa.info/result?qbase64=ImlwdHYvbGl2ZS96aF9jbi5qcyIgJiYgcmVnaW9uPSJIdW5hbiI%3D",#湖南
     "https://fofa.info/result?qbase64=ImlwdHYvbGl2ZS96aF9jbi5qcyIgJiYgcG9ydD0iODE4MSIgJiYgY2l0eT0iR3VpZ2FuZyI%3D",  #贵港8181
     "https://fofa.info/result?qbase64=ImlwdHYvbGl2ZS96aF9jbi5qcyIgJiYgY2l0eT0ieXVsaW4i",#玉林
     "https://fofa.info/result?qbase64=ImlwdHYvbGl2ZS96aF9jbi5qcyIgJiYgcmVnaW9uPSJmdWppYW4i",#福建
@@ -365,22 +363,31 @@ for url in urls:
         print(url)
     # 遍历网址列表，获取JSON文件并解析
     for url in valid_urls:
+        try:
+            # 发送GET请求获取JSON文件，设置超时时间为0.5秒
+            ip_start_index = url.find("//") + 2
+            ip_dot_start = url.find(".") + 1
+            ip_index_second = url.find("/", ip_dot_start)
+            base_url = url[:ip_start_index]  # http:// or https://
+            ip_address = url[ip_start_index:ip_index_second]
+            url_x = f"{base_url}{ip_address}"
+            json_url = f"{url}"
+            response = requests.get(json_url, timeout=3)                        #///////////////
+            json_data = response.json()
             try:
                 # 解析JSON文件，获取name和url字段
                 for item in json_data['data']:
                     if isinstance(item, dict):
                         name = item.get('name')
                         urlx = item.get('url')
-                        # 如果url字段中包含','，并且包含'udp'、'rtp'或':1111'，则跳过
-                        if 'udp' not in urlx and 'rtp' not in urlx:
-                             pass  #无意义字符串，表示值为空而已
-                        # 判断urlx是否包含'http'，如果包含，则直接使用urlx作为urld
+                        if ',' in urlx:
+                          if 'udp' not in urlx and 'rtp' not in urlx and ':1111' not in urlx:
+                            urlx = f"aaaaaaaa"
+                        #if 'http' in urlx or 'udp' in urlx or 'rtp' in urlx:
                         if 'http' in urlx:
                             urld = f"{urlx}"
-                        # 如果urlx不包含'http'，则将base_url和urlx拼接作为urld
                         else:
                             urld = f"{url_x}{urlx}"
-
                         if name and urld:
                             name = name.replace("高清电影", "影迷电影")                            
                             name = name.replace("中央", "CCTV")
@@ -497,7 +504,8 @@ for url in urls:
                             results.append(f"{name},{urld}")
             except:
                 continue
-
+        except:
+            continue
 channels = []
 for result in results:
     line = result.strip()
