@@ -13,9 +13,13 @@ def is_link_valid(url):
     try:
         response = requests.head(url, allow_redirects=True, timeout=5)
         return 200 <= response.status_code < 308
+        print("链接有效")
+    else:
+        print("链接无效或存在问题，状态码：", response.status_code)
+        pass
     except requests.RequestException as e:
         print(f"请求错误: {e}")
-        return False
+        pass
 
 def process_file(input_filename, output_filename):
     with open(input_filename, 'r', encoding='utf-8') as file:
