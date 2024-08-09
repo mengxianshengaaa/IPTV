@@ -126,30 +126,31 @@ for url in valid_urls:
             # 按行分割解码后的数据，每行可能包含一个JSON对象
             lines = json_data.split('\n')
             for line in lines:
-            # 去除行首尾的空白字符
+                # 去除行首尾的空白字符
                 line = line.strip()
-            # 检查去除空白后的行是否为空
+                # 检查去除空白后的行是否为空
                 if not line:
                     continue  # 如果行是空的，则跳过当前循环迭代
 
-            # 检查当前行是否包含'udp'或'rtp'字符串
+                # 检查当前行是否包含'udp'或'rtp'字符串
                 if 'udp' in line or 'rtp' in line:
                     continue  # 如果行包含'udp'或'rtp'，则跳过当前循环迭代
-                        # 假设每行包含name和channel_url，以逗号分隔
-                        name, channel_url = line.split(',')
-                        # 将channel_url以'/'分割成多个部分
-                        urls = channel_url.split('/', 3)
-                        # 将json_url以'/'分割成多个部分，这里只取前三个部分
-                        url_data = json_url.split('/', 3)
-                        # 检查urls的长度是否至少为4
-                        if len(urls) >= 4:
-                            # 构造一个新的URL，格式为scheme://netloc/path
-                            urld = (f"{urls[0]}//{url_data[2]}/{urls[3]}")
-                        else:
-                            # 如果urls长度小于4，则只使用前两个部分构造URL
-                            urld = (f"{urls[0]}//{url_data[2]}")
-                        # 打印name和构造的URL
-                        print(f"{name},{urld}")
+
+                # 假设每行包含name和channel_url，以逗号分隔
+                name, channel_url = line.split(',')
+                # 将channel_url以'/'分割成多个部分
+                urls = channel_url.split('/', 3)
+                # 将json_url以'/'分割成多个部分，这里只取前三个部分
+                url_data = json_url.split('/', 3)
+                # 检查urls的长度是否至少为4
+                if len(urls) >= 4:
+                    # 构造一个新的URL，格式为scheme://netloc/path
+                    urld = (f"{urls[0]}//{url_data[2]}/{urls[3]}")
+                else:
+                    # 如果urls长度小于4，则只使用前两个部分构造URL
+                    urld = (f"{urls[0]}//{url_data[2]}")
+                # 打印name和构造的URL
+                print(f"{name},{urld}")
         except Exception as e:
             # 这里应该处理解析JSON数据时可能发生的异常，例如格式错误等
             # 打印异常信息，实际使用中可能需要更详细的异常处理
