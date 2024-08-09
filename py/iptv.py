@@ -533,9 +533,8 @@ def filter_lines(input_file, output_file):
         lines = file.readlines()
     filtered_lines = []
     for line in lines:
-        #if 'hls' in line or 'tsfile' in line:
-        if ',' in line:
-          if 'udp' not in line and 'rtp' not in line:   # and 'CCTV' not in line and '卫视' not in line
+        if ('hls' in line and 'm3u' in line) or ('tsfile' in line and 'm3u' in line):  #行中包含m3u的同时还要包含hls或者tsfile
+          if 'udp' not in line and 'rtp' not in line:   # and 'CCTV' not in line and '卫视' not in line  排除组播地址
             filtered_lines.append(line)
     with open(output_file, 'w', encoding='utf-8') as output_file:
         output_file.writelines(filtered_lines)
