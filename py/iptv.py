@@ -385,7 +385,7 @@ for url in urls:
                         # 如果url字段中包含','，并且不包含'udp'、'rtp'或':1111'，则将urlx设置为"aaaaaaaa"
                         if ',' in urlx:
                               if 'udp' not in urlx and 'rtp' not in urlx and ':1111' not in urlx:
-                            urlx = f"aaaaaaaa"
+                                urlx = f"aaaaaaaa"
                         # 这里有几个条件判断，但被注释掉了，看起来是想根据urlx的内容来决定urld的值
                         # 判断urlx是否包含'http'，如果包含，则直接使用urlx作为urld
                         if 'http' in urlx:
