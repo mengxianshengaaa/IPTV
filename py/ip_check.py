@@ -19,7 +19,7 @@ error_channels = []
 headers={'User-Agent': 'okhttp/3.12.10(Linux;Android9;V2049ABuild/TP1A.220624.014;wv)AppleWebKit/537.36(KHTML,likeGecko)Version/4.0Chrome/116.0.0.0MobileSafari/537.36'}
 se=requests.Session()
 
-with open("cfg_ip.txt", 'r', encoding='utf-8') as file:
+with open("综合源.txt", 'r', encoding='utf-8') as file:
     lines = file.readlines()
     for line in lines:
         line = line.strip()
@@ -153,7 +153,7 @@ task_queue.join()
 now_today = time.strftime("%Y-%m-%d %H:%M:%S", time.localtime())
 
 # 将结果写入文件
-with open("cfg_ip.txt", 'w', encoding='utf-8') as file:
+with open("综合源.txt", 'w', encoding='utf-8') as file:
     file.write('失效连接,#genre#\n')
     for result in error_channels:
         channel_name, channel_url = result
