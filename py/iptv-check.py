@@ -541,36 +541,67 @@ def filter_lines(input_file, output_file):
         output_file.writelines(filtered_lines)
 filter_lines("iptv.txt", "iptv.txt")
 
+########################################################################################################################################################################################
+#################文本排序
+
+# 打开原始文件读取内容，并写入新文件
+with open('iptv.txt', 'r', encoding='utf-8') as file:
+    lines = file.readlines()
+
+# 定义一个函数，用于提取每行的第一个数字
+def extract_first_number(line):
+    match = re.search(r'\d+', line)
+    return int(match.group()) if match else float('inf')
+
+# 对列表中的行进行排序
+# 按照第一个数字的大小排列，如果不存在数字则按中文拼音排序
+sorted_lines = sorted(lines, key=lambda x: (not 'CCTV' in x, extract_first_number(x) if 'CCTV' in x else lazy_pinyin(x.strip())))
+
+# 将排序后的行写入新的utf-8编码的文本文件，文件名基于原文件名
+output_file_path = "sorted_" + os.path.basename(file_path)
+
+# 写入新文件
+with open('iptv.txt', "w", encoding="utf-8") as file:
+    for line in sorted_lines:
+        file.write(line)
+
+print(f"文件已排序并保存为: {output_file_path}")
 
 
-################################################按网址去重，此段代码多余，为了方便变更暂时保留
-def remove_duplicates(input_file, output_file):
-    # 用于存储已经遇到的URL和包含genre的行
-    seen_urls = set()
-    seen_lines_with_genre = set()
-    # 用于存储最终输出的行
-    output_lines = []
-    # 打开输入文件并读取所有行
-    with open(input_file, 'r', encoding='utf-8') as f:
-        lines = f.readlines()
-        print("去重前的行数：", len(lines))
-        # 遍历每一行
-        for line in lines:
-            # 使用正则表达式查找URL和包含genre的行,默认最后一行
-            urls = re.findall(r'[https]?[http]?[P2p]?[mitv]?://(?:[a-zA-Z]|[0-9]|[$-_@.&+]|[!*\\(\\),]|(?:%[0-9a-fA-F][0-9a-fA-F]))+', line)
-            genre_line = re.search(r'\bgenre\b', line, re.IGNORECASE) is not None
-            # 如果找到URL并且该URL尚未被记录
-            if urls and urls[0] not in seen_urls:
-                seen_urls.add(urls[0])
-                output_lines.append(line)
-            # 如果找到包含genre的行，无论是否已被记录，都写入新文件
-            if genre_line:
-                output_lines.append(line)
-    # 将结果写入输出文件
-    with open(output_file, 'w', encoding='utf-8') as f:
-        f.writelines(output_lines)
-    print("去重后的行数：", len(output_lines))
-remove_duplicates('iptv.txt', 'iptv.txt')
+########################################################################################################################################################################################
+##########################################################IP段去重
+import re
+def deduplicate_lines(input_file_path, output_file_path):
+    seen_combinations = {}
+    unique_lines = []
+    with open(input_file_path, 'r', encoding='utf-8') as file:
+        for line in file:
+            # 使用正则表达式查找行中的所有URL，并捕获IP地址、端口号和端口号之后的部分
+            urls = re.findall(r'http://([\d.]+):(\d+)(/.*)?', line)
+            # 为每个URL生成一个去重键
+            for full_url in urls:
+                ip, port, path = full_url
+                ip_parts = ip.split('.')
+                if len(ip_parts) < 3:
+                    continue
+                # 使用IP的前三个字段和端口号之后的部分生成去重键
+                combination_key = f"{ip_parts[0]}.{ip_parts[1]}.{ip_parts[2]}-{port}-{path or ''}"
+                # 检查这个组合是否已经出现过
+                if combination_key not in seen_combinations:
+                    # 如果没有出现过，记录当前行和去重键
+                    seen_combinations[combination_key] = line.strip()
+                else:
+                    # 如果已经出现过，更新为最后出现的行
+                    seen_combinations[combination_key] = line.strip()
+    # 将去重后的所有唯一行写入新文件
+    with open(output_file_path, 'w', encoding='utf-8') as file:
+        for line in seen_combinations.values():
+            file.write(line + '\n')
+# 调用函数
+input_file_path = 'iptv.txt'
+output_file_path = 'iptv.txt'
+deduplicate_lines(input_file_path, output_file_path)
+################################################################################
 
 ###################################################打开文件，并对其进行行内关键词原地替换再次规范频道名，若无异类频道名，此段代码可删   
 for line in fileinput.input("iptv.txt", inplace=True):                    #
