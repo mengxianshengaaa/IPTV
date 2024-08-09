@@ -380,7 +380,7 @@ for url in urls:
                     if isinstance(item, dict):
                         name = item.get('name')
                         urlx = item.get('url')
-                        if 'udp' not in urlx and 'rtp' not in urlx:
+                        if 'udp' in urlx or 'rtp' in urlx:
                             pass
                         if 'http' in urlx:
                             urld = f"{urlx}"
