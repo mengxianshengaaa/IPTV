@@ -380,10 +380,8 @@ for url in urls:
                     if isinstance(item, dict):
                         name = item.get('name')
                         urlx = item.get('url')
-                        if ',' in urlx:
-                          if 'udp' not in urlx and 'rtp' not in urlx and ':1111' not in urlx:
-                            urlx = f"aaaaaaaa"
-                        #if 'http' in urlx or 'udp' in urlx or 'rtp' in urlx:
+                        if 'udp' not in urlx and 'rtp' not in urlx:
+                            pass
                         if 'http' in urlx:
                             urld = f"{urlx}"
                         else:
@@ -536,7 +534,7 @@ def filter_lines(input_file, output_file):
     filtered_lines = []
     for line in lines:
         #if 'hls' in line or 'tsfile' in line:
-        if '2223' in line:
+        if ',' in line:
           if 'udp' not in line and 'rtp' not in line:   # and 'CCTV' not in line and '卫视' not in line
             filtered_lines.append(line)
     with open(output_file, 'w', encoding='utf-8') as output_file:
