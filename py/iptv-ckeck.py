@@ -12,7 +12,7 @@ output_file = 'valid_sources.txt'
 def is_link_valid(url):
     try:
         response = requests.head(url, allow_redirects=True, timeout=5)
-        return 200 <= response.status_code < 300
+        return 200 <= response.status_code < 308
     except requests.RequestException as e:
         print(f"请求错误: {e}")
         return False
