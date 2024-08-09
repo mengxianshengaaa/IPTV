@@ -7,7 +7,7 @@ API_KEY = "849489858@qq.com"  # 假设的API密钥
 SECRET = "30bffdb13deccd433f6505f2dc699972"  # 假设的密文
 
 # 搜索参数
-QUERY = "udpxy" && country="CN" && region="Henan"  # 用户自定义的查询语句，例如: "protocol=\"http\""
+QUERY = "udpxy"  # 用户自定义的查询语句，例如: "protocol=\"http\""
 PAGE = 1  # 请求的页码
 PAGE_SIZE = 50  # 每页条数，最大100
 
