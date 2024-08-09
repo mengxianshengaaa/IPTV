@@ -382,14 +382,21 @@ for url in urls:
                     if isinstance(item, dict):
                         name = item.get('name')
                         urlx = item.get('url')
+                        # 如果url字段中包含','，并且不包含'udp'、'rtp'或':1111'，则将urlx设置为"aaaaaaaa"
                         if ',' in urlx:
-                          if 'udp' not in urlx and 'rtp' not in urlx and ':1111' not in urlx:
+                              if 'udp' not in urlx and 'rtp' not in urlx and ':1111' not in urlx:
                             urlx = f"aaaaaaaa"
-                        #if 'http' in urlx or 'udp' in urlx or 'rtp' in urlx:
+                        # 这里有几个条件判断，但被注释掉了，看起来是想根据urlx的内容来决定urld的值
+                        # 判断urlx是否包含'http'，如果包含，则直接使用urlx作为urld
                         if 'http' in urlx:
                             urld = f"{urlx}"
+                        # 如果urlx不包含'http'，则将base_url和urlx拼接作为urld
                         else:
                             urld = f"{url_x}{urlx}"
+        except:
+        # 如果在try块中发生异常，则执行这里的代码
+        # 这里没有具体的异常处理代码，只是占位符
+            pass
                         if name and urld:
                             name = name.replace("高清电影", "影迷电影")                            
                             name = name.replace("中央", "CCTV")
