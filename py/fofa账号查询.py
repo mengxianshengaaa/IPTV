@@ -40,7 +40,7 @@ if __name__ == "__main__":
     # 处理结果
     for result in results:
         print(result)
-            for result in results.get("data", []):  # 安全地获取数据
-                print(result)  # 打印每个结果
+        for result in results.get("data", []):  # 安全地获取数据
+           print(result)  # 打印每个结果
     else:
         print("获取Token失败，请检查API_KEY和SECRET是否正确。")  # 如果Token获取失败，打印提示信息
