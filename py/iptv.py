@@ -361,33 +361,53 @@ for url in urls:
                 valid_urls.append(result)
     for url in valid_urls:
         print(url)
-    # 遍历网址列表，获取JSON文件并解析
-    for url in valid_urls:
+# 遍历由变量valid_urls持有的URL列表
+for url in valid_urls:
+    try:
+        # 尝试执行以下代码块，如果发生异常则跳转到except块
+        # 发送GET请求获取JSON文件，设置超时时间为0.5秒（这里的注释可能是误写，因为代码中设置的超时时间是3秒）
+        # 找到URL中"//"之后开始的索引位置，这通常用来确定协议之后的部分
+        ip_start_index = url.find("//") + 2
+        # 找到URL中第一个"."之后开始的索引位置，这通常用来确定域名的开始
+        ip_dot_start = url.find(".") + 1
+        # 找到URL中从域名开始之后的第一个"/"的索引位置，这通常用来确定路径的开始
+        ip_index_second = url.find("/", ip_dot_start)
+        # 提取base_url，即协议部分，例如http://或https://
+        base_url = url[:ip_start_index]
+        # 提取IP地址部分，即域名部分
+        ip_address = url[ip_start_index:ip_index_second]
+        # 构造一个新的URL，这个URL似乎是用来构造请求的URL，但是这里看起来有些逻辑错误，因为它重复使用了base_url和ip_address
+        url_x = f"{base_url}{ip_address}"
+        # 这里应该是要设置请求的URL，但是实际上它只是重新赋值了url变量，并没有变化
+        json_url = f"{url}"
+        # 发送GET请求到json_url，超时时间设置为3秒
+        response = requests.get(json_url, timeout=3)
+        # 将响应的内容解析为JSON格式
+        json_data = response.json()
         try:
-            # 发送GET请求获取JSON文件，设置超时时间为0.5秒
-            ip_start_index = url.find("//") + 2
-            ip_dot_start = url.find(".") + 1
-            ip_index_second = url.find("/", ip_dot_start)
-            base_url = url[:ip_start_index]  # http:// or https://
-            ip_address = url[ip_start_index:ip_index_second]
-            url_x = f"{base_url}{ip_address}"
-            json_url = f"{url}"
-            response = requests.get(json_url, timeout=3)                        #///////////////
-            json_data = response.json()
-            try:
-                # 解析JSON文件，获取name和url字段
-                for item in json_data['data']:
-                    if isinstance(item, dict):
-                        name = item.get('name')
-                        urlx = item.get('url')
-                        if ',' in urlx:
-                          if 'udp' not in urlx and 'rtp' not in urlx and ':1111' not in urlx:
-                            urlx = f"aaaaaaaa"
-                        #if 'http' in urlx or 'udp' in urlx or 'rtp' in urlx:
-                        if 'http' in urlx:
-                            urld = f"{urlx}"
-                        else:
-                            urld = f"{url_x}{urlx}"
+            # 尝试解析JSON数据中的'data'字段
+            # 遍历'data'字段中的每个元素
+            for item in json_data['data']:
+                # 确保当前元素是字典类型
+                if isinstance(item, dict):
+                    # 从字典中获取'name'字段的值
+                    name = item.get('name')
+                    # 从字典中获取'url'字段的值
+                    urlx = item.get('url')
+                    # 如果url字段中包含','、'udp'、'rtp'、':1111'，则将urlx设置为"aaaaaaaa"
+                    if ',' in urlx or 'udp' not in urlx and 'rtp' not in urlx:
+                        urlx = f"aaaaaaaa"
+                    # 这里有几个条件判断，但被注释掉了，看起来是想根据urlx的内容来决定urld的值
+                    # 判断urlx是否包含'http'，如果包含，则直接使用urlx作为urld
+                    if 'http' in urlx:
+                        urld = f"{urlx}"
+                    # 如果urlx不包含'http'，则将base_url和urlx拼接作为urld
+                    else:
+                        urld = f"{url_x}{urlx}"
+    except:
+        # 如果在try块中发生异常，则执行这里的代码
+        # 这里没有具体的异常处理代码，只是占位符
+        pass
                         if name and urld:
                             name = name.replace("高清电影", "影迷电影")                            
                             name = name.replace("中央", "CCTV")
@@ -535,9 +555,9 @@ def filter_lines(input_file, output_file):
         lines = file.readlines()
     filtered_lines = []
     for line in lines:
-        #if 'hls' in line or 'tsfile' in line:
-        if '2223' in line:
-          if 'udp' not in line and 'rtp' not in line:   # and 'CCTV' not in line and '卫视' not in line
+        if 'hls' in line or 'tsfile' in line:
+        #if '2223' in line:
+          #if 'udp' not in line and 'rtp' not in line:   # and 'CCTV' not in line and '卫视' not in line
             filtered_lines.append(line)
     with open(output_file, 'w', encoding='utf-8') as output_file:
         output_file.writelines(filtered_lines)
