@@ -545,7 +545,7 @@ filter_lines("iptv.txt", "iptv.txt")
 print(f"文件已过滤完成")
 
 
-##########################################################IP段去重,减少不必要的检测行
+##########################################################IP段去重,保留最后一个IP段，防止高峰拥堵，也减少不必要的检测行
 import re
 def deduplicate_lines(input_file_path, output_file_path):
     seen_combinations = {}
