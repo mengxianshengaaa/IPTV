@@ -149,8 +149,9 @@ for url in valid_urls:
                 else:
                     # 如果urls长度小于4，则只使用前两个部分构造URL
                     urld = (f"{urls[0]}//{url_data[2]}")
-                # 打印name和构造的URL
-                print(f"{name},{urld}")
+                if name and urld:
+                    # 如果name和urld都有效，执行以下操作
+                    print(f"{name},{urld}")
         except Exception as e:
             # 这里应该处理解析JSON数据时可能发生的异常，例如格式错误等
             # 打印异常信息，实际使用中可能需要更详细的异常处理
