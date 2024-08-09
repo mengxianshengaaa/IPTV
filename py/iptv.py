@@ -112,28 +112,52 @@ for url in urls:
                 valid_urls.append(result)
     for url in valid_urls:
         print(url)
-    # 遍历网址列表，获取JSON文件并解析
-    for url in valid_urls:
+ # 遍历由变量valid_urls持有的URL列表
+for url in valid_urls:
+    try:
+        # 尝试执行以下代码块，如果发生异常则跳转到except块
+        # 构造请求的URL，这里直接使用遍历得到的url变量
+        json_url = f"{url}"
+        # 发送GET请求到json_url，超时时间设置为3秒
+        response = requests.get(json_url, timeout=3)
+        # 获取响应的内容，并以utf-8编码解码
+        json_data = response.content.decode('utf-8')
         try:
-            # 发送GET请求获取JSON文件，设置超时时间为0.5秒
-            json_url = f"{url}"
-            response = requests.get(json_url, timeout=3)################################
-            json_data = response.content.decode('utf-8')
-            try:
-                    # 按行分割数据
-             lines = json_data.split('\n')
-             for line in lines:
-                 if 'udp' not in line and 'rtp' not in line:
-                        line = line.strip()
-                        if line:
-                            name, channel_url = line.split(',')
-                            urls = channel_url.split('/', 3)
-                            url_data = json_url.split('/', 3)
-                            if len(urls) >= 4:
-                                urld = (f"{urls[0]}//{url_data[2]}/{urls[3]}")
-                            else:
-                                urld = (f"{urls[0]}//{url_data[2]}")
-                            print(f"{name},{urld}")
+            # 按行分割解码后的数据，每行可能包含一个JSON对象
+            lines = json_data.split('\n')
+            for line in lines:
+            # 去除行首尾的空白字符
+                line = line.strip()
+            # 检查去除空白后的行是否为空
+                if not line:
+                    continue  # 如果行是空的，则跳过当前循环迭代
+
+            # 检查当前行是否包含'udp'或'rtp'字符串
+                if 'udp' in line or 'rtp' in line:
+                    continue  # 如果行包含'udp'或'rtp'，则跳过当前循环迭代
+                        # 假设每行包含name和channel_url，以逗号分隔
+                        name, channel_url = line.split(',')
+                        # 将channel_url以'/'分割成多个部分
+                        urls = channel_url.split('/', 3)
+                        # 将json_url以'/'分割成多个部分，这里只取前三个部分
+                        url_data = json_url.split('/', 3)
+                        # 检查urls的长度是否至少为4
+                        if len(urls) >= 4:
+                            # 构造一个新的URL，格式为scheme://netloc/path
+                            urld = (f"{urls[0]}//{url_data[2]}/{urls[3]}")
+                        else:
+                            # 如果urls长度小于4，则只使用前两个部分构造URL
+                            urld = (f"{urls[0]}//{url_data[2]}")
+                        # 打印name和构造的URL
+                        print(f"{name},{urld}")
+        except Exception as e:
+            # 这里应该处理解析JSON数据时可能发生的异常，例如格式错误等
+            # 打印异常信息，实际使用中可能需要更详细的异常处理
+            print(f"Error processing line: {e}")
+    except requests.exceptions.RequestException as e:
+        # 处理请求过程中可能发生的异常，例如网络问题、超时等
+        # 打印异常信息，实际使用中可能需要更详细的异常处理
+        print(f"Request failed: {e}")
 
                         if name and urld:
                             name = name.replace("高清电影", "影迷电影")                            
