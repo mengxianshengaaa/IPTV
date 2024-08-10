@@ -28,8 +28,16 @@ from translate import Translator  # 导入Translator类，用于文本翻译
 #定义ZHGXTV采集地址
 urls = [
     "https://fofa.info/result?qbase64=IlpIR1hUViIgJiYgcmVnaW9uPSJndWFuZ2Rvbmci",#广东
+    "https://fofa.info/result?qbase64=IlpIR1hUViIgJiYgY2l0eT0iY2hhbmdzaGEi",  # changsha 长沙
+    "https://fofa.info/result?qbase64=IlpIR1hUViIgJiYgY2l0eT0iemh1emhvdSI%3D",  # zhuzhou 株洲
+    "https://fofa.info/result?qbase64=IlpIR1hUViIgJiYgY2l0eT0iaGVuZ3lhbmci",  # hengyang 衡阳
+    "https://fofa.info/result?qbase64=IlpIR1hUViIgJiYgY2l0eT0ieXVleWFuZyI%3D",  # yueyang 岳阳
+    "https://fofa.info/result?qbase64=IlpIR1hUViIgJiYgY2l0eT0ieWl5YW5nIg%3D%3D",  # yiyang 益阳
+    "https://fofa.info/result?qbase64=IlpIR1hUViIgJiYgY2l0eT0iemh1emhvdSI%3D",  # zhuzhou 株洲
+    "https://fofa.info/result?qbase64=IlpIR1hUViIgJiYgY2l0eT0iaHVhaWh1YSI%3D",  # huaihua 怀化
+    "https://fofa.info/result?qbase64=IlpIR1hUViIgJiYgY2l0eT0ibG91ZGki",  # loudi 娄底
+    "https://fofa.info/result?qbase64=IlpIR1hUViIgJiYgY2l0eT1IdWFpbmFu", #安徽huaian
     "https://fofa.info/result?qbase64=IlpIR1hUViIgJiYgcmVnaW9uPSJHdWFuZ2RvbmciICYmIGNpdHk9InNoYW50b3Ui",#广东汕头
-    "https://fofa.info/result?qbase64=IlpIR1hUViIgJiYgcmVnaW9uPSJHdWFuZ2RvbmciICYmIHBvcnQ9IjIyMjMi",#广东2223
     "https://fofa.info/result?qbase64=IlpIR1hUViIgJiYgcmVnaW9uPSJIZW5hbiI%3D",#河南
     "https://fofa.info/result?qbase64=IlpIR1hUViIgJiYgcmVnaW9uPSJoZWJlaSI%3D",#河北
 ]
