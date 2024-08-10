@@ -594,7 +594,7 @@ def process_line(line, output_file, order_list, valid_count, invalid_count, tota
             print(f"已写入genre行：{line.strip()}")
     elif len(parts) == 2:
         channel_name, channel_url = parts
-        resolution = get_video_resolution(channel_url, timeout=8)
+        resolution = get_video_resolution(channel_url, timeout=2)
         if resolution and resolution[1] >= 720:  # 检查分辨率是否大于等于720p
             with threading.Lock():
                 output_file.write(f"{channel_name}[{resolution[1]}p],{channel_url}\n")
