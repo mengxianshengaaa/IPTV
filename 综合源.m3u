@@ -1038,6 +1038,8 @@ http://117.27.190.42:9998/tsfile/live/23280_1.m3u8?key=txiptv&playlive=1&authid=
 #EXTINF:-1 tvg-logo="https://live.fanmingming.com/tv/凤凰资讯.png" group-title="港澳频道",凤凰资讯
 http://117.27.190.42:9998/tsfile/live/23279_1.m3u8?key=txiptv&playlive=1&authid=0
 #EXTINF:-1 tvg-logo="https://live.fanmingming.com/tv/凤凰资讯.png" group-title="港澳频道",凤凰资讯
+http://120.238.53.230:2223/hls/10/index.m3u8
+#EXTINF:-1 tvg-logo="https://live.fanmingming.com/tv/凤凰资讯.png" group-title="港澳频道",凤凰资讯
 http://221.5.12.130:2223/hls/10/index.m3u8
 #EXTINF:-1 tvg-logo="https://live.fanmingming.com/tv/湖北电视台[内网].png" group-title="湖北频道",湖北电视台[内网]
 rtsp://111.48.34.138:1554/170000004112/10000100000000050000000002444593
