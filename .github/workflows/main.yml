@@ -32,7 +32,8 @@ jobs:
         run: |
           git config --local user.email "actions@126.com"
           git config --local user.name "GitHub Action"
-          git add .
+          git add/rm <conflicted_files>
+          git rebase --continue
           # 即使没有文件改变，也会提交一个空的提交
           git commit --allow-empty -m "Scheduled workflow run"
           git pull --rebase
