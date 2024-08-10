@@ -280,8 +280,9 @@ def filter_lines(input_file, output_file):
     for line in lines:
         #if ('hls' in line and 'm3u' in line) or ('tsfile' in line and 'm3u' in line):  #行中包含m3u的同时还要包含hls或者tsfile
         if '凤凰' in line or '东森' in line or '天映' in line or '酒店' in line or '龙祥' in line or '美亚' in line or '好莱坞' in line or '珠江' in line \
-        or 'TVB' in line or '翡翠' in line or '明珠' in line or '广场舞' in line or '本港' in line or '动作' in line or '家庭' in line or '影迷' in line:  #仅提取港澳频道
-          if 'udp' not in line and 'rtp' not in line and 'CCTV' not in line and '卫视' not in line:   #  排除组播地址及央卫
+        or 'TVB' in line or '翡翠' in line or '明珠' in line or '广场舞' in line or '本港' in line or '动作' in line or '家庭' in line or '影迷' in line or '安徽卫视' in line or '辽宁卫视' in line \
+        or 'CCTV3' in line or 'CCTV15' in line or 'CCTV1,' in line or 'CCTV6' in line or 'CCTV8' in line or '湖北卫视' in line or '湖南卫视' in line or '江苏卫视' in line:  #仅提取港澳频道
+          if 'udp' not in line and 'rtp' not in line and 'AAAA' not in line and 'AAA' not in line:   #  排除组播地址及央卫
             filtered_lines.append(line)
     with open(output_file, 'w', encoding='utf-8') as output_file:
         output_file.writelines(filtered_lines)
