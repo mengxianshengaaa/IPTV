@@ -50,7 +50,7 @@ def modify_urls(url):
 #定义超时时间以及是否返回正确的状态码
 def is_url_accessible(url):
     try:
-        response = requests.get(url, timeout=3)          #//////////////////
+        response = requests.get(url, timeout=1)          #//////////////////
         if response.status_code == 200:
             return url
     except requests.exceptions.RequestException:
@@ -116,7 +116,7 @@ for url in urls:
         try:
             # 发送GET请求获取JSON文件，设置超时时间为0.5秒
             json_url = f"{url}"
-            response = requests.get(json_url, timeout=3)################################
+            response = requests.get(json_url, timeout=1)################################
             json_data = response.content.decode('utf-8')
             try:
                     # 按行分割数据
@@ -285,7 +285,7 @@ urls = [
     "https://fofa.info/result?qbase64=ImlwdHYvbGl2ZS96aF9jbi5qcyIgJiYgcmVnaW9uPSJIdWJlaSIg",#湖北
     "https://fofa.info/result?qbase64=ImlwdHYvbGl2ZS96aF9jbi5qcyIgJiYgcG9ydD0iODE4MSIgJiYgY2l0eT0iR3VpZ2FuZyI%3D",  #贵港8181
     "https://fofa.info/result?qbase64=ImlwdHYvbGl2ZS96aF9jbi5qcyIgJiYgY2l0eT0ieXVsaW4i",#玉林
-    "https://fofa.info/result?qbase64=ImlwdHYvbGl2ZS96aF9jbi5qcyIgJiYgcmVnaW9uPSJmdWppYW4i",#福建
+    #"https://fofa.info/result?qbase64=ImlwdHYvbGl2ZS96aF9jbi5qcyIgJiYgcmVnaW9uPSJmdWppYW4i",#福建
     "https://fofa.info/result?qbase64=ImlwdHYvbGl2ZS96aF9jbi5qcyIgJiYgY291bnRyeT0iQ04iICYmIHJlZ2lvbj0i5bm%2F6KW%2FIg%3D%3D",    #广西 壮族iptv
 ]
 def modify_urls(url):
@@ -303,7 +303,7 @@ def modify_urls(url):
     return modified_urls
 def is_url_accessible(url):
     try:
-        response = requests.get(url, timeout=3)          #//////////////////
+        response = requests.get(url, timeout=1)          #//////////////////
         if response.status_code == 200:
             return url
     except requests.exceptions.RequestException:
@@ -371,7 +371,7 @@ for url in urls:
             ip_address = url[ip_start_index:ip_index_second]
             url_x = f"{base_url}{ip_address}"
             json_url = f"{url}"
-            response = requests.get(json_url, timeout=3)                        #///////////////
+            response = requests.get(json_url, timeout=1)                        #///////////////
             json_data = response.json()
             try:
                 # 解析JSON文件，获取name和url字段
@@ -570,7 +570,7 @@ def test_connectivity(url, max_attempts=1): #定义测试HTTP连接的次数
     # 尝试连接指定次数    
    for _ in range(max_attempts):  
     try:
-        response = requests.head(url, timeout=1)  # 发送HEAD请求，仅支持V4,修改此行数字可定义链接超时
+        response = requests.head(url, timeout=0.25)  # 发送HEAD请求，仅支持V4,修改此行数字可定义链接超时
         #response = requests.get(url, timeout=1)  # 发送get请求，支持V6,修改此行数字可定义链接超时
         return response.status_code == 200  # 返回True如果状态码为200
     except requests.RequestException:  # 捕获requests引发的异常
@@ -1041,7 +1041,7 @@ for keyword in keywords:
             search_txt = base64.b64encode(bytes_string).decode('utf-8')
             search_url += search_txt
             print(f"{current_time} 查询运营商 : {province}{isp} ，查询网址 : {search_url}")
-            response = requests.get(search_url, timeout=30)
+            response = requests.get(search_url, timeout=10)
             # 处理响应
             response.raise_for_status()
             # 检查请求是否成功
