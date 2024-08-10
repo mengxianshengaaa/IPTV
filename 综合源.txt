@@ -98,6 +98,7 @@ CCTV17-农业农村,http://ottrrs.hl.chinamobile.com/TVOD/88888888/224/322122576
 兵器科技[内网],rtsp://111.48.34.138:1554/170000004112/99180001000000050000000000000307
 世界地理[内网],rtsp://111.48.34.138:1554/170000004112/99180001000000050000000000000320
 第一剧场[内网],rtsp://111.48.34.138:1554/170000004112/99180001000000050000000000000305
+动作电影[内网],rtsp://111.48.34.138:1554/170000004112/99180001000000050000000000000523
 家庭影院[内网],rtsp://111.48.34.138:1554/170000004112/99180001000000050000000000000522
 金鹰卡通[内网],rtsp://111.48.34.138:1554/170000004112/99180001000000050000000000000613
 影迷电影[内网],rtsp://111.48.34.138:1554/170000004112/99180001000000050000000000000539
@@ -225,13 +226,12 @@ CCTV17-农业农村,http://ottrrs.hl.chinamobile.com/TVOD/88888888/224/322122576
 爱情喜剧,http://ottrrs.hl.chinamobile.com/TVOD/88888888/224/3221225669/index.m3u8
 超级电影,http://ottrrs.hl.chinamobile.com/PLTV/88888888/224/3221225717/index.m3u8
 超级电影,http://ottrrs.hl.chinamobile.com/TVOD/88888888/224/3221225717/index.m3u8
-超级影视,http://ottrrs.hl.chinamobile.com/PLTV/88888888/224/3221225716/index.m3u8
-超级影视,http://ottrrs.hl.chinamobile.com/TVOD/88888888/224/3221225716/index.m3u8
+超级电视剧,http://ottrrs.hl.chinamobile.com/PLTV/88888888/224/3221225716/index.m3u8
+超级电视剧,http://ottrrs.hl.chinamobile.com/TVOD/88888888/224/3221225716/index.m3u8
 潮妈辣婆,http://ottrrs.hl.chinamobile.com/PLTV/88888888/224/3221225685/index.m3u8
 潮妈辣婆,http://ottrrs.hl.chinamobile.com/TVOD/88888888/224/3221225685/index.m3u8
 东北热剧,http://ottrrs.hl.chinamobile.com/PLTV/88888888/224/3221225741/index.m3u8
 东北热剧,http://ottrrs.hl.chinamobile.com/TVOD/88888888/224/3221225741/index.m3u8
-动作电影[内网],rtsp://111.48.34.138:1554/170000004112/99180001000000050000000000000523
 海外剧场,http://ottrrs.hl.chinamobile.com/PLTV/88888888/224/3221225671/index.m3u8
 黑莓电影,http://gslbserv.itv.cmvideo.cn:80/000000001000/8785669936177902664/1.m3u8?channel-id=ystenlive&Contentid=8785669936177902664&livemode=1&stbId=003901FF0001181003FC08A5C8C6C037&userToken=85a5a98cdcab4d800a8ec29a9d917e8d10vv&usergroup=g10045200000&version=1.0&owaccmark=8785669936177902664&owchid=ystenlive&owsid=7951969344461621383
 黑莓电影,http://ottrrs.hl.chinamobile.com/PLTV/88888888/224/3221225743/index.m3u8
@@ -285,8 +285,6 @@ CCTV17-农业农村,http://ottrrs.hl.chinamobile.com/TVOD/88888888/224/322122576
 1905国外电影,http://php.jdshipin.com:8880/1905.php?id=1905dy2
 1905国内电影,http://php.jdshipin.com:8880/1905.php?id=1905dy
 AMC电影,http://61.221.215.25:8800/hls/43/index.m3u8
-ASTRO华丽台,http://line.greatstar.me:80/play/live.php?mac=00:1A:79:51:45:21&stream=571187&extension=ts
-ASTRO华丽台,http://line.greatstar.me:80/play/live.php?mac=00:1A:79:51:45:21&stream=571187&extension=ts&play_token=b0RYEywy0z
 ASTRO华丽台,http://line.greatstar.me:80/play/live.php?mac=00:1A:79:B5:AD:4C&stream=571187&extension=ts
 ASTRO华丽台,http://line.greatstar.me:80/play/live.php?mac=00:1A:79:B5:AD:4C&stream=571187&extension=ts&play_token=b0RYEywy0z
 TVBj2开码,https://ha.jmied.com/aa/aa.flv?auth_key=1661958232-0-0-3d9174957759709f8b53448167c0b6f6
@@ -315,6 +313,7 @@ BLOOMBERG,http://37.27.111.214:8080/live/34/hls.m3u8
 CNBC,http://37.27.111.214:8080/live/102/hls.m3u8
 CinemaWorld,http://37.27.111.214:8080/live/30/hls.m3u8
 Dbox,http://61.221.215.25:8800/hls/54/index.m3u8
+Dreamworks,http://metatvpro.xyz:25461/W1045/4329/14225
 ELEVEN1,rtmp://f13h.mine.nu/sat/tv731
 ELEVEN2,rtmp://f13h.mine.nu/sat/tv741
 ELEVENSPORTS1PL,http://czrb8vng.ottclub.xyz/iptv/AHMQNVLWUTM5PW/2518/index.m3u
@@ -451,7 +450,6 @@ nickjr,http://37.27.111.214:8080/live/22/hls.m3u8
 天良综合台,http://60.248.91.20:8000/main
 好消息综合台,https://dqhxk7sbp7xog.cloudfront.net/hls-live/goodtv/_definst_/liveevent/live-ch1-2.m3u8
 好莱坞电影,http://metatvpro.xyz:25461/W1045/4329/12284
-宇宙视界,https://www.goodiptv.club/douyu/9498354
 寰宇台湾,http://37.27.111.214:8080/live/63/hls.m3u8
 寰宇财经,http://37.27.111.214:8080/live/65/hls.m3u8
 幸福空间,http://37.27.111.214:8080/live/26/hls.m3u8
