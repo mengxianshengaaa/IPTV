@@ -573,7 +573,7 @@ deduplicate_lines(input_file_path, output_file_path)
 
 #################################################### 对整理好的频道列表测试HTTP连接
 # 函数：获取视频分辨率
-def get_video_resolution(video_path, timeout=0.8):
+def get_video_resolution(video_path, timeout=2):
     cap = cv2.VideoCapture(video_path)
     if not cap.isOpened():
         return None
