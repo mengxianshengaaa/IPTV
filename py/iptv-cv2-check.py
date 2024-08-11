@@ -53,7 +53,7 @@ def modify_urls(url):
 #定义超时时间以及是否返回正确的状态码
 def is_url_accessible(url):
     try:
-        response = requests.get(url, timeout=1)          #//////////////////
+        response = requests.get(url, timeout=2)          #//////////////////
         if response.status_code == 200:
             return url
     except requests.exceptions.RequestException:
@@ -119,7 +119,7 @@ for url in urls:
         try:
             # 发送GET请求获取JSON文件，设置超时时间为0.5秒
             json_url = f"{url}"
-            response = requests.get(json_url, timeout=1)################################
+            response = requests.get(json_url, timeout=2)################################
             json_data = response.content.decode('utf-8')
             try:
                     # 按行分割数据
@@ -583,7 +583,7 @@ deduplicate_lines(input_file_path, output_file_path)
 
 #################################################### 对整理好的频道列表测试HTTP连接
 # 函数：获取视频分辨率
-def get_video_resolution(video_path, timeout=5):
+def get_video_resolution(video_path, timeout=2):
     # 使用OpenCV创建视频捕获对象
     cap = cv2.VideoCapture(video_path)
     # 检查视频是否成功打开
@@ -610,7 +610,7 @@ def process_line(line, output_file, order_list, valid_count, invalid_count, tota
     elif len(parts) == 2:
         channel_name, channel_url = parts
         # 获取视频的分辨率
-        resolution = get_video_resolution(channel_url, timeout=5)
+        resolution = get_video_resolution(channel_url, timeout=2)
         # 如果分辨率有效且高度大于等于720p
         if resolution and resolution[1] >= 720:
             with threading.Lock():  # 使用线程锁
