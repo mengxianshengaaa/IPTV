@@ -473,8 +473,6 @@ def process_line(line, output_file, order_list, valid_count, invalid_count, tota
         channel_name, channel_url = parts
         # 获取视频的分辨率
         resolution = get_video_resolution(channel_url, timeout=2)
-        # 如果分辨率有效且宽度大于等于1024p
-        #if resolution and resolution[0] >= 1024:
         # 如果分辨率有效且高度大于等于720p
         if resolution and resolution[1] >= 720:
             with threading.Lock():  # 使用线程锁
@@ -676,6 +674,9 @@ replacements = {
         "P[": "+[",
         "lt[": "[",
         "电信": "",
+        "卫视高清": "卫视",
+        "SCTV5": "",
+        "": "",
         "": "",
         "": ""
 }
