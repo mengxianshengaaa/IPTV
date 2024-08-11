@@ -626,7 +626,7 @@ def filter_lines(input_file, output_file):
     for line in lines:
         #if ('hls' in line and 'm3u' in line) or ('tsfile' in line and 'm3u' in line):  #行中包含m3u的同时还要包含hls或者tsfile
         if '凤凰' in line or '东森' in line or '天映' in line or '酒店' in line or '龙祥' in line or '美亚' in line or '好莱坞' in line or '珠江' in line or 'TVB' in line or '翡翠' in line \
-        or '明珠' in line or '广场舞' in line or '本港' in line or '动作' in line or '家庭' in line or '影迷' in line or '剧场' in line or '电影' in line or '影院' in line:  #仅提取港澳频道
+        or '明珠' in line or '广场舞' in line or '本港' in line or '动作' in line or '家庭' in line or '影迷' in line or '剧场' in line or '电影' in line or '影院' in line or '大片' in line:  #仅提取港澳频道
           if 'udp' not in line and 'rtp' not in line and 'CCTV' not in line and 'AAA' not in line:   #  排除组播地址及央卫
             filtered_lines.append(line)
     with open(output_file, 'a', encoding='utf-8') as output_file:
@@ -965,8 +965,9 @@ def check_and_write_file(input_file, output_file, keywords):
 
 
 # 按类别提取关键词并写入文件
-check_and_write_file('酒店源.txt',  'a.txt',  keywords="央视频道, CCTV, 影, 剧")
+check_and_write_file('酒店源.txt',  'a.txt',  keywords="央视频道, CCTV")
 check_and_write_file('酒店源.txt',  'b.txt',  keywords="卫视频道, 卫视")
+check_and_write_file('酒店源.txt',  'c.txt',  keywords="影视频道, 影, 剧, 片")
 check_and_write_file('酒店源.txt',  'e.txt',  keywords="港澳频道, TVB, 珠江台, 澳门, 龙华, 广场舞, 动物杂技, 民视, 中视, 华视, AXN, MOMO, 采昌, 耀才, 靖天, 镜新闻, 靖洋, 莲花, 年代, 爱尔达, 好莱坞, 华丽, 非凡, 公视, \
 寰宇, 无线, EVEN, MoMo, 爆谷, 面包, momo, 唐人, 中华小, 三立, CNA, FOX, RTHK, Movie, 八大, 中天, 中视, 东森, 凤凰, 天映, 美亚, 环球, 翡翠, 亚洲, 大爱, 大愛, 明珠, 半岛, AMC, 龙祥, 台视, 1905, 纬来, 神话, 经典都市, 视界, \
 番薯, 私人, 酒店, TVB, 凤凰, 半岛, 星光视界, 大愛, 新加坡, 星河, 明珠, 环球, 翡翠台")
@@ -974,7 +975,7 @@ check_and_write_file('酒店源.txt',  'e.txt',  keywords="港澳频道, TVB, �
 
 #对生成的文件进行合并
 file_contents = []
-file_paths = ["e.txt", "a.txt", "b.txt"]  # 替换为实际的文件路径列表
+file_paths = ["e.txt", "a.txt", "b.txt", "c.txt"]  # 替换为实际的文件路径列表
 for file_path in file_paths:
     if os.path.exists(file_path):
         with open(file_path, 'r', encoding="utf-8") as file:
@@ -1004,7 +1005,7 @@ with open('酒店源.txt', 'w', encoding="utf-8") as file:
 
 
 #任务结束，删除不必要的过程文件
-files_to_remove = ['去重.txt', "2.txt", "iptv.txt", "iptv1.txt", "e.txt", "a.txt", "b.txt", "检测结果.txt"]
+files_to_remove = ['去重.txt', "2.txt", "iptv.txt", "iptv1.txt", "e.txt", "a.txt", "b.txt", "c.txt", "检测结果.txt"]
 for file in files_to_remove:
     if os.path.exists(file):
         os.remove(file)
