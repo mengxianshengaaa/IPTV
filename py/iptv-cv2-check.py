@@ -633,8 +633,9 @@ def check_and_write_file(input_file, output_file, keywords):
                     out_file.write(line)
                     extracted_lines = True
     # 如果没有提取到任何关键词，则不保留输出文件
-    if not extracted_lines:
-        os.remove(output_file)  # 删除空的输出文件
+    #if not extracted_lines:
+    if file_size < 800: 
+        os.remove(output_file)  # 删除空的输出文件        
         print(f"未提取到关键词，{output_file} 已被删除。")
     else:
         print(f"文件已提取关键词并保存为: {output_file}")
