@@ -330,7 +330,7 @@ deduplicate_lines(input_file_path, output_file_path)
 
 #################################################### 对整理好的频道列表测试HTTP连接
 # 函数：获取视频分辨率
-def get_video_resolution(video_path, timeout=2):
+def get_video_resolution(video_path, timeout=5):
     # 使用OpenCV创建视频捕获对象
     cap = cv2.VideoCapture(video_path)
     # 检查视频是否成功打开
@@ -357,7 +357,7 @@ def process_line(line, output_file, order_list, valid_count, invalid_count, tota
     elif len(parts) == 2:
         channel_name, channel_url = parts
         # 获取视频的分辨率
-        resolution = get_video_resolution(channel_url, timeout=2)
+        resolution = get_video_resolution(channel_url, timeout=5)
         # 如果分辨率有效且高度大于等于720p
         if resolution and resolution[1] >= 720:
             with threading.Lock():  # 使用线程锁
