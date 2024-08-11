@@ -474,9 +474,9 @@ def process_line(line, output_file, order_list, valid_count, invalid_count, tota
         # 获取视频的分辨率
         resolution = get_video_resolution(channel_url, timeout=2)
         # 如果分辨率有效且宽度大于等于1024p
-        if resolution and resolution[0] >= 1024:
+        #if resolution and resolution[0] >= 1024:
         # 如果分辨率有效且高度大于等于720p
-        #if resolution and resolution[1] >= 720:
+        if resolution and resolution[1] >= 720:
             with threading.Lock():  # 使用线程锁
                 output_file.write(f"{channel_name}[{resolution[1]}p],{channel_url}\n")
                 # 将频道名、分辨率和URL添加到列表中
