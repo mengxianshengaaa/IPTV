@@ -203,7 +203,7 @@ def filter_lines(input_file, output_file):
     for line in lines:
         #if ('hls' in line and 'm3u' in line) or ('tsfile' in line and 'm3u' in line):  #行中包含m3u的同时还要包含hls或者tsfile
         if ',' in line:  #仅提取
-          if 'udp' not in line and 'rtp' not in line and 'AAAA' not in line and 'AAA' not in line:   #  排除组播地址及央卫
+          if 'udp' not in line and 'rtp' not in line and 'AAAA' not in line and '61.157' not in line:   #  排除组播地址及央卫
             filtered_lines.append(line)
     with open(output_file, 'w', encoding='utf-8') as output_file:
         output_file.writelines(filtered_lines)
