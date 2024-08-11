@@ -214,7 +214,11 @@ print(f"文件已过滤完成")
 
 #定义智慧桌面采集地址
 urls = [
-    #"https://fofa.info/result?qbase64=ImlwdHYvbGl2ZS96aF9jbi5qcyIgJiYgcG9ydD0iODA4Ig%3D%3D",  #808
+    "https://fofa.info/result?qbase64=ImlwdHYvbGl2ZS96aF9jbi5qcyIgJiYgY291bnRyeT0iQ04iICYmIHJlZ2lvbj0i5bm%2F5LicIg%3D%3D",  #广东
+    "https://fofa.info/result?qbase64=ImlwdHYvbGl2ZS96aF9jbi5qcyIgJiYgY291bnRyeT0iQ04iICYmIHJlZ2lvbj0i5rKz5Y2XIg%3D%3D",  # 河南
+    "https://fofa.info/result?qbase64=ImlwdHYvbGl2ZS96aF9jbi5qcyIgJiYgcmVnaW9uPSJIdWJlaSIg",#湖北
+    "https://fofa.info/result?qbase64=ImlwdHYvbGl2ZS96aF9jbi5qcyIgJiYgcG9ydD0iODE4MSIgJiYgY2l0eT0iR3VpZ2FuZyI%3D",  #贵港8181
+    "https://fofa.info/result?qbase64=ImlwdHYvbGl2ZS96aF9jbi5qcyIgJiYgcmVnaW9uPSJmdWppYW4i",#福建
     "https://fofa.info/result?qbase64=ImlwdHYvbGl2ZS96aF9jbi5qcyIgJiYgY291bnRyeT0iQ04iICYmIHJlZ2lvbj0iaGViZWki",#河北
     "https://fofa.info/result?qbase64=ImlwdHYvbGl2ZS96aF9jbi5qcyIgJiYgY291bnRyeT0iQ04iICYmIGNpdHk9Inl1bGluIg%3D%3D",    #玉林
     "https://fofa.info/result?qbase64=ImlwdHYvbGl2ZS96aF9jbi5qcyIgJiYgY291bnRyeT0iQ04iICYmIGNpdHk9Imd1aWdhbmci",  #贵港
@@ -395,7 +399,7 @@ def filter_lines(input_file, output_file):
         #if ('hls' in line and 'm3u' in line) or ('tsfile' in line and 'm3u' in line):  #行中包含m3u的同时还要包含hls或者tsfile
         if '凤凰' in line or '东森' in line or '天映' in line or '酒店' in line or '龙祥' in line or '美亚' in line or '好莱坞' in line or '珠江' in line or 'TVB' in line or '翡翠' in line \
         or '明珠' in line or '广场舞' in line or '本港' in line or '动作' in line or '家庭' in line or '影迷' in line or '剧场' in line or '电影' in line or '影院' in line:  #仅提取港澳频道
-          if 'udp' not in line and 'rtp' not in line and 'AAAA' not in line and 'AAA' not in line:   #  排除组播地址及央卫
+          if 'udp' not in line and 'rtp' not in line and 'CCTV' not in line and 'AAA' not in line:   #  排除组播地址及央卫
             filtered_lines.append(line)
     with open(output_file, 'a', encoding='utf-8') as output_file:
         output_file.writelines(filtered_lines)
