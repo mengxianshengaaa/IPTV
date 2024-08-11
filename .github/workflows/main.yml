@@ -2,7 +2,7 @@ name: 组播采集合并
 
 on:
   schedule:
-    - cron: '40 */6 * * *' # 这里更改自动运行的时间#_udp
+    - cron: '0 */8 * * *' # 这里更改自动运行的时间#_ud
   workflow_dispatch:
     branches:
       - main
