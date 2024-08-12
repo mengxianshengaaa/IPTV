@@ -1431,7 +1431,7 @@ def txt_to_m3u(input_file, output_file):
         # 遍历txt文件内容
         for line in lines:
             line = line.strip()
-            if "," in line:  # 防止文件里面缺失“,”号报错
+            if "," in line:  # 防止文件里面缺失",”号报错
                 # if line:
                 # 检查是否是genre行
                 channel_name, channel_url = line.split(',', 1)
@@ -1597,7 +1597,7 @@ def check_and_write_file(input_file, output_file, keywords):
         file_size = os.path.getsize(output_file)
         
         # 如果文件大小小于30字节（假设的最小文件大小）,删除文件
-        if file_size < 800:
+        if file_size < 300:
             os.remove(output_file)
             print(f"文件只包含头部信息,{output_file} 已被删除。")
         else:
@@ -1739,3 +1739,4 @@ print("任务运行完毕,分类频道列表可查看文件夹内综合源.txt�
 # 打印检测结果
 for ip_key, result in detected_ips.items():
     print(f"IP Key: {ip_key}, Status: {result['status']}")
+
