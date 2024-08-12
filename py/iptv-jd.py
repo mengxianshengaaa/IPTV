@@ -1654,7 +1654,7 @@ check_and_write_file('2.txt',  'j1.txt',  keywords="广东广西, 广西, 百色
 #check_and_write_file('2.txt',  'l0.txt',  keywords="安徽四川, 安徽, 四川")
 #check_and_write_file('2.txt',  'l.txt',  keywords="安徽四川, 安徽, 安庆, 蚌埠, 亳州, 巢湖, 池州, 岳西, 滁州, 阜阳, 合肥, 淮北, 淮南, 黄山, 六安, 马鞍山, 宿州, 铜陵, 芜湖, 宣城, 固始, 光山")
 #check_and_write_file('2.txt',  'l1.txt',  keywords="安徽四川, 四川, 阿坝, 巴中, 成都, 达州, 德阳, 甘孜, 广安, 广元, 乐山, 凉山, 泸州, 眉山, 绵阳, 内江, 南充, 攀枝花, 遂宁, 雅安, 宜宾, 资阳, 自贡, 黑水, 金川, 乐至, 双流, \
-万源, 马尔康, 泸县, 文山, 什邡, 西青, 长宁, 达州, 红河")
+#万源, 马尔康, 泸县, 文山, 什邡, 西青, 长宁, 达州, 红河")
 
 check_and_write_file('2.txt',  'o1.txt',  keywords="其他频道, 新闻, 综合, 文艺, 电视, 公共, 科教, 教育, 民生, 轮播, 套, 法制, 文化, 经济, 生活")
 check_and_write_file('2.txt',  'o.txt',  keywords="其他频道, , ")
