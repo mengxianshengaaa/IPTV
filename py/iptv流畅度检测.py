@@ -1354,7 +1354,7 @@ print('删除的行已保存到:', deleted_lines_file_path)
 #合并所有频道文件#
 # 读取要合并的频道文件，并生成临时文件#合并所有频道文件#
 file_contents = []
-file_paths = ["a0.txt", "港澳.txt", "b.txt", "df0.txt", "f.txt", "f1.txt"]  # 替换为实际的文件路径列表#
+file_paths = ["a0.txt", "港澳.txt", "b.txt", "df0.txt"]  # 替换为实际的文件路径列表#
 for file_path in file_paths:                                                             #
     with open(file_path, 'r', encoding="utf-8") as file:                                 #
         content = file.read()
@@ -1558,7 +1558,7 @@ with open(output_file_path, 'w', encoding='utf-8') as output_file:
                 start_time = time.time()
                 frame_count = 0
                 # 尝试捕获5秒内的帧
-                while frame_count < 110 and (time.time() - start_time) < 5:
+                while frame_count < 100 and (time.time() - start_time) < 5:
                     ret, frame = cap.read()
                     if not ret:
                         break
@@ -1566,7 +1566,7 @@ with open(output_file_path, 'w', encoding='utf-8') as output_file:
                 # 释放资源
                 cap.release()
                 # 根据捕获的帧数判断状态并记录结果
-                if frame_count >= 110:
+                if frame_count >= 100:  #5秒内超过100帧则写入
                     detected_ips[ip_key] = {'status': 'ok'}
                     output_file.write(line)  # 写入检测通过的行
                 else:
