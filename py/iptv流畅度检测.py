@@ -1619,10 +1619,9 @@ check_and_write_file('2.txt',  'a1.txt',  keywords="央视频道, 剧场, 电影
 
 check_and_write_file('2.txt',  'b.txt',  keywords="卫视频道, 卫视")
 
-check_and_write_file('2.txt',  'c.txt',  keywords="影视频道, 爱情喜剧, 爱喜喜剧, 惊嫊悬疑, 东北热剧, 动作电影, 无名, 都市剧场, iHOT, 海外剧场, 欢笑剧场, 重温经典, 明星大片, 中国功夫, 军旅, 东北热剧, 中国功夫, 军旅剧场, 古装剧场, \
-家庭剧场, 惊悚悬疑, 欢乐剧场, 潮妈辣婆, 爱情喜剧, 精品大剧, 超级影视, 超级电影, 黑莓动画, 黑莓电影, 海外剧场, 精彩影视, 无名影视, 潮婆辣妈, 超级剧, 热播精选, 爱怀旧, 爱经典, 爱科幻, 爱青春, 爱悬疑, 爱幼教, 爱院线")
+check_and_write_file('2.txt',  'c.txt',  keywords="影视频道, 爱动漫, 华语影院, 绚影4K, 爱怀旧, 爱经典, 爱科幻, 爱青春, 爱悬疑, 爱幼教, 爱院线")
 
-check_and_write_file('2.txt',  'd.txt',  keywords="少儿频道, 少儿, 卡通, 动漫, 宝贝, 哈哈")
+#check_and_write_file('2.txt',  'd.txt',  keywords="少儿频道, 少儿, 卡通, 动漫, 宝贝, 哈哈")
 
 check_and_write_file('2.txt',  'e0.txt',  keywords="港澳频道, 龙华, 采昌, 好莱坞, 东森, 美亚, 八大, TVB, 动物杂技, 东森, 凤凰, 天映, AMC, 龙祥, 1905, 纬来, 神话, 经典都市, 视界, 广场舞, 私人, 酒店")
 check_and_write_file('2.txt',  'e.txt',  keywords="港澳频道, TVB, 澳门, 龙华, 民视, 中视, 华视, AXN, MOMO, 采昌, 耀才, 靖天, 镜新闻, 靖洋, 莲花, 年代, 爱尔达, 好莱坞, 华丽, 非凡, 公视, 寰宇, 无线, EVEN, MoMo, 爆谷, 面包, momo, 唐人, \
