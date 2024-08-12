@@ -1475,7 +1475,7 @@ import fileinput
 
 # 合并自定义频道文件#
 file_contents = []
-file_paths = ["playlist/天津联通.txt", "playlist/四川电信.txt", "playlist/河北电信.txt", "playlist/河南电信.txt", "酒店源.txt"]  # 替换为实际的文件路径列表
+file_paths = ["playlist/天津联通.txt", "playlist/四川电信.txt", "playlist/河北电信.txt", "playlist/河南电信.txt", "酒店源.txt", "综合源.txt"]  # 替换为实际的文件路径列表
 for file_path in file_paths:
     if os.path.exists(file_path):
         with open(file_path, 'r', encoding="utf-8") as file:
@@ -1631,7 +1631,7 @@ Eurosports1, FESTIVAL, GOOD2, HBO家庭, HBO, HISTORY, HOY国际财经, HakkaTV,
 动物星球, 港石金曲, 红牛, 互动英语, 华纳影视, 华语剧台, ELTV, 欢喜台, 旅游, 美食星球, nhkworld, nickjr, 千禧, 全球财经, 探案, 探索, 小尼克, 幸福空间, 影剧, 粤语片台, 智林, 猪哥亮")
 
 #check_and_write_file('2.txt',  'f0.txt',  keywords="湖北湖南, 湖北, 湖南")
-#check_and_write_file('2.txt',  'f.txt',  keywords="湖北频道, 湖北, 武汉, 松滋, 十堰, 咸宁, 远安, 崇阳, 黄石, 荆州, 当阳, 恩施, 五峰, 来凤, 枝江, 黄冈, 随州, 荆门, 秭归, 宜昌, 长阳, 大悟, 孝感, 鄂州, 垄上, 宜都, 茶")
+check_and_write_file('2.txt',  'f.txt',  keywords="湖北频道, 湖北, 武汉, 松滋, 十堰, 咸宁, 远安, 崇阳, 黄石, 荆州, 当阳, 恩施, 五峰, 来凤, 枝江, 黄冈, 随州, 荆门, 秭归, 宜昌, 长阳, 大悟, 孝感, 鄂州, 垄上, 宜都, 茶")
 #check_and_write_file('2.txt',  'f1.txt',  keywords="省市频道, 湖南, 长沙, 常德, 郴州, 垂钓, 金鹰纪实, 衡阳, 怀化, 茶, 吉首, 娄底, 邵阳, 湘潭, 益阳, 永州, 岳阳, 张家界, 株洲, 城步, 崇左, 洪雅, 涟水, 灵石, 隆回, 罗城, 溆浦, 邵阳")
 
 #check_and_write_file('2.txt',  'g0.txt',  keywords="浙江上海, 浙江, 上海")
