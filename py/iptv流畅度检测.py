@@ -1624,7 +1624,7 @@ check_and_write_file('2.txt',  'c.txt',  keywords="影视频道, 爱情喜剧, �
 
 check_and_write_file('2.txt',  'd.txt',  keywords="少儿频道, 少儿, 卡通, 动漫, 宝贝, 哈哈")
 
-check_and_write_file('2.txt',  'e0.txt',  keywords="港澳频道, 龙华, 采昌, 好莱坞, 东森, 美亚, 八大, 中天, 中视, 东森, 凤凰, 天映, AMC, 龙祥, 1905, 纬来, 神话, 经典都市, 视界, 番薯, 私人, 酒店")
+check_and_write_file('2.txt',  'e0.txt',  keywords="港澳频道, 龙华, 采昌, 好莱坞, 东森, 美亚, 八大, TVB, 动物杂技, 东森, 凤凰, 天映, AMC, 龙祥, 1905, 纬来, 神话, 经典都市, 视界, 广场舞, 私人, 酒店")
 check_and_write_file('2.txt',  'e.txt',  keywords="港澳频道, TVB, 澳门, 龙华, 民视, 中视, 华视, AXN, MOMO, 采昌, 耀才, 靖天, 镜新闻, 靖洋, 莲花, 年代, 爱尔达, 好莱坞, 华丽, 非凡, 公视, 寰宇, 无线, EVEN, MoMo, 爆谷, 面包, momo, 唐人, \
 中华小, 三立, CNA, FOX, RTHK, Movie, 八大, 中天, 中视, 东森, 凤凰, 天映, 美亚, 环球, 翡翠, 亚洲, 大爱, 大愛, 明珠, 半岛, AMC, 龙祥, 台视, 1905, 纬来, 神话, 经典都市, 视界, 番薯, 私人, 酒店, TVB, 凤凰, 半岛, 星光视界, \
 番薯, 大愛, 新加坡, 星河, 明珠, 环球, 翡翠台,  ELTV, 大立, elta, 好消息, 美国中文, 神州, 天良, 18台, BLOOMBERG, Bloomberg, CMUSIC, CN卡通, CNBC, CNBC, CinemaWorld, Cinemax, DMAX, Dbox, Dreamworks, ESPN, Euronews, \
@@ -1648,7 +1648,7 @@ check_and_write_file('2.txt',  'h1.txt',  keywords="河北频道, 河北, 石家
 容城, 文安, 三河, 清河, 潞城, 迁安, 迁西, 清苑, 确山")
 
 #check_and_write_file('2.txt',  'j.txt',  keywords="广东广西, 广东, 广西")
-check_and_write_file('2.txt',  'j.txt',  keywords="广东广西, 广东, 潮州, 东莞, 佛山, 广州, 河源, 惠州, 江门, 揭阳, 茂名, 梅州, 清远, 汕头, 汕尾, 韶关, 深圳, 阳江, 云浮, 湛江, 肇庆, 中山, 珠海, 番禺")
+check_and_write_file('2.txt',  'j.txt',  keywords="广东广西, 广东, 潮州, 东莞, 佛山, 广州, 河源, 惠州, 江门, 揭阳, 茂名, 梅州, 清远, 汕头, 汕尾, 韶关, 深圳, 阳江, 云浮, 湛江, 肇庆, 珠江, 中山, 珠海, 番禺")
 check_and_write_file('2.txt',  'j1.txt',  keywords="广东广西, 广西, 百色, 北海, 防城港, 桂林, 河池, 贺州, 柳州, 南宁, 钦州, 梧州, 玉林, 宾阳")
 
 #check_and_write_file('2.txt',  'l0.txt',  keywords="安徽四川, 安徽, 四川")
