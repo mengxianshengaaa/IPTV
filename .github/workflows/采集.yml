@@ -29,7 +29,7 @@ jobs:
           pip install translate
           pip install lxml
           pip install replace
-          pip install input
+          pip install input tqdm
           pip install opencc
           pip install pypinyin
       - name: Run py
