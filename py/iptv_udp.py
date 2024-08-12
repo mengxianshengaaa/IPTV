@@ -303,31 +303,6 @@ for line in fileinput.input("playlist/IPTV_UDP.txt", inplace=True):  #打开文�
 print(f"文件已替换完成")
 
 ########################################################################################################################################################################################
-#################文本排序
-import re
-
-def find_number_before_comma(line):
-    # 从行的开始到逗号前的部分，找到第一个数字
-    before_comma = line.split(',')[0] if ',' in line else line
-    numbers = re.findall(r'\d+', before_comma)
-    return int(numbers[0]) if numbers else None
-
-def custom_sort_key(line):
-    # 返回一个元组，元组的第一个元素用于数字排序，第二个元素用于字典排序
-    return (find_number_before_comma(line), line)
-
-# 读取文件
-with open('playlist/IPTV_UDP.txt', 'r', encoding='utf-8') as file:
-    lines = file.readlines()
-
-# 排序
-sorted_lines = sorted(lines, key=custom_sort_key)
-
-# 写入新文件
-with open('playlist/IPTV_UDP.txt', 'w', encoding='utf-8') as file:
-    for line in sorted_lines:
-        file.write(line)
-print(f"文件已排序并保存")
 
 
 
