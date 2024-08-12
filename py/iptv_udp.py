@@ -304,29 +304,29 @@ print(f"文件已替换完成")
 
 ########################################################################################################################################################################################
 #################文本排序
+import re
 
-# 打开原始文件读取内容，并写入新文件
+def find_number_before_comma(line):
+    # 从行的开始到逗号前的部分，找到第一个数字
+    before_comma = line.split(',')[0] if ',' in line else line
+    numbers = re.findall(r'\d+', before_comma)
+    return int(numbers[0]) if numbers else None
+
+def custom_sort_key(line):
+    # 返回一个元组，元组的第一个元素用于数字排序，第二个元素用于字典排序
+    return (find_number_before_comma(line), line)
+
+# 读取文件
 with open('playlist/IPTV_UDP.txt', 'r', encoding='utf-8') as file:
     lines = file.readlines()
 
-
-# 定义一个函数，用于提取每行的第一个数字
-def extract_first_number(line):
-    match = re.search(r'\d+', line)
-    return int(match.group()) if match else float('inf')
-
-# 对列表中的行进行排序
-# 按照第一个数字的大小排列，如果不存在数字则按中文拼音排序
-sorted_lines = sorted(lines, key=lambda x: (not 'CCTV' in x, extract_first_number(x) if 'CCTV' in x else lazy_pinyin(x.strip())))
-
-# 将排序后的行写入新的utf-8编码的文本文件，文件名基于原文件名
-output_file_path = "sorted_" + os.path.basename(file_path)
+# 排序
+sorted_lines = sorted(lines, key=custom_sort_key)
 
 # 写入新文件
-with open('playlist/IPTV_UDP.txt', "w", encoding="utf-8") as file:
+with open('playlist/IPTV_UDP.txt', 'w', encoding='utf-8') as file:
     for line in sorted_lines:
         file.write(line)
-
 print(f"文件已排序并保存")
 
 
