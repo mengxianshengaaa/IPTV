@@ -1467,18 +1467,15 @@ for file in files_to_remove:
         print(f"文件 {file} 不存在，跳过删除。")
 print("任务运行完毕，分类频道列表可查看文件夹内综合源.txt文件！")
 
-
+#检测IP段第一个链接5秒内能否捕获80帧，来获得流畅源
 import cv2
 import time
 from tqdm import tqdm
-
 # 初始化检测结果字典
 detected_ips = {}
-
 # 存储文件路径
 file_path = "酒店源.txt"
 output_file_path = "流畅源.txt"
-
 def get_ip_key(url):
     """从URL中提取IP地址，并构造一个唯一的键"""
     # 找到'//'到第三个'.'之间的字符串
@@ -1491,14 +1488,11 @@ def get_ip_key(url):
             break
         dot_count += 1
     return url[start:end] if dot_count == 3 else None
-
 # 打开输入文件和输出文件
 with open(file_path, 'r', encoding='utf-8') as file:
     lines = file.readlines()
-
 # 获取总行数用于进度条
 total_lines = len(lines)
-
 # 写入通过检测的行到新文件
 with open(output_file_path, 'w', encoding='utf-8') as output_file:
     # 使用tqdm显示进度条
@@ -1507,14 +1501,12 @@ with open(output_file_path, 'w', encoding='utf-8') as output_file:
         if 'genre' in line:
             output_file.write(line)
             continue
-
         # 分割频道名称和URL，并去除空白字符
         parts = line.split(',', 1)
         if len(parts) == 2:
             channel_name, url = parts
             channel_name = channel_name.strip()
             url = url.strip()
-
             # 构造IP键
             ip_key = get_ip_key(url)
             if ip_key and ip_key in detected_ips:
@@ -1526,24 +1518,20 @@ with open(output_file_path, 'w', encoding='utf-8') as output_file:
                 cap = cv2.VideoCapture(url)
                 start_time = time.time()
                 frame_count = 0
-
                 # 尝试捕获5秒内的帧
-                while frame_count < 60 and (time.time() - start_time) < 5:
+                while frame_count < 80 and (time.time() - start_time) < 5:
                     ret, frame = cap.read()
                     if not ret:
                         break
                     frame_count += 1
-
                 # 释放资源
                 cap.release()
-
                 # 根据捕获的帧数判断状态并记录结果
                 if frame_count >= 50:
                     detected_ips[ip_key] = {'status': 'ok'}
                     output_file.write(line)  # 写入检测通过的行
                 else:
                     detected_ips[ip_key] = {'status': 'fail'}
-
 # 打印检测结果
 for ip_key, result in detected_ips.items():
     print(f"IP Key: {ip_key}, Status: {result['status']}")
