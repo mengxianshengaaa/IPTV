@@ -22,16 +22,8 @@ jobs:
 
       - name: Install dependencies
         run: |
-          pip install selenium requests futures eventlet
-          pip install pytz
-          pip install opencv-python requests
-          pip install Beautifulsoup4 requests
-          pip install translate
-          pip install lxml
-          pip install replace
-          pip install input tqdm
-          pip install opencc
-          pip install pypinyin
+          pip install --upgrade pip
+          pip install selenium requests futures eventlet opencv-python Beautifulsoup4 translate termcolor func_timeout replace input opencc pypinyin pytz tqdm
       - name: Run py
         run: |
           python ${{ github.workspace }}/py/流畅度检测.py
