@@ -299,7 +299,7 @@ main()
 #################文本排序
 
 # 打开原始文件读取内容，并写入新文件
-with open('IPTV_UDP', 'r', encoding='utf-8') as file:
+with open('playlist/IPTV_UDP', 'r', encoding='utf-8') as file:
     lines = file.readlines()
 
 
@@ -316,7 +316,7 @@ sorted_lines = sorted(lines, key=lambda x: (not 'CCTV' in x, extract_first_numbe
 output_file_path = "sorted_" + os.path.basename(file_path)
 
 # 写入新文件
-with open('IPTV_UDP', "w", encoding="utf-8") as file:
+with open('playlist/IPTV_UDP', "w", encoding="utf-8") as file:
     for line in sorted_lines:
         file.write(line)
 
