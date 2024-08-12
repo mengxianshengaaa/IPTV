@@ -1615,7 +1615,7 @@ def check_and_write_file(input_file, output_file, keywords):
 # 按类别提取关键词并写入文件
 check_and_write_file('2.txt',  'a0.txt',  keywords="央视频道, 8K, 4K, 4k")
 check_and_write_file('2.txt',  'a.txt',  keywords="央视频道, CCTV, CHC, 全球大片, 星光院线, 影迷")
-check_and_write_file('2.txt',  'a1.txt',  keywords="央视频道, 剧场, 影院, 电影, 女性, 地理")
+check_and_write_file('2.txt',  'a1.txt',  keywords="央视频道, 剧场, 电影, 女性, 地理")
 
 check_and_write_file('2.txt',  'b.txt',  keywords="卫视频道, 卫视")
 
