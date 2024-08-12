@@ -4,22 +4,9 @@ import os
 from opencc import OpenCC
 import fileinput
 
-# 获取playlist目录下的文件名
-files1 = 'playlist'
-# 过滤TXT文件
-file_contents = []
-for file_path in filter_files(files1, '.txt'):
-    with open('playlist/' + file_path, 'r', encoding="utf-8") as file:
-        content = file.read()
-        file_contents.append(content)
-# 写入合并后的txt文件
-with open("playlist/3.txt", "w", encoding="utf-8") as output:
-    output.write('\n'.join(file_contents))
-
-
 # 合并自定义频道文件#
 file_contents = []
-file_paths = ["playlist/3.txt", "酒店源.txt", "综合源.txt"]  # 替换为实际的文件路径列表
+file_paths = ["playlist/天津联通.txt", "playlist/四川电信.txt", "playlist/河北电信.txt", "playlist/河南电信.txt", "酒店源.txt", "综合源.txt"]  # 替换为实际的文件路径列表
 for file_path in file_paths:
     if os.path.exists(file_path):
         with open(file_path, 'r', encoding="utf-8") as file:
