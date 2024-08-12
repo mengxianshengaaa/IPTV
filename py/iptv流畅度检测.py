@@ -26,9 +26,9 @@ from translate import Translator  # 导入Translator类,用于文本翻译
 #"isShowLoginJs"智能KUTV管理
 ######################################################################################################################
 ######################################################################################################################
+###########################################################ZHGX采集####################################################
 ######################################################################################################################
 ######################################################################################################################
-#######################################################################################################################ZHGX频道列表采集整理
 urls = [
     "https://fofa.info/result?qbase64=IlpIR1hUViIgJiYgcmVnaW9uPSJndWFuZ2Rvbmci",#广东
     "https://fofa.info/result?qbase64=IlpIR1hUViIgJiYgY2l0eT0iY2hhbmdzaGEi",  # changsha 长沙#
@@ -282,7 +282,8 @@ for line in fileinput.input("iptv.txt", inplace=True):  #打开文件,并对其�
 ######################################################################################################################
 ######################################################################################################################
 ######################################################################################################################
-######################################################################################################################定义智慧桌面采集地址频道列表采集整理
+######################################################################################################################
+#定义智慧桌面采集地址
 urls = [
     "https://fofa.info/result?qbase64=ImlwdHYvbGl2ZS96aF9jbi5qcyIgJiYgcG9ydD0iMTExMSI%3D",  # 1111
     "https://fofa.info/result?qbase64=ImlwdHYvbGl2ZS96aF9jbi5qcyIgJiYgcG9ydD0iODA4Ig%3D%3D",  #808
@@ -1430,7 +1431,7 @@ def txt_to_m3u(input_file, output_file):
         # 遍历txt文件内容
         for line in lines:
             line = line.strip()
-            if "," in line:  # 防止文件里面缺失",”号报错
+            if "," in line:  # 防止文件里面缺失“,”号报错
                 # if line:
                 # 检查是否是genre行
                 channel_name, channel_url = line.split(',', 1)
@@ -1550,7 +1551,7 @@ with open(output_file_path, 'w', encoding='utf-8') as output_file:
                 start_time = time.time()
                 frame_count = 0
                 # 尝试捕获5秒内的帧
-                while frame_count < 120 and (time.time() - start_time) < 5:
+                while frame_count < 110 and (time.time() - start_time) < 5:
                     ret, frame = cap.read()
                     if not ret:
                         break
@@ -1558,7 +1559,7 @@ with open(output_file_path, 'w', encoding='utf-8') as output_file:
                 # 释放资源
                 cap.release()
                 # 根据捕获的帧数判断状态并记录结果
-                if frame_count >= 120:  #5秒内超过100帧则写入
+                if frame_count >= 110:  #5秒内超过100帧则写入
                     detected_ips[ip_key] = {'status': 'ok'}
                     output_file.write(line)  # 写入检测通过的行
                 else:
@@ -1605,9 +1606,9 @@ def check_and_write_file(input_file, output_file, keywords):
         print(f"未提取到关键词,不创建输出文件 {output_file}。")
 
 # 按类别提取关键词并写入文件
-#check_and_write_file('2.txt',  'a0.txt',  keywords="央视频道, 8K, 4K, 4k")
-check_and_write_file('2.txt',  'a.txt',  keywords="央视频道, CCTV, CHC, 全球大片, 星光院线, 影迷, 8K, 4K, 4k, 剧场, 电影, 女性, 地理")
-#check_and_write_file('2.txt',  'a1.txt',  keywords="央视频道, 剧场, 电影, 女性, 地理")
+check_and_write_file('2.txt',  'a0.txt',  keywords="央视频道, 8K, 4K, 4k")
+check_and_write_file('2.txt',  'a.txt',  keywords="央视频道, CCTV, CHC, 全球大片, 星光院线, 影迷")
+check_and_write_file('2.txt',  'a1.txt',  keywords="央视频道, 剧场, 电影, 女性, 地理")
 
 check_and_write_file('2.txt',  'b.txt',  keywords="卫视频道, 卫视")
 
@@ -1738,4 +1739,3 @@ print("任务运行完毕,分类频道列表可查看文件夹内综合源.txt�
 # 打印检测结果
 for ip_key, result in detected_ips.items():
     print(f"IP Key: {ip_key}, Status: {result['status']}")
-
