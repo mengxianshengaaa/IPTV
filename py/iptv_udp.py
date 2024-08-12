@@ -327,7 +327,7 @@ def custom_sort_key(line):
     return (find_number_before_comma(line), line)
 with open('c0.txt', 'r', encoding='utf-8') as file:
     lines = file.readlines()
-sorted_lines = sorted(lines, key=custom_sort_key
+sorted_lines = sorted(lines, key=custom_sort_key)
 # 写入新文件
 with open('c00.txt', 'w', encoding='utf-8') as file:
     for line in sorted_lines:
