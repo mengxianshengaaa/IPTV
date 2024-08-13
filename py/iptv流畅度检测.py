@@ -1013,7 +1013,10 @@ with open(output_file_path, 'w', encoding='utf-8') as output_file:
 # 打印检测结果
 for ip_key, result in detected_ips.items():
     print(f"IP Key: {ip_key}, Status: {result['status']}")
-
+print("检测完毕,继续组播IP查找")
+print("检测完毕,继续组播IP查找")
+print("检测完毕,下一步组播IP查找")
+print("检测完毕,下一步组播IP查找")
 
 
 
