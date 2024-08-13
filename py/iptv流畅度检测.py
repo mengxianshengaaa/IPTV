@@ -950,7 +950,7 @@ from tqdm import tqdm
 detected_ips = {}
 # 存储文件路径
 file_path = "酒店源.txt"
-output_file_path = "酒店源.txt"
+output_file_path = "酒店优选.txt"
 def get_ip_key(url):
     """从URL中提取IP地址,并构造一个唯一的键"""
     # 找到'//'到第三个'.'之间的字符串
@@ -1796,7 +1796,7 @@ with open('组播优选.txt', 'w', encoding="utf-8") as file:
 files_to_remove = ['去重.txt', '分类.txt', "2.txt", "4.txt", "5.txt", "playlist/3.txt", "a0.txt", "a.txt", "a1.txt", "b0.txt", "b.txt", "c.txt", "c1.txt", "c2.txt", "d.txt", "e0.txt", "e.txt", "f0.txt", "f.txt", "f1.txt", \
                    "g0.txt", "g.txt", "g1.txt", "h0.txt", "h.txt", "h1.txt", "i.txt", \
               "i1.txt", "j.txt", "j1.txt", "k.txt", "l0.txt", "l.txt", "l1.txt", "m.txt", "m1.txt",  \
-              "n0.txt","n.txt","n1.txt", "o1.txt", "o.txt", "p.txt", "酒店源#.txt"]
+              "n0.txt","n.txt","n1.txt", "o1.txt", "o.txt", "p.txt", "酒店源.txt"]
 
 for file in files_to_remove:
     if os.path.exists(file):
