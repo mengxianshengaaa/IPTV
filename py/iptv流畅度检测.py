@@ -1612,9 +1612,9 @@ check_and_write_file('2.txt',  'a1.txt',  keywords="央视频道, 剧场, 电影
 
 check_and_write_file('2.txt',  'b.txt',  keywords="卫视频道, 卫视")
 
-check_and_write_file('2.txt',  'c.txt',  keywords="影视频道, 爱动漫, 华语影院, 绚影4K, 爱怀旧, 爱经典, 爱科幻, 爱青春, 爱悬疑, 爱幼教, 爱院线")
+check_and_write_file('2.txt',  'c.txt',  keywords="影视频道, 爱动漫, 爱怀旧, 爱经典, 爱科幻, 爱青春, 爱悬疑, 爱幼教, 爱院线, 影, 剧, 经典")
 
-#check_and_write_file('2.txt',  'd.txt',  keywords="少儿频道, 少儿, 卡通, 动漫, 宝贝, 哈哈")
+check_and_write_file('2.txt',  'd.txt',  keywords="少儿频道, 少儿, 卡通, 动漫, 宝贝, 哈哈")
 
 check_and_write_file('2.txt',  'e0.txt',  keywords="港澳频道, 龙华, 采昌, 好莱坞, 东森, 美亚, 八大, TVB, 动物杂技, 东森, 凤凰, 天映, AMC, 龙祥, 1905, 纬来, 神话, 经典都市, 视界, 广场舞, 私人, 酒店")
 check_and_write_file('2.txt',  'e.txt',  keywords="港澳频道, TVB, 澳门, 龙华, 民视, 中视, 华视, AXN, MOMO, 采昌, 耀才, 靖天, 镜新闻, 靖洋, 莲花, 年代, 爱尔达, 好莱坞, 华丽, 非凡, 公视, 寰宇, 无线, EVEN, MoMo, 爆谷, 面包, momo, 唐人, \
