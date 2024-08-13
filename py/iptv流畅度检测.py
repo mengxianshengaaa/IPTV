@@ -30,7 +30,11 @@ from translate import Translator  # 导入Translator类,用于文本翻译
 ######################################################################################################################
 ######################################################################################################################
 urls = [
+    "https://fofa.info/result?qbase64=c2VydmVyPSJHWF9PUyAxLjAiICYmIHJlZ2lvbj0iSHVuYW4i",#server="GX_OS 1.0" && region="Hunan"
+    "https://fofa.info/result?qbase64=c2VydmVyPSJHWF9PUyAxLjAiICYmIHJlZ2lvbj0iSGVuYW4i",#server="GX_OS 1.0" && region="Henan"
+    "https://fofa.info/result?qbase64=c2VydmVyPSJHWF9PUyAxLjAiICYmIHJlZ2lvbj0iSGViZWki",##server="GX_OS 1.0" && region="Hebei"
     "https://fofa.info/result?qbase64=IlpIR1hUViIgJiYgcmVnaW9uPSLlub%2Fopb8i",#广西
+    "https://fofa.info/result?qbase64=c2VydmVyPSJHWF9PUyAxLjAiICYmIHJlZ2lvbj0i5bm%2F5LicIg%3D%3D",#广东GX_OS 1.0" 
     "https://fofa.info/result?qbase64=IlpIR1hUViIgJiYgcmVnaW9uPSJndWFuZ2Rvbmci",#广东
     "https://fofa.info/result?qbase64=IlpIR1hUViIgJiYgcmVnaW9uPSJHdWFuZ2RvbmciICYmIGNpdHk9InNoYW50b3Ui",#广东汕头
     "https://fofa.info/result?qbase64=IlpIR1hUViIgJiYgcmVnaW9uPSJIZW5hbiI%3D",#河南#
