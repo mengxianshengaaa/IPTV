@@ -943,6 +943,75 @@ for file in files_to_remove:
 print("任务运行完毕,酒店源频道列表可查看文件夹内txt文件！")
 
 
+import cv2
+import time
+from tqdm import tqdm
+# 初始化检测结果字典
+detected_ips = {}
+# 存储文件路径
+file_path = "酒店源.txt"
+output_file_path = "酒店源.txt"
+def get_ip_key(url):
+    """从URL中提取IP地址,并构造一个唯一的键"""
+    # 找到'//'到第三个'.'之间的字符串
+    start = url.find('://') + 3  # '://'.length 是 3
+    end = start
+    dot_count = 0
+    while dot_count < 3:
+        end = url.find('.', end)
+        if end == -1:  # 如果没有找到第三个'.',就结束
+            break
+        dot_count += 1
+    return url[start:end] if dot_count == 3 else None
+# 打开输入文件和输出文件
+with open(file_path, 'r', encoding='utf-8') as file:
+    lines = file.readlines()
+# 获取总行数用于进度条
+total_lines = len(lines)
+# 写入通过检测的行到新文件
+with open(output_file_path, 'w', encoding='utf-8') as output_file:
+    # 使用tqdm显示进度条
+    for i, line in tqdm(enumerate(lines), total=total_lines, desc="Processing", unit='line'):
+        # 检查是否包含 'genre'
+        if 'genre' in line:
+            output_file.write(line)
+            continue
+        # 分割频道名称和URL,并去除空白字符
+        parts = line.split(',', 1)
+        if len(parts) == 2:
+            channel_name, url = parts
+            channel_name = channel_name.strip()
+            url = url.strip()
+            # 构造IP键
+            ip_key = get_ip_key(url)
+            if ip_key and ip_key in detected_ips:
+                # 如果IP键已存在,根据之前的结果决定是否写入新文件
+                if detected_ips[ip_key]['status'] == 'ok':
+                    output_file.write(line)
+            elif ip_key:  # 新IP键,进行检测
+                # 进行检测
+                cap = cv2.VideoCapture(url)
+                start_time = time.time()
+                frame_count = 0
+                # 尝试捕获5秒内的帧
+                while frame_count < 100 and (time.time() - start_time) < 5:
+                    ret, frame = cap.read()
+                    if not ret:
+                        break
+                    frame_count += 1
+                # 释放资源
+                cap.release()
+                # 根据捕获的帧数判断状态并记录结果
+                if frame_count >= 100:  #5秒内超过100帧则写入
+                    detected_ips[ip_key] = {'status': 'ok'}
+                    output_file.write(line)  # 写入检测通过的行
+                else:
+                    detected_ips[ip_key] = {'status': 'fail'}
+# 打印检测结果
+for ip_key, result in detected_ips.items():
+    print(f"IP Key: {ip_key}, Status: {result['status']}")
+
+
 
 
 
@@ -1468,7 +1537,7 @@ import fileinput
 ######################################################################################################################
 # 合并自定义频道文件,优选源整理
 file_contents = []
-file_paths = ["playlist/天津联通.txt", "playlist/四川电信.txt", "playlist/河北电信.txt", "playlist/河南电信.txt", "playlist/江苏电信.txt", "playlist/河南联通.txt", "playlist/湖南电信.txt", "酒店源.txt"]  # 替换为实际的文件路径列表
+file_paths = ["playlist/天津联通.txt", "playlist/四川电信.txt", "playlist/河北电信.txt", "playlist/河南电信.txt", "playlist/江苏电信.txt", "playlist/河南联通.txt", "playlist/湖南电信.txt"]  # 替换为实际的文件路径列表
 for file_path in file_paths:
     if os.path.exists(file_path):
         with open(file_path, 'r', encoding="utf-8") as file:
@@ -1716,7 +1785,7 @@ for line in lines:
   seen_lines.add(line)
 
 # 将唯一的行写入新的文档 
-with open('优选.txt', 'w', encoding="utf-8") as file:
+with open('组播优选.txt', 'w', encoding="utf-8") as file:
  file.writelines(unique_lines)
 
 
@@ -1727,7 +1796,7 @@ with open('优选.txt', 'w', encoding="utf-8") as file:
 files_to_remove = ['去重.txt', '分类.txt', "2.txt", "4.txt", "5.txt", "playlist/3.txt", "a0.txt", "a.txt", "a1.txt", "b0.txt", "b.txt", "c.txt", "c1.txt", "c2.txt", "d.txt", "e0.txt", "e.txt", "f0.txt", "f.txt", "f1.txt", \
                    "g0.txt", "g.txt", "g1.txt", "h0.txt", "h.txt", "h1.txt", "i.txt", \
               "i1.txt", "j.txt", "j1.txt", "k.txt", "l0.txt", "l.txt", "l1.txt", "m.txt", "m1.txt",  \
-              "n0.txt","n.txt","n1.txt", "o1.txt", "o.txt", "p.txt", "酒店源.txt"]
+              "n0.txt","n.txt","n1.txt", "o1.txt", "o.txt", "p.txt", "酒店源#.txt"]
 
 for file in files_to_remove:
     if os.path.exists(file):
