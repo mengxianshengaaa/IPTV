@@ -521,14 +521,6 @@ for url in urls:
 channels = []
 for result in results:
     line = result.strip()
-    #if result:
-        #channel_name, channel_url = result.split(',')
-        #channels.append((channel_name, channel_url))
-#with open("iptv.txt", 'a', encoding='utf-8') as file:           #打开文本以追加的形式写入行到ZHGX文件
-    #for result in results:
-        #file.write(result + "\n")
-        #print(result)
-
     try:
         # 尝试分割字符串，如果格式不正确则引发 ValueError
         channel_name, channel_url = line.split(',', 1)  # 使用逗号分割一次
