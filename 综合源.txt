@@ -514,7 +514,6 @@ TVB星河,http://171.108.239.129:8181/tsfile/live/1005_1.m3u8?key=txiptv&playliv
 东森洋片,http://171.108.239.124:8181/tsfile/live/1016_1.m3u8?key=txiptv&playlive=1&authid=0
 东森洋片,http://171.108.239.127:8181/tsfile/live/1016_1.m3u8?key=txiptv&playlive=1&authid=0
 东森洋片,http://171.108.239.128:8181/tsfile/live/1016_1.m3u8?key=txiptv&playlive=1&authid=0
-东森洋片,http://171.108.239.129:8181/tsfile/live/1016_1.m3u8?key=txiptv&playlive=1&authid=0
 凤凰香港,http://171.108.239.124:8181/tsfile/live/1025_1.m3u8?key=txiptv&playlive=1&authid=0
 凤凰香港,http://171.108.239.127:8181/tsfile/live/1025_1.m3u8?key=txiptv&playlive=1&authid=0
 凤凰香港,http://171.108.239.128:8181/tsfile/live/1025_1.m3u8?key=txiptv&playlive=1&authid=0
@@ -550,12 +549,10 @@ TVB星河,http://171.108.239.129:8181/tsfile/live/1005_1.m3u8?key=txiptv&playliv
 私人影院,http://171.108.239.124:8181/tsfile/live/1014_1.m3u8?key=txiptv&playlive=1&authid=0
 私人影院,http://171.108.239.127:8181/tsfile/live/1014_1.m3u8?key=txiptv&playlive=1&authid=0
 私人影院,http://171.108.239.128:8181/tsfile/live/1014_1.m3u8?key=txiptv&playlive=1&authid=0
-私人影院,http://171.108.239.129:8181/tsfile/live/1014_1.m3u8?key=txiptv&playlive=1&authid=0
 天映电影,http://171.108.239.124:8181/tsfile/live/1009_1.m3u8?key=txiptv&playlive=1&authid=0
 天映电影,http://171.108.239.127:8181/tsfile/live/1009_1.m3u8?key=txiptv&playlive=1&authid=0
 天映电影,http://171.108.239.128:8181/tsfile/live/1009_1.m3u8?key=txiptv&playlive=1&authid=0
 天映电影,http://171.108.239.129:8181/tsfile/live/1009_1.m3u8?key=txiptv&playlive=1&authid=0
-五星体育,http://210.22.75.86:9901/tsfile/live/1010_1.m3u8?key=txiptv&playlive=1&authid=0
 湖北频道,#genre#
 湖北电视台[内网],rtsp://111.48.34.138:1554/170000004112/10000100000000050000000002444593
 湖北公共[内网],rtsp://111.48.34.138:1554/170000004112/10000100000000050000000002444582
