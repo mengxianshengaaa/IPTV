@@ -1468,7 +1468,7 @@ import fileinput
 ######################################################################################################################
 # 合并自定义频道文件,优选源整理
 file_contents = []
-file_paths = ["playlist/天津联通.txt", "playlist/四川电信.txt", "playlist/河北电信.txt", "playlist/河南电信.txt", "酒店源.txt"]  # 替换为实际的文件路径列表
+file_paths = ["playlist/天津联通.txt", "playlist/四川电信.txt", "playlist/河北电信.txt", "playlist/河南电信.txt", "playlist/江苏电信.txt", "playlist/河南联通.txt", "playlist/湖南电信.txt", "酒店源.txt"]  # 替换为实际的文件路径列表
 for file_path in file_paths:
     if os.path.exists(file_path):
         with open(file_path, 'r', encoding="utf-8") as file:
