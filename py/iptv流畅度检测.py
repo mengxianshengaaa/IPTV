@@ -159,10 +159,10 @@ for url in valid_urls:
                             else:
                                 urld = (f"{urls[0]}//{url_data[2]}")
                             print(f"{name},{urld}")
-    except requests.exceptions.HTTPError as e:
-        print(f"HTTPError occurred: {e}")
-    except requests.exceptions.RequestException as e:
-        print(f"RequestException occurred: {e}")                            
+            except requests.exceptions.HTTPError as e:
+                print(f"HTTPError occurred: {e}")
+            except requests.exceptions.RequestException as e:
+                print(f"RequestException occurred: {e}")                            
                         if name and urld:
                             name = name.replace("高清电影", "影迷电影")                            
                             name = name.replace("中央", "CCTV")
