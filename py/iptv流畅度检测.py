@@ -116,51 +116,71 @@ for url in urls:
     for url in valid_urls:
         print(url)
     # 遍历网址列表,获取JSON文件并解析
-for url in valid_urls:
-    continue_parsing = True  # 初始化标志变量为True，表示继续解析
+for url in valid_urls:  # 遍历有效的URL列表
+    continue_parsing = True  # 初始化标志变量为True，表示继续解析当前的JSON文件
+
     try:
         # 发送GET请求获取JSON文件，设置超时时间为0.5秒
         response = requests.get(url, timeout=0.5)
-        response.raise_for_status()  # 检查响应的状态码，如果不是200，将抛出HTTPError异常
-        
+        response.raise_for_status()  # 如果响应的状态码不是200，将抛出HTTPError异常
+
+        # 将响应的内容解码为utf-8格式的字符串
         json_data = response.content.decode('utf-8')
-        lines = json_data.split('\n')
-        
-        # 只检查第一个urld的状态码
+        lines = json_data.split('\n')  # 按行分割JSON数据
+
+        # 检查是否有数据行
         if lines:
+            # 获取第一行数据
             first_line = lines[0]
+            # 检查这一行是否包含'hls'但不包含'udp'和'rtp'
             if 'hls' in first_line and ('udp' not in first_line and 'rtp' not in first_line):
-                first_line = first_line.strip()
+                first_line = first_line.strip()  # 去除字符串首尾的空白字符
+
+                # 如果处理后的第一行不为空
                 if first_line:
+                    # 分割第一行数据，获取名称和频道URL
                     name, channel_url = first_line.split(',')
-                    urls = channel_url.split('/', 3)
-                    url_data = url.split('/')
+                    urls = channel_url.split('/', 3)  # 分割频道URL
+                    url_data = url.split('/')  # 分割请求的URL
+
+                    # 根据URL部分构造urld
                     if len(urls) >= 4:
                         urld = (f"{urls[0]}://{url_data[2]}/{urls[3]}")
                     else:
                         urld = (f"{urls[0]}://{url_data[2]}")
-                    
-                    # 发送GET请求检查第一个urld的状态码
+
+                    # 发送GET请求检查urld的状态码
                     check_response = requests.get(urld, timeout=0.5)
+                    # 如果状态码不是200，设置标志为False，跳过当前JSON文件的解析
                     if check_response.status_code != 200:
-                        continue_parsing = False  # 如果状态码不是200，设置标志为False，跳过当前JSON文件的解析
+                        continue_parsing = False
 
         # 如果continue_parsing为True，继续解析当前JSON文件
         if continue_parsing:
-            for line in lines:
+            for line in lines:  # 遍历所有行
+                # 检查行是否包含'hls'但不包含'udp'和'rtp'
                 if 'hls' in line and ('udp' not in line and 'rtp' not in line):
-                    line = line.strip()
+                    line = line.strip()  # 去除字符串首尾的空白字符
+
+                    # 如果处理后的行不为空
                     if line:
+                        # 分割行数据，获取名称和频道URL
                         name, channel_url = line.split(',')
-                        urls = channel_url.split('/', 3)
-                        url_data = url.split('/')
+                        urls = channel_url.split('/', 3)  # 分割频道URL
+                        url_data = url.split('/')  # 分割请求的URL
+
+                        # 根据URL部分构造urld
                         if len(urls) >= 4:
                             urld = (f"{urls[0]}://{url_data[2]}/{urls[3]}")
                         else:
                             urld = (f"{urls[0]}://{url_data[2]}")
-                        print(f"{name},{urld}")
+
+                        print(f"{name},{urld}")  # 打印名称和urld
+
+                        # 如果名称和urld都存在
                         if name and urld:
-                            name = name.replace("高清电影", "影迷电影")  # 修正了这里的缩进错误                      
+                            # 替换名称中的特定字符串
+                            name = name.replace("高清电影", "影迷电影")                   
                             name = name.replace("中央", "CCTV")
                             name = name.replace("高清", "")
                             name = name.replace("HD", "")
@@ -264,12 +284,17 @@ for url in valid_urls:
                             name = name.replace("电视剧", "影视")
                             name = name.replace("奥运匹克", "")
                             results.append(f"{name},{urld}")
+# 将处理后的数据添加到结果列表
+
+    # 捕获HTTP请求过程中可能出现的HTTP错误
     except requests.exceptions.HTTPError as e:
-        print(f"HTTPError occurred: {e}")
+        print(f"HTTPError occurred: {e}")  # 打印错误信息
         # 如果发生HTTPError异常，设置标志为False，跳过当前JSON文件的解析
         continue_parsing = False
+
+    # 捕获请求过程中可能出现的其他异常
     except requests.exceptions.RequestException as e:
-        print(f"RequestException occurred: {e}")
+        print(f"RequestException occurred: {e}")  # 打印错误信息
         # 如果发生其他请求异常，设置标志为False，跳过当前JSON文件的解析
         continue_parsing = False
 channels = []
