@@ -264,10 +264,14 @@ for url in valid_urls:
                             name = name.replace("电视剧", "影视")
                             name = name.replace("奥运匹克", "")
                             results.append(f"{name},{urld}")
-            except:
-                continue
-        except:
-            continue
+    except requests.exceptions.HTTPError as e:
+        print(f"HTTPError occurred: {e}")
+        # 如果发生HTTPError异常，设置标志为False，跳过当前JSON文件的解析
+        continue_parsing = False
+    except requests.exceptions.RequestException as e:
+        print(f"RequestException occurred: {e}")
+        # 如果发生其他请求异常，设置标志为False，跳过当前JSON文件的解析
+        continue_parsing = False
 channels = []
 for result in results:
     line = result.strip()
