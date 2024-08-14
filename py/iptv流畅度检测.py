@@ -116,17 +116,39 @@ for url in urls:
     for url in valid_urls:
         print(url)
     # 遍历网址列表,获取JSON文件并解析
-    for url in valid_urls:
-        try:
-            # 发送GET请求获取JSON文件,设置超时时间为0.5秒
-            json_url = f"{url}"
-            response = requests.get(json_url, timeout=1)################################
-            json_data = response.content.decode('utf-8')
-            try:
-                    # 按行分割数据
-             lines = json_data.split('\n')
-             for line in lines:
-                 if 'hls' in line and ('udp' not in line or 'rtp' not in line):  #行中需包含m3u,但排除udp和trp
+for url in valid_urls:
+    continue_parsing = True  # 初始化标志变量为True，表示继续解析
+    try:
+        # 发送GET请求获取JSON文件，设置超时时间为0.5秒
+        response = requests.get(url, timeout=0.5)
+        response.raise_for_status()  # 检查响应的状态码，如果不是200，将抛出HTTPError异常
+        
+        json_data = response.content.decode('utf-8')
+        lines = json_data.split('\n')
+        
+        # 只检查第一个urld的状态码
+        if lines:
+            first_line = lines[0]
+            if 'hls' in first_line and ('udp' not in first_line and 'rtp' not in first_line):
+                first_line = first_line.strip()
+                if first_line:
+                    name, channel_url = first_line.split(',')
+                    urls = channel_url.split('/', 3)
+                    url_data = url.split('/')
+                    if len(urls) >= 4:
+                        urld = (f"{urls[0]}://{url_data[2]}/{urls[3]}")
+                    else:
+                        urld = (f"{urls[0]}://{url_data[2]}")
+                    
+                    # 发送GET请求检查第一个urld的状态码
+                    check_response = requests.get(urld, timeout=0.5)
+                    if check_response.status_code != 200:
+                        continue_parsing = False  # 如果状态码不是200，设置标志为False，跳过当前JSON文件的解析
+
+            # 如果continue_parsing为True，继续解析当前JSON文件
+            if continue_parsing:
+                for line in lines:
+                    if 'hls' in line and ('udp' not in line and 'rtp' not in line):  #行中需包含m3u,但排除udp和trp
                         line = line.strip()
                         if line:
                             name, channel_url = line.split(',')
@@ -137,6 +159,10 @@ for url in urls:
                             else:
                                 urld = (f"{urls[0]}//{url_data[2]}")
                             print(f"{name},{urld}")
+    except requests.exceptions.HTTPError as e:
+        print(f"HTTPError occurred: {e}")
+    except requests.exceptions.RequestException as e:
+        print(f"RequestException occurred: {e}")                            
                         if name and urld:
                             name = name.replace("高清电影", "影迷电影")                            
                             name = name.replace("中央", "CCTV")
