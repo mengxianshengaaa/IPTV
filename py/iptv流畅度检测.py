@@ -570,8 +570,8 @@ def test_connectivity(url, max_attempts=1): #定义测试HTTP连接的次数
     # 尝试连接指定次数    
    for _ in range(max_attempts):  
     try:
-        response = requests.head(url, timeout=1)  # 发送HEAD请求,仅支持V4,修改此行数字可定义链接超时
-        #response = requests.get(url, timeout=1)  # 发送get请求,支持V6,修改此行数字可定义链接超时
+        response = requests.head(url, timeout=3)  # 发送HEAD请求,仅支持V4,修改此行数字可定义链接超时##////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+        #response = requests.get(url, timeout=1)  # 发送get请求,支持V6,修改此行数字可定义链接超时##############################//////////////////////////////////////////////////////////////////////////////////////
         return response.status_code == 200  # 返回True如果状态码为200
     except requests.RequestException:  # 捕获requests引发的异常
         pass  # 发生异常时忽略
@@ -990,15 +990,15 @@ with open(output_file_path, 'w', encoding='utf-8') as output_file:
                 start_time = time.time()
                 frame_count = 0
                 # 尝试捕获5秒内的帧
-                while frame_count < 80 and (time.time() - start_time) < 5:
+                while frame_count < 20 and (time.time() - start_time) < 3:#//////////////////////////////////////////////////////////////////////////////////////###########
                     ret, frame = cap.read()
                     if not ret:
                         break
                     frame_count += 1
                 # 释放资源
                 cap.release()
-                # 根据捕获的帧数判断状态并记录结果
-                if frame_count >= 80:  #5秒内超过100帧则写入
+                # 根据捕获的帧数判断状态并记录结果#////////////////////////////////////////////////////////////////////////////////////////////////////////////////###########
+                if frame_count >= 20:  #5秒内超过100帧则写入#/////////////////////////////////////////////////////////////////////////////////////////////////////###########
                     detected_ips[ip_key] = {'status': 'ok'}
                     output_file.write(line)  # 写入检测通过的行
                 else:
