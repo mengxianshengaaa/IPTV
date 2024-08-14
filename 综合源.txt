@@ -294,6 +294,7 @@ TVB功夫台[EXO][EXO],https://v2h.jdshipin.com/asia_action/asia_action.stream/c
 中视经典,http://37.27.111.214:8080/live/47/hls.m3u8
 八大戏剧,http://61.221.215.25:8800/hls/39/index.m3u8
 公视戏剧,http://37.27.111.214:8080/live/87/hls.m3u8
+华纳影视,http://metatvpro.xyz:25461/W1045/4329/13145
 台湾番薯音乐台,http://61.216.67.119:1935/TWHG/E1/chunklist_w705811302.m3u8?音乐
 影剧,http://37.27.111.214:8080/live/88/hls.m3u8
 影视2,http://37.27.111.214:8080/live/109/hls.m3u8
@@ -325,8 +326,10 @@ FOXBusiness,http://41.205.93.154/FOXBUSINESS/index.m3u8
 FOXNEWSCHANNEL,http://0f3f161d.cbilant.com/iptv/DNKSGWXK47B9GH/19147/index.m3u8
 FOXNEWS,http://doubleclicktv.live:80/70376812/52663544/1038
 FOXNews,https://gat.zhoujie218.top/beesport/FOX_NEWS_Live_TV
+FOXSPORTS1TV,http://supersonictv.live:8080/live/Derrick/Hitman50$/78936.ts
 FOXSPORTS1,http://0f3f161d.cbilant.com/iptv/DNKSGWXK47B9GH/7322/index.m3u8
 FOXSPORTS1,http://doubleclicktv.live:80/70376812/52663544/915
+FOXSPORTS2TV,http://supersonictv.live:8080/live/Derrick/Hitman50$/78937.ts
 FOXSPORTS2,http://0f3f161d.cbilant.com/iptv/DNKSGWXK47B9GH/7323/index.m3u8
 FOXSPORTS2,http://doubleclicktv.live:80/70376812/52663544/914
 FOXSPORTS2,http://line.greatstar.me:80/play/live.php?mac=00:1A:79:B5:AD:4C&stream=174670&extension=ts&play_token=tvwbpRhuaP
@@ -339,6 +342,7 @@ FOXSPORTS,http://line.greatstar.me:80/play/live.php?mac=00:1A:79:B5:AD:4C&stream
 FOX新闻,https://fox-foxnewsnow-samsungus.amagi.tv/playlist720p.m3u8
 GOOD2,http://37.27.111.214:8080/live/99/hls.m3u8
 GRT[900p][900p][900p],https://stream1.freetv.fun/c8c19050366334011b277c1adf35b8c04b7c23086b3426230aa509101192f792.m3u8
+HBO家庭,http://metatvpro.xyz:25461/W1045/4329/13146
 HISTORY,http://37.27.111.214:8080/live/27/hls.m3u8
 HakkaTV,http://37.27.111.214:8080/live/1/hls.m3u8
 KOREA,http://37.27.111.214:8080/live/52/hls.m3u8
@@ -441,7 +445,7 @@ nickjr,http://37.27.111.214:8080/live/22/hls.m3u8
 大立电视,http://www.dalitv.com.tw:4568/live/dali/index.m3u8
 天良综合台,http://60.248.91.20:8000/main
 好消息综合台,https://dqhxk7sbp7xog.cloudfront.net/hls-live/goodtv/_definst_/liveevent/live-ch1-2.m3u8
-宇宙视界,https://www.goodiptv.club/douyu/9498354
+好莱坞电影,http://metatvpro.xyz:25461/W1045/4329/12284
 寰宇台湾,http://37.27.111.214:8080/live/63/hls.m3u8
 寰宇财经,http://37.27.111.214:8080/live/65/hls.m3u8
 幸福空间,http://37.27.111.214:8080/live/26/hls.m3u8
@@ -480,7 +484,6 @@ nickjr,http://37.27.111.214:8080/live/22/hls.m3u8
 澳门资讯,http://61.244.22.5/ch5/info_ch5.live/index.m3u8
 澳门风云,https://lunbo.freetv.top/yy/1459243913
 猪哥亮,http://37.27.111.214:8080/live/35/hls.m3u8
-环球电视,http://zb.xzxwhcb.com:9999/hls/world.m3u8
 番薯111,http://61.216.67.119:1935/TWHG/E1/chunklist_w7058102.m3u8?blog.ntnas.top
 番薯111,http://61.216.67.119:1935/TWHG/E1/chunklist_w70581102.m3u8
 番薯,http://61.216.67.119:1935/TWHG/E1/chunklist_w7058102.m3u8
@@ -510,6 +513,7 @@ TVB星河,http://171.108.239.124:8181/tsfile/live/1005_1.m3u8?key=txiptv&playliv
 TVB星河,http://171.108.239.127:8181/tsfile/live/1005_1.m3u8?key=txiptv&playlive=1&authid=0
 TVB星河,http://171.108.239.128:8181/tsfile/live/1005_1.m3u8?key=txiptv&playlive=1&authid=0
 TVB星河,http://171.108.239.129:8181/tsfile/live/1005_1.m3u8?key=txiptv&playlive=1&authid=0
+TVB星河,http://171.110.10.10:8181/tsfile/live/1073_1.m3u8?key=txiptv&playlive=1&authid=0
 东森超视,http://171.108.239.124:8181/tsfile/live/1023_1.m3u8?key=txiptv&playlive=1&authid=0
 东森超视,http://171.108.239.127:8181/tsfile/live/1023_1.m3u8?key=txiptv&playlive=1&authid=0
 东森超视,http://171.108.239.128:8181/tsfile/live/1023_1.m3u8?key=txiptv&playlive=1&authid=0
@@ -517,6 +521,7 @@ TVB星河,http://171.108.239.129:8181/tsfile/live/1005_1.m3u8?key=txiptv&playliv
 东森电影,http://171.108.239.124:8181/tsfile/live/1010_1.m3u8?key=txiptv&playlive=1&authid=0
 东森电影,http://171.108.239.127:8181/tsfile/live/1010_1.m3u8?key=txiptv&playlive=1&authid=0
 东森电影,http://171.108.239.128:8181/tsfile/live/1010_1.m3u8?key=txiptv&playlive=1&authid=0
+东森电影,http://171.108.239.129:8181/tsfile/live/1010_1.m3u8?key=txiptv&playlive=1&authid=0
 东森洋片,http://171.108.239.124:8181/tsfile/live/1016_1.m3u8?key=txiptv&playlive=1&authid=0
 东森洋片,http://171.108.239.127:8181/tsfile/live/1016_1.m3u8?key=txiptv&playlive=1&authid=0
 东森洋片,http://171.108.239.128:8181/tsfile/live/1016_1.m3u8?key=txiptv&playlive=1&authid=0

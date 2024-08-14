@@ -583,6 +583,8 @@ http://37.27.111.214:8080/live/47/hls.m3u8
 http://61.221.215.25:8800/hls/39/index.m3u8
 #EXTINF:-1 tvg-logo="https://live.fanmingming.com/tv/公视戏剧.png" group-title="港澳频道",公视戏剧
 http://37.27.111.214:8080/live/87/hls.m3u8
+#EXTINF:-1 tvg-logo="https://live.fanmingming.com/tv/华纳影视.png" group-title="港澳频道",华纳影视
+http://metatvpro.xyz:25461/W1045/4329/13145
 #EXTINF:-1 tvg-logo="https://live.fanmingming.com/tv/台湾番薯音乐台.png" group-title="港澳频道",台湾番薯音乐台
 http://61.216.67.119:1935/TWHG/E1/chunklist_w705811302.m3u8?音乐
 #EXTINF:-1 tvg-logo="https://live.fanmingming.com/tv/影剧.png" group-title="港澳频道",影剧
@@ -645,10 +647,14 @@ http://0f3f161d.cbilant.com/iptv/DNKSGWXK47B9GH/19147/index.m3u8
 http://doubleclicktv.live:80/70376812/52663544/1038
 #EXTINF:-1 tvg-logo="https://live.fanmingming.com/tv/FOXNews.png" group-title="港澳频道",FOXNews
 https://gat.zhoujie218.top/beesport/FOX_NEWS_Live_TV
+#EXTINF:-1 tvg-logo="https://live.fanmingming.com/tv/FOXSPORTS1TV.png" group-title="港澳频道",FOXSPORTS1TV
+http://supersonictv.live:8080/live/Derrick/Hitman50$/78936.ts
 #EXTINF:-1 tvg-logo="https://live.fanmingming.com/tv/FOXSPORTS1.png" group-title="港澳频道",FOXSPORTS1
 http://0f3f161d.cbilant.com/iptv/DNKSGWXK47B9GH/7322/index.m3u8
 #EXTINF:-1 tvg-logo="https://live.fanmingming.com/tv/FOXSPORTS1.png" group-title="港澳频道",FOXSPORTS1
 http://doubleclicktv.live:80/70376812/52663544/915
+#EXTINF:-1 tvg-logo="https://live.fanmingming.com/tv/FOXSPORTS2TV.png" group-title="港澳频道",FOXSPORTS2TV
+http://supersonictv.live:8080/live/Derrick/Hitman50$/78937.ts
 #EXTINF:-1 tvg-logo="https://live.fanmingming.com/tv/FOXSPORTS2.png" group-title="港澳频道",FOXSPORTS2
 http://0f3f161d.cbilant.com/iptv/DNKSGWXK47B9GH/7323/index.m3u8
 #EXTINF:-1 tvg-logo="https://live.fanmingming.com/tv/FOXSPORTS2.png" group-title="港澳频道",FOXSPORTS2
@@ -673,6 +679,8 @@ https://fox-foxnewsnow-samsungus.amagi.tv/playlist720p.m3u8
 http://37.27.111.214:8080/live/99/hls.m3u8
 #EXTINF:-1 tvg-logo="https://live.fanmingming.com/tv/GRT[900p][900p][900p].png" group-title="港澳频道",GRT[900p][900p][900p]
 https://stream1.freetv.fun/c8c19050366334011b277c1adf35b8c04b7c23086b3426230aa509101192f792.m3u8
+#EXTINF:-1 tvg-logo="https://live.fanmingming.com/tv/HBO家庭.png" group-title="港澳频道",HBO家庭
+http://metatvpro.xyz:25461/W1045/4329/13146
 #EXTINF:-1 tvg-logo="https://live.fanmingming.com/tv/HISTORY.png" group-title="港澳频道",HISTORY
 http://37.27.111.214:8080/live/27/hls.m3u8
 #EXTINF:-1 tvg-logo="https://live.fanmingming.com/tv/HakkaTV.png" group-title="港澳频道",HakkaTV
@@ -877,8 +885,8 @@ http://www.dalitv.com.tw:4568/live/dali/index.m3u8
 http://60.248.91.20:8000/main
 #EXTINF:-1 tvg-logo="https://live.fanmingming.com/tv/好消息综合台.png" group-title="港澳频道",好消息综合台
 https://dqhxk7sbp7xog.cloudfront.net/hls-live/goodtv/_definst_/liveevent/live-ch1-2.m3u8
-#EXTINF:-1 tvg-logo="https://live.fanmingming.com/tv/宇宙视界.png" group-title="港澳频道",宇宙视界
-https://www.goodiptv.club/douyu/9498354
+#EXTINF:-1 tvg-logo="https://live.fanmingming.com/tv/好莱坞电影.png" group-title="港澳频道",好莱坞电影
+http://metatvpro.xyz:25461/W1045/4329/12284
 #EXTINF:-1 tvg-logo="https://live.fanmingming.com/tv/寰宇台湾.png" group-title="港澳频道",寰宇台湾
 http://37.27.111.214:8080/live/63/hls.m3u8
 #EXTINF:-1 tvg-logo="https://live.fanmingming.com/tv/寰宇财经.png" group-title="港澳频道",寰宇财经
@@ -955,8 +963,6 @@ http://61.244.22.5/ch5/info_ch5.live/index.m3u8
 https://lunbo.freetv.top/yy/1459243913
 #EXTINF:-1 tvg-logo="https://live.fanmingming.com/tv/猪哥亮.png" group-title="港澳频道",猪哥亮
 http://37.27.111.214:8080/live/35/hls.m3u8
-#EXTINF:-1 tvg-logo="https://live.fanmingming.com/tv/环球电视.png" group-title="港澳频道",环球电视
-http://zb.xzxwhcb.com:9999/hls/world.m3u8
 #EXTINF:-1 tvg-logo="https://live.fanmingming.com/tv/番薯111.png" group-title="港澳频道",番薯111
 http://61.216.67.119:1935/TWHG/E1/chunklist_w7058102.m3u8?blog.ntnas.top
 #EXTINF:-1 tvg-logo="https://live.fanmingming.com/tv/番薯111.png" group-title="港澳频道",番薯111
@@ -1015,6 +1021,8 @@ http://171.108.239.127:8181/tsfile/live/1005_1.m3u8?key=txiptv&playlive=1&authid
 http://171.108.239.128:8181/tsfile/live/1005_1.m3u8?key=txiptv&playlive=1&authid=0
 #EXTINF:-1 tvg-logo="https://live.fanmingming.com/tv/TVB星河.png" group-title="港澳频道",TVB星河
 http://171.108.239.129:8181/tsfile/live/1005_1.m3u8?key=txiptv&playlive=1&authid=0
+#EXTINF:-1 tvg-logo="https://live.fanmingming.com/tv/TVB星河.png" group-title="港澳频道",TVB星河
+http://171.110.10.10:8181/tsfile/live/1073_1.m3u8?key=txiptv&playlive=1&authid=0
 #EXTINF:-1 tvg-logo="https://live.fanmingming.com/tv/东森超视.png" group-title="港澳频道",东森超视
 http://171.108.239.124:8181/tsfile/live/1023_1.m3u8?key=txiptv&playlive=1&authid=0
 #EXTINF:-1 tvg-logo="https://live.fanmingming.com/tv/东森超视.png" group-title="港澳频道",东森超视
@@ -1029,6 +1037,8 @@ http://171.108.239.124:8181/tsfile/live/1010_1.m3u8?key=txiptv&playlive=1&authid
 http://171.108.239.127:8181/tsfile/live/1010_1.m3u8?key=txiptv&playlive=1&authid=0
 #EXTINF:-1 tvg-logo="https://live.fanmingming.com/tv/东森电影.png" group-title="港澳频道",东森电影
 http://171.108.239.128:8181/tsfile/live/1010_1.m3u8?key=txiptv&playlive=1&authid=0
+#EXTINF:-1 tvg-logo="https://live.fanmingming.com/tv/东森电影.png" group-title="港澳频道",东森电影
+http://171.108.239.129:8181/tsfile/live/1010_1.m3u8?key=txiptv&playlive=1&authid=0
 #EXTINF:-1 tvg-logo="https://live.fanmingming.com/tv/东森洋片.png" group-title="港澳频道",东森洋片
 http://171.108.239.124:8181/tsfile/live/1016_1.m3u8?key=txiptv&playlive=1&authid=0
 #EXTINF:-1 tvg-logo="https://live.fanmingming.com/tv/东森洋片.png" group-title="港澳频道",东森洋片
