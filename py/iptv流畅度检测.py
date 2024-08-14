@@ -951,6 +951,20 @@ for file in files_to_remove:
         print(f"文件 {file} 不存在,跳过删除。")
 print("任务运行完毕,酒店源频道列表可查看文件夹内txt文件！")
 
+#对生成的文件进行合并
+file_contents = []
+file_paths = ['酒店源.txt', "xx.txt"]  # 替换为实际的文件路径列表
+for file_path in file_paths:
+    if os.path.exists(file_path):
+        with open(file_path, 'r', encoding="utf-8") as file:
+            content = file.read()
+            file_contents.append(content)
+    else:                # 如果文件不存在,则提示异常并打印提示信息
+        print(f"文件 {file_path} 不存在,跳过")
+# 写入合并后的文件
+with open('酒店源.txt', "w", encoding="utf-8") as output:
+    output.write('\n'.join(file_contents))
+
 
 import cv2
 import time
