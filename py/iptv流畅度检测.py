@@ -833,6 +833,20 @@ with open('酒店源.txt', 'w', encoding='utf-8') as new_file:
             line = line.replace(old, new)
         new_file.write(line)
 print("替换完成,新文件已保存。")
+
+#对生成的文件进行合并
+file_contents = []
+file_paths = ['酒店源.txt', "xx.txt"]  # 替换为实际的文件路径列表
+for file_path in file_paths:
+    if os.path.exists(file_path):
+        with open(file_path, 'r', encoding="utf-8") as file:
+            content = file.read()
+            file_contents.append(content)
+    else:                # 如果文件不存在,则提示异常并打印提示信息
+        print(f"文件 {file_path} 不存在,跳过")
+# 写入合并后的文件
+with open('酒店源.txt', "w", encoding="utf-8") as output:
+    output.write('\n'.join(file_contents))
 #
 ###############################################################################文本排序
 # 打开原始文件读取内容,并写入新文件
@@ -951,19 +965,7 @@ for file in files_to_remove:
         print(f"文件 {file} 不存在,跳过删除。")
 print("任务运行完毕,酒店源频道列表可查看文件夹内txt文件！")
 
-#对生成的文件进行合并
-file_contents = []
-file_paths = ['酒店源.txt', "xx.txt"]  # 替换为实际的文件路径列表
-for file_path in file_paths:
-    if os.path.exists(file_path):
-        with open(file_path, 'r', encoding="utf-8") as file:
-            content = file.read()
-            file_contents.append(content)
-    else:                # 如果文件不存在,则提示异常并打印提示信息
-        print(f"文件 {file_path} 不存在,跳过")
-# 写入合并后的文件
-with open('酒店源.txt', "w", encoding="utf-8") as output:
-    output.write('\n'.join(file_contents))
+
 
 
 import cv2
@@ -1017,7 +1019,7 @@ with open(output_file_path, 'w', encoding='utf-8') as output_file:
                 start_time = time.time()
                 frame_count = 0
                 # 尝试捕获5秒内的帧
-                while frame_count < 110 and (time.time() - start_time) < 5:
+                while frame_count < 100 and (time.time() - start_time) < 5:
                     ret, frame = cap.read()
                     if not ret:
                         break
@@ -1025,7 +1027,7 @@ with open(output_file_path, 'w', encoding='utf-8') as output_file:
                 # 释放资源
                 cap.release()
                 # 根据捕获的帧数判断状态并记录结果
-                if frame_count >= 110:  #5秒内超过100帧则写入
+                if frame_count >= 100:  #5秒内超过100帧则写入
                     detected_ips[ip_key] = {'status': 'ok'}
                     output_file.write(line)  # 写入检测通过的行
                 else:
