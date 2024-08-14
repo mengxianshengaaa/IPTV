@@ -144,24 +144,23 @@ for url in valid_urls:
                     check_response = requests.get(urld, timeout=0.5)
                     if check_response.status_code != 200:
                         continue_parsing = False  # 如果状态码不是200，设置标志为False，跳过当前JSON文件的解析
-                    else:
-                        continue                   
-            # 如果continue_parsing为True，继续解析当前JSON文件
-            if continue_parsing:
-                for line in lines:
-                    if 'hls' in line and ('udp' not in line and 'rtp' not in line):  #行中需包含m3u,但排除udp和trp
-                        line = line.strip()
-                        if line:
-                            name, channel_url = line.split(',')
-                            urls = channel_url.split('/', 3)
-                            url_data = json_url.split('/', 3)
-                            if len(urls) >= 4:
-                                urld = (f"{urls[0]}//{url_data[2]}/{urls[3]}")
-                            else:
-                                urld = (f"{urls[0]}//{url_data[2]}")
-                            print(f"{name},{urld}")                         
+
+        # 如果continue_parsing为True，继续解析当前JSON文件
+        if continue_parsing:
+            for line in lines:
+                if 'hls' in line and ('udp' not in line and 'rtp' not in line):
+                    line = line.strip()
+                    if line:
+                        name, channel_url = line.split(',')
+                        urls = channel_url.split('/', 3)
+                        url_data = url.split('/')
+                        if len(urls) >= 4:
+                            urld = (f"{urls[0]}://{url_data[2]}/{urls[3]}")
+                        else:
+                            urld = (f"{urls[0]}://{url_data[2]}")
+                        print(f"{name},{urld}")
                         if name and urld:
-                            name = name.replace("高清电影", "影迷电影")                            
+                            name = name.replace("高清电影", "影迷电影")  # 修正了这里的缩进错误                      
                             name = name.replace("中央", "CCTV")
                             name = name.replace("高清", "")
                             name = name.replace("HD", "")
