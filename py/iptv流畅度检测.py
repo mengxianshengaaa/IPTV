@@ -846,9 +846,9 @@ def main(source_file_path, output_file_path):
     # 使用with语句打开输出文件准备写入
     with open(output_file_path, 'w', encoding='utf-8') as output_file:
         # 创建线程池，最大工作线程数为64
-        with ThreadPoolExecutor(max_workers=128) as executor:
+        with ThreadPoolExecutor(max_workers=64) as executor:
             # 为线程池中的每个线程提交worker函数
-            for _ in range(128):
+            for _ in range(64):
                 executor.submit(worker, task_queue, output_file, order_list, valid_count, invalid_count, len(lines))
             # 将所有行放入任务队列
             for line in lines:
