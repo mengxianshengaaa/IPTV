@@ -25,18 +25,19 @@ url = "https://raw.githubusercontent.com/frxz751113/collect-tv-txt/main/merged_o
 r = requests.get(url)
 open('源.txt','wb').write(r.content)   
 
-with open('源.txt', 'r', encoding='utf-8') as file:
-    lines = file.readlines()
-filtered_lines = []
-for line in lines:
-    if ',' in line:
-       if 'epg' not in line and 'mitv' not in line and 'udp' not in line and 'rtp' not in line  and '[' not in line \
-            and 'P2p' not in line and 'p2p' not in line and 'p3p' not in line and 'P2P' not in line and 'P3p' not in line and 'P3P' not in line:
-          filtered_lines.append(line)
-return filtered_lines
 
-with open('源.txt', 'w', encoding='utf-8') as output_file:
-     output_file.writelines(filtered_lines)
+def filter_lines(input_file, output_file):
+    with open(input_file, 'r', encoding='utf-8') as file:
+        lines = file.readlines()
+    filtered_lines = []
+    for line in lines:
+        if ',' in line:  #行中包含m3u的同时还要包含hls或者tsfile
+          if 'epg' not in line and 'mitv' not in line and 'udp' not in line and 'rtp' not in line  and '[' not in line \
+            and 'P2p' not in line and 'p2p' not in line and 'p3p' not in line and 'P2P' not in line and 'P3p' not in line and 'P3P' not in line: 排除组播地址
+            filtered_lines.append(line)
+    with open(output_file, 'w', encoding='utf-8') as output_file:
+        output_file.writelines(filtered_lines)
+filter_lines("源.txt", "源.txt")
 #################################################### 对整理好的频道列表测试HTTP连接
 def test_connectivity(url, max_attempts=1): #定义测试HTTP连接的次数
     # 尝试连接指定次数    
