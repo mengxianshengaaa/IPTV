@@ -991,7 +991,7 @@ with open(output_file_path, 'w', encoding='utf-8') as output_file:
                 start_time = time.time()
                 frame_count = 0
                 # 尝试捕获5秒内的帧
-                while frame_count < 20 and (time.time() - start_time) < 3:#//////////////////////////////////////////////////////////////////////////////////////###########
+                while frame_count < 30 and (time.time() - start_time) < 2:#//////////////////////////////////////////////////////////////////////////////////////###########
                     ret, frame = cap.read()
                     if not ret:
                         break
@@ -999,7 +999,7 @@ with open(output_file_path, 'w', encoding='utf-8') as output_file:
                 # 释放资源
                 cap.release()
                 # 根据捕获的帧数判断状态并记录结果#////////////////////////////////////////////////////////////////////////////////////////////////////////////////###########
-                if frame_count >= 20:  #5秒内超过100帧则写入#/////////////////////////////////////////////////////////////////////////////////////////////////////###########
+                if frame_count >= 30:  #5秒内超过100帧则写入#/////////////////////////////////////////////////////////////////////////////////////////////////////###########
                     detected_ips[ip_key] = {'status': 'ok'}
                     output_file.write(line)  # 写入检测通过的行
                 else:
@@ -1744,7 +1744,7 @@ with open('组播优选.txt', 'w', encoding="utf-8") as file:
 files_to_remove = ['去重.txt', '分类.txt', "2.txt", "4.txt", "5.txt", "playlist/3.txt", "a0.txt", "a.txt", "a1.txt", "b0.txt", "b.txt", "c.txt", "c1.txt", "c2.txt", "d.txt", "e0.txt", "e.txt", "f0.txt", "f.txt", "f1.txt", \
                    "g0.txt", "g.txt", "g1.txt", "h0.txt", "h.txt", "h1.txt", "i.txt", \
               "i1.txt", "j.txt", "j1.txt", "k.txt", "l0.txt", "l.txt", "l1.txt", "m.txt", "m1.txt",  \
-              "n0.txt","n.txt","n1.txt", "o1.txt", "o.txt", "p.txt", "酒店源#.txt"]
+              "n0.txt","n.txt","n1.txt", "o1.txt", "o.txt", "p.txt", "酒店源.txt"]
 for file in files_to_remove:
     if os.path.exists(file):
         os.remove(file)
