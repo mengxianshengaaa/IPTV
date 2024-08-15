@@ -33,7 +33,7 @@ with open('源.txt', 'r', encoding='utf-8') as file:
          if 'epg' not in line and 'mitv' not in line and 'udp' not in line and 'rtp' not in line  and '[' not in line \
             and 'P2p' not in line and 'p2p' not in line and 'p3p' not in line and 'P2P' not in line and 'P3p' not in line and 'P3P' not in line:
           filtered_lines.append(line)
-    return filtered_lines
+        return filtered_lines
 
 with open('源.txt', 'w', encoding='utf-8') as output_file:
      output_file.writelines(filtered_lines)
