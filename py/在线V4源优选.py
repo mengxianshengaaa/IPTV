@@ -21,7 +21,7 @@ from bs4 import BeautifulSoup
 from urllib.parse import urlparse
 from translate import Translator
 
-url = "https://raw.githubusercontent.com/Fairy8o/IPTV/main/DIYP-v4.txt"          #源采集地址
+url = "https://raw.githubusercontent.com/Fairy8o/IPTV/main/PDX-V4.txt"          #源采集地址
 r = requests.get(url)
 open('源.txt','wb').write(r.content)   
 
