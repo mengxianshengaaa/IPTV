@@ -81,6 +81,39 @@ if __name__ == "__main__":
         main(source_file_path, output_file_path)  # 调用main函数
     except Exception as e:
         print(f"程序发生错误: {e}")  # 打印错误信息
+
+#########################################################################提取源1中的有效行
+def filter_lines(file_path):
+    with open(file_path, 'r', encoding='utf-8') as file:  # 打开文件
+        lines = file.readlines()  # 读取所有行
+    filtered_lines = []  # 初始化过滤后的行列表
+    for line in lines:  # 遍历所有行
+        if 'genre' in line or '有效' in line:  # 如果行中包含'genre'或'有效'
+            filtered_lines.append(line)  # 将行添加到过滤后的行列表
+    return filtered_lines  # 返回过滤后的行列表
+def write_filtered_lines(output_file_path, filtered_lines):
+    with open(output_file_path, 'w', encoding='utf-8') as output_file:  # 打开输出文件
+        output_file.writelines(filtered_lines)  # 写入过滤后的行
+if __name__ == "__main__":
+    input_file_path = "源1.txt"  # 设置输入文件路径
+    output_file_path = "源1.txt"  # 设置输出文件路径
+    filtered_lines = filter_lines(input_file_path)  # 调用filter_lines函数
+    write_filtered_lines(output_file_path, filtered_lines)  # 调用write_filtered_lines函数
+###################################################################################定义替换规则的字典,对整行内的内容进行替换
+replacements = {
+    ",有效": "",  # 将",有效"替换为空字符串
+    "#genre#,无效": "#genre#",  # 将"#genre#,无效"替换为"#genre#"
+}
+# 打开原始文件读取内容,并写入新文件
+with open('源1.txt', 'r', encoding='utf-8') as file:
+    lines = file.readlines()
+# 创建新文件并写入替换后的内容
+with open('源1.txt', 'w', encoding='utf-8') as new_file:
+    for line in lines:
+        for old, new in replacements.items():  # 遍历替换规则字典
+            line = line.replace(old, new)  # 替换行中的内容
+        new_file.write(line)  # 写入新文件
+print("新文件已保存。")  # 打印完成信息
 # 初始化优选字典
 detected_ips = {}
 # 存储文件路径
