@@ -1,0 +1,54 @@
+央视频道,#genre#
+8K | NATIONAL GEOGRAPHIC,http://mutant.arrox.top:80/live/iPKJmCy0r/krfwNE8z4h/150542.m3u8
+Loupe 4K,https://d2dw21aq0j0l5c.cloudfront.net/playlist_3840x2160.m3u8
+Love Nature 4K,https://d18dyiwu97wm6q.cloudfront.net/playlist2160p.m3u8
+烧的寂寞,https://txmov2.a.kwimgs.com/upic/2022/06/06/20/BMjAyMjA2MDYyMDM3MzJfOTU2MzA3MDg4Xzc2MTk2MTI0Njk5XzJfMw==_b_B919e9dbb0e659aa42131b67fb059fbc6.mp4?clientCacheKey=3x7irye4k6zr4ti_b.mp4&tt=b&di=24712421&bp=13380
+
+卫视频道,#genre#
+山东教育卫视,http://1.30.18.218:20080/hls/131/index.m3u8
+影视频道,#genre#
+AMC电影台,http://61.221.215.25:8800/hls/43/index.m3u8
+安徽影视,http://112.30.194.221:20080/live/d18ff95cb1fb4bbcb56215e189fc12be/hls.m3u8?zanhd
+八大戏剧,http://61.221.215.25:8800/hls/39/index.m3u8
+都市剧场,http://1.30.18.218:20080/hls/121/index.m3u8
+淮安影视,http://live1.habctv.com/ysylsl/playlist.m3u8
+溧水影视,http://live.lsrmw.cn/ysyl/sd/live.m3u8
+平泉影视频道,http://jwliveqxzb.hebyun.com.cn/pqys/pqys.m3u8
+三立戏剧,http://61.221.215.25:8800/hls/41/index.m3u8
+上虞影视,http://l.cztvcloud.com/channels/lantian/SXshangyu2/720p.m3u8
+绍兴影院频道,http://live.shaoxing.com.cn/video/s10001-sxtv3/index.m3u8
+绍兴影院✪另,http://live.shaoxing.com.cn/video/s10001-sxtv3/index.m3u8
+时代剧専门チャンネル,https://stream01.willfonk.com/live_playlist.m3u8?cid=CS292&r=FHD&ccode=JP&m=d0:20:20:04:35:cc&t=0d6938cb3dcf4b79848bc1753a59daf1
+新昌影视,https://l.cztvcloud.com/channels/lantian/SXxinchang2/720p.m3u8
+烟台影视,http://live.yantaitv.cn/live/e9f1d9045d474c31884d13fa4ffbbd16/a4a9b3704d854756907845107cc56129-1.m3u8
+烟台影视,http://live.yantaitv.cn/live/e9f1d9045d474c31884d13fa4ffbbd16/a4a9b3704d854756907845107cc56129.m3u8
+影视频道,http://112.30.194.221:20080/live/d18ff95cb1fb4bbcb56215e189fc12be/hls.m3u8
+ファミリー剧场,https://stream01.willfonk.com/live_playlist.m3u8?cid=CS293&r=FHD&ccode=JP&m=d0:20:20:04:35:cc&t=0d6938cb3dcf4b79848bc1753a59daf1
+港澳频道,#genre#
+Bloomberg,http://125.227.210.55:8161/VideoInput/play.ts
+CN卡通,http://125.227.210.55:8167/VideoInput/play.ts
+ESPN 1 ⁴ᵏ,http://mutant.arrox.top:80/live/iPKJmCy0r/krfwNE8z4h/301371.m3u8
+ESPN 3 ⁴ᵏ,http://mutant.arrox.top:80/live/iPKJmCy0r/krfwNE8z4h/301373.m3u8
+ESPN 4 ⁴ᵏ,http://mutant.arrox.top:80/live/iPKJmCy0r/krfwNE8z4h/301374.m3u8
+HBO,http://41.205.93.154/HBO/index.m3u8
+TVBS新聞,http://125.227.210.55:8186/VideoInput/play.ts
+TVBS NEWS,http://61.221.215.25:8800/hls/9/index.m3u8
+WWE,https://d2p372oxiwmcn1.cloudfront.net/hls/1080p/playlist.m3u8
+八大第一,http://61.221.215.25:8800/hls/55/index.m3u8
+八大综合,http://61.221.215.25:8800/hls/56/index.m3u8
+大爱一台,https://pulltv1.wanfudaluye.com/live/tv1.m3u8
+动物星球,http://61.221.215.25:8800/hls/57/index.m3u8
+凤凰香港,http://116.162.6.192/1.v.smtcdns.net/qctv.fengshows.cn/live/0701phk72.m3u8
+凤凰中文,http://116.162.6.192/1.v.smtcdns.net/qctv.fengshows.cn/live/0701pcc72.m3u8
+凤凰资讯,http://116.162.6.192/1.v.smtcdns.net/qctv.fengshows.cn/live/0701pin72.m3u8
+凤凰资讯,http://61.221.215.25:8800/hls/47/index.m3u8
+福建漳州醉美沙滩翡翠湾,https://gcalic.v.myalicdn.com/gc/fcw03_1/index.m3u8
+广西玉林大容山莲花山顶,https://gcalic.v.myalicdn.com/gc/drs01_1/index.m3u8
+红牛TV,http://rbmn-live.akamaized.net:80/hls/live/590964/BoRB-AT/master_1660.m3u8?
+环球电视台,http://zb.xzxwhcb.com:9999/hls/world.m3u8
+皇马RMTV,https://rmtv.akamaized.net/hls/live/2043153/rmtv-es-web/bitrate_3.m3u8
+三立台灣,http://125.227.210.55:8160/VideoInput/play.ts
+三立新聞,http://125.227.210.55:8162/VideoInput/play.ts
+探索亚洲,http://61.221.215.25:8800/hls/50/index.m3u8
+纬来精彩,http://61.221.215.25:8800/hls/48/index.m3u8
+中华小当家,http://61.221.215.25:8800/hls/40/index.m3u8
