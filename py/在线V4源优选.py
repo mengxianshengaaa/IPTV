@@ -32,9 +32,8 @@ def filter_lines(input_file, output_file):
     filtered_lines = []
     for line in lines:
         if ',' in line:  #行中包含m3u的同时还要包含hls或者tsfile
-          if 'epg' not in line and 'mitv' not in line and 'udp' not in line and 'rtp' not in line  and '[' not in line \
-               and 'P2p' not in line and 'p2p' not in line and 'p3p' not in line and 'P2P' not in line and 'P3p' not in line and 'P3P' not in line: 排除组播地址
-            filtered_lines.append(line)
+          if 'epg' not in line and 'mitv' not in line and 'udp' not in line and 'rtp' not in line  and '[' not in line and 'P2p' not in line and 'p2p' not in line and 'p3p' not in line and 'P2P' not in line and 'P3p' not in line and 'P3P' not in line: 排除组播地址
+        filtered_lines.append(line)
     with open(output_file, 'w', encoding='utf-8') as output_file:
         output_file.writelines(filtered_lines)
 filter_lines("源.txt", "源.txt")
