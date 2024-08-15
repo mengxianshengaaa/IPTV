@@ -32,8 +32,11 @@ with open("源.txt", 'r', encoding='utf-8') as file:
     lines = file.readlines()
 
 # 使用列表推导式过滤行
-filtered_lines = [line for line in lines if ',' in line and 
-                  all(substr not in line for substr in ['epg', 'mitv', 'udp', 'rtp', '[', 'P2p', 'p2p', 'p3p', 'P2P', 'P3p', 'P3P'])]
+filtered_lines = [
+    line for line in lines 
+    if any(substr.lower() in line.lower() for substr in ['CCTV', '卫视', '4K', '4k', '8K', '影', '剧', '经典']) 
+    and not any(substr.lower() in line.lower() for substr in ['epg', 'mitv', 'udp', 'rtp', 'P2P', 'p2p', '[', 'P3P'])
+]
 
 # 使用with语句打开输出文件进行写入
 with open("源.txt", 'w', encoding='utf-8') as output_file:
