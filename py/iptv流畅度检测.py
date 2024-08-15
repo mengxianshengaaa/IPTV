@@ -991,7 +991,7 @@ with open(output_file_path, 'w', encoding='utf-8') as output_file:
                 start_time = time.time()
                 frame_count = 0
                 # 尝试捕获5秒内的帧
-                while frame_count < 60 and (time.time() - start_time) < 3:#//////////////////////////////////////////////////////////////////////////////////////###########
+                while frame_count < 66 and (time.time() - start_time) < 3:#//////////////////////////////////////////////////////////////////////////////////////###########
                     ret, frame = cap.read()
                     if not ret:
                         break
@@ -999,7 +999,7 @@ with open(output_file_path, 'w', encoding='utf-8') as output_file:
                 # 释放资源
                 cap.release()
                 # 根据捕获的帧数判断状态并记录结果#////////////////////////////////////////////////////////////////////////////////////////////////////////////////###########
-                if frame_count >= 60:  #5秒内超过100帧则写入#/////////////////////////////////////////////////////////////////////////////////////////////////////###########
+                if frame_count >= 66:  #5秒内超过100帧则写入#/////////////////////////////////////////////////////////////////////////////////////////////////////###########
                     detected_ips[ip_key] = {'status': 'ok'}
                     output_file.write(line)  # 写入检测通过的行
                 else:
@@ -1007,10 +1007,312 @@ with open(output_file_path, 'w', encoding='utf-8') as output_file:
 # 打印检测结果
 for ip_key, result in detected_ips.items():
     print(f"IP Key: {ip_key}, Status: {result['status']}")
-print("检测完毕,继续组播IP查找")
-print("检测完毕,继续组播IP查找")
-print("检测完毕,下一步组播IP查找")
-print("检测完毕,下一步组播IP查找")
+
+
+
+##########################################################IP段去重,保留最后一个IP段，防止高峰拥堵，也减少不必要的检测行
+import re
+def deduplicate_lines(input_file_path, output_file_path):
+    seen_combinations = {}
+    unique_lines = []
+    with open(input_file_path, 'r', encoding='utf-8') as file:
+        for line in file:
+            # 使用正则表达式查找行中的所有URL，并捕获IP地址、端口号和端口号之后的部分
+            urls = re.findall(r'http://([\d.]+):(\d+)(/.*)?', line)
+            # 为每个URL生成一个去重键
+            for full_url in urls:
+                ip, port, path = full_url
+                ip_parts = ip.split('.')
+                if len(ip_parts) < 3:
+                    continue
+                # 使用IP的前三个字段和端口号之后的部分生成去重键
+                combination_key = f"{ip_parts[0]}.{ip_parts[1]}.{ip_parts[2]}-{port}-{path or ''}"
+                # 检查这个组合是否已经出现过
+                if combination_key not in seen_combinations:
+                    # 如果没有出现过，记录当前行和去重键
+                    seen_combinations[combination_key] = line.strip()
+                else:
+                    # 如果已经出现过，更新为最后出现的行
+                    seen_combinations[combination_key] = line.strip()
+    # 将去重后的所有唯一行写入新文件
+    with open(output_file_path, 'w', encoding='utf-8') as file:
+        for line in seen_combinations.values():
+            file.write(line + '\n')
+print(f"IP段去重完成")            
+# 调用函数
+input_file_path = '酒店优选.txt'
+output_file_path = '酒店优选.txt'
+deduplicate_lines(input_file_path, output_file_path)
+################################################################################
+
+
+#################################################### 对整理好的频道列表测试HTTP连接
+# 函数：获取视频分辨率
+def get_video_resolution(video_path, timeout=2):
+    # 使用OpenCV创建视频捕获对象
+    cap = cv2.VideoCapture(video_path)
+    # 检查视频是否成功打开
+    if not cap.isOpened():
+        return None
+    # 获取视频的宽度和高度
+    width = int(cap.get(cv2.CAP_PROP_FRAME_WIDTH))
+    height = int(cap.get(cv2.CAP_PROP_FRAME_HEIGHT))
+    # 释放视频捕获对象
+    cap.release()
+    # 返回视频的分辨率
+    return (width, height)
+
+# 函数：处理每一行
+def process_line(line, output_file, order_list, valid_count, invalid_count, total_lines):
+    # 去除行尾的空白字符并按逗号分割行
+    parts = line.strip().split(',')
+    # 如果行包含特定的标签'#genre#'，则直接写入新文件
+    if '#genre#' in line:
+        with threading.Lock():  # 使用线程锁保证写入操作的原子性
+            output_file.write(line)
+            print(f"已写入genre行：{line.strip()}")
+    # 如果分割后的部分数量为2，则继续处理
+    elif len(parts) == 2:
+        channel_name, channel_url = parts
+        # 获取视频的分辨率
+        resolution = get_video_resolution(channel_url, timeout=2)
+        # 如果分辨率有效且高度大于等于720p
+        if resolution and resolution[1] >= 720:
+            with threading.Lock():  # 使用线程锁
+                output_file.write(f"{channel_name}[{resolution[1]}p],{channel_url}\n")
+                # 将频道名、分辨率和URL添加到列表中
+                order_list.append((channel_name, resolution[1], channel_url))
+                # 有效计数增加
+                valid_count[0] += 1
+                print(f"Channel '{channel_name}' accepted with resolution {resolution[1]}p at URL {channel_url}.")
+        else:
+            # 如果分辨率不满足条件，无效计数增加
+            invalid_count[0] += 1
+    # 打印当前处理进度
+    with threading.Lock():
+        print(f"有效: {valid_count[0]}, 无效: {invalid_count[0]}, 总数: {total_lines}, 进度: {(valid_count[0] + invalid_count[0]) / total_lines * 100:.2f}%")
+
+# 函数：多线程工作
+def worker(task_queue, output_file, order_list, valid_count, invalid_count, total_lines):
+    # 循环直到队列为空
+    while True:
+        try:
+            # 从队列中获取任务，超时时间为1秒
+            line = task_queue.get(timeout=1)
+            # 处理获取的任务
+            process_line(line, output_file, order_list, valid_count, invalid_count, total_lines)
+        except Queue.Empty:  # 如果队列为空，捕获异常
+            break
+        finally:
+            # 标记任务已完成
+            task_queue.task_done()
+
+# 主函数
+def main(source_file_path, output_file_path):
+    # 初始化列表和计数器
+    order_list = []
+    valid_count = [0]
+    invalid_count = [0]
+    task_queue = Queue()
+    # 使用with语句打开源文件并读取所有行
+    with open(source_file_path, 'r', encoding='utf-8') as source_file:
+        lines = source_file.readlines()
+    # 使用with语句打开输出文件准备写入
+    with open(output_file_path, 'w', encoding='utf-8') as output_file:
+        # 创建线程池，最大工作线程数为64
+        with ThreadPoolExecutor(max_workers=64) as executor:
+            # 为线程池中的每个线程提交worker函数
+            for _ in range(64):
+                executor.submit(worker, task_queue, output_file, order_list, valid_count, invalid_count, len(lines))
+            # 将所有行放入任务队列
+            for line in lines:
+                task_queue.put(line)
+            # 等待队列中的所有任务完成
+            task_queue.join()
+    # 打印任务完成的统计信息
+    print(f"任务完成，有效频道数：{valid_count[0]}, 无效频道数：{invalid_count[0]}, 总频道数：{len(lines)}")
+
+# 程序入口点
+if __name__ == "__main__":
+    # 定义源文件和输出文件的路径
+    source_file_path = '酒店优选.txt'  # 替换为你的源文件路径
+    output_file_path = '酒店优选.txt'  # 替换为你的输出文件路径
+    # 调用主函数
+    main(source_file_path, output_file_path)
+
+
+####################### 提示用户输入文件名（拖入文件操作）打开用户指定的文件对不规范频道名再次替换
+file_path = '酒店优选.txt'
+# 检查文件是否存在
+if not os.path.isfile(file_path):
+    print("文件不存在，请重新输入.")
+    exit(1)
+with open(file_path, 'r', encoding="utf-8") as file:
+    # 读取所有行并存储到列表中
+    lines = file.readlines()
+#定义替换规则的字典对频道名替换
+replacements = {
+    	"-": "",
+    	"星河": "TVB星河",
+    	"福建东南卫视": "东南卫视",
+    	"CCTV风云音乐": "风云音乐",
+    	"本港台（珠江）": "TVB星河",
+    	"\n都市": "\n河南都市",
+    	"": "",
+    	"": "",
+    	"SD": "",
+    	"「": "",
+    	"AA": "",
+    	"XF": "",
+    	"": "",
+    	"": "",
+    	"湖南金鹰纪实": "金鹰纪实",
+    	"频道": "",
+    	"CCTV-": "CCTV",
+    	"CCTV_": "CCTV",
+    	" ": "",
+    	"CCTV高尔夫网球": "高尔夫网球",
+    	"CCTV发现之旅": "发现之旅",
+    	"CCTV中学生": "中学生",
+    	"CCTV兵器科技": "兵器科技",
+    	"CCTV地理世界": "地理世界",
+    	"CCTV风云足球": "风云足球",
+    	"CCTV央视台球": "央视台球",
+    	"CCTV台球": "台球",
+    	"CCTV高尔夫网球": "高尔夫网球",
+    	"CCTV中视购物": "中视购物",
+    	"CCTV发现之旅": "发现之旅",
+    	"CCTV中学生": "中学生",
+    	"CCTV高尔夫网球": "高尔夫网球",
+    	"CCTV风云剧场": "风云剧场",
+    	"CCTV第一剧场": "第一剧场",
+    	"CCTV怀旧剧场": "怀旧剧场",
+    	"CCTV风云剧场": "风云剧场",
+    	"CCTV第一剧场": "第一剧场",
+    	"CCTV怀旧剧场": "怀旧剧场",
+    	"IPTV": "",
+    	"PLUS": "+",
+    	"＋": "+",
+    	"(": "",
+    	")": "",
+    	"CAV": "",
+    	"美洲": "",
+    	"北美": "",
+    	"12M": "",
+    	"高清测试CCTV-1": "",
+    	"高清测试CCTV-2": "",
+    	"高清测试CCTV-7": "",
+    	"高清测试CCTV-10": "",
+    	"LD": "",
+    	"HEVC20M": "",
+    	"S,": ",",
+    	"测试": "",
+    	"CCTW": "CCTV",
+    	"试看": "",
+    	"测试": "",
+    	"NewTv": "",
+    	"NEWTV": "",
+    	"NewTV": "",
+    	"iHOT": "",
+    	"CHC": "",
+    	"测试cctv": "CCTV",
+    	"凤凰中文台": "凤凰中文",
+    	"凤凰资讯台": "凤凰资讯",
+    	"(CCTV4K测试）": "CCTV4K",
+    	"上海东方卫视": "上海卫视",
+    	"东方卫视": "上海卫视",
+    	"内蒙卫视": "内蒙古卫视",
+    	"福建东南卫视": "东南卫视",
+    	"广东南方卫视": "南方卫视",
+    	"湖南金鹰卡通": "金鹰卡通",
+    	"炫动卡通": "哈哈炫动",
+    	"卡酷卡通": "卡酷少儿",
+    	"卡酷动画": "卡酷少儿",
+    	"BRTVKAKU少儿": "卡酷少儿",
+    	"优曼卡通": "优漫卡通",
+    	"优曼卡通": "优漫卡通",
+    	"嘉佳卡通": "佳嘉卡通",
+    	"世界地理": "地理世界",
+    	"CCTV世界地理": "地理世界",
+    	"BTV北京卫视": "北京卫视",
+    	"BTV冬奥纪实": "冬奥纪实",
+    	"东奥纪实": "冬奥纪实",
+    	"卫视台": "卫视",
+    	"湖南电视台": "湖南卫视",
+    	"少儿科教": "少儿",
+    	"影视剧": "影视",
+    	"电视剧": "影视",
+    	"CCTV1CCTV1": "CCTV1",
+    	"CCTV2CCTV2": "CCTV2",
+    	"CCTV7CCTV7": "CCTV7",
+    	"CCTV10CCTV10": "CCTV10"
+}
+
+
+with open('酒店优选.txt', 'w', encoding='utf-8') as new_file:
+    for line in lines:
+        # 去除行尾的换行符
+        line = line.rstrip('\n')
+        # 分割行，获取逗号前的字符串
+        parts = line.split(',', 1)
+        if len(parts) > 0:
+            # 替换逗号前的字符串
+            before_comma = parts[0]
+            for old, new in replacements.items():
+                before_comma = before_comma.replace(old, new)
+            # 将替换后的逗号前部分和逗号后部分重新组合成一行，并写入新文件
+            new_line = f'{before_comma},{parts[1]}\n' if len(parts) > 1 else f'{before_comma}\n'
+            new_file.write(new_line)
+
+#####################################定义替换规则的字典,对整行内的多余标识内容进行替换
+replacements = {
+    	"（）": "",
+        "湖北,": "湖北卫视,",
+        "广东,": "广东卫视,",
+        "安徽,": "安徽卫视,",
+        "峨眉电影": "峨眉电影[50FPS]",
+        "T[": "T",
+        "dx[": "[",
+        "g[": "[",
+        "P[": "+[",
+        "lt[": "[",
+        "电信": "",
+        "卫视高清": "卫视",
+        "SCTV5": "",
+        "": "",
+        "": "",
+        "": ""
+}
+# 打开原始文件读取内容，并写入新文件
+with open('酒店优选.txt', 'r', encoding='utf-8') as file:
+    lines = file.readlines()
+# 创建新文件并写入替换后的内容
+with open('酒店源.txt', 'w', encoding='utf-8') as new_file:
+    for line in lines:
+        for old, new in replacements.items():
+            line = line.replace(old, new)
+        new_file.write(line)
+print("替换完成，新文件已保存。")
+
+
+###############################################################################文本排序
+# 打开原始文件读取内容，并写入新文件
+with open('酒店优选.txt', 'r', encoding='utf-8') as file:
+    lines = file.readlines()
+# 定义一个函数，用于提取每行的第一个数字
+def extract_first_number(line):
+    match = re.search(r'\d+', line)
+    return int(match.group()) if match else float('inf')
+# 对列表中的行进行排序
+# 按照第一个数字的大小排列，如果不存在数字则按中文拼音排序
+sorted_lines = sorted(lines, key=lambda x: (not 'CCTV' in x, extract_first_number(x) if 'CCTV' in x else lazy_pinyin(x.strip())))
+# 将排序后的行写入新的utf-8编码的文本文件，文件名基于原文件名
+output_file_path = "sorted_" + os.path.basename(file_path)
+# 写入新文件
+with open('酒店优选.txt', "w", encoding="utf-8") as file:
+    for line in sorted_lines:
+        file.write(line)
+print(f"文件已排序并保存为新文件")
 print("\n\n\n\n\n\n")
 
 ######################################################################################################################
