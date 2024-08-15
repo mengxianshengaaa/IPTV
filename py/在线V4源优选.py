@@ -21,7 +21,7 @@ from bs4 import BeautifulSoup
 from urllib.parse import urlparse
 from translate import Translator
 
-url = "https://raw.githubusercontent.com/Fairy8o/IPTV/main/PDX-V4.txt"          #源采集地址
+url = "https://raw.githubusercontent.com/yuanzl77/IPTV/main/live.txt"          #源采集地址
 r = requests.get(url)
 open('源.txt','wb').write(r.content)   
 
@@ -43,7 +43,7 @@ filtered_lines = [
                                                          'HBO', 'HISTORY', 'HOY国际财经', 'HakkaTV', 'J2', 'KOREA', 'LISTENONSPOTIFY', 'LUXE', 'MCE', 'MTV', 'Now', 'PremierSports', 'ROCK', 'SPOTV', 'TiTV', \
                                                          'VOA', 'ViuTV', 'ViuTV6', 'WSport', 'WWE', '八度', '博斯', '达文西', '迪士尼', '动物星球', '港石金曲', '红牛', '互动英语', '华纳影视', '华语剧台', 'ELTV', \
                                                          '欢喜台', '旅游', '美食星球', 'nhkworld', 'nickjr', '千禧', '全球财经', '探案', '探索', '小尼克', '幸福空间', '影剧', '粤语片台', '智林', '猪哥亮']) 
-    and not any(substr.lower() in line.lower() for substr in ['epg', 'mitv', 'udp', 'rtp', '[', 'P2P', 'p2p', 'P3P'])
+    and not any(substr.lower() in line.lower() for substr in ['epg', 'mitv', 'udp#', 'rtp#', '[', 'P2P', 'p2p', 'P3P'])
 ]
 
 # 使用with语句打开输出文件进行写入
