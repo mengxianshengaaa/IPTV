@@ -34,12 +34,12 @@ urls = [
     "https://fofa.info/result?qbase64=c2VydmVyPSJHWF9PUyAxLjAiICYmIHJlZ2lvbj0iSGVuYW4i",#server="GX_OS 1.0" && region="河南"
     "https://fofa.info/result?qbase64=c2VydmVyPSJHWF9PUyAxLjAiICYmIHJlZ2lvbj0iSGViZWki",##server="GX_OS 1.0" && region="河北"
     "https://fofa.info/result?qbase64=c2VydmVyPSJHWF9PUyAxLjAiICYmIHJlZ2lvbj0i5bm%2F5LicIg%3D%3D",#server="GX_OS 1.0" && region="广东"
-    "https://fofa.info/result?qbase64=IlpIR1hUViIgJiYgcmVnaW9uPSJndWFuZ2Rvbmci",#广东
-    "https://fofa.info/result?qbase64=IlpIR1hUViIgJiYgcmVnaW9uPSJIdW5hbiI%3D",#湖南
-    "https://fofa.info/result?qbase64=IlpIR1hUViIgJiYgcmVnaW9uPSJIZW5hbiI%3D",#server="nginx"
-    "https://fofa.info/result?qbase64=c2VydmVyPSJHWF9PUyAxLjAi",#server="GX_OS 1.0"
-    "https://fofa.info/result?qbase64=c2VydmVyPSJuZ2lueCI%3D",#河南#
-    "https://fofa.info/result?qbase64=IlpIR1hUViIgJiYgcmVnaW9uPSJoZWJlaSI%3D",#河北#
+    #"https://fofa.info/result?qbase64=IlpIR1hUViIgJiYgcmVnaW9uPSJndWFuZ2Rvbmci",#广东
+    #"https://fofa.info/result?qbase64=IlpIR1hUViIgJiYgcmVnaW9uPSJIdW5hbiI%3D",#湖南
+    #"https://fofa.info/result?qbase64=IlpIR1hUViIgJiYgcmVnaW9uPSJIZW5hbiI%3D",#server="nginx"
+    #"https://fofa.info/result?qbase64=c2VydmVyPSJHWF9PUyAxLjAi",#server="GX_OS 1.0"
+    #"https://fofa.info/result?qbase64=c2VydmVyPSJuZ2lueCI%3D",#河南#
+    #"https://fofa.info/result?qbase64=IlpIR1hUViIgJiYgcmVnaW9uPSJoZWJlaSI%3D",#河北#
 ]
 #定义网址替换规则
 def modify_urls(url):
