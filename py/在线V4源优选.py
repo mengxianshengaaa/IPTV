@@ -26,17 +26,20 @@ r = requests.get(url)
 open('源.txt','wb').write(r.content)   
 
 
-def filter_lines(input_file, output_file):
-    with open(input_file, 'r', encoding='utf-8') as file:
-        lines = file.readlines()
-    filtered_lines = []
-    for line in lines:
-        if ',' in line: #行中包含m3u的同时还要包含hls或者tsfile
-          if 'epg' not in line and 'mitv' not in line and 'udp' not in line and 'rtp' not in line  and '[' not in line and 'P2p' not in line and 'p2p' not in line and 'p3p' not in line and 'P2P' not in line and 'P3p' not in line and 'P3P' not in line: 排除组播地址
-            filtered_lines.append(line)
-    with open(output_file, 'w', encoding='utf-8') as output_file:
-        output_file.writelines(filtered_lines)
-filter_lines("源.txt", "源.txt")
+
+# 使用with语句打开输入文件进行读取
+with open("源.txt", 'r', encoding='utf-8') as file:
+    lines = file.readlines()
+
+# 使用列表推导式过滤行
+filtered_lines = [line for line in lines if ',' in line and 
+                  all(substr not in line for substr in ['epg', 'mitv', 'udp', 'rtp', '[', 'P2p', 'p2p', 'p3p', 'P2P', 'P3p', 'P3P'])]
+
+# 使用with语句打开输出文件进行写入
+with open("源.txt", 'w', encoding='utf-8') as output_file:
+    output_file.writelines(filtered_lines)
+
+print("文件过滤完成。")
 #################################################### 对整理好的频道列表测试HTTP连接
 def test_connectivity(url, max_attempts=1): #定义测试HTTP连接的次数
     # 尝试连接指定次数    
