@@ -34,7 +34,15 @@ with open("源.txt", 'r', encoding='utf-8') as file:
 # 使用列表推导式过滤行
 filtered_lines = [
     line for line in lines 
-    if any(substr.lower() in line.lower() for substr in ['CCTV', '卫视', '4K', '4k', '8K', '影', '剧', '经典']) 
+    if any(substr.lower() in line.lower() for substr in ['CCTV', '卫视', '4K', '4k', '8K', '影', '剧', '经典', 'TVB', '澳门', '龙华', '民视', '中视', '华视', 'AXN', 'MOMO', '采昌', '耀才', \
+                                                         '靖天', '镜新闻', '靖洋', '莲花', '年代', '爱尔达', '好莱坞', '华丽', '非凡', '公视', '寰宇', '无线', 'EVEN', 'MoMo', '爆谷', '面包', 'momo', '唐人', \
+                                                         '中华小', '三立', 'CNA', 'FOX', 'RTHK', 'Movie', '八大', '中天', '中视', '东森', '凤凰', '天映', '美亚', '环球', '翡翠', '亚洲', '大爱', '大愛', '明珠', \
+                                                         '半岛', 'AMC', '龙祥', '台视', '1905', '纬来', '神话', '经典都市', '视界', '番薯', '私人', '酒店', 'TVB', '凤凰', '半岛', '星光视界', '番薯', '大愛', \
+                                                         '新加坡', '星河', '明珠', '环球', '翡翠台', ' ELTV', '大立', 'elta', '好消息', '美国中文', '神州', '天良', '18台', 'BLOOMBERG', 'Bloomberg', 'CMUSIC', \
+                                                         'CN卡通', 'CNBC', 'CNBC', 'CinemaWorld', 'Cinemax', 'DMAX', 'Dbox', 'Dreamworks', 'ESPN', 'Euronews', 'Eurosports1', 'FESTIVAL', 'GOOD2', 'HBO家庭', \
+                                                         'HBO', 'HISTORY', 'HOY国际财经', 'HakkaTV', 'J2', 'KOREA', 'LISTENONSPOTIFY', 'LUXE', 'MCE', 'MTV', 'Now', 'PremierSports', 'ROCK', 'SPOTV', 'TiTV', \
+                                                         'VOA', 'ViuTV', 'ViuTV6', 'WSport', 'WWE', '八度', '博斯', '达文西', '迪士尼', '动物星球', '港石金曲', '红牛', '互动英语', '华纳影视', '华语剧台', 'ELTV', \
+                                                         '欢喜台', '旅游', '美食星球', 'nhkworld', 'nickjr', '千禧', '全球财经', '探案', '探索', '小尼克', '幸福空间', '影剧', '粤语片台', '智林', '猪哥亮']) 
     and not any(substr.lower() in line.lower() for substr in ['epg', 'mitv', 'udp', 'rtp', 'P2P', 'p2p', '[', 'P3P'])
 ]
 
