@@ -889,7 +889,7 @@ replacements = {
 with open('酒店优选.txt', 'r', encoding='utf-8') as file:
     lines = file.readlines()
 # 创建新文件并写入替换后的内容
-with open('酒店源.txt', 'w', encoding='utf-8') as new_file:
+with open('酒店优选.txt', 'w', encoding='utf-8') as new_file:
     for line in lines:
         for old, new in replacements.items():
             line = line.replace(old, new)
