@@ -24,6 +24,19 @@ from translate import Translator
 url = "https://raw.githubusercontent.com/frxz751113/collect-tv-txt/main/merged_output.txt"          #源采集地址
 r = requests.get(url)
 open('源.txt','wb').write(r.content)   
+
+with open('源.txt', 'r', encoding='utf-8') as file:
+    lines = file.readlines()
+    filtered_lines = []
+    for line in lines:
+        if ',' in line:
+         if 'epg' not in line and 'mitv' not in line and 'udp' not in line and 'rtp' not in line  and '[' not in line \
+            and 'P2p' not in line and 'p2p' not in line and 'p3p' not in line and 'P2P' not in line and 'P3p' not in line and 'P3P' not in line:
+          filtered_lines.append(line)
+    return filtered_lines
+
+with open('源.txt', 'w', encoding='utf-8') as output_file:
+     output_file.writelines(filtered_lines)
 #################################################### 对整理好的频道列表测试HTTP连接
 def test_connectivity(url, max_attempts=1): #定义测试HTTP连接的次数
     # 尝试连接指定次数    
@@ -246,10 +259,10 @@ for line in lines:
   unique_lines.append(line)
   seen_lines.add(line)
 # 将唯一的行写入新的文档 
-with open('优选.txt', 'w', encoding="utf-8") as file:
+with open('网络优选.txt', 'w', encoding="utf-8") as file:
  file.writelines(unique_lines)
 #任务结束,删除不必要的过程文件
-files_to_remove = ['源.txt', "源1.txt", "去重.txt", "2.txt", "iptv.txt", "e.txt", "a0.txt", "a.txt", "a1.txt", "b.txt", "c.txt", "c1.txt", "c2.txt", "d.txt", "f.txt", "o1.txt", "o.txt", "优选#.txt"]
+files_to_remove = ['源.txt', "源1.txt", "去重.txt", "2.txt", "iptv.txt", "e.txt", "a0.txt", "a.txt", "a1.txt", "b.txt", "c.txt", "c1.txt", "c2.txt", "d.txt", "f.txt", "o1.txt", "o.txt", "优选.txt"]
 for file in files_to_remove:
     if os.path.exists(file):
         os.remove(file)
