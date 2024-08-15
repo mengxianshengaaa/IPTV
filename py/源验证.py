@@ -29,8 +29,8 @@ def test_connectivity(url, max_attempts=1): #定义测试HTTP连接的次数
     # 尝试连接指定次数    
    for _ in range(max_attempts):  
     try:
-        response = requests.head(url, timeout=3)  # 发送HEAD请求,仅支持V4,修改此行数字可定义链接超时##////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-        #response = requests.get(url, timeout=1)  # 发送get请求,支持V6,修改此行数字可定义链接超时##############################//////////////////////////////////////////////////////////////////////////////////////
+        #response = requests.head(url, timeout=3)  # 发送HEAD请求,仅支持V4,修改此行数字可定义链接超时##////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+        response = requests.get(url, timeout=1)  # 发送get请求,支持V6,修改此行数字可定义链接超时##############################//////////////////////////////////////////////////////////////////////////////////////
         return response.status_code == 200  # 返回True如果状态码为200
     except requests.RequestException:  # 捕获requests引发的异常
         pass  # 发生异常时忽略
@@ -77,14 +77,14 @@ def main(source_file_path, output_file_path):
 if __name__ == "__main__":
     try:
         source_file_path = "源.txt"  # 输入源文件路径
-        output_file_path = "源.txt"  # 设置输出文件路径
+        output_file_path = "源1.txt"  # 设置输出文件路径
         main(source_file_path, output_file_path)  # 调用main函数
     except Exception as e:
         print(f"程序发生错误: {e}")  # 打印错误信息
-# 初始化酒店源字典
+# 初始化优选字典
 detected_ips = {}
 # 存储文件路径
-file_path = "源.txt"
+file_path = "源1.txt"
 output_file_path = "优选.txt"
 def get_ip_key(url):
     """从URL中提取IP地址,并构造一个唯一的键"""
@@ -142,6 +142,84 @@ with open(output_file_path, 'w', encoding='utf-8') as output_file:
                     output_file.write(line)  # 写入检测通过的行
                 else:
                     detected_ips[ip_key] = {'status': 'fail'}
-# 打印酒店源
+# 打印优选
 for ip_key, result in detected_ips.items():
     print(f"IP Key: {ip_key}, Status: {result['status']}")
+
+########################################################################定义关键词分割规则,分类提取
+def check_and_write_file(input_file, output_file, keywords):
+    # 使用 split(', ') 而不是 split(',') 来分割关键词
+    keywords_list = keywords.split(', ')
+    first_keyword = keywords_list[0]  # 获取第一个关键词作为头部信息
+    pattern = '|'.join(re.escape(keyword) for keyword in keywords_list)
+    extracted_lines = False
+    with open(input_file, 'r', encoding='utf-8') as file:
+        lines = file.readlines()
+    with open(output_file, 'w', encoding='utf-8') as out_file:
+        out_file.write(f'{first_keyword},#genre#\n')  # 使用第一个关键词作为头部信息
+        for line in lines:
+            if 'genre' not in line and 'epg' not in line:
+                if re.search(pattern, line):
+                    out_file.write(line)
+                    extracted_lines = True
+    # 如果没有提取到任何关键词,则不保留输出文件
+    if not extracted_lines:
+        os.remove(output_file)  # 删除空的输出文件
+        print(f"未提取到关键词,{output_file} 已被删除。")
+    else:
+        print(f"文件已提取关键词并保存为: {output_file}")
+# 按类别提取关键词并写入文件
+check_and_write_file('优选.txt',  'a0.txt',  keywords="央视频道, 8K, 4K, 4k")
+check_and_write_file('优选.txt',  'a.txt',  keywords="央视频道, CCTV, 8K, 4K, 爱上4K, 纯享, 风云剧场, 怀旧剧场, 影迷, 高清电影, 动作电影, 每日影院, 全球大片, 第一剧场, 家庭影院, 影迷电影, 星光, 华语, 美国大片, 峨眉")
+check_and_write_file('优选.txt',  'a1.txt',  keywords="央视频道, 风云音乐, 女性时尚, 地理世界, 音乐现场")
+check_and_write_file('优选.txt',  'b.txt',  keywords="卫视频道, 卫视, 凤凰, 星空")
+check_and_write_file('优选.txt',  'c.txt',  keywords="影视频道, 爱情喜剧, 爱喜喜剧, 风云剧场, 怀旧剧场, 影迷, 高清电影, 动作电影, 每日影院, 全球大片, 第一剧场, 家庭影院, 影迷电影, 星光, 华语, 美国大片, 峨眉, \
+电影, 惊嫊悬疑, 东北热剧, 无名, 都市剧场, iHOT, 剧场, 欢笑剧场, 重温经典, 明星大片, 中国功夫, 军旅, 东北热剧, 中国功夫, 军旅剧场, 古装剧场, \
+家庭剧场, 惊悚悬疑, 欢乐剧场, 潮妈辣婆, 爱情喜剧, 精品大剧, 超级影视, 超级电影, 黑莓动画, 黑莓电影, 海外剧场, 精彩影视, 无名影视, 潮婆辣妈, 超级剧, 热播精选")
+check_and_write_file('优选.txt',  'c1.txt',  keywords="影视频道, 求索动物, 求索, 求索科学, 求索记录, 爱谍战, 爱动漫, 爱科幻, 爱青春, 爱自然, 爱科学, 爱浪漫, 爱历史, 爱旅行, 爱奇谈, 爱怀旧, 爱赛车, 爱都市, 爱体育, 爱经典, \
+爱玩具, 爱喜剧, 爱悬疑, 爱幼教, 爱院线")
+check_and_write_file('优选.txt',  'c2.txt',  keywords="影视频道, 军事评论, 农业致富, 哒啵赛事, 怡伴健康, 武博世界, 超级综艺, 哒啵, HOT, 炫舞未来, 精品体育, 精品萌宠, 精品记录, 超级体育, 金牌, 武术世界, 精品纪录")
+check_and_write_file('优选.txt',  'd.txt',  keywords="少儿频道, 少儿, 卡通, 动漫, 宝贝, 哈哈")
+check_and_write_file('优选.txt',  'e.txt',  keywords="港澳频道, TVB, 珠江台, 澳门, 龙华, 广场舞, 动物杂技, 民视, 中视, 华视, AXN, MOMO, 采昌, 耀才, 靖天, 镜新闻, 靖洋, 莲花, 年代, 爱尔达, 好莱坞, 华丽, 非凡, 公视, \
+寰宇, 无线, EVEN, MoMo, 爆谷, 面包, momo, 唐人, 中华小, 三立, CNA, FOX, RTHK, Movie, 八大, 中天, 中视, 东森, 凤凰, 天映, 美亚, 环球, 翡翠, 亚洲, 大爱, 大愛, 明珠, 半岛, AMC, 龙祥, 台视, 1905, 纬来, 神话, 经典都市, 视界, \
+番薯, 私人, 酒店, TVB, 凤凰, 半岛, 星光视界, 大愛, 新加坡, 星河, 明珠, 环球, 翡翠台")
+check_and_write_file('优选.txt',  'f.txt',  keywords="省市频道, 湖北, 武汉, 河北, 广东, 河南, 陕西, 四川, 湖南, 广西, 石家庄, 南宁, 汕头, 揭阳, 普宁, 福建, 辽宁")
+check_and_write_file('优选.txt',  'o1.txt',  keywords="其他频道, 新闻, 综合, 文艺, 电视, 公共, 科教, 教育, 民生, 轮播, 套, 法制, 文化, 经济, 生活")
+check_and_write_file('优选.txt',  'o.txt',  keywords="其他频道, , ")
+#
+#对生成的文件进行合并
+file_contents = []
+file_paths = ["e.txt", "a0.txt", "a.txt", "a1.txt", "b.txt", "c.txt", "c1.txt", "c2.txt", "d.txt", "f.txt", "o1.txt", "o.txt"]  # 替换为实际的文件路径列表
+for file_path in file_paths:
+    if os.path.exists(file_path):
+        with open(file_path, 'r', encoding="utf-8") as file:
+            content = file.read()
+            file_contents.append(content)
+    else:                # 如果文件不存在,则提示异常并打印提示信息
+        print(f"文件 {file_path} 不存在,跳过")
+# 写入合并后的文件
+with open("去重.txt", "w", encoding="utf-8") as output:
+    output.write('\n'.join(file_contents))
+#
+##################################################################### 打开文档并读取所有行 ,对提取后重复的频道去重
+with open('去重.txt', 'r', encoding="utf-8") as file:
+ lines = file.readlines()
+# 使用列表来存储唯一的行的顺序 
+ unique_lines = [] 
+ seen_lines = set() 
+# 遍历每一行,如果是新的就加入unique_lines 
+for line in lines:
+ if line not in seen_lines:
+  unique_lines.append(line)
+  seen_lines.add(line)
+# 将唯一的行写入新的文档 
+with open('酒店优选.txt', 'w', encoding="utf-8") as file:
+ file.writelines(unique_lines)
+#任务结束,删除不必要的过程文件
+files_to_remove = ['源.txt', "源1.txt", "去重.txt", "2.txt", "iptv.txt", "e.txt", "a0.txt", "a.txt", "a1.txt", "b.txt", "c.txt", "c1.txt", "c2.txt", "d.txt", "f.txt", "o1.txt", "o.txt", "优选#.txt"]
+for file in files_to_remove:
+    if os.path.exists(file):
+        os.remove(file)
+    else:              # 如果文件不存在,则提示异常并打印提示信息
+        print(f"文件 {file} 不存在,跳过删除。")
+print("任务运行完毕,优选频道列表可查看文件夹内txt文件！")
