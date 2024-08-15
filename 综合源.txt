@@ -285,9 +285,6 @@ CCTV17-农业农村,http://ottrrs.hl.chinamobile.com/TVOD/88888888/224/322122576
 1905国外电影,http://php.jdshipin.com:8880/1905.php?id=1905dy2
 1905国内电影,http://php.jdshipin.com:8880/1905.php?id=1905dy
 AMC电影,http://61.221.215.25:8800/hls/43/index.m3u8
-ASTRO华丽台,http://line.greatstar.me:80/play/live.php?mac=00:1A:79:B5:AD:4C&stream=571187&extension=ts
-ASTRO华丽台,http://line.greatstar.me:80/play/live.php?mac=00:1A:79:51:45:21&stream=571187&extension=ts
-ASTRO华丽台,http://line.greatstar.me:80/play/live.php?mac=00:1A:79:51:45:21&stream=571187&extension=ts&play_token=b0RYEywy0z
 TVB功夫台[EXO],http://v2h.jdshipin.com/asia_action/asia_action.stream/chunklist.m3u8
 TVB功夫台[EXO][EXO],https://v2h.jdshipin.com/asia_action/asia_action.stream/chunklist.m3u8
 三立戏剧台,http://61.221.215.25:8800/hls/41/index.m3u8
@@ -305,13 +302,11 @@ TVB功夫台[EXO][EXO],https://v2h.jdshipin.com/asia_action/asia_action.stream/c
 龙华戏剧,http://37.27.111.214:8080/live/41/hls.m3u8
 龙华电影台,http://37.27.111.214:8080/live/19/hls.m3u8
 18台,http://metatvpro.xyz:25461/W1045/4329/12209
-AXN,http://metatvpro.xyz:25461/W1045/4329/12700
 BLOOMBERG,http://37.27.111.214:8080/live/34/hls.m3u8
 CMUSIC,http://37.27.111.214:8080/live/72/hls.m3u8
 CNBC,http://37.27.111.214:8080/live/102/hls.m3u8
 CinemaWorld,http://37.27.111.214:8080/live/30/hls.m3u8
 Dbox,http://61.221.215.25:8800/hls/54/index.m3u8
-Dreamworks,http://metatvpro.xyz:25461/W1045/4329/14225
 ELEVEN1,rtmp://f13h.mine.nu/sat/tv731
 ELEVEN2,rtmp://f13h.mine.nu/sat/tv741
 ELEVENSPORTS1PL,http://czrb8vng.ottclub.xyz/iptv/AHMQNVLWUTM5PW/2518/index.m3u
@@ -333,7 +328,6 @@ FOXSPORTS2TV,http://supersonictv.live:8080/live/Derrick/Hitman50$/78937.ts
 FOXSPORTS2,http://0f3f161d.cbilant.com/iptv/DNKSGWXK47B9GH/7323/index.m3u8
 FOXSPORTS2,http://doubleclicktv.live:80/70376812/52663544/914
 FOXSPORTS2,http://line.greatstar.me:80/play/live.php?mac=00:1A:79:B5:AD:4C&stream=174670&extension=ts&play_token=tvwbpRhuaP
-FOXSPORTSNETBASE,http://doubleclicktv.live:80/70376812/52663544/910
 FOXSPORTSOKLAHOMA,https://stream1.freetv.fun/918fff19fa275cd3a8655142089c1adaeb3c0375568961ae42ea4707d12d4a2f.m3u8
 FOXSPORTSSUN,http://0f3f161d.cbilant.com/iptv/DNKSGWXK47B9GH/19145/index.m3u8
 FOXSPORTSSUN,http://doubleclicktv.live:80/70376812/52663544/904
@@ -342,7 +336,6 @@ FOXSPORTS,http://line.greatstar.me:80/play/live.php?mac=00:1A:79:B5:AD:4C&stream
 FOX新闻,https://fox-foxnewsnow-samsungus.amagi.tv/playlist720p.m3u8
 GOOD2,http://37.27.111.214:8080/live/99/hls.m3u8
 GRT[900p][900p][900p],https://stream1.freetv.fun/c8c19050366334011b277c1adf35b8c04b7c23086b3426230aa509101192f792.m3u8
-HBO家庭,http://metatvpro.xyz:25461/W1045/4329/13146
 HISTORY,http://37.27.111.214:8080/live/27/hls.m3u8
 HakkaTV,http://37.27.111.214:8080/live/1/hls.m3u8
 KOREA,http://37.27.111.214:8080/live/52/hls.m3u8
@@ -359,7 +352,6 @@ RTHK33,https://rthktv33-live.akamaized.net/hls/live/2101641/RTHKTV33/stream04/st
 RUTVBRICS,http://brics.bonus-tv.ru/cdn/brics/english/tracks-v1a1/index.m3u8
 SKYSPORTSMAINEVENT,http://0f3f161d.cbilant.com/iptv/DNKSGWXK47B9GH/7337/index.m3u8
 SKYSPORTSMAINEVENTᴴᴰ,http://4k4.klmvhn20.com:2082/Noly-4Noly/xiux0qlrin/10514
-TNTSPORTS,http://dc8267e0.kazaktelekom.com/iptv/92CLT2GW7DGZ9K/19051/index.m3u8
 TVBSNEWS,http://61.221.215.25:8800/hls/9/index.m3u8
 TVBS欢乐台,http://37.27.111.214:8080/live/24/hls.m3u8
 TVBTHAI,https://edge6a.v2h-cdn.com/tvb_thai/tvb_thai.stream/playlist.m3u8
