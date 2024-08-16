@@ -672,7 +672,7 @@ from tqdm import tqdm
 detected_ips = {}
 # 存储文件路径
 file_path = "酒店源.txt"
-output_file_path = "酒店优选.txt"
+output_file_path = "JD.txt"
 def get_ip_key(url):
     """从URL中提取IP地址,并构造一个唯一的键"""
     # 找到'//'到第三个'.'之间的字符串
@@ -738,7 +738,7 @@ for ip_key, result in detected_ips.items():
 
 
 ####################### 提示用户输入文件名（拖入文件操作）打开用户指定的文件对不规范频道名再次替换
-file_path = '酒店优选.txt'
+file_path = 'JD.txt'
 # 检查文件是否存在
 if not os.path.isfile(file_path):
     print("文件不存在，请重新输入.")
@@ -845,7 +845,7 @@ replacements = {
 }
 
 
-with open('酒店优选.txt', 'w', encoding='utf-8') as new_file:
+with open('JD.txt', 'w', encoding='utf-8') as new_file:
     for line in lines:
         # 去除行尾的换行符
         line = line.rstrip('\n')
@@ -886,10 +886,10 @@ replacements = {
         "": ""
 }
 # 打开原始文件读取内容，并写入新文件
-with open('酒店优选.txt', 'r', encoding='utf-8') as file:
+with open('JD.txt', 'r', encoding='utf-8') as file:
     lines = file.readlines()
 # 创建新文件并写入替换后的内容
-with open('酒店优选.txt', 'w', encoding='utf-8') as new_file:
+with open('JD.txt', 'w', encoding='utf-8') as new_file:
     for line in lines:
         for old, new in replacements.items():
             line = line.replace(old, new)
@@ -899,7 +899,7 @@ print("替换完成，新文件已保存。")
 
 ###############################################################################文本排序
 # 打开原始文件读取内容，并写入新文件
-with open('酒店优选.txt', 'r', encoding='utf-8') as file:
+with open('JD.txt', 'r', encoding='utf-8') as file:
     lines = file.readlines()
 # 定义一个函数，用于提取每行的第一个数字
 def extract_first_number(line):
@@ -985,7 +985,7 @@ for line in lines:
   unique_lines.append(line)
   seen_lines.add(line)
 # 将唯一的行写入新的文档 
-with open('酒店优选.txt', 'w', encoding="utf-8") as file:
+with open('JD.txt', 'w', encoding="utf-8") as file:
  file.writelines(unique_lines)
 #任务结束,删除不必要的过程文件
 files_to_remove = ['去重.txt', "2.txt", "iptv.txt", "e.txt", "a0.txt", "a.txt", "a1.txt", "b.txt", "c.txt", "c1.txt", "c2.txt", "d.txt", "f.txt", "o1.txt", "o.txt", "酒店源#.txt"]
@@ -1719,7 +1719,7 @@ for line in lines:
   unique_lines.append(line)
   seen_lines.add(line)
 # 将唯一的行写入新的文档 
-with open('组播优选.txt', 'w', encoding="utf-8") as file:
+with open('ZB.txt', 'w', encoding="utf-8") as file:
  file.writelines(unique_lines)
 
 ################################################################################################任务结束,删除不必要的过程文件
