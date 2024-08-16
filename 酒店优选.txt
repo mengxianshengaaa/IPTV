@@ -1,14 +1,6 @@
 港澳频道,#genre#
 凤凰卫视,http://116.162.6.192/1.v.smtcdns.net/qctv.fengshows.cn/live/0701pcc72.m3u8
 
-央视频道,#genre#
-CCTV10,http://123.189.36.86:9901/tsfile/live/1161_1.m3u8?key=txiptv&playlive=1&authid=0
-CCTV14,http://123.189.36.86:9901/tsfile/live/1163_1.m3u8?key=txiptv&playlive=1&authid=0
 卫视频道,#genre#
-兵团卫视,http://123.189.36.86:9901/tsfile/live/1066_1.m3u8?key=txiptv&playlive=1&authid=0
-广东卫视,http://123.189.36.86:9901/tsfile/live/1146_1.m3u8?key=txiptv&playlive=1&authid=0
 江西卫视,http://58.222.151.43:1935/live/xwzhpc/playlist.m3u8
-人间卫视,http://61.216.67.119:1935/bltvhd/bltv1/chunklist_w1266569526.m3u8
-省市频道,#genre#
-四川,http://123.189.36.86:9901/tsfile/live/1130_1.m3u8?key=txiptv&playlive=1&authid=0
 其他频道,#genre#
