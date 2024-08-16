@@ -26,13 +26,22 @@ r = requests.get(url)
 open('源2.txt','wb').write(r.content)   
 
 ###################################################################################################
-# 确保你的Python环境已经安装了openpyxl库
 import codecs
 # 打开原始文件并读取内容
 with codecs.open('源2.txt', 'r', 'utf-8') as file:
     lines = file.readlines()
-# 处理每一行，去除每行最后一个"$"及其后面的所有内容
-processed_lines = [line.split('$')[0] + '$' if '$' in line else line for line in lines]
+# 处理每一行，去除每行中最后一个"$"及其后面的所有内容，并确保每行以换行符结束
+processed_lines = []
+for line in lines:
+    if '$' in line:
+        # 查找最后一个"$"的位置
+        index_of_last_dollar = line.rfind('$')
+        # 截取从行首到"$"之前的内容，并确保以换行符结束
+        processed_line = line[:index_of_last_dollar].rstrip() + '\n'
+        processed_lines.append(processed_line)
+    else:
+        # 如果没有"$"，则直接添加到列表，确保以换行符结束
+        processed_lines.append(line.rstrip() + '\n')
 # 将处理后的内容写入新文件
 with codecs.open('源3.txt', 'w', 'utf-8') as file:
     file.writelines(processed_lines)
