@@ -34,13 +34,13 @@ with codecs.open('源2.txt', 'r', 'utf-8') as file:
 # 处理每一行，去除每行最后一个"$"及其后面的所有内容
 processed_lines = [line.split('$')[0] + '$' if '$' in line else line for line in lines]
 # 将处理后的内容写入新文件
-with codecs.open('源.txt', 'w', 'utf-8') as file:
+with codecs.open('源3.txt', 'w', 'utf-8') as file:
     file.writelines(processed_lines)
 ###################################################################################################
 
 ###################################################################################################
 # 使用with语句打开输入文件进行读取
-with open("源.txt", 'r', encoding='utf-8') as file:
+with open("源3.txt", 'r', encoding='utf-8') as file:
     lines = file.readlines()
 # 使用列表推导式过滤行
 filtered_lines = [
@@ -318,7 +318,7 @@ for line in lines:
 with open('网络优选.txt', 'w', encoding="utf-8") as file:
  file.writelines(unique_lines)
 #任务结束,删除不必要的过程文件
-files_to_remove = ['源.txt', "源1.txt", "去重.txt", "a0.txt", "a.txt", "a1.txt", "b0.txt", "b.txt", "c.txt", "c1.txt", "c2.txt", "d.txt", "f0.txt", "f.txt", "f1.txt", "g0.txt", "g.txt", "g1.txt", "h0.txt", "h.txt", "h1.txt", "i.txt", \
+files_to_remove = ['源.txt', "源1.txt", "源2.txt", "去重.txt", "a0.txt", "a.txt", "a1.txt", "b0.txt", "b.txt", "c.txt", "c1.txt", "c2.txt", "d.txt", "f0.txt", "f.txt", "f1.txt", "g0.txt", "g.txt", "g1.txt", "h0.txt", "h.txt", "h1.txt", "i.txt", \
               "i1.txt", "j.txt", "j1.txt", "k.txt", "l0.txt", "l.txt", "l1.txt", "m.txt", "m1.txt",  \
               "n0.txt","n.txt","n1.txt", "e.txt", "o1.txt", "o.txt", "优选.txt"]
 for file in files_to_remove:
