@@ -89,7 +89,7 @@ http://39.135.133.158:80/wh7f454c46tw738317307_-1850621911/ottrrs.hl.chinamobile
 http://[2409:8087:1a01:df::7005]:80/ottrrs.hl.chinamobile.com/PLTV/88888888/224/3221226476/index.m3u8
 #EXTINF:-1 tvg-logo="https://live.fanmingming.com/tv/CCTV15-音乐.png" group-title="央视频道",CCTV15-音乐
 http://39.134.65.87:80/wh7f454c46tw3678048063_1995458946/ottrrs.hl.chinamobile.com/PLTV/88888888/224/3221225601/index.m3u8
-#EXTINF:-1 tvg-logo="https://live.fanmingming.com/tv/CCTV164K[内网].png" group-title="央视频道",CCTV164K[内网]
+#EXTINF:-1 tvg-logo="https://live.fanmingming.com/tv/CCTV164K[湖北移动内网].png" group-title="央视频道",CCTV164K[湖北移动内网]
 rtsp://111.48.34.138:1554/170000004112/99180001000000050000000000000541
 #EXTINF:-1 tvg-logo="https://live.fanmingming.com/tv/CCTV164K.png" group-title="央视频道",CCTV164K
 http://[2409:8087:5e08:24::12]:6610/000000001001/5000000008000023254/1.m3u8?channel-id=bestzb&Contentid=5000000008000023254&livemode=1&stbId=3
@@ -109,59 +109,59 @@ http://[2409:8087:2801:22:100::45]/wh7f454c46tw273889689_165724636/hwltc.tv.cdn.
 http://[2409:8087:2801:22:100::6f]/wh7f454c46tw310829647_836254127/hwltc.tv.cdn.zj.chinamobile.com/PLTV/88888888/224/3221232776/1/index.m3u8?fmt=ts2hls&icpid=88888888&RTS=1717815430&from=5&hms_devid=309&online=1717815430&vqe=3
 #EXTINF:-1 tvg-logo="https://live.fanmingming.com/tv/苏州4K.png" group-title="央视频道",苏州4K
 http://liveshowbak2.kan0512.com/ksz-norecord/csztv4k_4k.m3u8
-#EXTINF:-1 tvg-logo="https://live.fanmingming.com/tv/CCTV1[内网].png" group-title="央视频道",CCTV1[内网]
+#EXTINF:-1 tvg-logo="https://live.fanmingming.com/tv/CCTV1[湖北移动内网].png" group-title="央视频道",CCTV1[湖北移动内网]
 rtsp://111.48.34.138:1554/170000004112/00000001000000060000000000000131
-#EXTINF:-1 tvg-logo="https://live.fanmingming.com/tv/CCTV2[内网].png" group-title="央视频道",CCTV2[内网]
+#EXTINF:-1 tvg-logo="https://live.fanmingming.com/tv/CCTV2[湖北移动内网].png" group-title="央视频道",CCTV2[湖北移动内网]
 rtsp://111.48.34.138:1554/170000004112/99180001000000050000000000000357
-#EXTINF:-1 tvg-logo="https://live.fanmingming.com/tv/CCTV3[内网].png" group-title="央视频道",CCTV3[内网]
+#EXTINF:-1 tvg-logo="https://live.fanmingming.com/tv/CCTV3[湖北移动内网].png" group-title="央视频道",CCTV3[湖北移动内网]
 rtsp://111.48.34.138:1554/170000004112/99180001000000050000000000000391
-#EXTINF:-1 tvg-logo="https://live.fanmingming.com/tv/CCTV4[内网].png" group-title="央视频道",CCTV4[内网]
+#EXTINF:-1 tvg-logo="https://live.fanmingming.com/tv/CCTV4[湖北移动内网].png" group-title="央视频道",CCTV4[湖北移动内网]
 rtsp://111.48.34.138:1554/170000004112/99180001000000050000000000000409
-#EXTINF:-1 tvg-logo="https://live.fanmingming.com/tv/CCTV5[内网].png" group-title="央视频道",CCTV5[内网]
+#EXTINF:-1 tvg-logo="https://live.fanmingming.com/tv/CCTV5[湖北移动内网].png" group-title="央视频道",CCTV5[湖北移动内网]
 rtsp://111.48.34.138:1554/170000004112/99180001000000050000000000000322
-#EXTINF:-1 tvg-logo="https://live.fanmingming.com/tv/CCTV5+[内网].png" group-title="央视频道",CCTV5+[内网]
+#EXTINF:-1 tvg-logo="https://live.fanmingming.com/tv/CCTV5+[湖北移动内网].png" group-title="央视频道",CCTV5+[湖北移动内网]
 rtsp://111.48.34.138:1554/170000004112/99180001000000050000000000000503
-#EXTINF:-1 tvg-logo="https://live.fanmingming.com/tv/CCTV6[内网].png" group-title="央视频道",CCTV6[内网]
+#EXTINF:-1 tvg-logo="https://live.fanmingming.com/tv/CCTV6[湖北移动内网].png" group-title="央视频道",CCTV6[湖北移动内网]
 rtsp://111.48.34.138:1554/170000004112/99180001000000050000000000000392
-#EXTINF:-1 tvg-logo="https://live.fanmingming.com/tv/CCTV7[内网].png" group-title="央视频道",CCTV7[内网]
+#EXTINF:-1 tvg-logo="https://live.fanmingming.com/tv/CCTV7[湖北移动内网].png" group-title="央视频道",CCTV7[湖北移动内网]
 rtsp://111.48.34.138:1554/170000004112/99180001000000050000000000000358
-#EXTINF:-1 tvg-logo="https://live.fanmingming.com/tv/CCTV8[内网].png" group-title="央视频道",CCTV8[内网]
+#EXTINF:-1 tvg-logo="https://live.fanmingming.com/tv/CCTV8[湖北移动内网].png" group-title="央视频道",CCTV8[湖北移动内网]
 rtsp://111.48.34.138:1554/170000004112/99180001000000050000000000000393
-#EXTINF:-1 tvg-logo="https://live.fanmingming.com/tv/CCTV9[内网].png" group-title="央视频道",CCTV9[内网]
+#EXTINF:-1 tvg-logo="https://live.fanmingming.com/tv/CCTV9[湖北移动内网].png" group-title="央视频道",CCTV9[湖北移动内网]
 rtsp://111.48.34.138:1554/170000004112/99180001000000050000000000000359
-#EXTINF:-1 tvg-logo="https://live.fanmingming.com/tv/CCTV10[内网].png" group-title="央视频道",CCTV10[内网]
+#EXTINF:-1 tvg-logo="https://live.fanmingming.com/tv/CCTV10[湖北移动内网].png" group-title="央视频道",CCTV10[湖北移动内网]
 rtsp://111.48.34.138:1554/170000004112/99180001000000050000000000000360
-#EXTINF:-1 tvg-logo="https://live.fanmingming.com/tv/CCTV11[内网].png" group-title="央视频道",CCTV11[内网]
+#EXTINF:-1 tvg-logo="https://live.fanmingming.com/tv/CCTV11[湖北移动内网].png" group-title="央视频道",CCTV11[湖北移动内网]
 rtsp://111.48.34.138:1554/170000004112/00000001000000050000000000000583
-#EXTINF:-1 tvg-logo="https://live.fanmingming.com/tv/CCTV12[内网].png" group-title="央视频道",CCTV12[内网]
+#EXTINF:-1 tvg-logo="https://live.fanmingming.com/tv/CCTV12[湖北移动内网].png" group-title="央视频道",CCTV12[湖北移动内网]
 rtsp://111.48.34.138:1554/170000004112/99180001000000050000000000000361
-#EXTINF:-1 tvg-logo="https://live.fanmingming.com/tv/CCTV13[内网].png" group-title="央视频道",CCTV13[内网]
+#EXTINF:-1 tvg-logo="https://live.fanmingming.com/tv/CCTV13[湖北移动内网].png" group-title="央视频道",CCTV13[湖北移动内网]
 rtsp://111.48.34.138:1554/170000004112/99180001000000050000000000000514
-#EXTINF:-1 tvg-logo="https://live.fanmingming.com/tv/CCTV14[内网].png" group-title="央视频道",CCTV14[内网]
+#EXTINF:-1 tvg-logo="https://live.fanmingming.com/tv/CCTV14[湖北移动内网].png" group-title="央视频道",CCTV14[湖北移动内网]
 rtsp://111.48.34.138:1554/170000004112/99180001000000050000000000000362
-#EXTINF:-1 tvg-logo="https://live.fanmingming.com/tv/CCTV15[内网].png" group-title="央视频道",CCTV15[内网]
+#EXTINF:-1 tvg-logo="https://live.fanmingming.com/tv/CCTV15[湖北移动内网].png" group-title="央视频道",CCTV15[湖北移动内网]
 rtsp://111.48.34.138:1554/170000004112/00000001000000050000000000000587
-#EXTINF:-1 tvg-logo="https://live.fanmingming.com/tv/CCTV16[内网].png" group-title="央视频道",CCTV16[内网]
+#EXTINF:-1 tvg-logo="https://live.fanmingming.com/tv/CCTV16[湖北移动内网].png" group-title="央视频道",CCTV16[湖北移动内网]
 rtsp://111.48.34.138:1554/170000004112/99180001000000050000000000000612
-#EXTINF:-1 tvg-logo="https://live.fanmingming.com/tv/CCTV17[内网].png" group-title="央视频道",CCTV17[内网]
+#EXTINF:-1 tvg-logo="https://live.fanmingming.com/tv/CCTV17[湖北移动内网].png" group-title="央视频道",CCTV17[湖北移动内网]
 rtsp://111.48.34.138:1554/170000004112/00000001000000050000000000000580
-#EXTINF:-1 tvg-logo="https://live.fanmingming.com/tv/兵器科技[内网].png" group-title="央视频道",兵器科技[内网]
+#EXTINF:-1 tvg-logo="https://live.fanmingming.com/tv/兵器科技[湖北移动内网].png" group-title="央视频道",兵器科技[湖北移动内网]
 rtsp://111.48.34.138:1554/170000004112/99180001000000050000000000000307
-#EXTINF:-1 tvg-logo="https://live.fanmingming.com/tv/世界地理[内网].png" group-title="央视频道",世界地理[内网]
+#EXTINF:-1 tvg-logo="https://live.fanmingming.com/tv/世界地理[湖北移动内网].png" group-title="央视频道",世界地理[湖北移动内网]
 rtsp://111.48.34.138:1554/170000004112/99180001000000050000000000000320
-#EXTINF:-1 tvg-logo="https://live.fanmingming.com/tv/第一剧场[内网].png" group-title="央视频道",第一剧场[内网]
+#EXTINF:-1 tvg-logo="https://live.fanmingming.com/tv/第一剧场[湖北移动内网].png" group-title="央视频道",第一剧场[湖北移动内网]
 rtsp://111.48.34.138:1554/170000004112/99180001000000050000000000000305
-#EXTINF:-1 tvg-logo="https://live.fanmingming.com/tv/动作电影[内网].png" group-title="央视频道",动作电影[内网]
+#EXTINF:-1 tvg-logo="https://live.fanmingming.com/tv/动作电影[湖北移动内网].png" group-title="央视频道",动作电影[湖北移动内网]
 rtsp://111.48.34.138:1554/170000004112/99180001000000050000000000000523
-#EXTINF:-1 tvg-logo="https://live.fanmingming.com/tv/家庭影院[内网].png" group-title="央视频道",家庭影院[内网]
+#EXTINF:-1 tvg-logo="https://live.fanmingming.com/tv/家庭影院[湖北移动内网].png" group-title="央视频道",家庭影院[湖北移动内网]
 rtsp://111.48.34.138:1554/170000004112/99180001000000050000000000000522
-#EXTINF:-1 tvg-logo="https://live.fanmingming.com/tv/金鹰卡通[内网].png" group-title="央视频道",金鹰卡通[内网]
+#EXTINF:-1 tvg-logo="https://live.fanmingming.com/tv/金鹰卡通[湖北移动内网].png" group-title="央视频道",金鹰卡通[湖北移动内网]
 rtsp://111.48.34.138:1554/170000004112/99180001000000050000000000000613
-#EXTINF:-1 tvg-logo="https://live.fanmingming.com/tv/影迷电影[内网].png" group-title="央视频道",影迷电影[内网]
+#EXTINF:-1 tvg-logo="https://live.fanmingming.com/tv/影迷电影[湖北移动内网].png" group-title="央视频道",影迷电影[湖北移动内网]
 rtsp://111.48.34.138:1554/170000004112/99180001000000050000000000000539
-#EXTINF:-1 tvg-logo="https://live.fanmingming.com/tv/湖北卫视[内网].png" group-title="卫视频道",湖北卫视[内网]
+#EXTINF:-1 tvg-logo="https://live.fanmingming.com/tv/湖北卫视[湖北移动内网].png" group-title="卫视频道",湖北卫视[湖北移动内网]
 rtsp://111.48.34.138:1554/170000004112/99180001000000060000000000000194
-#EXTINF:-1 tvg-logo="https://live.fanmingming.com/tv/湖南卫视[内网].png" group-title="卫视频道",湖南卫视[内网]
+#EXTINF:-1 tvg-logo="https://live.fanmingming.com/tv/湖南卫视[湖北移动内网].png" group-title="卫视频道",湖南卫视[湖北移动内网]
 rtsp://111.48.34.138:1554/170000004112/00000001000000060000000000000174
 #EXTINF:-1 tvg-logo="https://live.fanmingming.com/tv/凤凰卫视.png" group-title="卫视频道",凤凰卫视
 http://116.162.6.192/1.v.smtcdns.net/qctv.fengshows.cn/live/0701pcc72.m3u8
@@ -461,47 +461,47 @@ http://39.135.133.180:80/wh7f454c46tw4181215988_-1505940482/ottrrs.hl.chinamobil
 http://[2409:8087:1a01:df::7005]:80/ottrrs.hl.chinamobile.com/PLTV/88888888/224/3221226339/index.m3u8
 #EXTINF:-1 tvg-logo="https://live.fanmingming.com/tv/浙江卫视.png" group-title="卫视频道",浙江卫视
 http://ali-m-l.cztv.com/channels/lantian/channel001/1080p.m3u8
-#EXTINF:-1 tvg-logo="https://live.fanmingming.com/tv/安徽卫视[内网].png" group-title="卫视频道",安徽卫视[内网]
+#EXTINF:-1 tvg-logo="https://live.fanmingming.com/tv/安徽卫视[湖北移动内网].png" group-title="卫视频道",安徽卫视[湖北移动内网]
 rtsp://111.48.34.138:1554/170000004112/99180001000000060000000000000325
-#EXTINF:-1 tvg-logo="https://live.fanmingming.com/tv/江苏卫视[内网].png" group-title="卫视频道",江苏卫视[内网]
+#EXTINF:-1 tvg-logo="https://live.fanmingming.com/tv/江苏卫视[湖北移动内网].png" group-title="卫视频道",江苏卫视[湖北移动内网]
 rtsp://111.48.34.138:1554/170000004112/00000001000000060000000000000177
-#EXTINF:-1 tvg-logo="https://live.fanmingming.com/tv/辽宁卫视[内网].png" group-title="卫视频道",辽宁卫视[内网]
+#EXTINF:-1 tvg-logo="https://live.fanmingming.com/tv/辽宁卫视[湖北移动内网].png" group-title="卫视频道",辽宁卫视[湖北移动内网]
 rtsp://111.48.34.138:1554/170000004112/99180001000000060000000000000326
-#EXTINF:-1 tvg-logo="https://live.fanmingming.com/tv/北京卫视[内网].png" group-title="卫视频道",北京卫视[内网]
+#EXTINF:-1 tvg-logo="https://live.fanmingming.com/tv/北京卫视[湖北移动内网].png" group-title="卫视频道",北京卫视[湖北移动内网]
 rtsp://111.48.34.138:1554/170000004112/00000001000000060000000000000173
-#EXTINF:-1 tvg-logo="https://live.fanmingming.com/tv/重庆卫视[内网].png" group-title="卫视频道",重庆卫视[内网]
+#EXTINF:-1 tvg-logo="https://live.fanmingming.com/tv/重庆卫视[湖北移动内网].png" group-title="卫视频道",重庆卫视[湖北移动内网]
 rtsp://111.48.34.138:1554/170000004112/99180001000000050000000000000418
-#EXTINF:-1 tvg-logo="https://live.fanmingming.com/tv/东南卫视[内网].png" group-title="卫视频道",东南卫视[内网]
+#EXTINF:-1 tvg-logo="https://live.fanmingming.com/tv/东南卫视[湖北移动内网].png" group-title="卫视频道",东南卫视[湖北移动内网]
 rtsp://111.48.34.138:1554/170000004112/99180001000000060000000000000346
-#EXTINF:-1 tvg-logo="https://live.fanmingming.com/tv/广东卫视[内网].png" group-title="卫视频道",广东卫视[内网]
+#EXTINF:-1 tvg-logo="https://live.fanmingming.com/tv/广东卫视[湖北移动内网].png" group-title="卫视频道",广东卫视[湖北移动内网]
 rtsp://111.48.34.138:1554/170000004112/99180001000000060000000000000197
-#EXTINF:-1 tvg-logo="https://live.fanmingming.com/tv/广西卫视[内网].png" group-title="卫视频道",广西卫视[内网]
+#EXTINF:-1 tvg-logo="https://live.fanmingming.com/tv/广西卫视[湖北移动内网].png" group-title="卫视频道",广西卫视[湖北移动内网]
 rtsp://111.48.34.138:1554/170000004112/99180001000000050000000000000515
-#EXTINF:-1 tvg-logo="https://live.fanmingming.com/tv/贵州卫视[内网].png" group-title="卫视频道",贵州卫视[内网]
+#EXTINF:-1 tvg-logo="https://live.fanmingming.com/tv/贵州卫视[湖北移动内网].png" group-title="卫视频道",贵州卫视[湖北移动内网]
 rtsp://111.48.34.138:1554/170000004112/99180001000000050000000000000419
-#EXTINF:-1 tvg-logo="https://live.fanmingming.com/tv/海南卫视[内网].png" group-title="卫视频道",海南卫视[内网]
+#EXTINF:-1 tvg-logo="https://live.fanmingming.com/tv/海南卫视[湖北移动内网].png" group-title="卫视频道",海南卫视[湖北移动内网]
 rtsp://111.48.34.138:1554/170000004112/99180001000000050000000000000442
-#EXTINF:-1 tvg-logo="https://live.fanmingming.com/tv/河北卫视[内网].png" group-title="卫视频道",河北卫视[内网]
+#EXTINF:-1 tvg-logo="https://live.fanmingming.com/tv/河北卫视[湖北移动内网].png" group-title="卫视频道",河北卫视[湖北移动内网]
 rtsp://111.48.34.138:1554/170000004112/99180001000000050000000000000447
-#EXTINF:-1 tvg-logo="https://live.fanmingming.com/tv/河南卫视[内网].png" group-title="卫视频道",河南卫视[内网]
+#EXTINF:-1 tvg-logo="https://live.fanmingming.com/tv/河南卫视[湖北移动内网].png" group-title="卫视频道",河南卫视[湖北移动内网]
 rtsp://111.48.34.138:1554/170000004112/99180001000000050000000000000463
-#EXTINF:-1 tvg-logo="https://live.fanmingming.com/tv/黑龙江卫视[内网].png" group-title="卫视频道",黑龙江卫视[内网]
+#EXTINF:-1 tvg-logo="https://live.fanmingming.com/tv/黑龙江卫视[湖北移动内网].png" group-title="卫视频道",黑龙江卫视[湖北移动内网]
 rtsp://111.48.34.138:1554/170000004112/00000001000000060000000000000175
-#EXTINF:-1 tvg-logo="https://live.fanmingming.com/tv/吉林卫视[内网].png" group-title="卫视频道",吉林卫视[内网]
+#EXTINF:-1 tvg-logo="https://live.fanmingming.com/tv/吉林卫视[湖北移动内网].png" group-title="卫视频道",吉林卫视[湖北移动内网]
 rtsp://111.48.34.138:1554/170000004112/99180001000000050000000000000528
-#EXTINF:-1 tvg-logo="https://live.fanmingming.com/tv/江西卫视[内网].png" group-title="卫视频道",江西卫视[内网]
+#EXTINF:-1 tvg-logo="https://live.fanmingming.com/tv/江西卫视[湖北移动内网].png" group-title="卫视频道",江西卫视[湖北移动内网]
 rtsp://111.48.34.138:1554/170000004112/99180001000000050000000000000396
-#EXTINF:-1 tvg-logo="https://live.fanmingming.com/tv/山东卫视[内网].png" group-title="卫视频道",山东卫视[内网]
+#EXTINF:-1 tvg-logo="https://live.fanmingming.com/tv/山东卫视[湖北移动内网].png" group-title="卫视频道",山东卫视[湖北移动内网]
 rtsp://111.48.34.138:1554/170000004112/99180001000000060000000000000324
-#EXTINF:-1 tvg-logo="https://live.fanmingming.com/tv/上海卫视[内网].png" group-title="卫视频道",上海卫视[内网]
+#EXTINF:-1 tvg-logo="https://live.fanmingming.com/tv/上海卫视[湖北移动内网].png" group-title="卫视频道",上海卫视[湖北移动内网]
 rtsp://111.48.34.138:1554/170000004112/99180001000000060000000000000198
-#EXTINF:-1 tvg-logo="https://live.fanmingming.com/tv/深圳卫视[内网].png" group-title="卫视频道",深圳卫视[内网]
+#EXTINF:-1 tvg-logo="https://live.fanmingming.com/tv/深圳卫视[湖北移动内网].png" group-title="卫视频道",深圳卫视[湖北移动内网]
 rtsp://111.48.34.138:1554/170000004112/00000001000000060000000000000176
-#EXTINF:-1 tvg-logo="https://live.fanmingming.com/tv/四川卫视[内网].png" group-title="卫视频道",四川卫视[内网]
+#EXTINF:-1 tvg-logo="https://live.fanmingming.com/tv/四川卫视[湖北移动内网].png" group-title="卫视频道",四川卫视[湖北移动内网]
 rtsp://111.48.34.138:1554/170000004112/99180001000000050000000000000464
-#EXTINF:-1 tvg-logo="https://live.fanmingming.com/tv/天津卫视[内网].png" group-title="卫视频道",天津卫视[内网]
+#EXTINF:-1 tvg-logo="https://live.fanmingming.com/tv/天津卫视[湖北移动内网].png" group-title="卫视频道",天津卫视[湖北移动内网]
 rtsp://111.48.34.138:1554/170000004112/99180001000000060000000000000323
-#EXTINF:-1 tvg-logo="https://live.fanmingming.com/tv/浙江卫视[内网].png" group-title="卫视频道",浙江卫视[内网]
+#EXTINF:-1 tvg-logo="https://live.fanmingming.com/tv/浙江卫视[湖北移动内网].png" group-title="卫视频道",浙江卫视[湖北移动内网]
 rtsp://111.48.34.138:1554/170000004112/99180001000000060000000000000195
 #EXTINF:-1 tvg-logo="https://live.fanmingming.com/tv/重温经典.png" group-title="影视频道",重温经典
 http://[2409:8087:2801:22:100::76]/wh7f454c46tw1394075491_-2119906554/hwltc.tv.cdn.zj.chinamobile.com/PLTV/88888888/224/3221236436/1/index.m3u8?fmt=ts2hls&icpid=88888888&RTS=1717812218&from=5&hms_devid=330&online=1717812218&vqe=3
@@ -781,8 +781,12 @@ https://test.zapi.us.kg/?id=ymswjst
 https://test.zapi.us.kg/?id=fans-cinema
 #EXTINF:-1 tvg-logo="https://live.fanmingming.com/tv/纬来戏剧.png" group-title="港澳频道",纬来戏剧
 https://test.zapi.us.kg/?id=videoland-drama
+#EXTINF:-1 tvg-logo="https://live.fanmingming.com/tv/翡翠凤凰影视.png" group-title="港澳频道",翡翠凤凰影视
+https://lunbo.freetv.top/yy/1354926666
 #EXTINF:-1 tvg-logo="https://live.fanmingming.com/tv/采昌影剧台.png" group-title="港澳频道",采昌影剧台
 https://test.zapi.us.kg/?id=caichang
+#EXTINF:-1 tvg-logo="https://live.fanmingming.com/tv/重温经典.png" group-title="港澳频道",重温经典
+http://120.76.248.139/live/bfgd/4200000635.m3u8
 #EXTINF:-1 tvg-logo="https://live.fanmingming.com/tv/靖天戏剧台.png" group-title="港澳频道",靖天戏剧台
 https://test.zapi.us.kg/?id=jtxjt
 #EXTINF:-1 tvg-logo="https://live.fanmingming.com/tv/龙华戏剧.png" group-title="港澳频道",龙华戏剧
@@ -797,6 +801,8 @@ https://test.zapi.us.kg/?id=lstime
 http://metatvpro.xyz:25461/W1045/4329/12209
 #EXTINF:-1 tvg-logo="https://live.fanmingming.com/tv/8TV.png" group-title="港澳频道",8TV
 https://test.zapi.us.kg/?id=8tv
+#EXTINF:-1 tvg-logo="https://live.fanmingming.com/tv/AXN.png" group-title="港澳频道",AXN
+http://metatvpro.xyz:25461/W1045/4329/12700
 #EXTINF:-1 tvg-logo="https://live.fanmingming.com/tv/AXN.png" group-title="港澳频道",AXN
 https://test.zapi.us.kg/?id=axn
 #EXTINF:-1 tvg-logo="https://live.fanmingming.com/tv/AstroPremier.png" group-title="港澳频道",AstroPremier
@@ -837,6 +843,8 @@ https://test.zapi.us.kg/?id=dmax
 http://61.221.215.25:8800/hls/54/index.m3u8
 #EXTINF:-1 tvg-logo="https://live.fanmingming.com/tv/DidikTV7.png" group-title="港澳频道",DidikTV7
 https://test.zapi.us.kg/?id=didiktv7
+#EXTINF:-1 tvg-logo="https://live.fanmingming.com/tv/Dreamworks.png" group-title="港澳频道",Dreamworks
+http://metatvpro.xyz:25461/W1045/4329/14225
 #EXTINF:-1 tvg-logo="https://live.fanmingming.com/tv/ELEVEN1.png" group-title="港澳频道",ELEVEN1
 rtmp://f13h.mine.nu/sat/tv731
 #EXTINF:-1 tvg-logo="https://live.fanmingming.com/tv/ELEVEN2.png" group-title="港澳频道",ELEVEN2
@@ -1009,6 +1017,8 @@ https://test.zapi.us.kg/?id=tvb-asia-drama
 https://test.zapi.us.kg/?id=golden-chinese-drama
 #EXTINF:-1 tvg-logo="https://live.fanmingming.com/tv/TVB娱乐新闻.png" group-title="港澳频道",TVB娱乐新闻
 http://v2h.jdshipin.com/enew/enew.stream/chunklist.m3u8
+#EXTINF:-1 tvg-logo="https://live.fanmingming.com/tv/TVB娱乐新闻台.png" group-title="港澳频道",TVB娱乐新闻台
+https://edge6a.v2h-cdn.com/enew/enew.stream/chunklist.m3u8
 #EXTINF:-1 tvg-logo="https://live.fanmingming.com/tv/TVB无线新闻.png" group-title="港澳频道",TVB无线新闻
 http://live.cooltv.top/tv/tvb.php?id=0&hq
 #EXTINF:-1 tvg-logo="https://live.fanmingming.com/tv/TVB星河.png" group-title="港澳频道",TVB星河
@@ -1361,6 +1371,8 @@ http://61.216.67.119:1935/TWHG/E1/chunklist_w70581102.m3u8
 http://61.216.67.119:1935/TWHG/E1/chunklist_w7058102.m3u8
 #EXTINF:-1 tvg-logo="https://live.fanmingming.com/tv/番薯.png" group-title="港澳频道",番薯
 http://61.216.67.119:1935/TWHG/E1/chunklist_w705811302.m3u8
+#EXTINF:-1 tvg-logo="https://live.fanmingming.com/tv/番薯台.png" group-title="港澳频道",番薯台
+http://61.216.67.119:1935/TWHG/E1/playlist.m3u8
 #EXTINF:-1 tvg-logo="https://live.fanmingming.com/tv/神州新闻台.png" group-title="港澳频道",神州新闻台
 https://edge6a.v2h-cdn.com/mainland/mainland.stream/chunklist.m3u8
 #EXTINF:-1 tvg-logo="https://live.fanmingming.com/tv/红牛.png" group-title="港澳频道",红牛
@@ -1431,37 +1443,37 @@ https://rthktv34-live.akamaized.net/hls/live/2101642/RTHKTV34/stream05/streamPla
 https://rthktv35-live.akamaized.net/hls/live/2101643/RTHKTV35/stream05/streamPlaylist.m3u8
 #EXTINF:-1 tvg-logo="https://live.fanmingming.com/tv/龙华日韩.png" group-title="港澳频道",龙华日韩
 http://37.27.111.214:8080/live/42/hls.m3u8
-#EXTINF:-1 tvg-logo="https://live.fanmingming.com/tv/湖北电视台[内网].png" group-title="湖北频道",湖北电视台[内网]
+#EXTINF:-1 tvg-logo="https://live.fanmingming.com/tv/湖北电视台[湖北移动内网].png" group-title="湖北频道",湖北电视台[湖北移动内网]
 rtsp://111.48.34.138:1554/170000004112/10000100000000050000000002444593
-#EXTINF:-1 tvg-logo="https://live.fanmingming.com/tv/湖北公共[内网].png" group-title="湖北频道",湖北公共[内网]
+#EXTINF:-1 tvg-logo="https://live.fanmingming.com/tv/湖北公共[湖北移动内网].png" group-title="湖北频道",湖北公共[湖北移动内网]
 rtsp://111.48.34.138:1554/170000004112/10000100000000050000000002444582
-#EXTINF:-1 tvg-logo="https://live.fanmingming.com/tv/湖北教育[内网].png" group-title="湖北频道",湖北教育[内网]
+#EXTINF:-1 tvg-logo="https://live.fanmingming.com/tv/湖北教育[湖北移动内网].png" group-title="湖北频道",湖北教育[湖北移动内网]
 rtsp://111.48.34.138:1554/170000004112/99180001000000050000000000000519
-#EXTINF:-1 tvg-logo="https://live.fanmingming.com/tv/湖北经视[内网].png" group-title="湖北频道",湖北经视[内网]
+#EXTINF:-1 tvg-logo="https://live.fanmingming.com/tv/湖北经视[湖北移动内网].png" group-title="湖北频道",湖北经视[湖北移动内网]
 rtsp://111.48.34.138:1554/170000004112/10000100000000050000000002444588
-#EXTINF:-1 tvg-logo="https://live.fanmingming.com/tv/湖北影视[内网].png" group-title="湖北频道",湖北影视[内网]
+#EXTINF:-1 tvg-logo="https://live.fanmingming.com/tv/湖北影视[湖北移动内网].png" group-title="湖北频道",湖北影视[湖北移动内网]
 rtsp://111.48.34.138:1554/170000004112/99180001000000050000000000000518
-#EXTINF:-1 tvg-logo="https://live.fanmingming.com/tv/武汉教育[内网].png" group-title="湖北频道",武汉教育[内网]
+#EXTINF:-1 tvg-logo="https://live.fanmingming.com/tv/武汉教育[湖北移动内网].png" group-title="湖北频道",武汉教育[湖北移动内网]
 rtsp://111.48.34.138:1554/170000004112/99180001000000060000000000000369
 #EXTINF:-1 tvg-logo="https://live.fanmingming.com/tv/武汉教育.png" group-title="湖北频道",武汉教育
 http://stream.appwuhan.com/jyzb/sd/live.m3u8
 #EXTINF:-1 tvg-logo="https://live.fanmingming.com/tv/武汉经济.png" group-title="湖北频道",武汉经济
 http://stream.appwuhan.com/4tzb/sd/live.m3u8
-#EXTINF:-1 tvg-logo="https://live.fanmingming.com/tv/武汉科技[内网].png" group-title="湖北频道",武汉科技[内网]
+#EXTINF:-1 tvg-logo="https://live.fanmingming.com/tv/武汉科技[湖北移动内网].png" group-title="湖北频道",武汉科技[湖北移动内网]
 rtsp://111.48.34.138:1554/170000004112/99180001000000050000000000000632
 #EXTINF:-1 tvg-logo="https://live.fanmingming.com/tv/武汉生活.png" group-title="湖北频道",武汉生活
 http://stream.appwuhan.com/3tzb/sd/live.m3u8
 #EXTINF:-1 tvg-logo="https://live.fanmingming.com/tv/武汉生活.png" group-title="湖北频道",武汉生活
 http://stream.appwuhan.com/3tzb/sd/live.m3u8?
-#EXTINF:-1 tvg-logo="https://live.fanmingming.com/tv/武汉文体[内网].png" group-title="湖北频道",武汉文体[内网]
+#EXTINF:-1 tvg-logo="https://live.fanmingming.com/tv/武汉文体[湖北移动内网].png" group-title="湖北频道",武汉文体[湖北移动内网]
 rtsp://111.48.34.138:1554/170000004112/99180001000000050000000000000431
 #EXTINF:-1 tvg-logo="https://live.fanmingming.com/tv/武汉新闻.png" group-title="湖北频道",武汉新闻
 http://stream.appwuhan.com/1tzb/sd/live.m3u8
 #EXTINF:-1 tvg-logo="https://live.fanmingming.com/tv/武汉新闻.png" group-title="湖北频道",武汉新闻
 http://stream.appwuhan.com/1tzb/sd/live.m3u8?
-#EXTINF:-1 tvg-logo="https://live.fanmingming.com/tv/武汉新闻[内网].png" group-title="湖北频道",武汉新闻[内网]
+#EXTINF:-1 tvg-logo="https://live.fanmingming.com/tv/武汉新闻[湖北移动内网].png" group-title="湖北频道",武汉新闻[湖北移动内网]
 rtsp://111.48.34.138:1554/170000004112/99180001000000050000000000000429
-#EXTINF:-1 tvg-logo="https://live.fanmingming.com/tv/武汉影视[内网].png" group-title="湖北频道",武汉影视[内网]
+#EXTINF:-1 tvg-logo="https://live.fanmingming.com/tv/武汉影视[湖北移动内网].png" group-title="湖北频道",武汉影视[湖北移动内网]
 rtsp://111.48.34.138:1554/170000004112/99180001000000050000000000000430
 #EXTINF:-1 tvg-logo="https://live.fanmingming.com/tv/鄂州公共.png" group-title="湖北频道",鄂州公共
 http://ezhou-live21.cjyun.org/10098/s10098-EZ2T.m3u8?auth_key=1735660799-0-0-6deee5ef6d55cce1a924b7c14a999a69
@@ -1475,11 +1487,11 @@ http://stream.jmtv.com.cn/xwzh/sd/live.m3u8?zhubd
 https://stream.jmtv.com.cn/xwzh/playlist.m3u8?_upt=bde94c031719918903
 #EXTINF:-1 tvg-logo="https://live.fanmingming.com/tv/荆门新闻.png" group-title="湖北频道",荆门新闻
 https://stream.jmtv.com.cn/xwzh/playlist.m3u8?_upt=ffb84e861707375004
-#EXTINF:-1 tvg-logo="https://live.fanmingming.com/tv/荆州垄上[内网].png" group-title="湖北频道",荆州垄上[内网]
+#EXTINF:-1 tvg-logo="https://live.fanmingming.com/tv/荆州垄上[湖北移动内网].png" group-title="湖北频道",荆州垄上[湖北移动内网]
 rtsp://111.48.34.138:1554/170000004112/99180001000000060000000000000378
-#EXTINF:-1 tvg-logo="https://live.fanmingming.com/tv/荆州垄上[内网].png" group-title="湖北频道",荆州垄上[内网]
+#EXTINF:-1 tvg-logo="https://live.fanmingming.com/tv/荆州垄上[湖北移动内网].png" group-title="湖北频道",荆州垄上[湖北移动内网]
 rtsp://111.48.34.138:1554/170000004112/10000100000000050000000002444600
-#EXTINF:-1 tvg-logo="https://live.fanmingming.com/tv/荆州新闻[内网].png" group-title="湖北频道",荆州新闻[内网]
+#EXTINF:-1 tvg-logo="https://live.fanmingming.com/tv/荆州新闻[湖北移动内网].png" group-title="湖北频道",荆州新闻[湖北移动内网]
 rtsp://111.48.34.138:1554/170000004112/99180001000000060000000000000311
 #EXTINF:-1 tvg-logo="https://live.fanmingming.com/tv/荆州新闻.png" group-title="湖北频道",荆州新闻
 http://jingzhou-live21.cjyun.org/10085/s10085-jingzhou-tv01.m3u8?auth_key=1735660799-0-0-e0477d4b5bc584e7518a1bde13892cbe
@@ -1489,9 +1501,9 @@ http://jingzhou-live21.cjyun.org:80/10085/s10085-jingzhou-tv01.m3u8?auth_key=173
 https://p8.vzan.com/slowlive/701367497774448672/live.m3u8
 #EXTINF:-1 tvg-logo="https://live.fanmingming.com/tv/十堰经济.png" group-title="湖北频道",十堰经济
 https://p8.vzan.com/slowlive/701367497774448672/live.m3u8?zbid=351104&tpid=1550600621
-#EXTINF:-1 tvg-logo="https://live.fanmingming.com/tv/十堰经济旅游[内网].png" group-title="湖北频道",十堰经济旅游[内网]
+#EXTINF:-1 tvg-logo="https://live.fanmingming.com/tv/十堰经济旅游[湖北移动内网].png" group-title="湖北频道",十堰经济旅游[湖北移动内网]
 rtsp://111.48.34.138:1554/170000004112/99180001000000050000000000000399
-#EXTINF:-1 tvg-logo="https://live.fanmingming.com/tv/十堰新闻[内网].png" group-title="湖北频道",十堰新闻[内网]
+#EXTINF:-1 tvg-logo="https://live.fanmingming.com/tv/十堰新闻[湖北移动内网].png" group-title="湖北频道",十堰新闻[湖北移动内网]
 rtsp://111.48.34.138:1554/170000004112/99180001000000050000000000000400
 #EXTINF:-1 tvg-logo="https://live.fanmingming.com/tv/十堰新闻.png" group-title="湖北频道",十堰新闻
 http://p8.vzan.com/slowlive/034028687228317362/live.m3u8
@@ -1501,11 +1513,11 @@ https://p8.vzan.com/slowlive/034028687228317362/live.m3u8
 https://p8.vzan.com/slowlive/034028687228317362/live.m3u8?zbid=351104&tpid=868100086
 #EXTINF:-1 tvg-logo="https://live.fanmingming.com/tv/五峰电视台.png" group-title="湖北频道",五峰电视台
 http://wufeng-live21.cjyun.org/10112/s10112-wffm.m3u8?auth_key=1735660799-0-0-6e0f896e48713ad894a3b35b92780628
-#EXTINF:-1 tvg-logo="https://live.fanmingming.com/tv/孝感公共[内网].png" group-title="湖北频道",孝感公共[内网]
+#EXTINF:-1 tvg-logo="https://live.fanmingming.com/tv/孝感公共[湖北移动内网].png" group-title="湖北频道",孝感公共[湖北移动内网]
 rtsp://111.48.34.138:1554/170000004112/99180001000000050000000000000552
 #EXTINF:-1 tvg-logo="https://live.fanmingming.com/tv/孝感新闻.png" group-title="湖北频道",孝感新闻
 http://xiaogan-live21.cjyun.org/10139/s10139-xg.m3u8?auth_key=1735660799-0-0-c66126a1e65c45cfa675dd5f16914315
-#EXTINF:-1 tvg-logo="https://live.fanmingming.com/tv/孝感新闻[内网].png" group-title="湖北频道",孝感新闻[内网]
+#EXTINF:-1 tvg-logo="https://live.fanmingming.com/tv/孝感新闻[湖北移动内网].png" group-title="湖北频道",孝感新闻[湖北移动内网]
 rtsp://111.48.34.138:1554/170000004112/99180001000000050000000000000551
 #EXTINF:-1 tvg-logo="https://live.fanmingming.com/tv/宜昌综合[450p].png" group-title="湖北频道",宜昌综合[450p]
 http://yichang-live21.cjyun.org/10091/10091-yczh.m3u8?auth_key=1735660799-0-0-152a9f6a201d7d56428feae52d4b18b8
@@ -1523,23 +1535,23 @@ http://yuanan-live21.cjyun.org/10106/s10106-yatv.m3u8?auth_key=1735660799-0-0-fd
 http://changyang-live21.cjyun.org/10114/s10114-cy1t.m3u8?auth_key=1735660799-0-0-f8867ea6ca06a65bdf95048518db1f6a
 #EXTINF:-1 tvg-logo="https://live.fanmingming.com/tv/枝江综合.png" group-title="湖北频道",枝江综合
 http://zhijiang-live21.cjyun.org/10120/s10120-zjtv.m3u8?auth_key=1735660799-0-0-fd9715217b53a31e92b5d42d24438b4a
-#EXTINF:-1 tvg-logo="https://live.fanmingming.com/tv/秭归融媒[内网].png" group-title="湖北频道",秭归融媒[内网]
+#EXTINF:-1 tvg-logo="https://live.fanmingming.com/tv/秭归融媒[湖北移动内网].png" group-title="湖北频道",秭归融媒[湖北移动内网]
 rtsp://111.48.34.138:1554/170000004112/99180001000000050000000000000473
 #EXTINF:-1 tvg-logo="https://live.fanmingming.com/tv/秭归综合.png" group-title="湖北频道",秭归综合
 http://zigui-live21.cjyun.org/10111/s10111-ZGTV1.m3u8?auth_key=1735660799-0-0-e80e38a154f9ea053e26d2ff5038530a
-#EXTINF:-1 tvg-logo="https://live.fanmingming.com/tv/汉川新闻[内网].png" group-title="湖北频道",汉川新闻[内网]
+#EXTINF:-1 tvg-logo="https://live.fanmingming.com/tv/汉川新闻[湖北移动内网].png" group-title="湖北频道",汉川新闻[湖北移动内网]
 rtsp://111.48.34.138:1554/170000004112/99180001000000050000000000000529
-#EXTINF:-1 tvg-logo="https://live.fanmingming.com/tv/襄阳公共[内网].png" group-title="湖北频道",襄阳公共[内网]
+#EXTINF:-1 tvg-logo="https://live.fanmingming.com/tv/襄阳公共[湖北移动内网].png" group-title="湖北频道",襄阳公共[湖北移动内网]
 rtsp://111.48.34.138:1554/170000004112/99180001000000050000000000000452
-#EXTINF:-1 tvg-logo="https://live.fanmingming.com/tv/襄阳经济[内网].png" group-title="湖北频道",襄阳经济[内网]
+#EXTINF:-1 tvg-logo="https://live.fanmingming.com/tv/襄阳经济[湖北移动内网].png" group-title="湖北频道",襄阳经济[湖北移动内网]
 rtsp://111.48.34.138:1554/170000004112/99180001000000050000000000000451
-#EXTINF:-1 tvg-logo="https://live.fanmingming.com/tv/襄阳综合[内网].png" group-title="湖北频道",襄阳综合[内网]
+#EXTINF:-1 tvg-logo="https://live.fanmingming.com/tv/襄阳综合[湖北移动内网].png" group-title="湖北频道",襄阳综合[湖北移动内网]
 rtsp://111.48.34.138:1554/170000004112/99180001000000050000000000000450
-#EXTINF:-1 tvg-logo="https://live.fanmingming.com/tv/孝昌新闻党建[内网].png" group-title="湖北频道",孝昌新闻党建[内网]
+#EXTINF:-1 tvg-logo="https://live.fanmingming.com/tv/孝昌新闻党建[湖北移动内网].png" group-title="湖北频道",孝昌新闻党建[湖北移动内网]
 rtsp://111.48.34.138:1554/170000004112/99180001000000050000000000000437
-#EXTINF:-1 tvg-logo="https://live.fanmingming.com/tv/应城新闻党建[内网].png" group-title="湖北频道",应城新闻党建[内网]
+#EXTINF:-1 tvg-logo="https://live.fanmingming.com/tv/应城新闻党建[湖北移动内网].png" group-title="湖北频道",应城新闻党建[湖北移动内网]
 rtsp://111.48.34.138:1554/170000004112/99180001000000050000000000000524
-#EXTINF:-1 tvg-logo="https://live.fanmingming.com/tv/茶频道[内网].png" group-title="湖北频道",茶频道[内网]
+#EXTINF:-1 tvg-logo="https://live.fanmingming.com/tv/茶频道[湖北移动内网].png" group-title="湖北频道",茶频道[湖北移动内网]
 rtsp://111.48.34.138:1554/170000004112/99180001000000050000000000000425
 #EXTINF:-1 tvg-logo="https://live.fanmingming.com/tv/浙江公共.png" group-title="浙江频道",浙江公共
 https://ali-m-l.cztv.com/channels/lantian/channel007/1080p.m3u8
