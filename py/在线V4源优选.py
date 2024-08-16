@@ -23,14 +23,25 @@ from translate import Translator
 
 url = "https://raw.githubusercontent.com/yuanzl77/IPTV/main/live.txt"          #源采集地址
 r = requests.get(url)
-open('源.txt','wb').write(r.content)   
+open('源2.txt','wb').write(r.content)   
 
+###################################################################################################
+# 确保你的Python环境已经安装了openpyxl库
+import codecs
+# 打开原始文件并读取内容
+with codecs.open('源2.txt', 'r', 'utf-8') as file:
+    lines = file.readlines()
+# 处理每一行，去除每行最后一个"$"及其后面的所有内容
+processed_lines = [line.split('$')[0] + '$' if '$' in line else line for line in lines]
+# 将处理后的内容写入新文件
+with codecs.open('源.txt', 'w', 'utf-8') as file:
+    file.writelines(processed_lines)
+###################################################################################################
 
-
+###################################################################################################
 # 使用with语句打开输入文件进行读取
 with open("源.txt", 'r', encoding='utf-8') as file:
     lines = file.readlines()
-
 # 使用列表推导式过滤行
 filtered_lines = [
     line for line in lines 
@@ -49,8 +60,10 @@ filtered_lines = [
 # 使用with语句打开输出文件进行写入
 with open("源.txt", 'w', encoding='utf-8') as output_file:
     output_file.writelines(filtered_lines)
-
 print("文件过滤完成。")
+###################################################################################################
+
+
 #################################################### 对整理好的频道列表测试HTTP连接
 def test_connectivity(url, max_attempts=1): #定义测试HTTP连接的次数
     # 尝试连接指定次数    
