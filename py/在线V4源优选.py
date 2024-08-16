@@ -43,13 +43,13 @@ for line in lines:
         # 如果没有"$"，则直接添加到列表，确保以换行符结束
         processed_lines.append(line.rstrip() + '\n')
 # 将处理后的内容写入新文件
-with codecs.open('源3.txt', 'w', 'utf-8') as file:
+with codecs.open('源.txt', 'w', 'utf-8') as file:
     file.writelines(processed_lines)
 ###################################################################################################
 
 ###################################################################################################
 # 使用with语句打开输入文件进行读取
-with open("源3.txt", 'r', encoding='utf-8') as file:
+with open("源.txt", 'r', encoding='utf-8') as file:
     lines = file.readlines()
 # 使用列表推导式过滤行
 filtered_lines = [
