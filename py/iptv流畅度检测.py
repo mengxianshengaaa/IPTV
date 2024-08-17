@@ -1494,22 +1494,17 @@ import fileinput
 ######################################################################################################################
 ######################################################################################################################
 # 合并自定义频道文件,优选源整理
-import os
-
 # 假设filter_files是一个自定义函数，它返回playlist目录下所有.txt文件的路径列表
 def filter_files(directory, extension):
     return [f for f in os.listdir(directory) if f.endswith(extension)]
-
 # 获取playlist目录下的所有.txt文件
 files = filter_files('playlist', '.txt')
-
 # 打开输出文件
 with open("4.txt", "w", encoding="utf-8") as output:
     for file_path in files:
         with open(os.path.join('playlist', file_path), 'r', encoding="utf-8") as file:
             content = file.read()
             output.write(content + '\n\n')
-
 print("电视频道成功写入")
     
 #################文本排序
