@@ -65,7 +65,6 @@ def check_url(url, timeout=6):
         elapsed_time = None
     # 返回经过时间和访问成功标志
     return elapsed_time, success
-
 # 定义一个函数，用于检查RTMP URL是否可访问
 def check_rtmp_url(url, timeout):
     try:
@@ -138,8 +137,6 @@ def check_p3p_url(url, timeout):
         print(f"Error checking {url}: {e}")
     # 如果发生异常，则返回False
     return False
-
-
 # 定义一个函数，用于处理单行文本并检测其中的URL是否有效
 def process_line(line):
     # 如果行中包含 "#genre#" 或者不包含 "://" 则跳过该行
@@ -190,7 +187,6 @@ def write_list(file_path, data_list):
         for item in data_list:
             # 写入每一行数据到文件，每个item后面添加换行符
             file.write(item + '\n')
-
             
 # 增加外部url到检测清单，同时支持检测m3u格式url
 # urls里所有的源都读到这里。
@@ -227,7 +223,6 @@ def convert_m3u_to_txt(m3u_content):
     
     # 将结果合并成一个字符串，以换行符分隔
     return '\n'.join(txt_lines)
-
 def process_url(url):
     try:
         # 打开URL并读取内容
@@ -248,7 +243,6 @@ def process_url(url):
     
     except Exception as e:
         print(f"处理URL时发生错误：{e}")
-
 # 去重复源 2024-08-06 (检测前剔除重复url，提高检测效率)
 def remove_duplicates_url(lines):
     urls =[]
@@ -398,7 +392,6 @@ if __name__ == "__main__":
     # 格式化脚本开始和结束的时间字符串
     timestart_str = timestart.strftime("%Y%m%d_%H_%M_%S")
     timeend_str = timeend.strftime("%Y%m%d_%H_%M_%S")
-
     # 打印脚本开始、结束和执行时间信息
     print(f"开始时间: {timestart_str}")
     print(f"结束时间: {timeend_str}")
