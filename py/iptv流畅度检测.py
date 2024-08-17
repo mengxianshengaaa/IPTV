@@ -323,7 +323,7 @@ print('删除的行已保存到:', deleted_lines_file_path)
 #合并所有频道文件#
 # 读取要合并的频道文件,并生成临时文件#合并所有频道文件#
 file_contents = []
-file_paths = ["a0.txt", "港澳.txt", "df0.txt", "f.txt"]  # 替换为实际的文件路径列表#
+file_paths = ["a0.txt", "港澳.txt", "df0.txt"]  # 替换为实际的文件路径列表#
 for file_path in file_paths:                                                             #
     with open(file_path, 'r', encoding="utf-8") as file:                                 #
         content = file.read()
@@ -583,7 +583,7 @@ check_and_write_file('2.txt',  'a1.txt',  keywords="央视频道, 剧场, 电影
 check_and_write_file('2.txt',  'b.txt',  keywords="卫视频道, 卫视, 凤凰")
 check_and_write_file('2.txt',  'c.txt',  keywords="影视频道, 爱动漫, SiTV, 爱怀旧, 爱经典, 爱科幻, 爱青春, 爱悬疑, 爱幼教, 爱院线, 影, 剧, 经典")
 check_and_write_file('2.txt',  'd.txt',  keywords="少儿频道, 少儿, 卡通, 动漫, 宝贝, 哈哈")
-check_and_write_file('2.txt',  'e.txt',  keywords="湖北频道, 湖北")
+check_and_write_file('2.txt',  'e.txt',  keywords="福建频道, 福建")
 check_and_write_file('2.txt',  'f.txt',  keywords="湖南频道, 湖南")
 check_and_write_file('2.txt',  'g.txt',  keywords="广东频道, 广东")
 check_and_write_file('2.txt',  'h.txt',  keywords="广西频道, 广西")
