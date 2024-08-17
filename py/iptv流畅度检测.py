@@ -594,7 +594,7 @@ check_and_write_file('2.txt',  'l.txt',  keywords="山东频道, 山东")
 check_and_write_file('2.txt',  'm.txt',  keywords="浙江频道, 浙江")
 check_and_write_file('2.txt',  'n.txt',  keywords="重庆频道, 重庆")
 check_and_write_file('2.txt',  'o.txt',  keywords="江苏频道, 江苏")
-check_and_write_file('2.txt',  'p.txt',  keywords="其他频道, , ")
+check_and_write_file('2.txt',  'p.txt',  keywords="陕西频道, 陕西")
 ###############################################################################################################################################################################################################################
 ##############################################################对生成的文件进行合并
 file_contents = []
