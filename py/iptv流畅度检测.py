@@ -1494,18 +1494,31 @@ import fileinput
 ######################################################################################################################
 ######################################################################################################################
 # 合并自定义频道文件,优选源整理
+# 获取playlist目录下的文件名
+# files1 = os.listdir('playlist')
+files1 = 'playlist'
+# 过滤TXT文件
 file_contents = []
-file_paths = ["playlist/天津联通.txt", "playlist/四川电信.txt", "playlist/河北电信.txt", "playlist/河南电信.txt", "playlist/江苏电信.txt", "playlist/河南联通.txt", "playlist/湖南电信.txt"]  # 替换为实际的文件路径列表
-for file_path in file_paths:
-    if os.path.exists(file_path):
-        with open(file_path, 'r', encoding="utf-8") as file:
-            content = file.read()
-            file_contents.append(content)
-    else:                # 如果文件不存在,则提示异常并打印提示信息
-        print(f"文件 {file_path} 不存在,跳过")
-# 写入合并后的文件
-with open("4.txt", "w", encoding="utf-8") as output:
-    output.write('\n'.join(file_contents))
+for file_path in filter_files(files1, '.txt'):
+    with open('playlist/' + file_path, 'r', encoding="utf-8") as file:
+        content = file.read()
+        file_contents.append(content)
+    # 移除文件
+    # os.remove('playlist/' + file_path)
+    # 写入合并后的txt文件
+    with open("4.txt", "w", encoding="utf-8") as output:
+    output.write('\n\n'.join(file_contents))
+    # 写入更新日期时间
+    # file.write(f"{now_today}更新,#genre#\n")
+    # 获取当前时间
+    local_tz = pytz.timezone("Asia/Shanghai")
+    now = datetime.now(local_tz)
+    # now = datetime.now()
+    output.write(f"\n更新时间,#genre#\n")
+    output.write(f"{now.strftime("%Y-%m-%d")},url\n")
+    output.write(f"{now.strftime("%H:%M:%S")},url\n")
+output.close()
+print(f"电视频道成功写入")
     
 #################文本排序
 # 打开原始文件读取内容,并写入新文件
