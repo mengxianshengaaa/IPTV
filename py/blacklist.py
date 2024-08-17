@@ -205,10 +205,8 @@ def convert_m3u_to_txt(m3u_content):
     
     # 用于存储结果的列表
     txt_lines = []
-    
     # 临时变量用于存储频道名称
     channel_name = ""
-    
     for line in lines:
         # 过滤掉 #EXTM3U 开头的行
         if line.startswith("#EXTM3U"):
@@ -220,7 +218,6 @@ def convert_m3u_to_txt(m3u_content):
         # 处理 URL 行
         elif line.startswith("http"):
             txt_lines.append(f"{channel_name},{line.strip()}")
-    
     # 将结果合并成一个字符串，以换行符分隔
     return '\n'.join(txt_lines)
 def process_url(url):
@@ -240,9 +237,9 @@ def process_url(url):
                         #channel_name=line.split(',')[0].strip()
                         #channel_address=line.split(',')[1].strip()
                         urls_all_lines.append(line.strip())
-    
     except Exception as e:
         print(f"处理URL时发生错误：{e}")
+        
 # 去重复源 2024-08-06 (检测前剔除重复url，提高检测效率)
 def remove_duplicates_url(lines):
     urls =[]
