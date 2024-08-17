@@ -1653,7 +1653,7 @@ check_and_write_file('2.txt',  'h1.txt',  keywords="河北频道, 河北, 石家
 #check_and_write_file('2.txt',  'j.txt',  keywords="广东广西, 广东, 广西")
 check_and_write_file('2.txt',  'j.txt',  keywords="广东广西, 广东, 潮州, 东莞, 佛山, 广州, 河源, 惠州, 江门, 揭阳, 茂名, 梅州, 清远, 汕头, 汕尾, 韶关, 深圳, 阳江, 云浮, 湛江, 肇庆, 珠江, 中山, 珠海, 番禺")
 check_and_write_file('2.txt',  'j1.txt',  keywords="广东广西, 广西, 百色, 北海, 防城港, 桂林, 河池, 贺州, 柳州, 南宁, 钦州, 梧州, 玉林, 宾阳")
-#check_and_write_file('2.txt',  'l0.txt',  keywords="安徽四川, 安徽, 四川")
+check_and_write_file('2.txt',  'l0.txt',  keywords="江苏, 江苏")
 #check_and_write_file('2.txt',  'l.txt',  keywords="安徽四川, 安徽, 安庆, 蚌埠, 亳州, 巢湖, 池州, 岳西, 滁州, 阜阳, 合肥, 淮北, 淮南, 黄山, 六安, 马鞍山, 宿州, 铜陵, 芜湖, 宣城, 固始, 光山")
 #check_and_write_file('2.txt',  'l1.txt',  keywords="安徽四川, 四川, 阿坝, 巴中, 成都, 达州, 德阳, 甘孜, 广安, 广元, 乐山, 凉山, 泸州, 眉山, 绵阳, 内江, 南充, 攀枝花, 遂宁, 雅安, 宜宾, 资阳, 自贡, 黑水, 金川, 乐至, 双流, \
 #万源, 马尔康, 泸县, 文山, 什邡, 西青, 长宁, 达州, 红河")
