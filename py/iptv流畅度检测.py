@@ -644,16 +644,24 @@ with open('分类.txt', 'r', encoding="utf-8") as file:
  lines = file.readlines()
  
 # 使用列表来存储唯一的行的顺序 
- unique_lines = [] 
- seen_lines = set() 
-# 遍历每一行,如果是新的就加入unique_lines 
+unique_lines = []
+seen_lines = set()
+
+# 遍历每一行，如果是新的就加入unique_lines
 for line in lines:
- if line not in seen_lines:
-  unique_lines.append(line)
-  seen_lines.add(line)
-# 将唯一的行写入新的文档 
+    if line not in seen_lines:
+        unique_lines.append(line)
+        seen_lines.add(line)
+
+# 将唯一的行写入第一个文件
 with open('组播优选.txt', 'w', encoding="utf-8") as file:
- file.writelines(unique_lines)
+    for line in unique_lines:
+        file.write(line + '\n')  # 确保每行后面有换行符
+
+# 将唯一的行追加到第二个文件
+with open('综合源.txt', 'a', encoding="utf-8") as file:
+    for line in unique_lines:
+        file.write(line + '\n')  # 确保每行后面有换行符
 
 ################################################################################################任务结束,删除不必要的过程文件
 files_to_remove = ['去重.txt', '分类.txt', "2.txt", "4.txt", "5.txt", "playlist/3.txt", "a0.txt", "a.txt", "a1.txt", "b.txt", \
