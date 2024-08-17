@@ -218,34 +218,8 @@ with open('组播源.txt', 'r', encoding='utf-8') as file, open('f1.txt', 'w', e
       if 'CCTV' not in line and '卫视' not in line and 'CHC' not in line and '4K' not in line and 'genre' not in line:
         if re.search(pattern, line):  # 如果行中有任意关键字
          f1.write(line)  # 将该行写入输出文件
-#从文本中截取省市段生成新文件#
-# 定义关键词
-start_keyword = '省市频道,#genre#'
-end_keyword = '其他频道,#genre#'
-# 输入输出文件路径
-input_file_path = '酒店源.txt'  # 替换为你的输入文件路径
-output_file_path = 'df.txt'  # 替换为你想要保存输出的文件路径
-# 用于存储结果的列表
-result_lines = []
-# 打开输入文件并读取内容
-with open(input_file_path, 'r', encoding='utf-8') as file:
-    capture = False  # 用于控制是否开始捕获行
-    for line in file:
-        # 检查是否到达开始关键词
-        if start_keyword in line:
-            capture = True
-            result_lines.append(line)  # 添加开始关键词所在的行
-        # 如果已经开始捕获,并且到达结束关键词,则停止捕获
-        elif end_keyword in line and capture:
-            break
-        # 如果处于捕获状态,则添加当前行
-        if capture:
-            result_lines.append(line)
-# 将结果写入输出文件
-with open(output_file_path, 'w', encoding='utf-8') as file:
-    file.writelines(result_lines)
-print('提取完成,结果已保存到:', output_file_path)
-#
+
+
 #
 #  获取远程港澳台直播源文件
 url = "https://raw.githubusercontent.com/frxz751113/AAAAA/main/TW.txt"          #源采集地址
@@ -705,7 +679,7 @@ with open('组播优选.txt', 'w', encoding="utf-8") as file:
 files_to_remove = ['去重.txt', '分类.txt', "2.txt", "4.txt", "5.txt", "playlist/3.txt", "a0.txt", "hh.txt", "a.txt", "a1.txt", "b0.txt", "b.txt", "c.txt", "c1.txt", "c2.txt", "d.txt", "e0.txt", "e.txt", "f0.txt", "f.txt", "f1.txt", \
                    "g0.txt", "g.txt", "g1.txt", "h0.txt", "h.txt", "h1.txt", "i.txt", \
               "i1.txt", "j.txt", "j1.txt", "k.txt", "l0.txt", "l.txt", "l1.txt", "m.txt", "m1.txt",  \
-              "n0.txt","n.txt","n1.txt", "o1.txt", "o.txt", "p.txt", "酒店源.txt"]
+              "n0.txt","n.txt","n1.txt", "o1.txt", "o.txt", "p.txt"]
 for file in files_to_remove:
     if os.path.exists(file):
         os.remove(file)
