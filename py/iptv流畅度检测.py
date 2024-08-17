@@ -1576,7 +1576,7 @@ with open(output_file_path, 'w', encoding='utf-8') as output_file:
                 start_time = time.time()
                 frame_count = 0
                 # 尝试捕获10秒内的帧
-                while frame_count < 230 and (time.time() - start_time) < 10:
+                while frame_count < 220 and (time.time() - start_time) < 10:
                     ret, frame = cap.read()
                     if not ret:
                         break
@@ -1584,7 +1584,7 @@ with open(output_file_path, 'w', encoding='utf-8') as output_file:
                 # 释放资源
                 cap.release()
                 # 根据捕获的帧数判断状态并记录结果
-                if frame_count >= 230:  #10秒内超过230帧则写入
+                if frame_count >= 220:  #10秒内超过230帧则写入
                     detected_ips[ip_key] = {'status': 'ok'}
                     output_file.write(line)  # 写入检测通过的行
                 else:
@@ -1644,7 +1644,7 @@ check_and_write_file('2.txt',  'f1.txt',  keywords="湖南频道, 湖南, 茶, �
 check_and_write_file('2.txt',  'g.txt',  keywords="浙江频道, 浙江, 杭州, 宁波, 平湖, 庆元, 缙云, 嵊, 义乌, 东阳, 文成, 云和, 象山, 衢江, 萧山, 龙游, 武义, 兰溪, 开化, 丽水, 上虞, NBTV, 舟山, 新密, 衢州, 嘉兴, 绍兴, 温州, \
 湖州, 永嘉, 诸暨, 钱江, 松阳, 苍南, 遂昌, 青田, 龙泉, 余杭, 新昌, 杭州, 余杭, 丽水, 龙泉, 青田, 松阳, 遂昌, 宁波, 余姚, 上虞, 新商都, 绍兴, 温州, 永嘉, 诸暨, 钱江, 金华, 苍南, 临平")
 #check_and_write_file('2.txt',  'g1.txt',  keywords="浙江上海, 上海, 东方, 普陀, 东方财经, 五星体育, 第一财经, 七彩, 崇明")
-#check_and_write_file('2.txt',  'h0.txt',  keywords="河南河北, 河南, 河北")
+check_and_write_file('2.txt',  'h0.txt',  keywords="河北频道, 石家庄, 河北")
 check_and_write_file('2.txt',  'h.txt',  keywords="河南频道, 河南, 焦作, 封丘, 郏县, 获嘉, 巩义, 邓州, 宝丰, 开封, 卢氏, 洛阳, 孟津, 安阳, 渑池, 南阳, 林州, 滑县, 栾川, 襄城, 宜阳, 长垣, 内黄, 鹿邑, 新安, 平顶山, 淇县, \
 杞县, 汝阳, 三门峡, 卫辉, 淅川, 新密, 新乡, 信阳, 新郑, 延津, 叶县, 义马, 永城, 禹州, 原阳, 镇平, 郑州, 周口, 泌阳, 郸城, 登封, 扶沟, 潢川, 辉县, 济源, 浚县, 临颍, 灵宝, 鲁山, 罗山, 沁阳, 汝州, 唐河, 尉氏")
 check_and_write_file('2.txt',  'h1.txt',  keywords="河北频道, 河北, 石家庄, 承德, 丰宁, 临漳, 井陉, 井陉矿区, 保定, 元氏, 兴隆, 内丘, 南宫, 吴桥, 唐县, 唐山, 安平, 定州, 大厂, 张家口, 徐水, 成安, 故城, 康保, 廊坊, 晋州, \
@@ -1653,7 +1653,7 @@ check_and_write_file('2.txt',  'h1.txt',  keywords="河北频道, 河北, 石家
 #check_and_write_file('2.txt',  'j.txt',  keywords="广东广西, 广东, 广西")
 check_and_write_file('2.txt',  'j.txt',  keywords="广东广西, 广东, 潮州, 东莞, 佛山, 广州, 河源, 惠州, 江门, 揭阳, 茂名, 梅州, 清远, 汕头, 汕尾, 韶关, 深圳, 阳江, 云浮, 湛江, 肇庆, 珠江, 中山, 珠海, 番禺")
 check_and_write_file('2.txt',  'j1.txt',  keywords="广东广西, 广西, 百色, 北海, 防城港, 桂林, 河池, 贺州, 柳州, 南宁, 钦州, 梧州, 玉林, 宾阳")
-check_and_write_file('2.txt',  'l0.txt',  keywords="江苏, 江苏, SiTV")
+check_and_write_file('2.txt',  'l0.txt',  keywords="江苏频道, 江苏, SiTV")
 #check_and_write_file('2.txt',  'l.txt',  keywords="安徽四川, 安徽, 安庆, 蚌埠, 亳州, 巢湖, 池州, 岳西, 滁州, 阜阳, 合肥, 淮北, 淮南, 黄山, 六安, 马鞍山, 宿州, 铜陵, 芜湖, 宣城, 固始, 光山")
 #check_and_write_file('2.txt',  'l1.txt',  keywords="安徽四川, 四川, 阿坝, 巴中, 成都, 达州, 德阳, 甘孜, 广安, 广元, 乐山, 凉山, 泸州, 眉山, 绵阳, 内江, 南充, 攀枝花, 遂宁, 雅安, 宜宾, 资阳, 自贡, 黑水, 金川, 乐至, 双流, \
 #万源, 马尔康, 泸县, 文山, 什邡, 西青, 长宁, 达州, 红河")
@@ -1662,8 +1662,8 @@ check_and_write_file('2.txt',  'o.txt',  keywords="其他频道, , ")
 ###############################################################################################################################################################################################################################
 ##############################################################对生成的文件进行合并
 file_contents = []
-file_paths = ["e0.txt", "e.txt", "a0.txt", "a.txt", "a1.txt", "b0.txt", "b.txt", "c.txt", "c1.txt", "c2.txt", "d.txt", "f0.txt", "f.txt", "f1.txt", "g0.txt", "g.txt", "g1.txt", "h0.txt", "h.txt", "h1.txt", "i.txt", \
-              "i1.txt", "j.txt", "j1.txt", "k.txt", "l0.txt", "l.txt", "l1.txt", "m.txt", "m1.txt",  \
+file_paths = ["e0.txt", "e.txt", "a0.txt", "a.txt", "a1.txt", "b0.txt", "b.txt", "c.txt", "c1.txt", "c2.txt", "d.txt", "f0.txt", "f.txt", "f1.txt", "g0.txt", "g.txt", "g1.txt", \
+              "h.txt", "h0.txt", "h1.txt", "i.txt", "i1.txt", "j.txt", "j1.txt", "k.txt", "l0.txt", "l.txt", "l1.txt", "m.txt", "m1.txt",  \
               "n0.txt","n.txt","n1.txt", "o1.txt", "o.txt"]  # 替换为实际的文件路径列表
 for file_path in file_paths:
     if os.path.exists(file_path):
