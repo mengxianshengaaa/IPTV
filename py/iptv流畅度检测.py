@@ -1507,16 +1507,7 @@ for file_path in filter_files(files1, '.txt'):
     # os.remove('playlist/' + file_path)
     # 写入合并后的txt文件
     with open("4.txt", "w", encoding="utf-8") as output:
-    output.write('\n\n'.join(file_contents))
-    # 写入更新日期时间
-    # file.write(f"{now_today}更新,#genre#\n")
-    # 获取当前时间
-    local_tz = pytz.timezone("Asia/Shanghai")
-    now = datetime.now(local_tz)
-    # now = datetime.now()
-    output.write(f"\n更新时间,#genre#\n")
-    output.write(f"{now.strftime("%Y-%m-%d")},url\n")
-    output.write(f"{now.strftime("%H:%M:%S")},url\n")
+        output.write('\n\n'.join(file_contents))
 output.close()
 print(f"电视频道成功写入")
     
