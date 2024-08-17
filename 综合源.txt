@@ -393,6 +393,7 @@ TVB千禧经典台,https://test.zapi.us.kg/?id=tvb-classic
 影迷,http://37.27.111.214:8080/live/92/hls.m3u8
 影迷数位纪实台,https://test.zapi.us.kg/?id=ymswjst
 影迷数字电影台,https://test.zapi.us.kg/?id=fans-cinema
+纬来戏剧,https://test.zapi.us.kg/?id=videoland-drama
 翡翠凤凰影视,https://lunbo.freetv.top/yy/1354926666
 采昌影剧台,https://test.zapi.us.kg/?id=caichang
 重温经典,http://120.76.248.139/live/bfgd/4200000635.m3u8
@@ -566,8 +567,6 @@ tvN,https://test.zapi.us.kg/?id=tvn
 人间卫视,http://37.27.111.214:8080/live/101/hls.m3u8
 人间卫视,http://61.216.67.119:1935/bltvhd/bltv1/chunklist_w1266569526.m3u
 人间卫视,http://61.216.67.119:1935/bltvhd/bltv1/chunklist_w1266569526.m3u8
-人间卫视,https://5ddce30eb4b55.streamlock.net/bltvhd/bltv1/chunklist_w511254805.m3u8
-人间卫视,https://5ddce30eb4b55.streamlock.net/bltvhd/bltv1/chunklist_w614428743.m3u8
 俄罗斯TivikomUlanUdje,http://tvcom.stream.intelema.ru/tvcom/studio/index.m3u8
 全球财经,http://37.27.111.214:8080/live/64/hls.m3u8
 八大娱乐,https://test.zapi.us.kg/?id=gtv-86
@@ -635,7 +634,6 @@ tvN,https://test.zapi.us.kg/?id=tvn
 天良综合台,http://60.248.91.20:8000/main
 好消息,https://test.zapi.us.kg/?id=goodtv
 好消息综合台,https://dqhxk7sbp7xog.cloudfront.net/hls-live/goodtv/_definst_/liveevent/live-ch1-2.m3u8
-宇宙视界,https://www.goodiptv.club/douyu/9498354
 寰宇台湾,http://37.27.111.214:8080/live/63/hls.m3u8
 寰宇新闻台,https://test.zapi.us.kg/?id=global-news
 寰宇财经,http://37.27.111.214:8080/live/65/hls.m3u8
@@ -707,6 +705,7 @@ tvN,https://test.zapi.us.kg/?id=tvn
 翡翠台,http://113.83.152.56:8182/bynumber/1
 翡翠台,http://tvdrs.wsrtv.com.cn:8100/channellive/ch1.flv
 翡翠台,http://zw9999.cnstream.top:80/play/ubI0Nrlni6TwusjXuSxNxA5oJl8b5Icz-0MXK7POxcc/ts
+翡翠台,http://metatvpro.xyz:25461/W1045/4329/12205
 翡翠台,https://test.zapi.us.kg/?id=feicui
 视纳华仁纪实频道,https://test.zapi.us.kg/?id=cnex
 车迷TV,https://test.zapi.us.kg/?id=motorvision
@@ -724,8 +723,6 @@ tvN,https://test.zapi.us.kg/?id=tvn
 香港34台,https://rthktv34-live.akamaized.net/hls/live/2101642/RTHKTV34/stream05/streamPlaylist.m3u8
 香港35台,https://rthktv35-live.akamaized.net/hls/live/2101643/RTHKTV35/stream05/streamPlaylist.m3u8
 龙华日韩,http://37.27.111.214:8080/live/42/hls.m3u8
-重温经典,http://120.76.248.139/live/bfgd/4200000635.m3u8
-重温经典,http://120.76.248.139/live/bfgd/4200000636.m3u8
 湖北频道,#genre#
 湖北电视台[湖北移动内网],rtsp://111.48.34.138:1554/170000004112/10000100000000050000000002444593
 湖北公共[湖北移动内网],rtsp://111.48.34.138:1554/170000004112/10000100000000050000000002444582
