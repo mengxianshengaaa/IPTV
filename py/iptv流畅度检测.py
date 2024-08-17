@@ -1494,22 +1494,23 @@ import fileinput
 ######################################################################################################################
 ######################################################################################################################
 # 合并自定义频道文件,优选源整理
-# 获取playlist目录下的文件名
-# files1 = os.listdir('playlist')
-files1 = 'playlist'
-# 过滤TXT文件
-file_contents = []
-for file_path in filter_files(files1, '.txt'):
-    with open('playlist/' + file_path, 'r', encoding="utf-8") as file:
-        content = file.read()
-        file_contents.append(content)
-    # 移除文件
-    # os.remove('playlist/' + file_path)
-    # 写入合并后的txt文件
-    with open("4.txt", "w", encoding="utf-8") as output:
-        output.write('\n\n'.join(file_contents))
-output.close()
-print(f"电视频道成功写入")
+import os
+
+# 假设filter_files是一个自定义函数，它返回playlist目录下所有.txt文件的路径列表
+def filter_files(directory, extension):
+    return [f for f in os.listdir(directory) if f.endswith(extension)]
+
+# 获取playlist目录下的所有.txt文件
+files = filter_files('playlist', '.txt')
+
+# 打开输出文件
+with open("4.txt", "w", encoding="utf-8") as output:
+    for file_path in files:
+        with open(os.path.join('playlist', file_path), 'r', encoding="utf-8") as file:
+            content = file.read()
+            output.write(content + '\n\n')
+
+print("电视频道成功写入")
     
 #################文本排序
 # 打开原始文件读取内容,并写入新文件
