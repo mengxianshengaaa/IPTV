@@ -687,7 +687,7 @@ print(f"去重后的行数: {len(unique_lines)}")
 
 ################################################################################################任务结束,删除不必要的过程文件
 files_to_remove = ['去重.txt', '分类.txt', "2.txt", "4.txt", "5.txt", "playlist/3.txt", "a0.txt", "a.txt", "a1.txt", "b.txt", \
-                   "c.txt", "d.txt", "e.txt", "f.txt", "g.txt", "h.txt",  "i.txt", "j.txt", "k.txt", "l.txt", "m.txt", "n.txt","o.txt", "p.txt"]
+                   "c.txt", "d.txt", "e.txt", "f.txt", "g.txt", "h.txt",  "i.txt", "j0.txt", "j.txt", "k.txt", "l.txt", "m.txt", "n.txt","o.txt", "p.txt"]
 for file in files_to_remove:
     if os.path.exists(file):
         os.remove(file)
