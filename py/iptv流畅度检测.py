@@ -569,7 +569,7 @@ def check_and_write_file(input_file, output_file, keywords):
         file_size = os.path.getsize(output_file)
         
         # 如果文件大小小于30字节（假设的最小文件大小）,删除文件
-        if file_size < 300:
+        if file_size < 800:
             os.remove(output_file)
             print(f"文件只包含头部信息,{output_file} 已被删除。")
         else:
