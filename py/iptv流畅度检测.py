@@ -643,11 +643,9 @@ remove_duplicates('去重.txt', '分类.txt')
 # 打开文档并读取所有行 
 with open('分类.txt', 'r', encoding="utf-8") as file:
  lines = file.readlines()
- 
 # 使用列表来存储唯一的行的顺序 
 unique_lines = []
 seen_lines = set()
-
 # 遍历每一行，如果是新的就加入unique_lines
 for line in lines:
     if line not in seen_lines:
@@ -658,31 +656,41 @@ for line in lines:
 with open('组播优选.txt', 'w', encoding="utf-8") as file:
     for line in unique_lines:
         file.write(line + '\n')  # 确保每行后面有换行符
-
 # 将唯一的行追加到第二个文件
 with open('综合源.txt', 'a', encoding="utf-8") as file:
     for line in unique_lines:
         file.write(line + '\n')  # 确保每行后面有换行符
 
-##################### 打开文档并读取所有行去重 
-with open('综合源.txt', 'r', encoding="utf-8") as file:
-    lines = file.readlines()
-# 使用列表来存储唯一的行的顺序 
-unique_lines = [] 
-seen_lines = set() 
-# 打印去重前的行数
-print(f"去重前的行数: {len(lines)}")
-# 遍历每一行，如果是新的就加入unique_lines 
-for line in lines:
-    line_stripped = line.strip()  # 去除行尾的换行符
-    if line_stripped not in seen_lines:
-        unique_lines.append(line)  # 保持原始行的格式，包括换行符
-        seen_lines.add(line_stripped)
-# 将唯一的行写入新的文档 
-with open('综合源.txt', 'w', encoding="utf-8") as file:
-    file.writelines(unique_lines)
-# 打印去重后的行数
-print(f"去重后的行数: {len(unique_lines)}")
+##############################################################对生成的文件进行网址及文本去重复,避免同一个频道出现在不同的类中
+def remove_duplicates(input_file, output_file):
+    # 用于存储已经遇到的URL和包含genre的行
+    seen_urls = set()
+    seen_lines_with_genre = set()
+    # 用于存储最终输出的行
+    output_lines = []
+    # 打开输入文件并读取所有行
+    with open(input_file, 'r', encoding='utf-8') as f:
+        lines = f.readlines()
+        print("去重前的行数：", len(lines))
+        # 遍历每一行
+        for line in lines:
+            # 使用正则表达式查找URL和包含genre的行,默认最后一行
+            urls = re.findall(r'://(?:[a-zA-Z]|[0-9]|[$-_@.&+]|[!*\\(\\),]|(?:%[0-9a-fA-F][0-9a-fA-F]))+', line)
+            genre_line = re.search(r'\bgenre\b', line, re.IGNORECASE) is not None
+            # 如果找到URL并且该URL尚未被记录
+            if urls and urls[0] not in seen_urls:
+                seen_urls.add(urls[0])
+                output_lines.append(line)
+            # 如果找到包含genre的行,无论是否已被记录,都写入新文件
+            if genre_line:
+                output_lines.append(line)
+    # 将结果写入输出文件
+    with open(output_file, 'w', encoding='utf-8') as f:
+        f.writelines(output_lines)
+    print("去重后的行数：", len(output_lines))
+# 使用方法
+remove_duplicates('综合源.txt', '综合源.txt')
+
 
 
 ################################################################################################任务结束,删除不必要的过程文件
