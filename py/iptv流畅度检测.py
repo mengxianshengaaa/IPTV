@@ -588,7 +588,7 @@ check_and_write_file('2.txt',  'e.txt',  keywords="福建频道, 福建")
 check_and_write_file('2.txt',  'g.txt',  keywords="广东频道, 广东")
 check_and_write_file('2.txt',  'h.txt',  keywords="广西频道, 广西")
 check_and_write_file('2.txt',  'i.txt',  keywords="河南频道, 河南")
-check_and_write_file('2.txt',  'j0.txt',  keywords="河北频道, 石家庄, 邢台")
+check_and_write_file('2.txt',  'j0.txt',  keywords="河北频道, 石家庄, 睛彩河北, 河北都市, 河北农民, 河北经济")
 check_and_write_file('2.txt',  'j.txt',  keywords="河北频道, 河北")
 check_and_write_file('2.txt',  'k.txt',  keywords="北京频道, 北京")
 #check_and_write_file('2.txt',  'l.txt',  keywords="山东频道, 山东")
@@ -599,7 +599,7 @@ check_and_write_file('2.txt',  'p.txt',  keywords="陕西频道, 陕西")
 ###############################################################################################################################################################################################################################
 ##############################################################对生成的文件进行合并
 file_contents = []
-file_paths = ["a0.txt", "a.txt", "a1.txt", "b.txt", "c.txt", "d.txt", "e.txt", "f.txt", "g.txt", "h.txt",  "i.txt", "j0.txt", "j.txt", "k.txt", "l.txt", "m.txt", "n.txt","o.txt", "p.txt"]  # 替换为实际的文件路径列表
+file_paths = ["a0.txt", "a.txt", "a1.txt", "b.txt", "c.txt", "d.txt", "j0.txt", "j.txt", "f.txt", "g.txt", "h.txt",  "i.txt", "k.txt", "e.txt", "l.txt", "m.txt", "n.txt","o.txt", "p.txt"]  # 替换为实际的文件路径列表
 for file_path in file_paths:
     if os.path.exists(file_path):
         with open(file_path, 'r', encoding="utf-8") as file:
