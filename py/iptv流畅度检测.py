@@ -1,5 +1,6 @@
 #本程序只适用于酒店源的检测,请勿移植他用
 import time
+from datetime import datetime, timedelta  # 确保 timedelta 被导入
 import concurrent.futures
 from selenium import webdriver
 from selenium.webdriver.chrome.options import Options
