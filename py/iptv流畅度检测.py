@@ -500,12 +500,7 @@ check_and_write_file('2.txt',  'e0.txt',  keywords="河南频道, 河南都市, 
 check_and_write_file('2.txt',  'e.txt',  keywords="河南频道, 河南")
 check_and_write_file('2.txt',  'f0.txt',  keywords="河北频道, 石家庄")
 check_and_write_file('2.txt',  'f.txt',  keywords="河北频道, 河北")
-check_and_write_file('2.txt',  'g.txt',  keywords="广东频道, 广东")
 check_and_write_file('2.txt',  'i.txt',  keywords="北京频道, 北京")
-check_and_write_file('2.txt',  'j.txt',  keywords="浙江频道, 浙江")
-check_and_write_file('2.txt',  'k.txt',  keywords="江苏湖南, 江苏, 湖南")
-check_and_write_file('2.txt',  'l.txt',  keywords="陕西频道, 陕西")
-check_and_write_file('2.txt',  'm.txt',  keywords="福建频道, 福建")
 ###############################################################################################################################################################################################################################
 ##############################################################对生成的文件进行合并
 file_contents = []
