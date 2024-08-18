@@ -651,6 +651,31 @@ for line in lines:
         unique_lines.append(line)
         seen_lines.add(line)
 
+
+#从整理好的文本中进行特定关键词替换以规范频道名#
+for line in fileinput.input("分类.txt", inplace=True):   #打开临时文件原地替换关键字
+    line = line.replace("CCTV1,", "CCTV1-综合,")  
+    line = line.replace("CCTV2,", "CCTV2-财经,")  
+    line = line.replace("CCTV3,", "CCTV3-综艺,")  
+    line = line.replace("CCTV4,", "CCTV4-国际,")  
+    line = line.replace("CCTV5,", "CCTV5-体育,")  
+    line = line.replace("CCTV5+,", "CCTV5-体育plus,")  
+    line = line.replace("CCTV6,", "CCTV6-电影,")  
+    line = line.replace("CCTV7,", "CCTV7-军事,")  
+    line = line.replace("CCTV8,", "CCTV8-电视剧,")  
+    line = line.replace("CCTV9,", "CCTV9-纪录,")  
+    line = line.replace("CCTV10,", "CCTV10-科教,")  
+    line = line.replace("CCTV11,", "CCTV11-戏曲,")  
+    line = line.replace("CCTV11+,", "CCTV11-戏曲,")  
+    line = line.replace("CCTV12,", "CCTV12-社会与法,")  
+    line = line.replace("CCTV13,", "CCTV13-新闻,")  
+    line = line.replace("CCTV14,", "CCTV14-少儿,")  
+    line = line.replace("CCTV15,", "CCTV15-音乐,")  
+    line = line.replace("CCTV16,", "CCTV16-奥林匹克,")  
+    line = line.replace("CCTV17,", "CCTV17-农业农村,") 
+    print(line, end="")   
+
+
 # 将唯一的行写入第一个文件
 with open('组播优选.txt', 'w', encoding="utf-8") as file:
     for line in unique_lines:
