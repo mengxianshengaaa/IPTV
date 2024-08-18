@@ -594,23 +594,24 @@ with open('组播优选.txt', 'w', encoding="utf-8") as file:
 
 # 定义要排除的关键词列表
 excluded_keywords = ['CCTV', '卫视', '关键词3']
-# 定义例外关键词列表，即使它们的行在排除列表中，也应该被保留
-exception_keywords = ['4K', '例外关键词2']
+# 定义例外关键词列表，即使它们在排除列表中，也应该被保留
+exception_keywords = ['4K', '8K', '例外关键词']
 # 打开原始文本文件并读取内容
 with open('组播优选.txt', 'r', encoding='utf-8') as file:
     lines = file.readlines()
-# 过滤掉包含关键词的行，但保留包含例外关键词的行
+# 过滤掉包含关键词的行，但是允许含有例外关键词的行
 filtered_lines = []
 for line in lines:
-    # 检查行是否包含任何排除关键词
+    # 检查行是否包含排除关键词
     contains_excluded = any(keyword in line for keyword in excluded_keywords)
-    # 检查行是否包含任何例外关键词
+    # 检查行是否包含例外关键词
     contains_exception = any(keyword in line for keyword in exception_keywords)
-    # 如果行包含排除关键词但不含例外关键词，则不保留
+    # 如果行包含排除关键词，但是不包含例外关键词，则过滤掉该行
     if contains_excluded and not contains_exception:
         continue
-    # 否则保留该行
-    filtered_lines.append(line)
+    else:
+        # 如果行不包含排除关键词，或者同时包含排除关键词和例外关键词，则保留该行
+        filtered_lines.append(line)
 # 将过滤后的内容写入新的文本文件
 with open('综合源.txt', 'a', encoding='utf-8') as file:
     file.writelines(filtered_lines)
