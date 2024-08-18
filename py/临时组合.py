@@ -8,7 +8,7 @@ from selenium import webdriver
 from selenium.webdriver.chrome.options import Options
 from tqdm import tqdm
 from translate import Translator
-from urllib.parse import urlparseimport asyncio）
+from urllib.parse import urlparseimport asyncio
 import base64
 import concurrent.futures
 import cv2
