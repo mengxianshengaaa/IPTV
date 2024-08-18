@@ -783,6 +783,8 @@ https://test.zapi.us.kg/?id=videoland-drama
 https://lunbo.freetv.top/yy/1354926666
 #EXTINF:-1 tvg-logo="https://live.fanmingming.com/tv/重温经典.png" group-title="港澳频道",重温经典
 http://120.76.248.139/live/bfgd/4200000635.m3u8
+#EXTINF:-1 tvg-logo="https://live.fanmingming.com/tv/靖天戏剧台.png" group-title="港澳频道",靖天戏剧台
+https://test.zapi.us.kg/?id=jtxjt
 #EXTINF:-1 tvg-logo="https://live.fanmingming.com/tv/龙华戏剧.png" group-title="港澳频道",龙华戏剧
 http://37.27.111.214:8080/live/41/hls.m3u8
 #EXTINF:-1 tvg-logo="https://live.fanmingming.com/tv/龙华戏剧台.png" group-title="港澳频道",龙华戏剧台
@@ -837,8 +839,6 @@ https://test.zapi.us.kg/?id=dmax
 http://61.221.215.25:8800/hls/54/index.m3u8
 #EXTINF:-1 tvg-logo="https://live.fanmingming.com/tv/DidikTV7.png" group-title="港澳频道",DidikTV7
 https://test.zapi.us.kg/?id=didiktv7
-#EXTINF:-1 tvg-logo="https://live.fanmingming.com/tv/Dreamworks.png" group-title="港澳频道",Dreamworks
-http://metatvpro.xyz:25461/W1045/4329/14225
 #EXTINF:-1 tvg-logo="https://live.fanmingming.com/tv/ELEVEN1.png" group-title="港澳频道",ELEVEN1
 rtmp://f13h.mine.nu/sat/tv731
 #EXTINF:-1 tvg-logo="https://live.fanmingming.com/tv/ELEVEN2.png" group-title="港澳频道",ELEVEN2
@@ -889,6 +889,8 @@ http://supersonictv.live:8080/live/Derrick/Hitman50$/78937.ts
 http://0f3f161d.cbilant.com/iptv/DNKSGWXK47B9GH/7323/index.m3u8
 #EXTINF:-1 tvg-logo="https://live.fanmingming.com/tv/FOXSPORTS2.png" group-title="港澳频道",FOXSPORTS2
 http://doubleclicktv.live:80/70376812/52663544/914
+#EXTINF:-1 tvg-logo="https://live.fanmingming.com/tv/FOXSPORTS2.png" group-title="港澳频道",FOXSPORTS2
+http://line.greatstar.me:80/play/live.php?mac=00:1A:79:B5:AD:4C&stream=174670&extension=ts&play_token=tvwbpRhuaP
 #EXTINF:-1 tvg-logo="https://live.fanmingming.com/tv/FOXSPORTSNETBASE.png" group-title="港澳频道",FOXSPORTSNETBASE
 http://doubleclicktv.live:80/70376812/52663544/910
 #EXTINF:-1 tvg-logo="https://live.fanmingming.com/tv/FOXSPORTSOKLAHOMA.png" group-title="港澳频道",FOXSPORTSOKLAHOMA
@@ -1131,6 +1133,8 @@ https://test.zapi.us.kg/?id=gtv-86
 http://61.221.215.25:8800/hls/55/index.m3u8
 #EXTINF:-1 tvg-logo="https://live.fanmingming.com/tv/八大第一.png" group-title="港澳频道",八大第一
 https://test.zapi.us.kg/?id=gtv27
+#EXTINF:-1 tvg-logo="https://live.fanmingming.com/tv/八大精彩台.png" group-title="港澳频道",八大精彩台
+https://test.zapi.us.kg/?id=gtv-jct
 #EXTINF:-1 tvg-logo="https://live.fanmingming.com/tv/八大综合.png" group-title="港澳频道",八大综合
 https://test.zapi.us.kg/?id=gtv28
 #EXTINF:-1 tvg-logo="https://live.fanmingming.com/tv/八大综合台.png" group-title="港澳频道",八大综合台
@@ -1169,8 +1173,6 @@ http://37.27.111.214:8080/live/105/hls.m3u8
 http://61.221.215.25:8800/hls/57/index.m3u8
 #EXTINF:-1 tvg-logo="https://live.fanmingming.com/tv/动物星球频道.png" group-title="港澳频道",动物星球频道
 https://test.zapi.us.kg/?id=animal-planet
-#EXTINF:-1 tvg-logo="https://live.fanmingming.com/tv/劲爆体育.png" group-title="港澳频道",劲爆体育
-https://test.zapi.us.kg/?id=jbty
 #EXTINF:-1 tvg-logo="https://live.fanmingming.com/tv/半岛国际新闻台.png" group-title="港澳频道",半岛国际新闻台
 https://test.zapi.us.kg/?id=aljazeera
 #EXTINF:-1 tvg-logo="https://live.fanmingming.com/tv/半岛新闻阿拉伯.png" group-title="港澳频道",半岛新闻阿拉伯
@@ -1609,37 +1611,3 @@ http://l.cztvcloud.com/channels/lantian/SXyongjia1/720p.m3u8
 http://l.cztvcloud.com/channels/lantian/SXyongjia1/720p.m3u8?zzhed
 #EXTINF:-1 tvg-logo="https://live.fanmingming.com/tv/浙江诸暨新闻.png" group-title="浙江频道",浙江诸暨新闻
 http://l.cztvcloud.com/channels/lantian/SXzhuji3/720p.m3u8
-#EXTINF:-1 tvg-logo="https://live.fanmingming.com/tv/黑龙江公共农业.png" group-title="黑龙江频道",黑龙江公共农业
-http://39.135.133.160:80/wh7f454c46tw1814144227_-1914744450/ottrrs.hl.chinamobile.com/PLTV/88888888/224/3221226242/index.m3u8?
-#EXTINF:-1 tvg-logo="https://live.fanmingming.com/tv/黑龙江农业科教.png" group-title="黑龙江频道",黑龙江农业科教
-http://39.135.133.178:80/wh7f454c46tw3902095912_-1111434555/ottrrs.hl.chinamobile.com/PLTV/88888888/224/3221226242/index.m3u8?
-#EXTINF:-1 tvg-logo="https://live.fanmingming.com/tv/黑龙江农业科教.png" group-title="黑龙江频道",黑龙江农业科教
-http://39.135.133.178:80/wh7f454c46tw3902095912_-1111434555/ottrrs.hl.chinamobile.com/PLTV/88888888/224/3221226242/index.m3u8?rrsip=ottrrs.hl.chinamobile.com&zoneoffset=0&servicetype=1&icpid=88888888&limitflux=-1&limitdur=-1&tenantId=8601&accountinfo=%2C2713447%2C112.102.160.59%2C20230401182706%2Curn%3AHuawei%3AliveTV%3AXTV373267966%2C2713447%2C-1%2C0%2C1%2C%2C%2C2%2C%2C%2C%2C2%2C%2C373267967%2CEND&GuardEncType=2&RTS=1680349727&from=23&hms_devid=1248&online=1680349727&vqe=3&it=H4sIAAAAAAAAAyspSkxO9XSxzSvNyVErTi30y7c1VktOzMnJzEv3y08BSYUFO8cbGugZGlrqWZrrGZpZqoWANLnlJKbbGoDV-pXmJqUWQTlAjcGpRWWZyam2KcVpemWJxXqJ6elFqemJJZn5eXoBOYmVoUU5UCUAgFILtn8AAAA
-#EXTINF:-1 tvg-logo="https://live.fanmingming.com/tv/黑龙江新闻法制.png" group-title="黑龙江频道",黑龙江新闻法制
-http://39.135.133.162:80/wh7f454c46tw3781411430_747088853/ottrrs.hl.chinamobile.com/PLTV/88888888/224/3221226330/index.m3u8?rrsip=ottrrs.hl.chinamobile.com&zoneoffset=0&servicetype=1&icpid=88888888&limitflux=-1&limitdur=-1&tenantId=8601&accountinfo=%2C2713447%2C112.102.160.59%2C20230401182706%2Curn%3AHuawei%3AliveTV%3AXTV373267899%2C2713447%2C-1%2C0%2C1%2C%2C%2C2%2C%2C%2C%2C2%2C%2C373267900%2CEND&GuardEncType=2&RTS=1680349606&from=23&hms_devid=1253&online=1680349606&vqe=3&it=H4sIAAAAAAAAAyspSkxO9XSxzSvNyVErTi30y7c1VktOzMnJzEv3y08BSYUFO8cbGugZGlrqWZrrGZpZqoWANLnlJKbbGoDV-pXmJqUWQTlAjcGpRWWZyam2KcVpemWJxXqJ6elFqemJJZn5eXoBOYmVoUU5UCUAgFILtn8AAAA
-#EXTINF:-1 tvg-logo="https://live.fanmingming.com/tv/黑龙江新闻法制.png" group-title="黑龙江频道",黑龙江新闻法制
-http://39.135.133.176:80/wh7f454c46tw60273630_-453148893/ottrrs.hl.chinamobile.com/PLTV/88888888/224/3221226330/index.m3u8?
-#EXTINF:-1 tvg-logo="https://live.fanmingming.com/tv/黑龙江新闻法制高.png" group-title="黑龙江频道",黑龙江新闻法制高
-http://39.135.133.162:80/wh7f454c46tw3781411430_747088853/ottrrs.hl.chinamobile.com/PLTV/88888888/224/3221226330/index.m3u8?
-#EXTINF:-1 tvg-logo="https://live.fanmingming.com/tv/黑龙江都市.png" group-title="黑龙江频道",黑龙江都市
-http://39.134.65.106/wh7f454c46tw1524768213_390798268/ottrrs.hl.chinamobile.com/PLTV/88888888/224/3221226301/index.m3u8?
-#EXTINF:-1 tvg-logo="https://live.fanmingming.com/tv/黑龙江都市.png" group-title="黑龙江频道",黑龙江都市
-http://39.135.133.159:80/wh7f454c46tw3749075192_-492600088/ottrrs.hl.chinamobile.com/PLTV/88888888/224/3221226301/index.m3u8?
-#EXTINF:-1 tvg-logo="https://live.fanmingming.com/tv/黑龙江都市.png" group-title="黑龙江频道",黑龙江都市
-http://39.135.133.159:80/wh7f454c46tw3749075192_-492600088/ottrrs.hl.chinamobile.com/PLTV/88888888/224/3221226301/index.m3u8?rrsip=ottrrs.hl.chinamobile.com&zoneoffset=0&servicetype=1&icpid=88888888&limitflux=-1&limitdur=-1&tenantId=8601&accountinfo=%2C2713447%2C112.102.160.59%2C20230401182706%2Curn%3AHuawei%3AliveTV%3AXTV373267888%2C2713447%2C-1%2C0%2C1%2C%2C%2C2%2C%2C%2C%2C2%2C%2C373267889%2CEND&GuardEncType=2&RTS=1680349574&from=23&hms_devid=1251&online=1680349574&vqe=3&it=H4sIAAAAAAAAAyspSkxO9XSxzSvNyVErTi30y7c1VktOzMnJzEv3y08BSYUFO8cbGugZGlrqWZrrGZpZqoWANLnlJKbbGoDV-pXmJqUWQTlAjcGpRWWZyam2KcVpemWJxXqJ6elFqemJJZn5eXoBOYmVoUU5UCUAgFILtn8AAAA
-#EXTINF:-1 tvg-logo="https://live.fanmingming.com/tv/黑龙江少儿.png" group-title="黑龙江频道",黑龙江少儿
-http://39.135.133.139:80/wh7f454c46tw3857237013_-928680034/ottrrs.hl.chinamobile.com/PLTV/88888888/224/3221226304/index.m3u8?
-#EXTINF:-1 tvg-logo="https://live.fanmingming.com/tv/黑龙江少儿.png" group-title="黑龙江频道",黑龙江少儿
-http://39.135.133.139:80/wh7f454c46tw3857237013_-928680034/ottrrs.hl.chinamobile.com/PLTV/88888888/224/3221226304/index.m3u8?rrsip=ottrrs.hl.chinamobile.com&zoneoffset=0&servicetype=1&icpid=88888888&limitflux=-1&limitdur=-1&tenantId=8601&accountinfo=%2C2713447%2C112.102.160.59%2C20230401182706%2Curn%3AHuawei%3AliveTV%3AXTV373267973%2C2713447%2C-1%2C0%2C1%2C%2C%2C2%2C%2C%2C%2C2%2C%2C373267974%2CEND&GuardEncType=2&RTS=1680349682&from=23&hms_devid=1235&online=1680349682&vqe=3&it=H4sIAAAAAAAAAyspSkxO9XSxzSvNyVErTi30y7c1VktOzMnJzEv3y08BSYUFO8cbGugZGlrqWZrrGZpZqoWANLnlJKbbGoDV-pXmJqUWQTlAjcGpRWWZyam2KcVpemWJxXqJ6elFqemJJZn5eXoBOYmVoUU5UCUAgFILtn8AAAA
-#EXTINF:-1 tvg-logo="https://live.fanmingming.com/tv/黑龙江少儿.png" group-title="黑龙江频道",黑龙江少儿
-http://39.135.133.143:80/wh7f454c46tw2363950348_-702133745/ottrrs.hl.chinamobile.com/PLTV/88888888/224/3221226304/index.m3u8?
-#EXTINF:-1 tvg-logo="https://live.fanmingming.com/tv/黑龙江文体.png" group-title="黑龙江频道",黑龙江文体
-http://39.135.133.139:80/wh7f454c46tw3713856273_330557606/ottrrs.hl.chinamobile.com/PLTV/88888888/224/3221226239/index.m3u8?
-#EXTINF:-1 tvg-logo="https://live.fanmingming.com/tv/黑龙江文体.png" group-title="黑龙江频道",黑龙江文体
-http://39.135.133.149:80/wh7f454c46tw713295186_-2053817813/ottrrs.hl.chinamobile.com/PLTV/88888888/224/3221226239/index.m3u8?
-#EXTINF:-1 tvg-logo="https://live.fanmingming.com/tv/黑龙江影视.png" group-title="黑龙江频道",黑龙江影视
-http://39.135.133.160:80/wh7f454c46tw3679100859_2084673206/ottrrs.hl.chinamobile.com/PLTV/88888888/224/3221226298/index.m3u8?
-#EXTINF:-1 tvg-logo="https://live.fanmingming.com/tv/黑龙江影视.png" group-title="黑龙江频道",黑龙江影视
-http://39.135.133.160:80/wh7f454c46tw3679100859_2084673206/ottrrs.hl.chinamobile.com/PLTV/88888888/224/3221226298/index.m3u8?rrsip=ottrrs.hl.chinamobile.com&zoneoffset=0&servicetype=1&icpid=88888888&limitflux=-1&limitdur=-1&tenantId=8601&accountinfo=%2C2713447%2C112.102.160.59%2C20230401182706%2Curn%3AHuawei%3AliveTV%3AXTV373267930%2C2713447%2C-1%2C0%2C1%2C%2C%2C2%2C%2C%2C%2C2%2C%2C373267931%2CEND&GuardEncType=2&RTS=1680349504&from=23&hms_devid=1244&online=1680349504&vqe=3&it=H4sIAAAAAAAAAyspSkxO9XSxzSvNyVErTi30y7c1VktOzMnJzEv3y08BSYUFO8cbGugZGlrqWZrrGZpZqoWANLnlJKbbGoDV-pXmJqUWQTlAjcGpRWWZyam2KcVpemWJxXqJ6elFqemJJZn5eXoBOYmVoUU5UCUAgFILtn8AAAA
-#EXTINF:-1 tvg-logo="https://live.fanmingming.com/tv/黑龙江影视.png" group-title="黑龙江频道",黑龙江影视
-http://39.135.133.163:80/wh7f454c46tw708721695_1396015417/ottrrs.hl.chinamobile.com/PLTV/88888888/224/3221226298/index.m3u8?
