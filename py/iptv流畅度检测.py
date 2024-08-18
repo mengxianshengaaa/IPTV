@@ -616,6 +616,13 @@ for line in lines:
 with open('综合源.txt', 'a', encoding='utf-8') as file:
     file.writelines(filtered_lines)
 
+#从整理好的文本中进行特定关键词替换以规范频道名#
+for line in fileinput.input("综合源.txt", inplace=True):   #打开临时文件原地替换关键字
+    line = line.replace("CCTV164K", "CCTV16-4K")  
+    line = line.replace("CCTV4K", "CCTV-4K")  
+    print(line, end="")   
+
+
 
 ################################################################################################任务结束,删除不必要的过程文件
 files_to_remove = ['去重.txt', '分类.txt', "2.txt", "4.txt", "5.txt", "主.txt", "a.txt", "a1.txt", "b.txt", "c.txt", "d.txt", \
