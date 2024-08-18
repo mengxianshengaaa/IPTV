@@ -585,6 +585,7 @@ check_and_write_file('2.txt',  'c.txt',  keywords="影视频道, 爱动漫, SiTV
 check_and_write_file('2.txt',  'd.txt',  keywords="少儿频道, 少儿, 卡通, 动漫, 宝贝, 哈哈")
 check_and_write_file('2.txt',  'e.txt',  keywords="福建频道, 福建")
 #check_and_write_file('2.txt',  'f.txt',  keywords="湖南频道, 湖南")
+check_and_write_file('2.txt',  'g0.txt',  keywords="广东频道, 广东民生, 广东体育, 广东新闻, 广东珠江, 深圳, 广州, 汕头, 佛山")
 check_and_write_file('2.txt',  'g.txt',  keywords="广东频道, 广东")
 check_and_write_file('2.txt',  'h.txt',  keywords="广西频道, 广西")
 check_and_write_file('2.txt',  'i.txt',  keywords="河南频道, 河南")
@@ -599,7 +600,7 @@ check_and_write_file('2.txt',  'p.txt',  keywords="陕西频道, 陕西")
 ###############################################################################################################################################################################################################################
 ##############################################################对生成的文件进行合并
 file_contents = []
-file_paths = ["a0.txt", "a.txt", "a1.txt", "b.txt", "c.txt", "d.txt", "j0.txt", "j.txt", "f.txt", "g.txt", "h.txt",  "i.txt", "k.txt", "e.txt", "l.txt", "m.txt", "n.txt","o.txt", "p.txt"]  # 替换为实际的文件路径列表
+file_paths = ["a0.txt", "a.txt", "a1.txt", "b.txt", "c.txt", "d.txt", "j0.txt", "j.txt", "f.txt", "g0.txt", "g.txt", "h.txt",  "i.txt", "k.txt", "e.txt", "l.txt", "m.txt", "n.txt","o.txt", "p.txt"]  # 替换为实际的文件路径列表
 for file_path in file_paths:
     if os.path.exists(file_path):
         with open(file_path, 'r', encoding="utf-8") as file:
@@ -665,7 +666,7 @@ with open('综合源.txt', 'a', encoding="utf-8") as file:
 
 ################################################################################################任务结束,删除不必要的过程文件
 files_to_remove = ['去重.txt', '分类.txt', "2.txt", "4.txt", "5.txt", "playlist/3.txt", "a0.txt", "a.txt", "a1.txt", "b.txt", \
-                   "c.txt", "d.txt", "e.txt", "f.txt", "g.txt", "h.txt",  "i.txt", "j0.txt", "j.txt", "k.txt", "l.txt", "m.txt", "n.txt","o.txt", "p.txt"]
+                   "c.txt", "d.txt", "e.txt", "f.txt", "g0.txt", "g.txt", "h.txt",  "i.txt", "j0.txt", "j.txt", "k.txt", "l.txt", "m.txt", "n.txt","o.txt", "p.txt"]
 for file in files_to_remove:
     if os.path.exists(file):
         os.remove(file)
