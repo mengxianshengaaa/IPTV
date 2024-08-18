@@ -663,16 +663,6 @@ for line in fileinput.input("分类.txt", inplace=True):   #打开临时文件�
     line = line.replace("CCTV17,", "CCTV17-农业农村,") 
     print(line, end="")   
 
-# 定义要处理的文件路径
-file_path = '分类.txt'
-# 读取文件内容
-with open(file_path, 'r', encoding='utf-8') as file:
-    lines = file.readlines()
-# 去除空白行
-non_blank_lines = [line for line in lines if line.strip()]
-# 重新写入文件
-with open(file_path, 'w', encoding='utf-8') as file:
-    file.writelines(non_blank_lines)
 
 # 打开文档并读取所有行 
 with open('分类.txt', 'r', encoding="utf-8") as file:
@@ -689,11 +679,11 @@ for line in lines:
 # 将唯一的行写入第一个文件
 with open('组播优选.txt', 'w', encoding="utf-8") as file:
     for line in unique_lines:
-        file.write(line + '\n')  # 确保每行后面有换行符
+        file.write(line')  # 确保每行后面有换行符 + '\n
 # 将唯一的行追加到第二个文件
 with open('综合源.txt', 'a', encoding="utf-8") as file:
     for line in unique_lines:
-        file.write(line + '\n')  # 确保每行后面有换行符
+        file.write(line)  # 确保每行后面有换行符 + '\n'
 
 
 
