@@ -51,8 +51,7 @@ for province_isp in provinces_isps:
         print(f"文件 '{province_isp}.txt' 不存在. 跳过此文件.")
 for keyword in keywords:
     province, isp, mcast = keyword.split("_")
-    isp_en = None  # 初始化isp_en
-    org = None  # 初始化org
+    #将省份转成英文小写
     # 根据不同的 isp 设置不同的 org 值
     if province == "北京" and isp == "联通":
         isp_en = "cucc"
@@ -61,14 +60,14 @@ for keyword in keywords:
         isp_en = "cucc"
         org = "CHINA UNICOM China169 Backbone"
     elif isp == "电信":
-        isp_en = "ctcc"
         org = "Chinanet"
+        isp_en = "ctcc"
     elif isp == "移动":
+        org == "China Mobile communications corporation"
         isp_en = "cmcc"
-        org = "China Mobile communications corporation"
-
-    start_time = datetime.now()  # 正确引用 datetime.now()
-    timeout_duration = timedelta(seconds=300)  # 设置超时时间为300秒
+        
+    start_time = datetime.now()  # 记录循环开始时间
+    timeout_duration = timedelta(minutes=2)  # 设置超时时间为1分钟
 
     while True:  # 使用无限循环代替之前的条件
         try:
@@ -127,21 +126,22 @@ for keyword in keywords:
                         new_file.write(new_data)
                 print(f'已生成播放列表,保存至{txt_filename}')
                 break
-
         except (requests.Timeout, requests.RequestException) as e:
-            current_time = datetime.now()  # 正确引用 datetime.now()
-            timeout_cnt += 1  # 更新超时计数
-            print(f"{current_time} [{province}]搜索请求发生超时,异常次数：{timeout_cnt}")
-            if timeout_cnt > 5:  # 如果超过5次超时，退出循环
-                print(f"{current_time} 搜索IPTV频道源[],超时次数过多：{timeout_cnt} 次,停止处理")
-                break
-
+            current_time = datetime.now()  # 更新当前时间
+            print(f"{current_time} [{province}]搜索请求发生超时.")
+        
         # 检查是否达到超时时间
-        if (datetime.now() - start_time) >= timeout_duration:
-            current_time = datetime.now()  # 正确引用 datetime.now()
+        if datetime.now() - start_time >= timeout_duration:
+            current_time = datetime.now()  # 更新当前时间
             print(f"{current_time} 搜索超时，已达到最大等待时间.")
             break
 
+        # 重置超时计数器
+        timeout_cnt = 0
+                    # 继续下一次循环迭代
+                continue
+            else:
+                print(f"{current_time} 搜索IPTV频道源[],超时次数过多：{timeout_cnt} 次,停止处理")
 print('节目表制作完成！ 文件输出在当前文件夹！')
 ######################################################################################################################
 ######################################################################################################################
