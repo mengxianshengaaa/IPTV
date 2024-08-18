@@ -579,14 +579,13 @@ def check_and_write_file(input_file, output_file, keywords):
         print(f"未提取到关键词,不创建输出文件 {output_file}。")
 # 按类别提取关键词并写入文件
 check_and_write_file('2.txt',  'a0.txt',  keywords="央视频道, 8K, 4K, 4k")
-check_and_write_file('2.txt',  'a.txt',  keywords="央视频道, CCTV, CHC, 全球大片, 星光院线, 影迷")
-check_and_write_file('2.txt',  'a1.txt',  keywords="央视频道, 剧场, 电影, 女性, 地理")
+check_and_write_file('2.txt',  'a.txt',  keywords="央视频道, CCTV, CHC, 全球大片, 星光院线")
+check_and_write_file('2.txt',  'a1.txt',  keywords="央视频道, 第一剧场, 怀旧剧场, 风云剧场, 欢笑剧场, 都市剧场, 高清电影, 家庭影院, 动作电影, 影迷, 峨眉, 重温, 女性, 地理")
 check_and_write_file('2.txt',  'b.txt',  keywords="卫视频道, 卫视, 凤凰, 星空")
-check_and_write_file('2.txt',  'c.txt',  keywords="影视频道, 爱动漫, SiTV, 爱怀旧, 爱经典, 爱科幻, 爱青春, 爱悬疑, 爱幼教, 爱院线, 影, 剧, 经典")
+check_and_write_file('2.txt',  'c.txt',  keywords="影视频道, 爱动漫, SiTV, 爱怀旧, 爱经典, 爱科幻, 爱青春, 爱悬疑, 爱幼教, 爱院线")
 check_and_write_file('2.txt',  'd.txt',  keywords="少儿频道, 少儿, 卡通, 动漫, 宝贝, 哈哈")
 check_and_write_file('2.txt',  'e0.txt',  keywords="河南频道, 河南都市, 河南民生, 河南法治, 河南公共, 河南功夫, 中原, 河南国际, 河南梨园, 河南文, 河南武术, 河南戏曲, 河南乡村, 河南新闻, 河南移动")
 check_and_write_file('2.txt',  'e.txt',  keywords="河南频道, 河南")
-check_and_write_file('2.txt',  'f0.txt',  keywords="河北频道, 石家庄, 邢台")
 check_and_write_file('2.txt',  'f.txt',  keywords="河北频道, 河北")
 check_and_write_file('2.txt',  'g.txt',  keywords="广东频道, 广东")
 check_and_write_file('2.txt',  'h.txt',  keywords="广西频道, 广西")
@@ -661,6 +660,7 @@ for line in fileinput.input("分类.txt", inplace=True):   #打开临时文件�
     line = line.replace("CCTV15,", "CCTV15-音乐,")  
     line = line.replace("CCTV16,", "CCTV16-奥林匹克,")  
     line = line.replace("CCTV17,", "CCTV17-农业农村,") 
+    line = line.replace("CHC", "") 
     print(line, end="")   
 
 
