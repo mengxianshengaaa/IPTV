@@ -133,15 +133,15 @@ for keyword in keywords:
                 continue
             else:
                 print(f"{current_time} 搜索IPTV频道源[],超时次数过多：{timeout_cnt} 次,停止处理")
-print('节目表制作完成！ 文件输出在当前文件夹！')
-######################################################################################################################
-######################################################################################################################
-######################################################################################################################
+print('节目表制作完成！ 文件输出在playlist文件夹！')
+
+
+
 ######################################################################################################################
 ######################################################################################################################
 # 合并自定义频道文件,综合源整理
 file_contents = []
-file_paths = ["playlist/四川电信.txt", "playlist/河南电信.txt", "playlist/河北电信.txt", "playlist/广东电信.txt"]  # 替换为实际的文件路径列表
+file_paths = ["playlist/四川电信.txt", "playlist/河南电信.txt", "playlist/河北电信.txt", "playlist/湖北电信.txt", "playlist/广东电信.txt"]  # 替换为实际的文件路径列表
 for file_path in file_paths:
     if os.path.exists(file_path):
         with open(file_path, 'r', encoding="utf-8") as file:
@@ -198,11 +198,11 @@ with open('组播源.txt', 'r', encoding='utf-8') as file, open('DD.txt', 'w', e
           DD.write(line)  # 将该行写入输出文件
 
 ##################################################################################################
-keywords = ['湖南', '广东', '广州', '河南', '河北']  # 需要提取的关键字列表
+keywords = ['湖南', '广东', '广州', '汕头', '湖北', '武汉', '石家庄', '深圳', '河南', '河北']  # 需要提取的关键字列表
 pattern = '|'.join(keywords)  # 创建正则表达式模式,匹配任意一个关键字
 #pattern = r"^(.*?),(?!#genre#)(.*?)$" #以分类直接复制
 with open('组播源.txt', 'r', encoding='utf-8') as file, open('df1.txt', 'w', encoding='utf-8') as df1:
-    #df1.write('\n省市频道,#genre#\n')
+    #df1.write('\n组播省市,#genre#\n')
     for line in file:
       if 'CCTV' not in line and '卫视' not in line and '影' not in line and '剧' not in line and '4K' not in line:        
         if re.search(pattern, line):  # 如果行中有任意关键字
@@ -368,7 +368,7 @@ print('删除的行已保存到:', deleted_lines_file_path)
 #合并所有频道文件#
 # 读取要合并的频道文件,并生成临时文件#合并所有频道文件#
 file_contents = []
-file_paths = ["a0.txt", "港澳.txt", "df0.txt", "f.txt", "f1.txt", "f2.txt", "f3.txt"]  # 替换为实际的文件路径列表#
+file_paths = ["a0.txt", "港澳.txt", "df0.txt", "df1.txt", "f.txt", "f1.txt", "f2.txt", "f3.txt"]  # 替换为实际的文件路径列表#
 for file_path in file_paths:                                                             #
     with open(file_path, 'r', encoding="utf-8") as file:                                 #
         content = file.read()
