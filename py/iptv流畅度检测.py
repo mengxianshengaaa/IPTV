@@ -201,7 +201,7 @@ keywords = ['河北', '石家庄', '丰宁', '临漳', '井陉', '井陉矿区',
             '邱县', '隆化', '雄县', '阜平', '高碑店', '高邑', '魏县', '黄骅', '饶阳', '赵县', '睛彩河北', '滦南', '玉田', '崇礼', '平泉', '容城', '文安', '三河', '清河']  # 需要提取的关键字列表
 pattern = '|'.join(keywords)  # 创建正则表达式模式,匹配任意一个关键字
 #pattern = r"^(.*?),(?!#genre#)(.*?)$" #以分类直接复制
-with open('组播源.txt', 'r', encoding='utf-8') as file, open('f.txt', 'w', encoding='utf-8') as f:    #定义临时文件名
+with open('组播源.txt', 'r', encoding='utf-8') as file, open('i0.txt', 'w', encoding='utf-8') as f:    #定义临时文件名
     f.write('\n河北频道,#genre#\n')                                                                  #写入临时文件名
     for line in file:
       if 'CCTV' not in line and '卫视' not in line and 'CHC' not in line and '4K' not in line and 'genre' not in line:
@@ -426,8 +426,8 @@ def txt_to_m3u(input_file, output_file):
 # 将txt文件转换为m3u文件
 txt_to_m3u('综合源.txt', '综合源.m3u')
 #任务结束,删除不必要的过程文件#
-files_to_remove = ['组播源.txt', "TW.txt", "a.txt", "a0.txt", "b.txt", "b1.txt", "港澳.txt", "df0.txt", "df.txt", "df1.txt", "sr1.txt", "sr2.txt", \
-                   "c2.txt", "c1.txt", "DD.txt", "f.txt", "f1.txt"]
+files_to_remove = ['组播源.txt', "TW.txt", "a.txt", "a0.txt", "b.txt", "b1.txt", "港澳.txt", "df0.txt", "di0.txt", "df1.txt", "sr1.txt", "sr2.txt", \
+                   "c2.txt", "c1.txt", "DD.txt", "i0.txt", "f1.txt"]
 for file in files_to_remove:
     if os.path.exists(file):
         os.remove(file)
@@ -587,7 +587,7 @@ check_and_write_file('2.txt',  'e.txt',  keywords="福建频道, 福建")
 check_and_write_file('2.txt',  'g0.txt',  keywords="广东频道, 广东民生, 广东体育, 广东新闻, 广东珠江, 深圳, 广州, 汕头, 佛山")
 check_and_write_file('2.txt',  'g.txt',  keywords="广东频道, 广东")
 check_and_write_file('2.txt',  'h.txt',  keywords="广西频道, 广西")
-check_and_write_file('2.txt',  'f.txt',  keywords="河南频道, 河南都市, 河南法治, 河南功夫, 河南公共, 河南国际, 中原, 河南移动, 河南梨园, 河南民生, 河南文, 河南武术, 河南戏曲, 河南乡村, 河南新闻")
+check_and_write_file('2.txt',  'i0.txt',  keywords="河南频道, 河南都市, 河南法治, 河南功夫, 河南公共, 河南国际, 中原, 河南移动, 河南梨园, 河南民生, 河南文, 河南武术, 河南戏曲, 河南乡村, 河南新闻")
 check_and_write_file('2.txt',  'i.txt',  keywords="河南频道, 河南")
 check_and_write_file('2.txt',  'j0.txt',  keywords="河北频道, 石家庄, 睛彩河北, 河北都市, 河北农民, 河北经济")
 check_and_write_file('2.txt',  'j.txt',  keywords="河北频道, 河北")
@@ -600,7 +600,7 @@ check_and_write_file('2.txt',  'p.txt',  keywords="陕西频道, 陕西")
 ###############################################################################################################################################################################################################################
 ##############################################################对生成的文件进行合并
 file_contents = []
-file_paths = ["a0.txt", "a.txt", "a1.txt", "b.txt", "c.txt", "d.txt", "j0.txt", "j.txt", "f.txt", "i.txt", "g0.txt", "g.txt", "h.txt",  "k.txt", "e.txt", "l.txt", "m.txt", "n.txt","o.txt", "p.txt"]  # 替换为实际的文件路径列表
+file_paths = ["a0.txt", "a.txt", "a1.txt", "b.txt", "c.txt", "d.txt", "j0.txt", "j.txt", "i0.txt", "i.txt", "g0.txt", "g.txt", "h.txt",  "k.txt", "e.txt", "l.txt", "m.txt", "n.txt","o.txt", "p.txt"]  # 替换为实际的文件路径列表
 for file_path in file_paths:
     if os.path.exists(file_path):
         with open(file_path, 'r', encoding="utf-8") as file:
@@ -666,7 +666,7 @@ with open('综合源.txt', 'a', encoding="utf-8") as file:
 
 ################################################################################################任务结束,删除不必要的过程文件
 files_to_remove = ['去重.txt', '分类.txt', "2.txt", "4.txt", "5.txt", "playlist/3.txt", "a0.txt", "a.txt", "a1.txt", "b.txt", \
-                   "c.txt", "d.txt", "e.txt", "f.txt", "g0.txt", "g.txt", "h.txt",  "i.txt", "j0.txt", "j.txt", "k.txt", "l.txt", "m.txt", "n.txt","o.txt", "p.txt"]
+                   "c.txt", "d.txt", "e.txt", "i0.txt", "g0.txt", "g.txt", "h.txt",  "i.txt", "j0.txt", "j.txt", "k.txt", "l.txt", "m.txt", "n.txt","o.txt", "p.txt"]
 for file in files_to_remove:
     if os.path.exists(file):
         os.remove(file)
