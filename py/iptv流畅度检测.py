@@ -51,7 +51,8 @@ for province_isp in provinces_isps:
         print(f"文件 '{province_isp}.txt' 不存在. 跳过此文件.")
 for keyword in keywords:
     province, isp, mcast = keyword.split("_")
-    #将省份转成英文小写
+    isp_en = None  # 初始化isp_en
+    org = None  # 初始化org
     # 根据不同的 isp 设置不同的 org 值
     if province == "北京" and isp == "联通":
         isp_en = "cucc"
@@ -60,15 +61,16 @@ for keyword in keywords:
         isp_en = "cucc"
         org = "CHINA UNICOM China169 Backbone"
     elif isp == "电信":
-        org = "Chinanet"
         isp_en = "ctcc"
+        org = "Chinanet"
     elif isp == "移动":
-        org == "China Mobile communications corporation"
         isp_en = "cmcc"
-        
-    current_time = datetime.now()
+        org = "China Mobile communications corporation"
+
+    current_time = datetime.datetime.now()
     timeout_cnt = 0
-    result_urls = set() 
+    result_urls = set()
+
     while len(result_urls) == 0 and timeout_cnt <= 5:
         try:
             search_url = 'https://fofa.info/result?qbase64='
@@ -125,14 +127,15 @@ for keyword in keywords:
                         new_data = data.replace("rtp://", f"{url}/rtp/")
                         new_file.write(new_data)
                 print(f'已生成播放列表,保存至{txt_filename}')
+                break  # 如果找到有效IP，退出循环
+
         except (requests.Timeout, requests.RequestException) as e:
-            timeout_cnt += 1
+            timeout_cnt += 1  # 更新超时计数
             print(f"{current_time} [{province}]搜索请求发生超时,异常次数：{timeout_cnt}")
-            if timeout_cnt <= 2:
-                    # 继续下一次循环迭代
-                continue
-            else:
+            if timeout_cnt > 5:  # 如果超过5次超时，退出循环
                 print(f"{current_time} 搜索IPTV频道源[],超时次数过多：{timeout_cnt} 次,停止处理")
+                break
+
 print('节目表制作完成！ 文件输出在当前文件夹！')
 ######################################################################################################################
 ######################################################################################################################
