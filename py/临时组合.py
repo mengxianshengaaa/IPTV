@@ -26,9 +26,10 @@ from translate import Translator  # 导入Translator类,用于文本翻译
 ######################################################################################################################
 
 #  获取远程港澳台直播源文件
-url = "https://raw.githubusercontent.com/frxz751113/AAAAA/main/汇总.txt"          #源采集地址
+url = "https://raw.githubusercontent.com/frxz751113/AAAAA/main/TW.txt"          #源采集地址
 r = requests.get(url)
 open('港澳.txt','wb').write(r.content)         #打开源文件并临时写入
+print('采集完成,结果已保存到港澳.txt)
 
 
 
@@ -37,6 +38,7 @@ open('港澳.txt','wb').write(r.content)         #打开源文件并临时写入
 url = "https://raw.githubusercontent.com/frxz751113/AAAAA/main/IPTV/汇总.txt"          #源采集地址
 r = requests.get(url)
 open('汇总.txt','wb').write(r.content)         #打开源文件并临时写入
+print('采集完成,结果已保存到汇总.txt)
 
 # 定义关键词
 start_keyword = '省市频道,#genre#'
@@ -112,8 +114,8 @@ with open(output_file_path, 'w', encoding='utf-8') as file:
 # 将删除的行写入到新的文件中
 with open(deleted_lines_file_path, 'w', encoding='utf-8') as file:
     file.writelines(deleted_lines)
-print('过滤完成,结果已保存到:', output_file_path)
-print('删除的行已保存到:', deleted_lines_file_path)
+print('过滤完成,结果已保存到主.txt)
+print('删除的行已保存到少儿1.txt)
 #
 #
         
@@ -223,7 +225,7 @@ def txt_to_m3u(input_file, output_file):
 # 将txt文件转换为m3u文件
 txt_to_m3u('综合源.txt', '综合源.m3u')
 #任务结束,删除不必要的过程文件#
-files_to_remove = ['组播源.txt', "汇总.txt", "a.txt", "主.txt", "b.txt", "b1.txt", "港澳.txt", "省市.txt", "df.txt", "df1.txt", "少儿1.txt", "sr2.txt", \
+files_to_remove = ["汇总.txt", "TW.txt", "a.txt", "主.txt", "港澳.txt", "省市.txt", "少儿1.txt", \
                    "c2.txt", "c1.txt", "DD.txt", "f.txt", "f1.txt"]
 for file in files_to_remove:
     if os.path.exists(file):
