@@ -141,7 +141,7 @@ print('节目表制作完成！ 文件输出在当前文件夹！')
 ######################################################################################################################
 # 合并自定义频道文件,综合源整理
 file_contents = []
-file_paths = ["playlist/四川电信.txt", "playlist/河南电信.txt", "playlist/河北电信.txt"]  # 替换为实际的文件路径列表
+file_paths = ["playlist/四川电信.txt", "playlist/河南电信.txt", "playlist/河北电信.txt", "playlist/广东电信.txt"]  # 替换为实际的文件路径列表
 for file_path in file_paths:
     if os.path.exists(file_path):
         with open(file_path, 'r', encoding="utf-8") as file:
@@ -219,6 +219,28 @@ with open('组播源.txt', 'r', encoding='utf-8') as file, open('f1.txt', 'w', e
         if re.search(pattern, line):  # 如果行中有任意关键字
          f1.write(line)  # 将该行写入输出文件
 
+
+#从整理好的文本中按类别进行特定关键词提取#
+keywords = ['广东', '广州', '汕头']  # 需要提取的关键字列表
+pattern = '|'.join(keywords)  # 创建正则表达式模式,匹配任意一个关键字
+#pattern = r"^(.*?),(?!#genre#)(.*?)$" #以分类直接复制
+with open('组播源.txt', 'r', encoding='utf-8') as file, open('f2.txt', 'w', encoding='utf-8') as f2:    #定义临时文件名
+    f2.write('\n广东频道,#genre#\n')                                                                  #写入临时文件名
+    for line in file:
+      if 'CCTV' not in line and '卫视' not in line and 'CHC' not in line and '4K' not in line and 'genre' not in line:
+        if re.search(pattern, line):  # 如果行中有任意关键字
+         f2.write(line)  # 将该行写入输出文件
+
+#从整理好的文本中按类别进行特定关键词提取#
+keywords = ['广东', '广东']  # 需要提取的关键字列表
+pattern = '|'.join(keywords)  # 创建正则表达式模式,匹配任意一个关键字
+#pattern = r"^(.*?),(?!#genre#)(.*?)$" #以分类直接复制
+with open('组播源.txt', 'r', encoding='utf-8') as file, open('f3.txt', 'w', encoding='utf-8') as f3:    #定义临时文件名
+    f3.write('\n广东频道,#genre#\n')                                                                  #写入临时文件名
+    for line in file:
+      if 'CCTV' not in line and '卫视' not in line and 'CHC' not in line and '4K' not in line and 'genre' not in line:
+        if re.search(pattern, line):  # 如果行中有任意关键字
+         f3.write(line)  # 将该行写入输出文件
 
 #
 #  获取远程港澳台直播源文件
@@ -323,7 +345,7 @@ print('删除的行已保存到:', deleted_lines_file_path)
 #合并所有频道文件#
 # 读取要合并的频道文件,并生成临时文件#合并所有频道文件#
 file_contents = []
-file_paths = ["a0.txt", "港澳.txt", "df0.txt"]  # 替换为实际的文件路径列表#
+file_paths = ["a0.txt", "港澳.txt", "df0.txt", "f.txt", "f1.txt", "f2.txt", "f3.txt"]  # 替换为实际的文件路径列表#
 for file_path in file_paths:                                                             #
     with open(file_path, 'r', encoding="utf-8") as file:                                 #
         content = file.read()
@@ -427,7 +449,7 @@ def txt_to_m3u(input_file, output_file):
 txt_to_m3u('综合源.txt', '综合源.m3u')
 #任务结束,删除不必要的过程文件#
 files_to_remove = ['组播源.txt', "TW.txt", "a.txt", "a0.txt", "b.txt", "b1.txt", "港澳.txt", "df0.txt", "di0.txt", "df1.txt", "sr1.txt", "sr2.txt", \
-                   "c2.txt", "c1.txt", "DD.txt", "i0.txt", "f1.txt"]
+                   "c2.txt", "c1.txt", "DD.txt", "i0.txt", "f.txt", "f1.txt", "f2.txt", "f3.txt"]
 for file in files_to_remove:
     if os.path.exists(file):
         os.remove(file)
@@ -658,9 +680,9 @@ with open('组播优选.txt', 'w', encoding="utf-8") as file:
     for line in unique_lines:
         file.write(line + '\n')  # 确保每行后面有换行符
 # 将唯一的行追加到第二个文件
-with open('综合源.txt', 'a', encoding="utf-8") as file:
-    for line in unique_lines:
-        file.write(line + '\n')  # 确保每行后面有换行符
+#with open('综合源.txt', 'a', encoding="utf-8") as file:
+    #for line in unique_lines:
+        #file.write(line + '\n')  # 确保每行后面有换行符
 
 
 
