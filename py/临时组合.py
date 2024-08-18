@@ -21,7 +21,7 @@ import replace
 import requests
 import threading
 import time
-﻿import os
+import os
 
 header = {
     "User-Agent":
