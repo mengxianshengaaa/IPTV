@@ -134,121 +134,33 @@ for keyword in keywords:
                 break
             else:
                 print(f"{current_time} 搜索IPTV频道源[],超时次数过多：{timeout_cnt} 次,停止处理")
-print('节目表制作完成！ 文件输出在当前文件夹！')
+print('节目表制作完成！ 文件输出在playlist文件夹！')
 ######################################################################################################################
 ######################################################################################################################
 ######################################################################################################################
 ######################################################################################################################
 ######################################################################################################################
-# 合并自定义频道文件,综合源整理
-file_contents = []
-file_paths = ["playlist/四川电信.txt", "playlist/河南电信.txt", "playlist/河北电信.txt"]  # 替换为实际的文件路径列表
-for file_path in file_paths:
-    if os.path.exists(file_path):
-        with open(file_path, 'r', encoding="utf-8") as file:
-            content = file.read()
-            file_contents.append(content)
-    else:                # 如果文件不存在,则提示异常并打印提示信息
-        print(f"文件 {file_path} 不存在,跳过")
-# 写入合并后的文件
-with open("组播源.txt", "w", encoding="utf-8") as output:
-    output.write('\n'.join(file_contents))
-for line in fileinput.input("组播源.txt", inplace=True):  #打开文件,并对其进行关键词原地替换 
-    line = line.replace("CHC电影", "CHC影迷电影") 
-    line = line.replace("高清电影", "影迷电影") 
-    print(line, end="")  #设置end="",避免输出多余的换行符   
-#从整理好的文本中按类别进行特定关键词提取#
-keywords = ['CHC', '峨眉', '华语', '星光院线', '剧场', '家庭', '影迷', '动作', '星空', '凤凰']  # 需要提取的关键字列表
-pattern = '|'.join(keywords)  # 创建正则表达式模式,匹配任意一个关键字
-#pattern = r"^(.*?),(?!#genre#)(.*?)$" #以分类直接复制
-with open('组播源.txt', 'r', encoding='utf-8') as file, open('c2.txt', 'w', encoding='utf-8') as c2:    #定义临时文件名
-    c2.write('\n组播剧场,#genre#\n')                                                                  #写入临时文件名$GD
-    for line in file:
-      if '$GD' not in line and '调解' not in line:
-        if re.search(pattern, line):  # 如果行中有任意关键字
-         c2.write(line)  # 将该行写入输出文件                                                          #定义临时文件
-#从整理好的文本中按类别进行特定关键词提取#
-keywords = ['爱动漫', '爱怀旧', '爱经典', '爱科幻', '爱幼教', '爱青春', '爱院线', '爱悬疑']  # 需要提取的关键字列表
-pattern = '|'.join(keywords)  # 创建正则表达式模式,匹配任意一个关键字
-#pattern = r"^(.*?),(?!#genre#)(.*?)$" #以分类直接复制
-with open('组播源.txt', 'r', encoding='utf-8') as file, open('c1.txt', 'w', encoding='utf-8') as c1:    #定义临时文件名
-    c1.write('\niHOT系列,#genre#\n')                                                                  #写入临时文件名$GD
-    for line in file:
-      if '$GD' not in line and '4K' not in line:
-        if re.search(pattern, line):  # 如果行中有任意关键字
-         c1.write(line)  # 将该行写入输出文件                                                          #定义临时文件
- 
-#从整理好的文本中按类别进行特定关键词提取#
-keywords = ['4K', '8K']  # 需要提取的关键字列表
-pattern = '|'.join(keywords)  # 创建正则表达式模式,匹配任意一个关键字
-#pattern = r"^(.*?),(?!#genre#)(.*?)$" #以分类直接复制
-with open('组播源.txt', 'r', encoding='utf-8') as file, open('DD.txt', 'w', encoding='utf-8') as DD:
-    DD.write('\n4K 频道,#genre#\n')
-    for line in file:
-        if re.search(pattern, line):  # 如果行中有任意关键字
-          DD.write(line)  # 将该行写入输出文件
-keywords = ['湖南', '广东', '广州', '河南', '河北']  # 需要提取的关键字列表
-pattern = '|'.join(keywords)  # 创建正则表达式模式,匹配任意一个关键字
-#pattern = r"^(.*?),(?!#genre#)(.*?)$" #以分类直接复制
-with open('组播源.txt', 'r', encoding='utf-8') as file, open('df1.txt', 'w', encoding='utf-8') as df1:
-    #df1.write('\n省市频道,#genre#\n')
-    for line in file:
-      if 'CCTV' not in line and '卫视' not in line and '影' not in line and '剧' not in line and '4K' not in line:        
-        if re.search(pattern, line):  # 如果行中有任意关键字
-          df1.write(line)  # 将该行写入输出文件
-#从整理好的文本中按类别进行特定关键词提取#
-keywords = ['河北', '石家庄', '丰宁', '临漳', '井陉', '井陉矿区', '保定', '元氏', '兴隆', '内丘', '南宫', '吴桥', '唐县', '唐山', '安平', '定州', '大厂', '张家口', '徐水', '成安', \
-            '承德', '故城', '康保', '廊坊', '晋州', '景县', '武安', '枣强', '柏乡', '涉县', '涞水', '涞源', '涿州', '深州', '深泽', '清河', '秦皇岛', '衡水', '遵化', '邢台', '邯郸', \
-            '邱县', '隆化', '雄县', '阜平', '高碑店', '高邑', '魏县', '黄骅', '饶阳', '赵县', '睛彩河北', '滦南', '玉田', '崇礼', '平泉', '容城', '文安', '三河', '清河']  # 需要提取的关键字列表
-pattern = '|'.join(keywords)  # 创建正则表达式模式,匹配任意一个关键字
-#pattern = r"^(.*?),(?!#genre#)(.*?)$" #以分类直接复制
-with open('组播源.txt', 'r', encoding='utf-8') as file, open('f.txt', 'w', encoding='utf-8') as f:    #定义临时文件名
-    f.write('\n河北频道,#genre#\n')                                                                  #写入临时文件名
-    for line in file:
-      if 'CCTV' not in line and '卫视' not in line and 'CHC' not in line and '4K' not in line and 'genre' not in line:
-        if re.search(pattern, line):  # 如果行中有任意关键字
-         f.write(line)  # 将该行写入输出文件
-#从整理好的文本中按类别进行特定关键词提取#
-keywords = ['河南', '焦作', '开封', '卢氏', '洛阳', '孟津', '安阳', '宝丰', '邓州', '渑池', '南阳', '内黄', '平顶山', '淇县', '郏县', '封丘', '获嘉', '巩义', '杞县', '汝阳', '三门峡', '卫辉', '淅川', \
-            '新密', '新乡', '信阳', '新郑', '延津', '叶县', '义马', '永城', '禹州', '原阳', '镇平', '郑州', '周口']  # 需要提取的关键字列表
-pattern = '|'.join(keywords)  # 创建正则表达式模式,匹配任意一个关键字
-#pattern = r"^(.*?),(?!#genre#)(.*?)$" #以分类直接复制
-with open('组播源.txt', 'r', encoding='utf-8') as file, open('f1.txt', 'w', encoding='utf-8') as f1:    #定义临时文件名
-    f1.write('\n河南频道,#genre#\n')                                                                  #写入临时文件名
-    for line in file:
-      if 'CCTV' not in line and '卫视' not in line and 'CHC' not in line and '4K' not in line and 'genre' not in line:
-        if re.search(pattern, line):  # 如果行中有任意关键字
-         f1.write(line)  # 将该行写入输出文件
 
-
-#
 #  获取远程港澳台直播源文件
 url = "https://raw.githubusercontent.com/frxz751113/AAAAA/main/TW.txt"          #源采集地址
 r = requests.get(url)
 open('港澳.txt','wb').write(r.content)         #打开源文件并临时写入
-#
-                                                       #
-                                                                                                            
-    
 
-#
+
+
 #从文本中截取省市段生成两个新文件#
 #  获取远程港澳台直播源文件,打开文件并输出临时文件并替换关键词
 url = "https://raw.githubusercontent.com/frxz751113/AAAAA/main/IPTV/汇总.txt"          #源采集地址
 r = requests.get(url)
 open('TW.txt','wb').write(r.content)         #打开源文件并临时写入
-for line in fileinput.input("TW.txt", inplace=True):   #打开临时文件原地替换关键字
-    line = line.replace("﻿Taiwan,#genre#", "")                         #编辑替换字
-    line = line.replace("﻿amc", "AMC")                         #编辑替换字
-    line = line.replace("﻿中文台", "中文")                         #编辑替换字
-    print(line, end="")                                     #加入此行去掉多余的转行符
+
 # 定义关键词
 start_keyword = '省市频道,#genre#'
 end_keyword = '港澳频道,#genre#'
 # 输入输出文件路径
 input_file_path = 'TW.txt'  # 替换为你的输入文件路径
 output_file_path = 'a.txt'  # 替换为你想要保存输出的文件路径
-deleted_lines_file_path = 'df0.txt'  # 替换为你想要保存删除行的文件路径
+deleted_lines_file_path = '省市.txt'  # 替换为你想要保存删除行的文件路径
 # 标记是否处于要删除的行范围内
 delete_range = False
 # 存储要删除的行,包括开始关键词行
@@ -286,8 +198,8 @@ start_keyword = '少儿频道,#genre#'
 end_keyword = '港澳频道,#genre#'
 # 输入输出文件路径
 input_file_path = 'a.txt'  # 替换为你的输入文件路径
-output_file_path = 'a0.txt'  # 替换为你想要保存输出的文件路径
-deleted_lines_file_path = 'sr1.txt'  # 替换为你想要保存删除行的文件路径
+output_file_path = '主.txt'  # 替换为你想要保存输出的文件路径
+deleted_lines_file_path = '少儿1.txt'  # 替换为你想要保存删除行的文件路径
 # 标记是否处于要删除的行范围内
 delete_range = False
 # 存储要删除的行,包括开始关键词行
@@ -324,7 +236,7 @@ print('删除的行已保存到:', deleted_lines_file_path)
 #合并所有频道文件#
 # 读取要合并的频道文件,并生成临时文件#合并所有频道文件#
 file_contents = []
-file_paths = ["a0.txt", "港澳.txt", "df0.txt"]  # 替换为实际的文件路径列表#
+file_paths = ["主.txt", "港澳.txt", "省市.txt"]  # 替换为实际的文件路径列表#
 for file_path in file_paths:                                                             #
     with open(file_path, 'r', encoding="utf-8") as file:                                 #
         content = file.read()
@@ -427,7 +339,7 @@ def txt_to_m3u(input_file, output_file):
 # 将txt文件转换为m3u文件
 txt_to_m3u('综合源.txt', '综合源.m3u')
 #任务结束,删除不必要的过程文件#
-files_to_remove = ['组播源.txt', "TW.txt", "a.txt", "a0.txt", "b.txt", "b1.txt", "港澳.txt", "df0.txt", "df.txt", "df1.txt", "sr1.txt", "sr2.txt", \
+files_to_remove = ['组播源.txt', "TW.txt", "a.txt", "主.txt", "b.txt", "b1.txt", "港澳.txt", "省市.txt", "df.txt", "df1.txt", "少儿1.txt", "sr2.txt", \
                    "c2.txt", "c1.txt", "DD.txt", "f.txt", "f1.txt"]
 for file in files_to_remove:
     if os.path.exists(file):
@@ -578,7 +490,7 @@ def check_and_write_file(input_file, output_file, keywords):
     else:
         print(f"未提取到关键词,不创建输出文件 {output_file}。")
 # 按类别提取关键词并写入文件
-check_and_write_file('2.txt',  'a0.txt',  keywords="央视频道, 8K, 4K, 4k")
+check_and_write_file('2.txt',  '主.txt',  keywords="央视频道, 8K, 4K, 4k")
 check_and_write_file('2.txt',  'a.txt',  keywords="央视频道, CCTV, CHC, 全球大片, 星光院线")
 check_and_write_file('2.txt',  'a1.txt',  keywords="央视频道, 第一剧场, 怀旧剧场, 风云音乐, 风云剧场, 欢笑剧场, 都市剧场, 高清电影, 家庭影院, 动作电影, 影迷, 峨眉, 重温, 女性, 地理")
 check_and_write_file('2.txt',  'b.txt',  keywords="卫视频道, 卫视, 凤凰, 星空")
@@ -597,7 +509,7 @@ check_and_write_file('2.txt',  'm.txt',  keywords="福建频道, 福建")
 ###############################################################################################################################################################################################################################
 ##############################################################对生成的文件进行合并
 file_contents = []
-file_paths = ["a0.txt", "a.txt", "a1.txt", "b.txt", "c.txt", "d.txt", "e0.txt", "e.txt", "f0.txt", "f.txt", "g.txt", "h.txt", "i.txt", "j.txt", "k.txt", "l.txt", "m.txt"]  # 替换为实际的文件路径列表
+file_paths = ["主.txt", "a.txt", "a1.txt", "b.txt", "c.txt", "d.txt", "e0.txt", "e.txt", "f0.txt", "f.txt", "g.txt", "h.txt", "i.txt", "j.txt", "k.txt", "l.txt", "m.txt"]  # 替换为实际的文件路径列表
 for file_path in file_paths:
     if os.path.exists(file_path):
         with open(file_path, 'r', encoding="utf-8") as file:
@@ -688,7 +600,7 @@ with open('综合源.txt', 'a', encoding="utf-8") as file:
 
 
 ################################################################################################任务结束,删除不必要的过程文件
-files_to_remove = ['去重.txt', '分类.txt', "2.txt", "4.txt", "5.txt", "a0.txt", "a.txt", "a1.txt", "b.txt", "c.txt", "d.txt", \
+files_to_remove = ['去重.txt', '分类.txt', "2.txt", "4.txt", "5.txt", "主.txt", "a.txt", "a1.txt", "b.txt", "c.txt", "d.txt", \
                    "e0.txt", "e.txt", "f0.txt", "f.txt", "g.txt", "h.txt", "i.txt", "j.txt", "k.txt", "l.txt", "m.txt"]
 for file in files_to_remove:
     if os.path.exists(file):
