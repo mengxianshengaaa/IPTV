@@ -584,10 +584,10 @@ check_and_write_file('2.txt',  'b.txt',  keywords="卫视频道, 卫视, 凤凰,
 check_and_write_file('2.txt',  'c.txt',  keywords="影视频道, 爱动漫, SiTV, 爱怀旧, 爱经典, 爱科幻, 爱青春, 爱悬疑, 爱幼教, 爱院线, 影, 剧, 经典")
 check_and_write_file('2.txt',  'd.txt',  keywords="少儿频道, 少儿, 卡通, 动漫, 宝贝, 哈哈")
 check_and_write_file('2.txt',  'e.txt',  keywords="福建频道, 福建")
-#check_and_write_file('2.txt',  'f.txt',  keywords="湖南频道, 湖南")
 check_and_write_file('2.txt',  'g0.txt',  keywords="广东频道, 广东民生, 广东体育, 广东新闻, 广东珠江, 深圳, 广州, 汕头, 佛山")
 check_and_write_file('2.txt',  'g.txt',  keywords="广东频道, 广东")
 check_and_write_file('2.txt',  'h.txt',  keywords="广西频道, 广西")
+check_and_write_file('2.txt',  'f.txt',  keywords="河南频道, 河南都市, 河南法治, 河南功夫, 河南公共, 河南国际, 中原, 河南移动, 河南梨园, 河南民生, 河南文, 河南武术, 河南戏曲, 河南乡村, 河南新闻")
 check_and_write_file('2.txt',  'i.txt',  keywords="河南频道, 河南")
 check_and_write_file('2.txt',  'j0.txt',  keywords="河北频道, 石家庄, 睛彩河北, 河北都市, 河北农民, 河北经济")
 check_and_write_file('2.txt',  'j.txt',  keywords="河北频道, 河北")
@@ -600,7 +600,7 @@ check_and_write_file('2.txt',  'p.txt',  keywords="陕西频道, 陕西")
 ###############################################################################################################################################################################################################################
 ##############################################################对生成的文件进行合并
 file_contents = []
-file_paths = ["a0.txt", "a.txt", "a1.txt", "b.txt", "c.txt", "d.txt", "j0.txt", "j.txt", "f.txt", "g0.txt", "g.txt", "h.txt",  "i.txt", "k.txt", "e.txt", "l.txt", "m.txt", "n.txt","o.txt", "p.txt"]  # 替换为实际的文件路径列表
+file_paths = ["a0.txt", "a.txt", "a1.txt", "b.txt", "c.txt", "d.txt", "j0.txt", "j.txt", "f.txt", "i.txt", "g0.txt", "g.txt", "h.txt",  "k.txt", "e.txt", "l.txt", "m.txt", "n.txt","o.txt", "p.txt"]  # 替换为实际的文件路径列表
 for file_path in file_paths:
     if os.path.exists(file_path):
         with open(file_path, 'r', encoding="utf-8") as file:
