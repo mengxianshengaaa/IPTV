@@ -67,10 +67,10 @@ for keyword in keywords:
         org == "China Mobile communications corporation"
         isp_en = "cmcc"
         
-    start_time = datetime.now()  # 记录循环开始时间
-    timeout_duration = timedelta(minutes=2)  # 设置超时时间为1分钟
-
-    while True:  # 使用无限循环代替之前的条件
+    current_time = datetime.now()
+    timeout_cnt = 0
+    result_urls = set() 
+    while len(result_urls) == 0 and timeout_cnt <= 5:
         try:
             search_url = 'https://fofa.info/result?qbase64='
             search_txt = f'\"udpxy\" && country=\"CN\" && region=\"{province}\"'  # && org=\"{org}\"
@@ -126,21 +126,14 @@ for keyword in keywords:
                         new_data = data.replace("rtp://", f"{url}/rtp/")
                         new_file.write(new_data)
                 print(f'已生成播放列表,保存至{txt_filename}')
-                break
         except (requests.Timeout, requests.RequestException) as e:
-            current_time = datetime.now()  # 更新当前时间
-            print(f"{current_time} [{province}]搜索请求发生超时.")
-        
-        # 检查是否达到超时时间
-        if datetime.now() - start_time >= timeout_duration:
-            current_time = datetime.now()  # 更新当前时间
-            print(f"{current_time} 搜索超时，已达到最大等待时间.")
-            break
-
-        # 重置超时计数器
-        timeout_cnt = 0
-                    # 继续下一次循环迭代
-
+            timeout_cnt += 1
+            print(f"{current_time} [{province}]搜索请求发生超时,异常次数：{timeout_cnt}")
+            if timeout_cnt <= 5:
+                    # 退出循环迭代
+                break
+            else:
+                print(f"{current_time} 搜索IPTV频道源[],超时次数过多：{timeout_cnt} 次,停止处理")
 print('节目表制作完成！ 文件输出在当前文件夹！')
 ######################################################################################################################
 ######################################################################################################################
