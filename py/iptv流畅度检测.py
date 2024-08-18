@@ -639,18 +639,6 @@ def remove_duplicates(input_file, output_file):
     print("去重后的行数：", len(output_lines))
 # 使用方法
 remove_duplicates('去重.txt', '分类.txt')
-# 打开文档并读取所有行 
-with open('分类.txt', 'r', encoding="utf-8") as file:
- lines = file.readlines()
-# 使用列表来存储唯一的行的顺序 
-unique_lines = []
-seen_lines = set()
-# 遍历每一行，如果是新的就加入unique_lines
-for line in lines:
-    if line not in seen_lines:
-        unique_lines.append(line)
-        seen_lines.add(line)
-
 
 #从整理好的文本中进行特定关键词替换以规范频道名#
 for line in fileinput.input("分类.txt", inplace=True):   #打开临时文件原地替换关键字
@@ -675,6 +663,18 @@ for line in fileinput.input("分类.txt", inplace=True):   #打开临时文件�
     line = line.replace("CCTV17,", "CCTV17-农业农村,") 
     print(line, end="")   
 
+
+# 打开文档并读取所有行 
+with open('分类.txt', 'r', encoding="utf-8") as file:
+ lines = file.readlines()
+# 使用列表来存储唯一的行的顺序 
+unique_lines = []
+seen_lines = set()
+# 遍历每一行，如果是新的就加入unique_lines
+for line in lines:
+    if line not in seen_lines:
+        unique_lines.append(line)
+        seen_lines.add(line)
 
 # 将唯一的行写入第一个文件
 with open('组播优选.txt', 'w', encoding="utf-8") as file:
