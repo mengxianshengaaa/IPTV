@@ -593,10 +593,20 @@ with open('组播优选.txt', 'w', encoding="utf-8") as file:
     for line in unique_lines:
         file.write(line)  # 确保每行后面有换行符 + '\n'
 # 将唯一的行追加到第二个文件
-with open('综合源.txt', 'a', encoding="utf-8") as file:
-    for line in unique_lines:
-        file.write(line)  # 确保每行后面有换行符 + '\n'
+#with open('综合源.txt', 'a', encoding="utf-8") as file:
+    #for line in unique_lines:
+        #file.write(line)  # 确保每行后面有换行符 + '\n'
 
+# 定义要排除的关键词列表
+excluded_keywords = ['CCTV', '卫视', '关键词3']
+# 打开原始文本文件并读取内容
+with open('组播优选.txt', 'r', encoding='utf-8') as file:
+    lines = file.readlines()
+# 过滤掉包含关键词的行
+filtered_lines = [line for line in lines if not any(keyword in line for keyword in excluded_keywords)]
+# 将过滤后的内容写入新的文本文件
+with open('综合源.txt', 'a', encoding='utf-8') as file:
+    file.writelines(filtered_lines)
 
 
 ################################################################################################任务结束,删除不必要的过程文件
