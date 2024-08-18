@@ -29,7 +29,7 @@ from translate import Translator  # 导入Translator类,用于文本翻译
 url = "https://raw.githubusercontent.com/frxz751113/AAAAA/main/TW.txt"          #源采集地址
 r = requests.get(url)
 open('港澳.txt','wb').write(r.content)         #打开源文件并临时写入
-print('采集完成,结果已保存到港澳.txt)
+print('采集完成,结果已保存到港澳.txt')
 
 
 
@@ -38,7 +38,7 @@ print('采集完成,结果已保存到港澳.txt)
 url = "https://raw.githubusercontent.com/frxz751113/AAAAA/main/IPTV/汇总.txt"          #源采集地址
 r = requests.get(url)
 open('汇总.txt','wb').write(r.content)         #打开源文件并临时写入
-print('采集完成,结果已保存到汇总.txt)
+print('采集完成,结果已保存到汇总.txt')
 
 # 定义关键词
 start_keyword = '省市频道,#genre#'
@@ -114,8 +114,8 @@ with open(output_file_path, 'w', encoding='utf-8') as file:
 # 将删除的行写入到新的文件中
 with open(deleted_lines_file_path, 'w', encoding='utf-8') as file:
     file.writelines(deleted_lines)
-print('过滤完成,结果已保存到主.txt)
-print('删除的行已保存到少儿1.txt)
+print('过滤完成,结果已保存到主.txt')
+print('删除的行已保存到少儿1.txt')
 #
 #
         
