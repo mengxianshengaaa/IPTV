@@ -134,28 +134,27 @@ for keyword in keywords:
                 break
             else:
                 print(f"{current_time} 搜索IPTV频道源[],超时次数过多：{timeout_cnt} 次,停止处理")
-
-# 打开文档并读取所有行 
-with open(txt_filename, 'r', encoding="utf-8") as file:
-    lines = file.readlines()
-# 使用列表来存储唯一的行的顺序 
-unique_lines = [] 
-seen_lines = set() 
-# 打印去重前的行数
-print(f"去重前的行数: {len(lines)}")
-# 遍历每一行，如果是新的就加入unique_lines 
-for line in lines:
-    line_stripped = line.strip()  # 去除行尾的换行符
-    if line_stripped not in seen_lines:
-        unique_lines.append(line)  # 保持原始行的格式，包括换行符
-        seen_lines.add(line_stripped)
-# 将唯一的行写入新的文档 
-with open(txt_filename, 'w', encoding="utf-8") as file:
-    file.writelines(unique_lines)
-# 打印去重后的行数
-print(f"去重后的行数: {len(unique_lines)}")
-
 print('节目表制作完成！ 文件输出在playlist文件夹！')
+
+
+
+def remove_duplicates_keep_order(folder_path):
+    for filename in os.listdir(folder_path):
+        if filename.endswith('.txt'):
+            file_path = os.path.join(folder_path, filename)
+            lines = set()
+            unique_lines = []
+            with open(file_path, 'r', encoding='utf-8') as file:
+                for line in file:
+                    if line not in lines:
+                        unique_lines.append(line)
+                        lines.add(line)
+            # 将保持顺序的去重后的内容写回原文件
+            with open(file_path, 'w', encoding='utf-8') as file:
+                file.writelines(unique_lines)
+# 使用示例
+folder_path = 'playlist'  # 替换为你的文件夹路径
+remove_duplicates_keep_order(folder_path)
 ######################################################################################################################
 ######################################################################################################################
 ######################################################################################################################
