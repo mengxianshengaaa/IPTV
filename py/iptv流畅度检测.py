@@ -211,7 +211,7 @@ with open(output_file_path, 'w', encoding='utf-8') as file:
 with open(deleted_lines_file_path, 'w', encoding='utf-8') as file:
     file.writelines(deleted_lines)
 print('过滤完成,结果已保存到:', output_file_path)
-print('删除的行已保存到:', deleted_lines_file_path)
+print('提取的行已保存到:', deleted_lines_file_path)
 #
 #从文本中截取少儿段并生成两个新文件#
 # 定义关键词
@@ -250,7 +250,7 @@ with open(output_file_path, 'w', encoding='utf-8') as file:
 with open(deleted_lines_file_path, 'w', encoding='utf-8') as file:
     file.writelines(deleted_lines)
 print('过滤完成,结果已保存到:', output_file_path)
-print('删除的行已保存到:', deleted_lines_file_path)
+print('提取的行已保存到:', deleted_lines_file_path)
 #
 #
         
