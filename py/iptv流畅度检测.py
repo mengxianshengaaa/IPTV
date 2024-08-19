@@ -57,23 +57,29 @@ for keyword in keywords:
     if province == "北京" and isp == "联通":
         isp_en = "cucc"
         org = "China Unicom Beijing Province Network"
+        asn = "4808"
+        others = '&& city="beijing"
     elif isp == "联通":
         isp_en = "cucc"
         org = "CHINA UNICOM China169 Backbone"
+        asn = "4837"
     elif isp == "电信":
         org = "Chinanet"
         isp_en = "ctcc"
+        asn = "4134"
     elif isp == "移动":
         org == "China Mobile communications corporation"
         isp_en = "cmcc"
-        
+    else:
+        asn = ""
+        org = ""    
     current_time = datetime.now()
     timeout_cnt = 0
     result_urls = set() 
     while len(result_urls) == 0 and timeout_cnt <= 5:
         try:
             search_url = 'https://fofa.info/result?qbase64='
-            search_txt = f'\"udpxy\" && country=\"CN\" && region=\"{province}\"'  # && org=\"{org}\"
+            search_txt = f'\"udpxy\" && country=\"CN\" && region=\"{province}\" {others} && asn=\"{asn}\"'  # && org=\"{org}\"
                 # 将字符串编码为字节流
             bytes_string = search_txt.encode('utf-8')
                 # 使用 base64 进行编码
