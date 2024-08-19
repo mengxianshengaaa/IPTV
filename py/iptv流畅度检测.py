@@ -137,7 +137,7 @@ for keyword in keywords:
 print('节目表制作完成！ 文件输出在playlist文件夹！')
 
 
-
+#对playlist文件夹里面的所有txt文件进行去重处理
 def remove_duplicates_keep_order(folder_path):
     for filename in os.listdir(folder_path):
         if filename.endswith('.txt'):
