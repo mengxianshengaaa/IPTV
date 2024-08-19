@@ -58,7 +58,7 @@ for keyword in keywords:
         isp_en = "cucc"
         org = "China Unicom Beijing Province Network"
         asn = "4808"
-        others = '&&‘ city="beijing"
+        others = && city="beijing"
     elif isp == "联通":
         isp_en = "cucc"
         org = "CHINA UNICOM China169 Backbone"
