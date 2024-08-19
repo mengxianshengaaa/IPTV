@@ -522,7 +522,7 @@ check_and_write_file('2.txt',  'e.txt',  keywords="河南频道, 河南")
 check_and_write_file('2.txt',  'f0.txt',  keywords="河北频道, 石家庄")
 check_and_write_file('2.txt',  'f.txt',  keywords="河北频道, 河北")
 check_and_write_file('2.txt',  'g.txt',  keywords="辽宁频道, 辽宁")
-check_and_write_file('2.txt',  'h.txt',  keywords="广西频道, 广西")
+check_and_write_file('2.txt',  'h.txt',  keywords="江苏频道, 江苏")
 check_and_write_file('2.txt',  'i.txt',  keywords="北京频道, 北京")
 ###############################################################################################################################################################################################################################
 ##############################################################对生成的文件进行合并
