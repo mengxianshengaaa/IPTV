@@ -54,13 +54,13 @@ for keyword in keywords:
     province, isp, mcast = keyword.split("_")
     #将省份转成英文小写
     # 根据不同的 isp 设置不同的 org 值
-    org = "Chinanet"
+    org = "ctcc"
     others = ''
-    if isp == "电信" and province == "四川":
+    if isp == "电信" and province == "sichuan":
         org = "Chinanet"
         isp_en = "ctcc"
         asn = "4134"
-        others = '&& city="成都" '
+        others = '&& city="chengdu" '
     elif isp == "联通":
         isp_en = "cucc"
         org = "CHINA UNICOM China169 Backbone"
