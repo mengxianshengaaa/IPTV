@@ -99,7 +99,7 @@ def gen_files(valid_ips, province, isp):
     with open(udp_filename, 'r', encoding='utf-8') as file:
         data = file.read()
     txt_filename = f'playlist/{province}{isp}.txt'
-    with open(txt_filename, 'w', encoding='utf-8') as new_file:
+    with open(txt_filename, 'a', encoding='utf-8') as new_file:
         new_file.write(f'{province}{isp},#genre#\n')
         for url in valid_ips:
             if index < 3:
@@ -267,31 +267,23 @@ def main():
                     continue
                 else:
                     print(f"{current_time} 搜索IPTV频道源[]，超时次数过多：{timeout_cnt} 次，停止处理")
-    # 获取playlist目录下的文件名
-    # files1 = os.listdir('playlist')
-    files1 = 'playlist'
-    # 过滤TXT文件
-    file_contents = []
-    for file_path in filter_files(files1, '.txt'):
-        with open('playlist/' + file_path, 'r', encoding="utf-8") as file:
-            content = file.read()
-            file_contents.append(content)
-        # 移除文件
-        # os.remove('playlist/' + file_path)
-    # 写入合并后的txt文件
-    with open("playlist/IPTV_UDP", "w", encoding="utf-8") as output:
-        output.write('\n\n'.join(file_contents))
-        # 写入更新日期时间
-        # file.write(f"{now_today}更新,#genre#\n")
-        # 获取当前时间
-        local_tz = pytz.timezone("Asia/Shanghai")
-        now = datetime.now(local_tz)
-        # now = datetime.now()
-        output.write(f"\n更新时间,#genre#\n")
-        output.write(f"{now.strftime("%Y-%m-%d")},url\n")
-        output.write(f"{now.strftime("%H:%M:%S")},url\n")
-    output.close()
-    print(f"电视频道成功写入IPTV_UDP")
 main()
 
-
+#对playlist文件夹里面的所有txt文件进行去重处理
+def remove_duplicates_keep_order(folder_path):
+    for filename in os.listdir(folder_path):
+        if filename.endswith('.txt'):
+            file_path = os.path.join(folder_path, filename)
+            lines = set()
+            unique_lines = []
+            with open(file_path, 'r', encoding='utf-8') as file:
+                for line in file:
+                    if line not in lines:
+                        unique_lines.append(line)
+                        lines.add(line)
+            # 将保持顺序的去重后的内容写回原文件
+            with open(file_path, 'w', encoding='utf-8') as file:
+                file.writelines(unique_lines)
+# 使用示例
+folder_path = 'playlist'  # 替换为你的文件夹路径
+remove_duplicates_keep_order(folder_path)
