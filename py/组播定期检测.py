@@ -4,7 +4,7 @@ import time
 from tqdm import tqdm
 import sys
 
-# 初始化字典
+# 初始化字典以存储IP检测结果
 detected_ips = {}
 
 def get_ip_key(url):
@@ -34,41 +34,43 @@ for filename in os.listdir(folder_path):
         # 准备写回文件
         with open(file_path, 'w', encoding='utf-8') as output_file:
             # 使用 tqdm 显示进度条
-            for i, line in tqdm(enumerate(lines), total=len(lines), desc=f"Processing {filename}", unit='line'):
+            for line in tqdm(lines, total=len(lines), desc=f"Processing {filename}"):
                 parts = line.split(',', 1)
-                if len(parts) == 2:
+                if len(parts) >= 2:
                     channel_name, url = parts
                     channel_name = channel_name.strip()
                     url = url.strip()
                     ip_key = get_ip_key(url)
                     
-                    # 先检查是否已经检测过该 IP 地址，并且状态为 'ok'
+                    # 检查是否已经检测过该 IP 地址，并且状态为 'ok'
                     if ip_key in detected_ips and detected_ips[ip_key]['status'] == 'ok':
                         output_file.write(line)
                         continue
                     
+                    # 初始化帧计数器和成功标志
+                    frame_count = 0
+                    success = False
                     # 尝试打开视频流
                     cap = cv2.VideoCapture(url)
                     start_time = time.time()
-                    frame_count = 0
-                    while frame_count < 60 and (time.time() - start_time) < 3:
+                    while (time.time() - start_time) < 3:
                         ret, frame = cap.read()
                         if not ret:
                             break
                         frame_count += 1
+                        # 如果在3秒内读取到60帧以上，设置成功标志
+                        if frame_count >= 60:
+                            success = True
+                            break
                     cap.release()
                     
-                    # 根据检测结果更新字典，并写入文件
-                    if frame_count >= 60:
+                    # 根据检测结果更新字典
+                    if success:
                         detected_ips[ip_key] = {'status': 'ok'}
                         output_file.write(line)
                     else:
-                        detected_ips[ip_key] = {'status': 'fail'}
-                    
-                    # 根据检测结果更新字典，并写入文件
-                    detected_ips[ip_key] = {'status': 'ok' if success else 'fail'}
-                    if success:
-                        output_file.write(line)
+                        if ip_key not in detected_ips or detected_ips[ip_key]['status'] != 'ok':
+                            detected_ips[ip_key] = {'status': 'fail'}
 
 # 打印检测结果
 for ip_key, result in detected_ips.items():
