@@ -57,14 +57,14 @@ for filename in os.listdir(folder_path):
                         cap = cv2.VideoCapture(url)
                         start_time = time.time()
                         frame_count = 0
-                        while frame_count < 20 and (time.time() - start_time) < 10:
+                        while frame_count < 200 and (time.time() - start_time) < 10:
                             ret, frame = cap.read()
                             if not ret:
                                 break
                             frame_count += 1
                         cap.release()
                         
-                        if frame_count >= 20:
+                        if frame_count >= 200:
                             detected_ips[ip_key] = {'status': 'ok'}
                             output_file.write(line)
                         else:
