@@ -207,7 +207,7 @@ for filename in os.listdir(folder_path):
                         cap = cv2.VideoCapture(url)
                         start_time = time.time()
                         frame_count = 0
-                        while frame_count < 20 and (time.time() - start_time) < 10:
+                        while frame_count < 10 and (time.time() - start_time) < 2:
                             ret, frame = cap.read()
                             if not ret:
                                 break
