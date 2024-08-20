@@ -570,7 +570,7 @@ def check_and_write_file(input_file, output_file, keywords):
         file_size = os.path.getsize(output_file)
         
         # 如果文件大小小于30字节（假设的最小文件大小）,删除文件
-        if file_size < 300:
+        if file_size < 200:
             os.remove(output_file)
             print(f"文件只包含头部信息,{output_file} 已被删除。")
         else:
@@ -586,7 +586,7 @@ check_and_write_file('2.txt',  'c.txt',  keywords="组播剧场, 爱动漫, SiTV
 #check_and_write_file('2.txt',  'd.txt',  keywords="少儿频道, 少儿, 卡通, 动漫, 宝贝, 哈哈, 学堂")
 check_and_write_file('2.txt',  'e0.txt',  keywords="河南频道, 河南都市, 河南民生, 河南法治, 河南公共, 河南功夫, 河南影视, 中原, 河南国际, 河南梨园, 河南文, 河南武术, 河南戏曲, 河南乡村, 河南新闻, 河南移动")
 check_and_write_file('2.txt',  'e.txt',  keywords="河南频道, 河南,郑州")
-#check_and_write_file('2.txt',  'f0.txt',  keywords="河北频道, 石家庄")
+check_and_write_file('2.txt',  'f0.txt',  keywords="河北频道, 石家庄")
 check_and_write_file('2.txt',  'f.txt',  keywords="河北频道, 河北, 石家庄")
 check_and_write_file('2.txt',  'g.txt',  keywords="辽宁频道, 辽宁")
 check_and_write_file('2.txt',  'h.txt',  keywords="江苏频道, 江苏")
