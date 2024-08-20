@@ -1,3 +1,7 @@
+###############检测playlist文件夹内所有txt文件内的组播
+###############检测playlist文件夹内所有txt文件内的组播
+###############检测playlist文件夹内所有txt文件内的组播
+
 import os
 import cv2
 import time
