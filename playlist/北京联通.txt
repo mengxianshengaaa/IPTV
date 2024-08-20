@@ -1,3 +1,6 @@
+﻿﻿CCTV1,http://drive.mxmy.net:8888/rtp/239.3.1.129:8008?$北京联通
+CCTV2,http://drive.mxmy.net:8888/rtp/239.3.1.60:8084?$北京联通
+CCTV3,http://drive.mxmy.net:8888/rtp/239.3.1.172:8001?$北京联通
 CCTV4,http://drive.mxmy.net:8888/rtp/239.3.1.105:8092?$北京联通
 CCTV4,http://drive.mxmy.net:8888/rtp/239.3.1.213:4220?$北京联通
 CCTV4,http://drive.mxmy.net:8888/rtp/239.3.1.214:4220?$北京联通
@@ -51,6 +54,9 @@ BTV国际,http://drive.mxmy.net:8888/rtp/239.3.1.235:8000?$北京联通
 淘精彩,http://drive.mxmy.net:8888/rtp/239.3.1.178:8001?$北京联通
 淘剧场,http://drive.mxmy.net:8888/rtp/239.3.1.95:8001?$北京联通
 淘娱乐,http://drive.mxmy.net:8888/rtp/239.3.1.100:8001?$北京联通
+﻿﻿CCTV1,http://wg.mxmy.net:8888/rtp/239.3.1.129:8008?$北京联通
+CCTV2,http://wg.mxmy.net:8888/rtp/239.3.1.60:8084?$北京联通
+CCTV3,http://wg.mxmy.net:8888/rtp/239.3.1.172:8001?$北京联通
 CCTV4,http://wg.mxmy.net:8888/rtp/239.3.1.105:8092?$北京联通
 CCTV4,http://wg.mxmy.net:8888/rtp/239.3.1.213:4220?$北京联通
 CCTV4,http://wg.mxmy.net:8888/rtp/239.3.1.214:4220?$北京联通
@@ -160,6 +166,9 @@ BTV国际,http://ikuai.zlsip.top:4022/rtp/239.3.1.235:8000?$北京联通
 淘精彩,http://ikuai.zlsip.top:4022/rtp/239.3.1.178:8001?$北京联通
 淘剧场,http://ikuai.zlsip.top:4022/rtp/239.3.1.95:8001?$北京联通
 淘娱乐,http://ikuai.zlsip.top:4022/rtp/239.3.1.100:8001?$北京联通
+﻿﻿CCTV1,http://cn.zzmd.fun:8888/rtp/239.3.1.129:8008?$北京联通
+CCTV2,http://cn.zzmd.fun:8888/rtp/239.3.1.60:8084?$北京联通
+CCTV3,http://cn.zzmd.fun:8888/rtp/239.3.1.172:8001?$北京联通
 CCTV4,http://cn.zzmd.fun:8888/rtp/239.3.1.214:4220?$北京联通
 CCTV5,http://cn.zzmd.fun:8888/rtp/239.3.1.173:8001?$北京联通
 CCTV5+,http://cn.zzmd.fun:8888/rtp/239.3.1.130:8004?$北京联通
