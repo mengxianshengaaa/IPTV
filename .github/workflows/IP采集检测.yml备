@@ -26,8 +26,8 @@ jobs:
           pip install selenium requests futures eventlet opencv-python Beautifulsoup4 translate termcolor func_timeout replace input opencc pypinyin pytz tqdm
       - name: Run py
         run: |
-          #python ${{ github.workspace }}/py/iptv_udp.py
-          python ${{ github.workspace }}/py/组播定期检测.py    
+          #python ${{ github.workspace }}/py/IP更新.py
+          python ${{ github.workspace }}/py/全部列表文件IP检测.py  
          
       - name: 提交更改
         run: |
