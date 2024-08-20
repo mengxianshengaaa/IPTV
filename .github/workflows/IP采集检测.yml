@@ -1,4 +1,4 @@
-name: IP采集
+name: IP采集检测
 
 on:
   #schedule:
@@ -27,6 +27,9 @@ jobs:
       - name: Run py
         run: |
           python ${{ github.workspace }}/py/IP更新.py
+      - name: Run py
+        run: |
+          python ${{ github.workspace }}/py/组播定期检测.py    
          
       - name: 提交更改
         run: |
