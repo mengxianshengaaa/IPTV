@@ -207,14 +207,14 @@ for filename in os.listdir(folder_path):
                         cap = cv2.VideoCapture(url)
                         start_time = time.time()
                         frame_count = 0
-                        while frame_count < 10 and (time.time() - start_time) < 2:
+                        while frame_count < 5 and (time.time() - start_time) < 1:
                             ret, frame = cap.read()
                             if not ret:
                                 break
                             frame_count += 1
                         cap.release()
                         
-                        if frame_count >= 20:
+                        if frame_count >= 5:
                             detected_ips[ip_key] = {'status': 'ok'}
                             output_file.write(line)
                         else:
@@ -529,7 +529,7 @@ with open(output_file_path, 'w', encoding='utf-8') as output_file:
                 start_time = time.time()
                 frame_count = 0
                 # 尝试捕获10秒内的帧
-                while frame_count < 110 and (time.time() - start_time) < 5:
+                while frame_count < 50 and (time.time() - start_time) < 3:
                     ret, frame = cap.read()
                     if not ret:
                         break
@@ -537,7 +537,7 @@ with open(output_file_path, 'w', encoding='utf-8') as output_file:
                 # 释放资源
                 cap.release()
                 # 根据捕获的帧数判断状态并记录结果
-                if frame_count >= 110:  #10秒内超过230帧则写入
+                if frame_count >= 50:  #10秒内超过230帧则写入
                     detected_ips[ip_key] = {'status': 'ok'}
                     output_file.write(line)  # 写入检测通过的行
                 else:
