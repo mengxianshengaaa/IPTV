@@ -2,22 +2,18 @@ import os
 import cv2
 import time
 from tqdm import tqdm
-import sys  # 导入 sys 模块
+import sys
 
 # 初始化字典
 detected_ips = {}
 
 def get_ip_key(url):
-    """从URL中提取IP地址,并构造一个唯一的键"""
+    """从URL中提取IP地址，并构造一个唯一的键"""
     start = url.find('://') + 3
-    end = start
-    dot_count = 0
-    while dot_count < 3:
-        end = url.find('.', end)
-        if end == -1:
-            break
-        dot_count += 1
-    return url[start:end] if dot_count == 3 else None
+    end = url.find('/', start)
+    if end == -1:
+        end = len(url)
+    return url[start:end].strip()
 
 # 设置固定的文件夹路径
 folder_path = 'playlist'
@@ -25,7 +21,7 @@ folder_path = 'playlist'
 # 确保文件夹路径存在
 if not os.path.isdir(folder_path):
     print("指定的文件夹不存在。")
-    sys.exit()  # 使用 sys.exit() 退出程序
+    sys.exit()
 
 # 遍历文件夹中的所有.txt文件
 for filename in os.listdir(folder_path):
@@ -34,15 +30,11 @@ for filename in os.listdir(folder_path):
         # 读取文件内容
         with open(file_path, 'r', encoding='utf-8') as file:
             lines = file.readlines()
-        
+
         # 准备写回文件
         with open(file_path, 'w', encoding='utf-8') as output_file:
-            # 使用tqdm显示进度条
+            # 使用 tqdm 显示进度条
             for i, line in tqdm(enumerate(lines), total=len(lines), desc=f"Processing {filename}", unit='line'):
-                if 'genre' in line:
-                    output_file.write(line)
-                    continue
-                
                 parts = line.split(',', 1)
                 if len(parts) == 2:
                     channel_name, url = parts
@@ -50,7 +42,7 @@ for filename in os.listdir(folder_path):
                     url = url.strip()
                     ip_key = get_ip_key(url)
                     
-                    # 检查是否已经检测过该IP地址，并且状态为 'ok'
+                    # 先检查是否已经检测过该 IP 地址，并且状态为 'ok'
                     if ip_key in detected_ips and detected_ips[ip_key]['status'] == 'ok':
                         output_file.write(line)
                         continue
@@ -59,7 +51,7 @@ for filename in os.listdir(folder_path):
                     cap = cv2.VideoCapture(url)
                     start_time = time.time()
                     frame_count = 0
-                    while frame_count < 200 and (time.time() - start_time) < 10:
+                    while frame_count < 60 and (time.time() - start_time) < 3:
                         ret, frame = cap.read()
                         if not ret:
                             break
@@ -67,11 +59,16 @@ for filename in os.listdir(folder_path):
                     cap.release()
                     
                     # 根据检测结果更新字典，并写入文件
-                    if frame_count >= 200:
+                    if frame_count >= 60:
                         detected_ips[ip_key] = {'status': 'ok'}
                         output_file.write(line)
                     else:
                         detected_ips[ip_key] = {'status': 'fail'}
+                    
+                    # 根据检测结果更新字典，并写入文件
+                    detected_ips[ip_key] = {'status': 'ok' if success else 'fail'}
+                    if success:
+                        output_file.write(line)
 
 # 打印检测结果
 for ip_key, result in detected_ips.items():
