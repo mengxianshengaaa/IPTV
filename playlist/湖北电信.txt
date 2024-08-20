@@ -1,9 +1,3 @@
-CCTV1,http://bl.dchwtq.asia:10000/rtp/239.254.96.96:8550?$湖北电信
-CCTV2,http://bl.dchwtq.asia:10000/rtp/239.69.1.102:10250?$湖北电信
-CCTV3,http://bl.dchwtq.asia:10000/rtp/239.69.1.122:10370?$湖北电信
-CCTV4,http://bl.dchwtq.asia:10000/rtp/239.69.1.138:10466?$湖北电信
-CCTV5,http://bl.dchwtq.asia:10000/rtp/239.69.1.123:10376?$湖北电信
-CCTV5+,http://bl.dchwtq.asia:10000/rtp/239.254.96.234:9484?$湖北电信
 CCTV6,http://bl.dchwtq.asia:10000/rtp/239.69.1.124:10382?$湖北电信
 CCTV7,http://bl.dchwtq.asia:10000/rtp/239.69.1.103:10256?$湖北电信
 CCTV8,http://bl.dchwtq.asia:10000/rtp/239.69.1.125:10388?$湖北电信
@@ -158,7 +152,6 @@ CCTV5+,http://www.hiliu.myds.me:8088/rtp/239.69.1.12:9712?$湖北电信
 东方卫视,http://www.hiliu.myds.me:8088/rtp/239.69.1.173:10674?$湖北电信
 江苏卫视,http://www.hiliu.myds.me:8088/rtp/239.69.1.174:10680?$湖北电信
 CCTV16,http://www.hiliu.myds.me:8088/rtp/239.69.1.13:9718?$湖北电信
-
 CCTV1,http://www.furymax.top:85/rtp/239.254.96.96:8550?$湖北电信
 CCTV2,http://www.furymax.top:85/rtp/239.69.1.102:10250?$湖北电信
 CCTV3,http://www.furymax.top:85/rtp/239.69.1.122:10370?$湖北电信
