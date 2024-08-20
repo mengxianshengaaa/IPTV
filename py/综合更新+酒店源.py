@@ -636,7 +636,7 @@ print("新文件已保存。")  # 打印完成信息
 
 #对生成的文件进行合并
 file_contents = []
-file_paths = ['酒店源.txt', "xx.txt"]  # 替换为实际的文件路径列表
+file_paths = ['酒店源.txt']  # 替换为实际的文件路径列表
 for file_path in file_paths:
     if os.path.exists(file_path):
         with open(file_path, 'r', encoding="utf-8") as file:
