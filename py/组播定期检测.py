@@ -42,10 +42,12 @@ for filename in os.listdir(folder_path):
                     url = url.strip()
                     ip_key = get_ip_key(url)
                     
-                    # 检查是否已经检测过该 IP 地址，并且状态为 'ok'
-                    if ip_key in detected_ips and detected_ips[ip_key]['status'] == 'ok':
-                        output_file.write(line)
-                        continue
+                    # 检查IP是否已经被检测过
+                    if ip_key in detected_ips:
+                        # 如果之前检测成功，则写入该行
+                        if detected_ips[ip_key]['status'] == 'ok':
+                            output_file.write(line)
+                        continue  # 无论之前检测结果如何，都不重新检测
                     
                     # 初始化帧计数器和成功标志
                     frame_count = 0
@@ -69,8 +71,7 @@ for filename in os.listdir(folder_path):
                         detected_ips[ip_key] = {'status': 'ok'}
                         output_file.write(line)
                     else:
-                        if ip_key not in detected_ips or detected_ips[ip_key]['status'] != 'ok':
-                            detected_ips[ip_key] = {'status': 'fail'}
+                        detected_ips[ip_key] = {'status': 'fail'}
 
 # 打印检测结果
 for ip_key, result in detected_ips.items():
