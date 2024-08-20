@@ -2,7 +2,7 @@ name: IP采集检测
 
 on:
   schedule:
-    - cron: '25 */12 */2 * *'        #这里更改自动运行的时间，没这两行的话只能手动运行
+    - cron: '25 */12 * * *'        #这里更改自动运行的时间，没这两行的话只能手动运行
   workflow_dispatch:
     分支:
       - main
@@ -27,7 +27,7 @@ jobs:
       - name: Run py
         run: |
           #python ${{ github.workspace }}/py/IP更新.py
-          python ${{ github.workspace }}/py/全部列表文件IP检测.py  
+          python ${{ github.workspace }}/py/IP检测.py  
          
       - name: 提交更改
         run: |
