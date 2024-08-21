@@ -485,7 +485,7 @@ output_file_path = "sorted_" + os.path.basename(file_path)
 with open('2.txt', "w", encoding="utf-8") as file:
     for line in sorted_lines:
         file.write(line)
-print(f"文件已排序并保存)
+print(f"文件已排序并保存“)
 
 
 ########################################################################################################################################################################################
