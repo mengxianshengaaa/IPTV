@@ -158,7 +158,6 @@ CCTV5+,http://www.hiliu.myds.me:8088/rtp/239.69.1.12:9712?$湖北电信
 东方卫视,http://www.hiliu.myds.me:8088/rtp/239.69.1.173:10674?$湖北电信
 江苏卫视,http://www.hiliu.myds.me:8088/rtp/239.69.1.174:10680?$湖北电信
 CCTV16,http://www.hiliu.myds.me:8088/rtp/239.69.1.13:9718?$湖北电信
-
 CCTV1,http://www.furymax.top:85/rtp/239.254.96.96:8550?$湖北电信
 CCTV2,http://www.furymax.top:85/rtp/239.69.1.102:10250?$湖北电信
 CCTV3,http://www.furymax.top:85/rtp/239.69.1.122:10370?$湖北电信
