@@ -1,4 +1,11 @@
-#本程序只适用于酒店源的检测,请勿移植他用
+#本程序主体构造如下
+#搜素有效IP并生成文件追加到列表
+#检测列表中所有IP有效性
+#合并整理输出自用直播源
+#合并所有组播文件并检测视频流畅性
+#提取检测后的频道进行分类输出优选组播源
+#提取优选源中分类追加到自用直播源
+#没了！！！！！！！！！！！！
 import time
 from datetime import datetime, timedelta  # 确保 timedelta 被导入
 import concurrent.futures
