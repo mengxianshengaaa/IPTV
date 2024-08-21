@@ -75,8 +75,8 @@ def gen_files(valid_ips, province, isp):
                 base_url = "rtp://"
                 if not url.startswith("http://"):
                     url = "http://" + url  # 如果 url 不是以 'http://' 开头，则添加它
-                new_data = data.replace(base_url, url + "/")  # 替换并添加斜杠
-                new_file.write(new_data.replace("\n", ""))  # 替换后去掉末尾的换行符
+                new_data = data.replace(base_url, url + "/rtp/")  # 替换并添加斜杠
+                new_file.write(new_data.replace(" ", ""))  # 替换后去掉末尾的空格
                 new_file.write('\n')
                 index += 1
             else:
