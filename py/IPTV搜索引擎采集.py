@@ -213,7 +213,7 @@ for filename in os.listdir(folder_path):
                             break
                         frame_count += 1
                         # 如果在3秒内读取到60帧以上，设置成功标志
-                        if frame_count >= 45:
+                        if frame_count >= 60:
                             success = True
                             break
                     cap.release()
@@ -533,7 +533,7 @@ with open(output_file_path, 'w', encoding='utf-8') as output_file:
                 start_time = time.time()
                 frame_count = 0
                 # 尝试捕获10秒内的帧
-                while frame_count < 245 and (time.time() - start_time) < 10:
+                while frame_count < 250 and (time.time() - start_time) < 10:
                     ret, frame = cap.read()
                     if not ret:
                         break
@@ -541,7 +541,7 @@ with open(output_file_path, 'w', encoding='utf-8') as output_file:
                 # 释放资源
                 cap.release()
                 # 根据捕获的帧数判断状态并记录结果
-                if frame_count >= 245:  #10秒内超过230帧则写入
+                if frame_count >= 250:  #10秒内超过230帧则写入
                     detected_ips[ip_key] = {'status': 'ok'}
                     output_file.write(line)  # 写入检测通过的行
                 else:
