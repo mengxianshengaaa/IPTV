@@ -391,13 +391,13 @@ for filename in os.listdir(folder_path):
                     # 尝试打开视频流
                     cap = cv2.VideoCapture(url)
                     start_time = time.time()
-                    while (time.time() - start_time) < 3:
+                    while (time.time() - start_time) < 2:
                         ret, frame = cap.read()
                         if not ret:
                             break
                         frame_count += 1
                         # 如果在3秒内读取到60帧以上，设置成功标志
-                        if frame_count >= 40:
+                        if frame_count >= 10:
                             success = True
                             break
                     cap.release()
