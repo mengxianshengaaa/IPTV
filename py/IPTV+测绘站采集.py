@@ -59,7 +59,6 @@ def get_tonkiang(keyword):
         print(f"获取IP时发生错误: {e}")
         return []
 
-# 生成文件
 def gen_files(valid_ips, province, isp):
     # 生成节目列表 省份运营商.txt
     index = 0
@@ -71,14 +70,17 @@ def gen_files(valid_ips, province, isp):
     with open(txt_filename, 'a', encoding='utf-8') as new_file:
         new_file.write(f'{province}{isp},#genre#\n')
         for url in valid_ips:
-            if index < 3:
-                original_protocol = data.split("://")[0] + "://"
-                new_data = data.replace("rtp://", f"http://{url[0]}/rtp/")
-                new_file.write(new_data)
+            if index < 5:
+                # 确保 url 是一个完整的 URL 字符串，并且以 'http://' 开头
+                base_url = "rtp://"
+                if not url.startswith("http://"):
+                    url = "http://" + url  # 如果 url 不是以 'http://' 开头，则添加它
+                new_data = data.replace(base_url, url + "/")  # 替换并添加斜杠
+                new_file.write(new_data.replace("\n", ""))  # 替换后去掉末尾的换行符
                 new_file.write('\n')
                 index += 1
             else:
-                continue
+                break  # 替换 continue 为 break，因为你只需要前5个 IP
     print(f'已生成播放列表，保存至{txt_filename}')
 
 # 遍历rtp文件夹中的所有文件
