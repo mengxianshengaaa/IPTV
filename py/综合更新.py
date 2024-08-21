@@ -638,7 +638,7 @@ for line in lines:
     else:
         # 如果行不包含排除关键词，或者同时包含排除关键词和例外关键词，则保留该行
         filtered_lines.append(line)
-# 将过滤后的内容写入新的文本文件
+# 将过滤后的内容追加写入新的文本文件
 with open('综合源.txt', 'a', encoding='utf-8') as file:
     file.writelines(filtered_lines)
 
