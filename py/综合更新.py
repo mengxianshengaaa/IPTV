@@ -161,6 +161,7 @@ print('文件去重完成！移除存储的旧文件！')
 
 
 
+
 ######################################################################################################################
 ######################################################################################################################
 ######################################################################################################################
@@ -396,16 +397,33 @@ with open("4.txt", "w", encoding="utf-8") as output:
         with open(os.path.join('playlist', file_path), 'r', encoding="utf-8") as file:
             content = file.read()
             output.write(content + '\n\n')
-print("频道合并成功")
-
-以下为组播IP流畅性检测
+print("电视频道成功写入")
+    
+#################文本排序
+# 打开原始文件读取内容,并写入新文件
+with open('4.txt', 'r', encoding='utf-8') as file:
+    lines = file.readlines()
+# 定义一个函数,用于提取每行的第一个数字
+def extract_first_number(line):
+    match = re.search(r'\d+', line)
+    return int(match.group()) if match else float('inf')
+# 对列表中的行进行排序
+# 按照第一个数字的大小排列,如果不存在数字则按中文拼音排序
+sorted_lines = sorted(lines, key=lambda x: (not 'CCTV' in x, extract_first_number(x) if 'CCTV' in x else lazy_pinyin(x.strip())))
+# 将排序后的行写入新的utf-8编码的文本文件,文件名基于原文件名
+output_file_path = "sorted_" + os.path.basename(file_path)
+# 写入新文件
+with open('5.txt', "w", encoding="utf-8") as file:
+    for line in sorted_lines:
+        file.write(line)
+print(f"文件已排序并保存为: {output_file_path}")
 import cv2
 import time
 from tqdm import tqdm
 # 初始化酒店源字典
 detected_ips = {}
 # 存储文件路径
-file_path = "4.txt"
+file_path = "5.txt"
 output_file_path = "2.txt"
 def get_ip_key(url):
     """从URL中提取IP地址,并构造一个唯一的键"""
@@ -450,7 +468,7 @@ with open(output_file_path, 'w', encoding='utf-8') as output_file:
                 start_time = time.time()
                 frame_count = 0
                 # 尝试捕获10秒内的帧
-                while frame_count < 60 and (time.time() - start_time) < 3:
+                while frame_count < 235 and (time.time() - start_time) < 10:
                     ret, frame = cap.read()
                     if not ret:
                         break
@@ -458,7 +476,7 @@ with open(output_file_path, 'w', encoding='utf-8') as output_file:
                 # 释放资源
                 cap.release()
                 # 根据捕获的帧数判断状态并记录结果
-                if frame_count >= 65:  #10秒内超过230帧则写入
+                if frame_count >= 235:  #10秒内超过230帧则写入
                     detected_ips[ip_key] = {'status': 'ok'}
                     output_file.write(line)  # 写入检测通过的行
                 else:
@@ -466,29 +484,6 @@ with open(output_file_path, 'w', encoding='utf-8') as output_file:
 # 打印酒店源
 for ip_key, result in detected_ips.items():
     print(f"IP Key: {ip_key}, Status: {result['status']}")
-
-    
-#################文本排序
-###############################################################################文本排序
-# 打开原始文件读取内容，并写入新文件
-with open('2.txt', 'r', encoding='utf-8') as file:
-    lines = file.readlines()
-# 定义一个函数，用于提取每行的第一个数字
-def extract_first_number(line):
-    match = re.search(r'\d+', line)
-    return int(match.group()) if match else float('inf')
-# 对列表中的行进行排序
-# 按照第一个数字的大小排列，如果不存在数字则按中文拼音排序
-sorted_lines = sorted(lines, key=lambda x: (not 'CCTV' in x, extract_first_number(x) if 'CCTV' in x else lazy_pinyin(x.strip())))
-# 将排序后的行写入新的utf-8编码的文本文件，文件名基于原文件名
-output_file_path = "sorted_" + os.path.basename(file_path)
-# 写入新文件
-with open('2.txt', "w", encoding="utf-8") as file:
-    for line in sorted_lines:
-        file.write(line)
-print(f"文件已排序并保存为新文件")
-
-
 ########################################################################################################################################################################################
 ################################################################定义关键词分割规则
 def check_and_write_file(input_file, output_file, keywords):
@@ -521,6 +516,7 @@ def check_and_write_file(input_file, output_file, keywords):
             print(f"文件已提取关键词并保存为: {output_file}")
     else:
         print(f"未提取到关键词,不创建输出文件 {output_file}。")
+
 # 按类别提取关键词并写入文件
 check_and_write_file('2.txt',  '主.txt',  keywords="央视频道, 8K, 4K, 4k")
 check_and_write_file('2.txt',  'a.txt',  keywords="央视频道, CCTV, CHC, 全球大片, 星光院线")
