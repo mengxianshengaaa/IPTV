@@ -307,7 +307,7 @@ from tqdm import tqdm
 # 初始化酒店源字典
 detected_ips = {}
 # 存储文件路径
-file_path = "5.txt"
+file_path = "2.txt"
 output_file_path = "2.txt"
 def get_ip_key(url):
     """从URL中提取IP地址,并构造一个唯一的键"""
