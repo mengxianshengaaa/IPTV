@@ -2,6 +2,12 @@ import requests
 import re
 from lxml import etree
 import os
+
+# 定义代理
+proxy = {
+    'http': 'http://139.9.119.20:80',
+    'https': 'http://139.9.119.20:80',  # 注意：根据实际代理是否支持https进行设置
+}
 # 验证tonkiang可用IP
 def via_tonking(url):
     headers = {
@@ -12,8 +18,8 @@ def via_tonking(url):
     response = requests.get(
         url=url,
         headers=headers,
-        verify=False,
-        proxies=proxy,
+        verify=False,  # 注意：verify=False会忽略SSL证书验证
+        proxies=proxy,   # 这里使用之前定义的代理
         timeout=10
     )
     et = etree.HTML(response.text)
@@ -28,7 +34,13 @@ def get_tonkiang(key_words):
         "Submit": " "
     }
     url = "http://tonkiang.us/hoteliptv.php"
-    resp = requests.post(url, headers=header, data=data, timeout=10, proxies=proxy)
+    resp = requests.post(
+        url=url,
+        headers=header,
+        data=data,
+        timeout=10,
+        proxies=proxy  # 这里使用之前定义的代理
+    )
     resp.encoding = 'utf-8'
     et = etree.HTML(resp.text)
     divs = et.xpath('//div[@class="tables"]/div')
