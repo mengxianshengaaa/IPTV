@@ -70,7 +70,7 @@ def gen_files(valid_ips, province, isp):
     with open(txt_filename, 'a', encoding='utf-8') as new_file:
         new_file.write(f'{province}{isp},#genre#\n')
         for url in valid_ips:
-            if index < 5:
+            if index < 10:
                 # 确保 url 是一个完整的 URL 字符串，并且以 'http://' 开头
                 base_url = "rtp://"
                 if not url.startswith("http://"):
@@ -80,7 +80,7 @@ def gen_files(valid_ips, province, isp):
                 new_file.write('\n')
                 index += 1
             else:
-                break  # 替换 continue 为 break，因为你只需要前5个 IP
+                break  # 替换 continue 为 break，因为你只需要前10个 IP
     print(f'已生成播放列表，保存至{txt_filename}')
 
 # 遍历rtp文件夹中的所有文件
