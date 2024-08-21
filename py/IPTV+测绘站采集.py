@@ -72,7 +72,8 @@ def gen_files(valid_ips, province, isp):
         new_file.write(f'{province}{isp},#genre#\n')
         for url in valid_ips:
             if index < 3:
-                new_data = data.replace("rtp://", f"{url[0]}/rtp/")
+                original_protocol = data.split("://")[0] + "://"
+                new_data = data.replace("rtp://", f"http://{url[0]}/rtp/")
                 new_file.write(new_data)
                 new_file.write('\n')
                 index += 1
