@@ -93,7 +93,7 @@ for filename in os.listdir(rtp_folder):
         keyword = province_isp.replace('_', '')  # 假设文件名格式为"省份_运营商"
         valid_ips = get_tonkiang(keyword)  # 搜索有效IP
         if valid_ips:
-            print(f"找到有效IP，正在生成文本文件: {provinceisp}")
+            print(f"找到有效IP，正在生成文本文件: {province_isp}")
             gen_txt_files(valid_ips, province_isp.split('_')[0], province_isp.split('_')[1])  # 生成文本文件
         else:
             print(f"未找到有效IP: {province_isp}")
