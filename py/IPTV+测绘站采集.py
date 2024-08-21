@@ -1,21 +1,26 @@
 import time
+from datetime import datetime, timedelta  # 确保 timedelta 被导入
 import concurrent.futures
 from selenium import webdriver
 from selenium.webdriver.chrome.options import Options
+from concurrent.futures import ThreadPoolExecutor
 import requests
 import re
 import os
 import threading
 from queue import Queue
+import queue
 from datetime import datetime
 import replace
 import fileinput
+from tqdm import tqdm
+from pypinyin import lazy_pinyin
 from opencc import OpenCC
 import base64
 import cv2
-from datetime import datetime
 from bs4 import BeautifulSoup
 from urllib.parse import urlparse
+from translate import Translator  # 导入Translator类,用于文本翻译
 
 header = {
     "User-Agent":
