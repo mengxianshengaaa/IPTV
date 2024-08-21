@@ -70,10 +70,14 @@ def get_tonkiang(keyword):
             try:
                 status = div.xpath('./div[3]/div/text()')[0]
                 if "暂时失效" not in status:
-                    ip = div.xpath('./div[1]/a/b/text()')[0].strip()
-                    if via_tonking(ip):
-                        result_urls.append(f'http://{ip}')
-            except (IndexError, ValueError):
+                    # 尝试提取IP地址或域名
+                    ip_or_domain = div.xpath('./div[1]/a/b/text()')[0].strip()
+                    # 解析IP地址或域名
+                    parsed_url = urlparse(f'http://{ip_or_domain}')
+                    if parsed_url.scheme and parsed_url.netloc:
+                        if via_tonking(parsed_url.geturl()):
+                            result_urls.append(parsed_url.geturl())
+            except (IndexError, ValueError, AttributeError):
                 continue
         return result_urls
     except Exception as e:
