@@ -1,4 +1,4 @@
-* https://dash.cloudflare.com
+* https://dash.cloudflare.com/sign-up
 * 云部署需要注意
 *************************
 git仓库部署后直接分配域名后面加文件名即可访问
