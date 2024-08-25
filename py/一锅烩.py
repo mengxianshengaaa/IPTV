@@ -66,6 +66,7 @@ merge_txt_files(urls)
 
 
 
+########################################################################################################
 def remove_duplicates(input_file, output_file):
     # 用于存储已经遇到的URL和包含genre的行
     seen_urls = set()
@@ -95,6 +96,7 @@ def remove_duplicates(input_file, output_file):
 # 使用方法
 remove_duplicates('汇总.txt', '汇总.txt')   
 
+########################################################################################################
 # 导入fileinput模块
 import fileinput
 # 定义替换规则的字典
@@ -228,6 +230,7 @@ print("替换完成，新文件已保存。")
 
 
 
+########################################################################################################
 import re
 import os
 def filter_lines(file_path):
@@ -237,7 +240,7 @@ def filter_lines(file_path):
     for line in lines:
         if ',' in line:
          if 'epg' not in line and 'mitv' not in line and 'udp' not in line and 'rtp' not in line and 'tsfile' not in line and '/hls/' not in line and '[2409' not in line \
-            and 'P2p' not in line and 'p2p' not in line and 'p3p' not in line and 'P2P' not in line and 'P3p' not in line and 'P3P' not in line:
+            and 'P2p' not in line and 'p2p' not in line and 'p3p' not in line and 'P2P' not in line and 'P3p' not in line and 'P3P' not in line and '腔' not in line and '曲' not in line and '景' not in line:
           filtered_lines.append(line)
     return filtered_lines
 def write_filtered_lines(output_file_path, filtered_lines):
@@ -250,6 +253,7 @@ if __name__ == "__main__":
     write_filtered_lines(output_file_path, filtered_lines)
 print(f"文件已过滤完成")
 
+########################################################################################################
 #################################################### 对整理好的频道列表测试HTTP连接
 def test_connectivity(url, max_attempts=2): #定义测试HTTP连接的次数
     # 尝试连接指定次数    
@@ -307,7 +311,6 @@ if __name__ == "__main__":
         main(source_file_path, output_file_path)  # 调用main函数
     except Exception as e:
         print(f"程序发生错误: {e}")  # 打印错误信息
-        
 #########################################################################提取2中的有效行
 def filter_lines(file_path):
     with open(file_path, 'r', encoding='utf-8') as file:  # 打开文件
@@ -341,6 +344,77 @@ with open('2.txt', 'w', encoding='utf-8') as new_file:
         new_file.write(line)  # 写入新文件
 print("新文件已保存。")  # 打印完成信息
 
+########################################################################################################
+########################################################################################################
+# 函数：获取视频分辨率
+def get_video_resolution(video_path, timeout=0.8):
+    cap = cv2.VideoCapture(video_path)
+    if not cap.isOpened():
+        return None
+    width = int(cap.get(cv2.CAP_PROP_FRAME_WIDTH))
+    height = int(cap.get(cv2.CAP_PROP_FRAME_HEIGHT))
+    cap.release()
+    return (width, height)
+# 函数：处理每一行
+def process_line(line, output_file, order_list, valid_count, invalid_count, total_lines):
+    parts = line.strip().split(',')
+    if '#genre#' in line:
+        # 如果行包含 '#genre#'，直接写入新文件
+        with threading.Lock():
+            output_file.write(line)
+            print(f"已写入genre行：{line.strip()}")
+    elif len(parts) == 2:
+        channel_name, channel_url = parts
+        resolution = get_video_resolution(channel_url, timeout=8)
+        if resolution and resolution[1] >= 720:  # 检查分辨率是否大于等于720p
+            with threading.Lock():
+                output_file.write(f"{channel_name}[{resolution[1]}p],{channel_url}\n")
+                order_list.append((channel_name, resolution[1], channel_url))
+                valid_count[0] += 1
+                print(f"Channel '{channel_name}' accepted with resolution {resolution[1]}p at URL {channel_url}.")
+        else:
+            invalid_count[0] += 1
+    with threading.Lock():
+        print(f"有效: {valid_count[0]}, 无效: {invalid_count[0]}, 总数: {total_lines}, 进度: {(valid_count[0] + invalid_count[0]) / total_lines * 100:.2f}%")
+# 函数：多线程工作
+def worker(task_queue, output_file, order_list, valid_count, invalid_count, total_lines):
+    while True:
+        try:
+            line = task_queue.get(timeout=1)
+            process_line(line, output_file, order_list, valid_count, invalid_count, total_lines)
+        except Queue.Empty:
+            break
+        finally:
+            task_queue.task_done()
+# 主函数
+def main(source_file_path, output_file_path):
+    order_list = []
+    valid_count = [0]
+    invalid_count = [0]
+    task_queue = Queue()
+    # 读取源文件
+    with open(source_file_path, 'r', encoding='utf-8') as source_file:
+        lines = source_file.readlines()
+    with open(output_file_path + '.txt', 'w', encoding='utf-8') as output_file:
+        # 创建线程池
+        with ThreadPoolExecutor(max_workers=64) as executor:
+            # 创建并启动工作线程
+            for _ in range(64):
+                executor.submit(worker, task_queue, output_file, order_list, valid_count, invalid_count, len(lines))
+            # 将所有行放入队列
+            for line in lines:
+                task_queue.put(line)
+            # 等待队列中的所有任务完成
+            task_queue.join()
+    print(f"任务完成，有效频道数：{valid_count[0]}, 无效频道数：{invalid_count[0]}, 总频道数：{len(lines)}")
+if __name__ == "__main__":
+    source_file_path = '2.txt'  # 替换为你的源文件路径
+    output_file_path = '2'  # 替换为你的输出文件路径,不要后缀名
+    main(source_file_path, output_file_path)
+
+
+
+########################################################################################################
 import re
 from pypinyin import lazy_pinyin
 # 打开一个utf-8编码的文本文件
@@ -410,7 +484,7 @@ check_and_write_file('2.txt',  'c1.txt',  keywords="影视频道, 求索动物, 
 check_and_write_file('2.txt',  'e.txt',  keywords="港澳频道, TVB, 澳门, 龙华, 民视, 中视, 华视, AXN,  AMC, MOMO, 采昌, 耀才, 靖天, 镜新闻, 靖洋, 莲花, 年代, 爱尔达, 好莱坞, 华丽, 非凡, 公视, 寰宇, 无线, EVEN, MoMo, 爆谷, 面包, momo, 唐人, \
 中华小, 三立, CNA, FOX, RTHK, Movie, 八大, 中天, 中视, 东森, 凤凰, 天映, 美亚, 环球, 翡翠, 亚洲, 大爱, 大愛, 明珠, 半岛, AMC, 龙祥, 台视, 1905, 纬来, 神话, 经典都市, 视界, 番薯, 私人, 酒店, TVB, 凤凰, 半岛, 星光视界, \
 番薯, 大愛, 新加坡, 星河, 明珠, 环球, 翡翠台, 大立, 好消息, 美国中文, 神州, 天良, 18台, HBO家庭, HBO, HISTORY, HOY国际财经, 八度, 博斯, 达文西, 迪士尼, \
-动物星球, 港石金曲, 红牛, 互动英语, 华纳影视, 华语剧台, ELTV, 欢喜台, 旅游, 美食星球, 千禧, 全球财经, 探案, 探索, 小尼克, 幸福空间, 影剧, 粤语片台, 智林, 猪哥亮")
+动物星球, 港石金曲, 红牛, 互动英语, 华纳影视, 华语剧台, ELTV, 欢喜台, 美食星球, 千禧, 全球财经, 探案, 探索, 小尼克, 幸福空间, 影剧, 粤语片台, 智林, 猪哥亮")
 
 check_and_write_file('2.txt',  'f0.txt',  keywords="湖北湖南, 湖北, 湖南")
 check_and_write_file('2.txt',  'f.txt',  keywords="省市频道, 湖北, 武汉, 松滋, 十堰, 咸宁, 远安, 崇阳, 黄石, 荆州, 当阳, 恩施, 五峰, 来凤, 枝江, 黄冈, 随州, 荆门, 秭归, 宜昌, 长阳, 大悟, 孝感, 鄂州, 垄上, 宜都")
@@ -489,8 +563,6 @@ for line in lines:
 # 将唯一的行写入新的文档 
 with open('回收站.txt', 'w', encoding="utf-8") as file:
  file.writelines(unique_lines)
-
-
 
 
 
