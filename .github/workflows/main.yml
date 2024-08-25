@@ -1,4 +1,4 @@
-name: 组播采集合并
+name: 群英烩
 
 on:
   schedule:
