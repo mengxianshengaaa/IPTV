@@ -240,7 +240,7 @@ def filter_lines(file_path):
     for line in lines:
         if ',' in line:
          if 'epg' not in line and 'mitv' not in line and 'udp' not in line and 'rtp' not in line and 'tsfile' not in line and '/hls/' not in line and '[2409' not in line \
-            and 'P2p' not in line and 'p2p' not in line and 'p3p' not in line and 'P2P' not in line and 'P3p' not in line and 'P3P' not in line and '腔' not in line and '曲' not in line and '景' not in line:
+            and 'P2p' not in line and 'p2p' not in line and 'p3p' not in line and 'P2P' not in line and 'P3p' not in line and 'P3P' not in line and '腔' not in line and '曲' not in line and '春节' not in line:
           filtered_lines.append(line)
     return filtered_lines
 def write_filtered_lines(output_file_path, filtered_lines):
