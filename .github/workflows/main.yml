@@ -2,7 +2,7 @@ name: 群英烩
 
 on:
   schedule:
-    - cron: '45 10,22 * * *' # 这里更改自动运行的时间#_ud
+    - cron: '45 3 */7 * *' # 这里更改自动运行的时间#_ud
   workflow_dispatch:
     branches:
       - main
