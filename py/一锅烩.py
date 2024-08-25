@@ -239,7 +239,7 @@ def filter_lines(file_path):
     filtered_lines = []
     for line in lines:
         if ',' in line:
-         if 'epg' not in line and 'mitv' not in line and 'udp' not in line and 'rtp' not in line and 'tsfile' not in line and '/hls/' not in line \
+         if 'epg' not in line and 'mitv' not in line and 'udp' not in line and 'rtp' not in line and 'tsfile' not in line and '/hls/' not in line and '[2409' not in line \
             and 'P2p' not in line and 'p2p' not in line and 'p3p' not in line and 'P2P' not in line and 'P3p' not in line and 'P3P' not in line:
           filtered_lines.append(line)
     return filtered_lines
@@ -303,11 +303,10 @@ check_and_write_file('2.txt',  'c.txt',  keywords="影视频道, 爱情喜剧, �
 check_and_write_file('2.txt',  'c1.txt',  keywords="影视频道, 求索动物, 求索, 求索科学, 求索记录, 爱谍战, 爱动漫, 爱科幻, 爱青春, 爱自然, 爱科学, 爱浪漫, 爱历史, 爱旅行, 爱奇谈, 爱怀旧, 爱赛车, 爱都市, 爱体育, 爱经典, \
 爱玩具, 爱喜剧, 爱悬疑, 爱幼教, 爱院线")
 
-check_and_write_file('2.txt',  'e.txt',  keywords="港澳频道, TVB, 澳门, 龙华, 民视, 中视, 华视, AXN, MOMO, 采昌, 耀才, 靖天, 镜新闻, 靖洋, 莲花, 年代, 爱尔达, 好莱坞, 华丽, 非凡, 公视, 寰宇, 无线, EVEN, MoMo, 爆谷, 面包, momo, 唐人, \
+check_and_write_file('2.txt',  'e.txt',  keywords="港澳频道, TVB, 澳门, 龙华, 民视, 中视, 华视, AXN,  AMC, MOMO, 采昌, 耀才, 靖天, 镜新闻, 靖洋, 莲花, 年代, 爱尔达, 好莱坞, 华丽, 非凡, 公视, 寰宇, 无线, EVEN, MoMo, 爆谷, 面包, momo, 唐人, \
 中华小, 三立, CNA, FOX, RTHK, Movie, 八大, 中天, 中视, 东森, 凤凰, 天映, 美亚, 环球, 翡翠, 亚洲, 大爱, 大愛, 明珠, 半岛, AMC, 龙祥, 台视, 1905, 纬来, 神话, 经典都市, 视界, 番薯, 私人, 酒店, TVB, 凤凰, 半岛, 星光视界, \
-番薯, 大愛, 新加坡, 星河, 明珠, 环球, 翡翠台,  ELTV, 大立, elta, 好消息, 美国中文, 神州, 天良, 18台, BLOOMBERG, Bloomberg, CMUSIC, CN卡通, CNBC, CNBC, CinemaWorld, Cinemax, DMAX, Dbox, Dreamworks, ESPN, Euronews, \
-Eurosports1, FESTIVAL, GOOD2, HBO家庭, HBO, HISTORY, HOY国际财经, HakkaTV, J2, KOREA, LISTENONSPOTIFY, LUXE, MCE, MTV, Now, PremierSports, ROCK, SPOTV, TiTV, VOA, ViuTV, ViuTV6, WSport, WWE, 八度, 博斯, 达文西, 迪士尼, \
-动物星球, 港石金曲, 红牛, 互动英语, 华纳影视, 华语剧台, ELTV, 欢喜台, 旅游, 美食星球, nhkworld, nickjr, 千禧, 全球财经, 探案, 探索, 小尼克, 幸福空间, 影剧, 粤语片台, 智林, 猪哥亮")
+番薯, 大愛, 新加坡, 星河, 明珠, 环球, 翡翠台, 大立, 好消息, 美国中文, 神州, 天良, 18台, HBO家庭, HBO, HISTORY, HOY国际财经, 八度, 博斯, 达文西, 迪士尼, \
+动物星球, 港石金曲, 红牛, 互动英语, 华纳影视, 华语剧台, ELTV, 欢喜台, 旅游, 美食星球, 千禧, 全球财经, 探案, 探索, 小尼克, 幸福空间, 影剧, 粤语片台, 智林, 猪哥亮")
 
 check_and_write_file('2.txt',  'f0.txt',  keywords="湖北湖南, 湖北, 湖南")
 check_and_write_file('2.txt',  'f.txt',  keywords="省市频道, 湖北, 武汉, 松滋, 十堰, 咸宁, 远安, 崇阳, 黄石, 荆州, 当阳, 恩施, 五峰, 来凤, 枝江, 黄冈, 随州, 荆门, 秭归, 宜昌, 长阳, 大悟, 孝感, 鄂州, 垄上, 宜都")
@@ -386,6 +385,97 @@ for line in lines:
 # 将唯一的行写入新的文档 
 with open('回收站.txt', 'w', encoding="utf-8") as file:
  file.writelines(unique_lines)
+
+#################################################### 对整理好的频道列表测试HTTP连接
+def test_connectivity(url, max_attempts=2): #定义测试HTTP连接的次数
+    # 尝试连接指定次数    
+   for _ in range(max_attempts):  
+    try:
+        response = requests.head(url, timeout=0.5)  # 发送HEAD请求,仅支持V4,修改此行数字可定义链接超时##////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+        #response = requests.get(url, timeout=1)  # 发送get请求,支持V6,修改此行数字可定义链接超时##############################//////////////////////////////////////////////////////////////////////////////////////
+        return response.status_code == 200  # 返回True如果状态码为200
+    except requests.RequestException:  # 捕获requests引发的异常
+        pass  # 发生异常时忽略
+   #return False  # 如果所有尝试都失败,返回False
+   pass   
+# 使用队列来收集结果的函数
+def process_line(line, result_queue):
+    parts = line.strip().split(",")  # 去除行首尾空白并按逗号分割
+    if len(parts) == 2 and parts[1]:  # 确保有URL,并且URL不为空
+        channel_name, channel_url = parts  # 分别赋值频道名称和URL
+        if test_connectivity(channel_url):  # 测试URL是否有效
+            result_queue.put((channel_name, channel_url, "有效"))  # 将结果放入队列
+        else:
+            result_queue.put((channel_name, channel_url, "无效"))  # 将结果放入队列
+    else:
+        # 格式不正确的行不放入队列
+        pass
+# 主函数
+def main(source_file_path, output_file_path):
+    with open(source_file_path, "r", encoding="utf-8") as source_file:  # 打开源文件
+        lines = source_file.readlines()  # 读取所有行s     
+    result_queue = queue.Queue()  # 创建队列
+    threads = []  # 初始化线程列表
+    for line in tqdm(lines, desc="检测进行中"):  # 显示进度条
+        thread = threading.Thread(target=process_line, args=(line, result_queue))  # 创建线程
+        thread.start()  # 启动线程
+        threads.append(thread)  # 将线程加入线程列表
+    for thread in threads:  # 等待所有线程完成
+        thread.join()
+    # 初始化计数器
+    valid_count = 0
+    invalid_count = 0
+    with open(output_file_path, "w", encoding="utf-8") as output_file:  # 打开输出文件
+        for _ in range(result_queue.qsize()):  # 使用队列的大小来循环
+            item = result_queue.get()  # 获取队列中的项目
+            # 只有在队列中存在有效的项目时才写入文件
+            if item[0] and item[1]:  # 确保channel_name和channel_url都不为None
+                output_file.write(f"{item[0]},{item[1]},{item[2]}\n")  # 写入文件
+                if item[2] == "有效":  # 统计有效源数量
+                    valid_count += 1
+                else:  # 统计无效源数量
+                    invalid_count += 1
+    print(f"任务完成, 有效源数量: {valid_count}, 无效源数量: {invalid_count}")  # 打印结果
+if __name__ == "__main__":
+    try:
+        source_file_path = "回收站.txt"  # 输入源文件路径
+        output_file_path = "回收站.txt"  # 设置输出文件路径
+        main(source_file_path, output_file_path)  # 调用main函数
+    except Exception as e:
+        print(f"程序发生错误: {e}")  # 打印错误信息
+        
+#########################################################################提取回收站中的有效行
+def filter_lines(file_path):
+    with open(file_path, 'r', encoding='utf-8') as file:  # 打开文件
+        lines = file.readlines()  # 读取所有行
+    filtered_lines = []  # 初始化过滤后的行列表
+    for line in lines:  # 遍历所有行
+        if 'genre' in line or '有效' in line:  # 如果行中包含'genre'或'有效'
+            filtered_lines.append(line)  # 将行添加到过滤后的行列表
+    return filtered_lines  # 返回过滤后的行列表
+def write_filtered_lines(output_file_path, filtered_lines):
+    with open(output_file_path, 'w', encoding='utf-8') as output_file:  # 打开输出文件
+        output_file.writelines(filtered_lines)  # 写入过滤后的行
+if __name__ == "__main__":
+    input_file_path = "回收站.txt"  # 设置输入文件路径
+    output_file_path = "回收站.txt"  # 设置输出文件路径
+    filtered_lines = filter_lines(input_file_path)  # 调用filter_lines函数
+    write_filtered_lines(output_file_path, filtered_lines)  # 调用write_filtered_lines函数
+###################################################################################定义替换规则的字典,对整行内的内容进行替换
+replacements = {
+    ",有效": "",  # 将",有效"替换为空字符串
+    "#genre#,无效": "#genre#",  # 将"#genre#,无效"替换为"#genre#"
+}
+# 打开原始文件读取内容,并写入新文件
+with open('回收站.txt', 'r', encoding='utf-8') as file:
+    lines = file.readlines()
+# 创建新文件并写入替换后的内容
+with open('回收站.txt', 'w', encoding='utf-8') as new_file:
+    for line in lines:
+        for old, new in replacements.items():  # 遍历替换规则字典
+            line = line.replace(old, new)  # 替换行中的内容
+        new_file.write(line)  # 写入新文件
+print("新文件已保存。")  # 打印完成信息
 
 
 
