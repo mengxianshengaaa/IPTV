@@ -1,9 +1,27 @@
-import urllib.request
-from urllib.parse import urlparse
-import re #正则
-import os
-from datetime import datetime
+from lxml import etree
+import time
+from datetime import datetime, timedelta  # 确保 timedelta 被导入
+import concurrent.futures
+from selenium import webdriver
+from selenium.webdriver.chrome.options import Options
+from concurrent.futures import ThreadPoolExecutor
 import requests
+import re
+import os
+import threading
+from queue import Queue
+import queue
+from datetime import datetime
+import replace
+import fileinput
+from tqdm import tqdm
+from pypinyin import lazy_pinyin
+from opencc import OpenCC
+import base64
+import cv2
+from bs4 import BeautifulSoup
+from urllib.parse import urlparse
+from translate import Translator  # 导入Translator类,用于文本翻译
 # 定义txt文件的URL列表
 urls = [
     'https://raw.githubusercontent.com/kimwang1978/tvbox/main/%E5%A4%A9%E5%A4%A9%E5%BC%80%E5%BF%83/lives/%E2%91%AD%E5%BC%80%E5%BF%83%E7%BA%BF%E8%B7%AF.txt',#################
