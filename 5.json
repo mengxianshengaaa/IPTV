@@ -1,0 +1,8 @@
+  {
+   "urls": [
+    {"url": "https://gitdl.cn/https://raw.githubusercontent.com/frxz751113/AAAAA/main/2.json", "name":"默认线路"},
+    {"url": "https://gitdl.cn/https://raw.githubusercontent.com/frxz751113/AAAAA/main/知识百科.json", "name":"知识百科"},
+    {"url": "https://gitdl.cn/https://raw.githubusercontent.com/frxz751113/AAAAA/main/tvbox%E6%95%99%E7%A8%8B.json","name": "影视仓教程"},
+    {"url":"https://mirror.ghproxy.com/https://raw.githubusercontent.com/woniuxs/TVBOX/main/svip","name":"蜗牛影视"},
+    {"url":"https://mirror.ghproxy.com/https://raw.githubusercontent.com/woniuxs/TVBOX/main/api.json","name":"蜗牛影视"}
+]}
