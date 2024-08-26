@@ -289,9 +289,9 @@ def test_connectivity(url, max_attempts=2): #定义测试HTTP连接的次数
     # 尝试连接指定次数    
    for _ in range(max_attempts):  
     try:
-        response = requests.head(url, timeout=1)  # 发送HEAD请求,仅支持V4,修改此行数字可定义链接超时##////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+        response = requests.head(url, timeout=3)  # 发送HEAD请求,仅支持V4,修改此行数字可定义链接超时##////////////////////////////////////////////////////////////////////////////////////////////////////////////////
         #response = requests.get(url, timeout=1)  # 发送get请求,支持V6,修改此行数字可定义链接超时##############################//////////////////////////////////////////////////////////////////////////////////////
-        return response.status_code == 200  # 返回True如果状态码为200
+        return 200 <= response.status_code <= 402
     except requests.RequestException:  # 捕获requests引发的异常
         pass  # 发生异常时忽略
    #return False  # 如果所有尝试都失败,返回False
@@ -423,7 +423,7 @@ def parse_file(input_file_path, output_file_name):
                 ip_or_domain_to_lines[ip_or_domain].append(line)
     # 过滤掉小于5000字节的IP或域名段
     filtered_ip_or_domain_to_lines = {ip_or_domain: lines for ip_or_domain, lines in ip_or_domain_to_lines.items()
-                                      if sum(len(line) for line in lines) >= 3000}
+                                      if sum(len(line) for line in lines) >= 2000}
     # 如果没有满足条件的IP或域名段，则不生成文件
     if not filtered_ip_or_domain_to_lines:
         print("没有满足条件的IP或域名段，不生成文件。")
