@@ -298,11 +298,12 @@ file_path = "网络收集.txt"
 output_file_path = "网络收集.txt"
 
 def get_ip_key(url):
-    """从URL中提取IP地址，并构造一个唯一的键"""
-    # 找到'//'到第一个'/'之间的字符串
+    """从URL中提取后面的16个字符作为IP地址键"""
+    # 找到'://'之后的位置
     start = url.find('://') + 3  # '://'.length 是 3
-    end = url.find('/', start)  # 找到第一个'/'的位置
-    return url[start:end] if end != -1 else None
+    # 截取start位置后面16个字符
+    ip_key = url[start:start + 10]
+    return ip_key
     
 # 打开输入文件和输出文件
 with open(file_path, 'r', encoding='utf-8') as file:
