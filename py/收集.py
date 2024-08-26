@@ -389,7 +389,6 @@ def parse_file(input_file_path, output_file_name):
     # 用于生成分类名的字母和数字计数器
     alphabet_counter = 0  # 字母计数器，从0开始
     number_counter = 1     # 数字计数器，从1开始
-
     # 读取原始文件内容
     with open(input_file_path, 'r', encoding='utf-8') as file:
         for line in file:
@@ -408,10 +407,9 @@ def parse_file(input_file_path, output_file_name):
                 if ip_or_domain not in ip_or_domain_to_lines:
                     ip_or_domain_to_lines[ip_or_domain] = []
                 ip_or_domain_to_lines[ip_or_domain].append(line)
-
-    # 过滤掉小于5000字节的IP或域名段
+    # 过滤掉小于1000字节的IP或域名段
     filtered_ip_or_domain_to_lines = {ip_or_domain: lines for ip_or_domain, lines in ip_or_domain_to_lines.items()
-                                      if sum(len(line) for line in lines) >= 2000}
+                                      if sum(len(line) for line in lines) >= 1000}
 
     # 如果没有满足条件的IP或域名段，则不生成文件
     if not filtered_ip_or_domain_to_lines:
