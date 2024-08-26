@@ -25,7 +25,7 @@ from translate import Translator  # 导入Translator类,用于文本翻译
 # 定义txt文件的URL列表
 urls = [
     'http://124.223.177.85:88/svip/%E7%9B%B4%E6%92%AD%E6%8C%BA%E5%BF%AB.txt',
-    '',
+    'https://raw.githubusercontent.com/hero1898/tv/26e03baadf773f40be3106a4d79cd056df045681/dtv.txt',
     'https://jihulab.com/jiayan/tv/-/raw/main/zhibo.txt?ref_type=heads',
     'https://raw.githubusercontent.com/kimwang1978/tvbox/main/%E5%A4%A9%E5%A4%A9%E5%BC%80%E5%BF%83/lives/%E2%91%AD%E5%BC%80%E5%BF%83%E7%BA%BF%E8%B7%AF.txt',#################
     'https://raw.githubusercontent.com/pxiptv/live/main/iptv.txt', #ADD 【2024-08-02 16:48:40】#每日更新1次
@@ -66,22 +66,30 @@ merge_txt_files(urls)
 
 
 # 打开文本文件进行读取
-with open('汇总.txt', 'r', encoding='utf-8') as file:
-    lines = file.readlines()
-# 创建或打开一个输出文件用于写入处理后的数据
-with open('汇总.txt', 'w', encoding='utf-8') as outfile:
-    # 处理每一行
-    for line in lines:
-        if '$' in line:
-            # 如果行中包含'$'，截取到'$'之前的部分
-            processed_line = line.split('$')[0]
-            outfile.write(processed_line)  # 写入处理后的行到文件，不自动添加换行符
-        else:
-            # 如果行中不包含'$'，正常写入
-            outfile.write(line)  # 写入原始行到文件
-
-# 注意：上面的脚本会在每个写入操作后自动添加换行符，因为write方法默认在写入字符串后添加换行符。
-# 如果你不希望在行之间有换行符，可以在write方法中不添加`\n`
+def read_and_process_file(input_filename, output_filename, encodings=['utf-8', 'gbk']):
+    # 尝试使用不同的编码读取文件
+    for encoding in encodings:
+        try:
+            with open(input_filename, 'r', encoding=encoding) as file:
+                lines = file.readlines()
+                break  # 如果成功读取，跳出循环
+        except UnicodeDecodeError:
+            continue  # 如果出现编码错误，尝试下一个编码
+    else:
+        raise ValueError(f"文件 '{input_filename}' 的编码无法识别或不支持")
+    # 使用 UTF-8 编码创建或打开输出文件
+    with open(output_filename, 'w', encoding='utf-8') as outfile:
+        # 处理每一行
+        for line in lines:
+            if '$' in line:
+                # 截取到'$'之前的部分，注意去除可能的换行符
+                processed_line = line.split('$')[0].rstrip('\n')
+                outfile.write(processed_line + '\n')  # 写入处理后的行到文件，并添加换行符
+            else:
+                # 正常写入行到文件，并添加换行符
+                outfile.write(line)
+# 调用函数
+read_and_process_file('汇总.txt', '汇总.txt')
 
 ########################################################################################################
 def remove_duplicates(input_file, output_file):
