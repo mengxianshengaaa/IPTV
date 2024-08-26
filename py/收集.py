@@ -287,68 +287,6 @@ with open('2.txt', 'r', encoding='utf-8') as file:
 
 
 
-import re
-from pypinyin import lazy_pinyin
-# 打开一个utf-8编码的文本文件
-with open("2.txt", "r", encoding="utf-8") as file:
-    # 读取所有行并存储到列表中
-    lines = file.readlines()
-# 定义一个函数，用于提取每行的第一个数字
-def extract_first_number(line):
-    match = re.search(r'\d+', line)
-    return int(match.group()) if match else float('inf')
-# 对列表中的行进行排序，按照第一个数字的大小排列，其余行按中文排序
-sorted_lines = sorted(lines, key=lambda x: (not 'CCTV' in x, extract_first_number(x) if 'CCTV' in x else lazy_pinyin(x.strip())))
-# 将排序后的行写入新的utf-8编码的文本文件
-with open("2.txt", "w", encoding="utf-8") as file:
-    for line in sorted_lines:
-        file.write(line)
-
-
-
-
-
-import re
-def parse_file(input_file_path, output_file_name):
-    # 正则表达式匹配从'//'开始到第一个'/'或第一个'::'结束的部分
-    ip_or_domain_pattern = re.compile(r'//([^/:]*:[^/:]*::[^/:]*|[^/]*)')
-    # 用于存储每个IP或域名及其对应的行列表
-    ip_or_domain_to_lines = {}
-    # 读取原始文件内容
-    with open(input_file_path, 'r', encoding='utf-8') as file:
-        for line in file:
-            line = line.strip()
-            # 如果行是分类标签行，则跳过
-            if ",#genre#" in line:
-                continue
-            # 检查行是否包含IP或域名
-            match = ip_or_domain_pattern.search(line)
-            if match:
-                # 提取匹配到的IP或域名
-                matched_text = match.group(1)
-                # 去除IP或域名后的剩余部分，只保留匹配到的IP或域名
-                ip_or_domain = matched_text.split('://')[-1].split('/')[0].split('::')[0]
-                # 将行添加到对应的IP或域名列表中
-                if ip_or_domain not in ip_or_domain_to_lines:
-                    ip_or_domain_to_lines[ip_or_domain] = []
-                ip_or_domain_to_lines[ip_or_domain].append(line)
-    # 过滤掉小于5000字节的IP或域名段
-    filtered_ip_or_domain_to_lines = {ip_or_domain: lines for ip_or_domain, lines in ip_or_domain_to_lines.items()
-                                      if sum(len(line) for line in lines) >= 2000}
-    # 如果没有满足条件的IP或域名段，则不生成文件
-    if not filtered_ip_or_domain_to_lines:
-        print("没有满足条件的IP或域名段，不生成文件。")
-        return
-    # 合并所有满足条件的IP或域名的行到一个文件
-    with open(output_file_name, 'w', encoding='utf-8') as output_file:
-        for ip_or_domain, lines in filtered_ip_or_domain_to_lines.items():
-            # 写入IP或域名及其对应的行到输出文件
-            output_file.write(f"{ip_or_domain},#genre#\n")
-            for line in lines:
-                output_file.write(line + '\n')
-            output_file.write('\n')  # 在每个小段后添加一个空行作为分隔
-# 调用函数并传入文件路径和输出文件名
-parse_file('2.txt', '网络收集.txt')
 
 import cv2
 import time
@@ -419,66 +357,137 @@ for ip_key, result in detected_ips.items():
     print(f"IP Key: {ip_key}, Status: {result['status']}")
 
 #########################################################################
-import cv2
-import time
-from tqdm import tqdm
-# 初始化字典来存储检测结果
-detected_ips = {}
-# 存储文件路径
-file_path = "网络收集.txt"
-output_file_path = "网络收集.txt"
-def get_ip_key(url):
-    """从URL中提取IP地址，并构造一个唯一的键"""
-    start = url.find('://') + 3
-    end = start
-    while end < len(url) and url[end] != '/' and url[end] != '.':
-        end += 1
-    return url[start:end]
-# 打开输入文件和输出文件
-with open(file_path, 'r', encoding='utf-8') as file:
-    lines = file.readlines()
-# 获取总行数用于进度条
-total_lines = len(lines)
-# 写入通过检测的行到新文件
-with open(output_file_path, 'w', encoding='utf-8') as output_file:
-    # 使用tqdm显示进度条
-    for i, line in tqdm(enumerate(lines), total=total_lines, desc="Processing", unit='line'):
-        # 检查是否包含 'genre'，如果包含则直接写入并继续
-        if 'genre' in line:
+# 函数：获取视频分辨率
+def get_video_resolution(video_path, timeout=0.8):
+    cap = cv2.VideoCapture(video_path)
+    if not cap.isOpened():
+        return None
+    width = int(cap.get(cv2.CAP_PROP_FRAME_WIDTH))
+    height = int(cap.get(cv2.CAP_PROP_FRAME_HEIGHT))
+    cap.release()
+    return (width, height)
+# 函数：处理每一行
+def process_line(line, output_file, order_list, valid_count, invalid_count, total_lines):
+    parts = line.strip().split(',')
+    if '#genre#' in line:
+        # 如果行包含 '#genre#'，直接写入新文件
+        with threading.Lock():
             output_file.write(line)
-            continue
-        # 分割频道名称和URL,并去除空白字符
-        parts = line.split(',', 1)
-        if len(parts) == 2:
-            channel_name, url = parts
-            channel_name = channel_name.strip()
-            url = url.strip()
-            # 构造IP键
-            ip_key = get_ip_key(url)
-            try:
-                # 设置超时时间为2秒
-                cap = cv2.VideoCapture(url)
-                cap.set(cv2.CAP_PROP_TIMEOUT, 2000)  # 设置超时参数
-                # 进行链接有效性检测
-                ret, frame = cap.read()
-                # 释放资源
-                cap.release()
-                # 写入检测结果到字典
-                detected_ips[ip_key] = {'status': 'ok' if ret else 'fail'}
-                # 如果链接有效，则写入到输出文件
-                if ret:
-                    output_file.write(line)
-            except cv2.error as e:
-                # 捕获OpenCV的错误
-                print(f"OpenCV error: {e}")
-                detected_ips[ip_key] = {'status': 'fail'}
-            except Exception as ex:
-                # 捕获其他所有未预料到的异常
-                print(f"An unexpected error occurred: {ex}")
-                detected_ips[ip_key] = {'status': 'fail'}
-# 打印每个IP的检测结果
-for ip_key, result in detected_ips.items():
-    print(f"IP Key: {ip_key}, Status: {result['status']}")
+            print(f"已写入genre行：{line.strip()}")
+    elif len(parts) == 2:
+        channel_name, channel_url = parts
+        resolution = get_video_resolution(channel_url, timeout=8)
+        if resolution and resolution[1] >= 720:  # 检查分辨率是否大于等于720p
+            with threading.Lock():
+                output_file.write(f"{channel_name}[{resolution[1]}p],{channel_url}\n")
+                order_list.append((channel_name, resolution[1], channel_url))
+                valid_count[0] += 1
+                print(f"Channel '{channel_name}' accepted with resolution {resolution[1]}p at URL {channel_url}.")
+        else:
+            invalid_count[0] += 1
+    with threading.Lock():
+        print(f"有效: {valid_count[0]}, 无效: {invalid_count[0]}, 总数: {total_lines}, 进度: {(valid_count[0] + invalid_count[0]) / total_lines * 100:.2f}%")
+# 函数：多线程工作
+def worker(task_queue, output_file, order_list, valid_count, invalid_count, total_lines):
+    while True:
+        try:
+            line = task_queue.get(timeout=1)
+            process_line(line, output_file, order_list, valid_count, invalid_count, total_lines)
+        except Queue.Empty:
+            break
+        finally:
+            task_queue.task_done()
+# 主函数
+def main(source_file_path, output_file_path):
+    order_list = []
+    valid_count = [0]
+    invalid_count = [0]
+    task_queue = Queue()
+    # 读取源文件
+    with open(source_file_path, 'r', encoding='utf-8') as source_file:
+        lines = source_file.readlines()
+    with open(output_file_path + '.txt', 'w', encoding='utf-8') as output_file:
+        # 创建线程池
+        with ThreadPoolExecutor(max_workers=64) as executor:
+            # 创建并启动工作线程
+            for _ in range(64):
+                executor.submit(worker, task_queue, output_file, order_list, valid_count, invalid_count, len(lines))
+            # 将所有行放入队列
+            for line in lines:
+                task_queue.put(line)
+            # 等待队列中的所有任务完成
+            task_queue.join()
+    print(f"任务完成，有效频道数：{valid_count[0]}, 无效频道数：{invalid_count[0]}, 总频道数：{len(lines)}")
+if __name__ == "__main__":
+    source_file_path = '网络收集.txt'  # 替换为你的源文件路径
+    output_file_path = '网络收集'  # 替换为你的输出文件路径,不要后缀名
+    main(source_file_path, output_file_path)
+
+
+
+
+import re
+from pypinyin import lazy_pinyin
+# 打开一个utf-8编码的文本文件
+with open("网络收集.txt", "r", encoding="utf-8") as file:
+    # 读取所有行并存储到列表中
+    lines = file.readlines()
+# 定义一个函数，用于提取每行的第一个数字
+def extract_first_number(line):
+    match = re.search(r'\d+', line)
+    return int(match.group()) if match else float('inf')
+# 对列表中的行进行排序，按照第一个数字的大小排列，其余行按中文排序
+sorted_lines = sorted(lines, key=lambda x: (not 'CCTV' in x, extract_first_number(x) if 'CCTV' in x else lazy_pinyin(x.strip())))
+# 将排序后的行写入新的utf-8编码的文本文件
+with open("网络收集.txt", "w", encoding="utf-8") as file:
+    for line in sorted_lines:
+        file.write(line)
+
+
+
+
+
+import re
+def parse_file(input_file_path, output_file_name):
+    # 正则表达式匹配从'//'开始到第一个'/'或第一个'::'结束的部分
+    ip_or_domain_pattern = re.compile(r'//([^/:]*:[^/:]*::[^/:]*|[^/]*)')
+    # 用于存储每个IP或域名及其对应的行列表
+    ip_or_domain_to_lines = {}
+    # 读取原始文件内容
+    with open(input_file_path, 'r', encoding='utf-8') as file:
+        for line in file:
+            line = line.strip()
+            # 如果行是分类标签行，则跳过
+            if ",#genre#" in line:
+                continue
+            # 检查行是否包含IP或域名
+            match = ip_or_domain_pattern.search(line)
+            if match:
+                # 提取匹配到的IP或域名
+                matched_text = match.group(1)
+                # 去除IP或域名后的剩余部分，只保留匹配到的IP或域名
+                ip_or_domain = matched_text.split('://')[-1].split('/')[0].split('::')[0]
+                # 将行添加到对应的IP或域名列表中
+                if ip_or_domain not in ip_or_domain_to_lines:
+                    ip_or_domain_to_lines[ip_or_domain] = []
+                ip_or_domain_to_lines[ip_or_domain].append(line)
+    # 过滤掉小于5000字节的IP或域名段
+    filtered_ip_or_domain_to_lines = {ip_or_domain: lines for ip_or_domain, lines in ip_or_domain_to_lines.items()
+                                      if sum(len(line) for line in lines) >= 2000}
+    # 如果没有满足条件的IP或域名段，则不生成文件
+    if not filtered_ip_or_domain_to_lines:
+        print("没有满足条件的IP或域名段，不生成文件。")
+        return
+    # 合并所有满足条件的IP或域名的行到一个文件
+    with open(output_file_name, 'w', encoding='utf-8') as output_file:
+        for ip_or_domain, lines in filtered_ip_or_domain_to_lines.items():
+            # 写入IP或域名及其对应的行到输出文件
+            output_file.write(f"{ip_or_domain},#genre#\n")
+            for line in lines:
+                output_file.write(line + '\n')
+            output_file.write('\n')  # 在每个小段后添加一个空行作为分隔
+# 调用函数并传入文件路径和输出文件名
+parse_file('网络收集.txt', '网络收集.txt')
 
 ################################################################################################任务结束，删除不必要的过程文件
 files_to_remove = ["2.txt", "汇总.txt"]
