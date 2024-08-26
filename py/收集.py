@@ -379,7 +379,6 @@ with open("网络收集.txt", "w", encoding="utf-8") as file:
 
 
 
-
 import re
 
 def parse_file(input_file_path, output_file_name):
@@ -435,46 +434,6 @@ def parse_file(input_file_path, output_file_name):
             output_file.write('\n')  # 在每个小段后添加一个空行作为分隔
             alphabet_counter += 1  # 递增字母计数器
 
-# 调用函数并传入文件路径和输出文件名
-parse_file('网络收集.txt', '网络收集.txt')import re
-def parse_file(input_file_path, output_file_name):
-    # 正则表达式匹配从'//'开始到第一个'/'或第一个'::'结束的部分
-    ip_or_domain_pattern = re.compile(r'//([^/:]*:[^/:]*::[^/:]*|[^/]*)')
-    # 用于存储每个IP或域名及其对应的行列表
-    ip_or_domain_to_lines = {}
-    # 读取原始文件内容
-    with open(input_file_path, 'r', encoding='utf-8') as file:
-        for line in file:
-            line = line.strip()
-            # 如果行是分类标签行，则跳过
-            if ",#genre#" in line:
-                continue
-            # 检查行是否包含IP或域名
-            match = ip_or_domain_pattern.search(line)
-            if match:
-                # 提取匹配到的IP或域名
-                matched_text = match.group(1)
-                # 去除IP或域名后的剩余部分，只保留匹配到的IP或域名
-                ip_or_domain = matched_text.split('://')[-1].split('/')[0].split('::')[0]
-                # 将行添加到对应的IP或域名列表中
-                if ip_or_domain not in ip_or_domain_to_lines:
-                    ip_or_domain_to_lines[ip_or_domain] = []
-                ip_or_domain_to_lines[ip_or_domain].append(line)
-    # 过滤掉小于5000字节的IP或域名段
-    filtered_ip_or_domain_to_lines = {ip_or_domain: lines for ip_or_domain, lines in ip_or_domain_to_lines.items()
-                                      if sum(len(line) for line in lines) >= 2000}
-    # 如果没有满足条件的IP或域名段，则不生成文件
-    if not filtered_ip_or_domain_to_lines:
-        print("没有满足条件的IP或域名段，不生成文件。")
-        return
-    # 合并所有满足条件的IP或域名的行到一个文件
-    with open(output_file_name, 'w', encoding='utf-8') as output_file:
-        for ip_or_domain, lines in filtered_ip_or_domain_to_lines.items():
-            # 写入IP或域名及其对应的行到输出文件
-            output_file.write(f"{ip_or_domain},#genre#\n")
-            for line in lines:
-                output_file.write(line + '\n')
-            output_file.write('\n')  # 在每个小段后添加一个空行作为分隔
 # 调用函数并传入文件路径和输出文件名
 parse_file('网络收集.txt', '网络收集.txt')
 
