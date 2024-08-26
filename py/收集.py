@@ -418,6 +418,67 @@ with open(output_file_path, 'w', encoding='utf-8') as output_file:
 for ip_key, result in detected_ips.items():
     print(f"IP Key: {ip_key}, Status: {result['status']}")
 
+#########################################################################
+import cv2
+import time
+from tqdm import tqdm
+# 初始化字典来存储检测结果
+detected_ips = {}
+# 存储文件路径
+file_path = "网络收集.txt"
+output_file_path = "网络收集.txt"
+def get_ip_key(url):
+    """从URL中提取IP地址，并构造一个唯一的键"""
+    start = url.find('://') + 3
+    end = start
+    while end < len(url) and url[end] != '/' and url[end] != '.':
+        end += 1
+    return url[start:end]
+# 打开输入文件和输出文件
+with open(file_path, 'r', encoding='utf-8') as file:
+    lines = file.readlines()
+# 获取总行数用于进度条
+total_lines = len(lines)
+# 写入通过检测的行到新文件
+with open(output_file_path, 'w', encoding='utf-8') as output_file:
+    # 使用tqdm显示进度条
+    for i, line in tqdm(enumerate(lines), total=total_lines, desc="Processing", unit='line'):
+        # 检查是否包含 'genre'，如果包含则直接写入并继续
+        if 'genre' in line:
+            output_file.write(line)
+            continue
+        # 分割频道名称和URL,并去除空白字符
+        parts = line.split(',', 1)
+        if len(parts) == 2:
+            channel_name, url = parts
+            channel_name = channel_name.strip()
+            url = url.strip()
+            # 构造IP键
+            ip_key = get_ip_key(url)
+            try:
+                # 设置超时时间为2秒
+                cap = cv2.VideoCapture(url)
+                cap.set(cv2.CAP_PROP_TIMEOUT, 2000)  # 设置超时参数
+                # 进行链接有效性检测
+                ret, frame = cap.read()
+                # 释放资源
+                cap.release()
+                # 写入检测结果到字典
+                detected_ips[ip_key] = {'status': 'ok' if ret else 'fail'}
+                # 如果链接有效，则写入到输出文件
+                if ret:
+                    output_file.write(line)
+            except cv2.error as e:
+                # 捕获OpenCV的错误
+                print(f"OpenCV error: {e}")
+                detected_ips[ip_key] = {'status': 'fail'}
+            except Exception as ex:
+                # 捕获其他所有未预料到的异常
+                print(f"An unexpected error occurred: {ex}")
+                detected_ips[ip_key] = {'status': 'fail'}
+# 打印每个IP的检测结果
+for ip_key, result in detected_ips.items():
+    print(f"IP Key: {ip_key}, Status: {result['status']}")
 
 ################################################################################################任务结束，删除不必要的过程文件
 files_to_remove = ["2.txt", "汇总.txt"]
@@ -428,33 +489,5 @@ for file in files_to_remove:
     else:              # 如果文件不存在，则提示异常并打印提示信息
         print(f"文件 {file} 不存在，跳过删除。")
 
-# 打开文本文件进行读取
-with open('网络收集.txt', 'r', encoding='utf-8') as file:
-    lines = file.readlines()
-# 初始化一个标志来跟踪是否遇到包含"genre"的行
-genre_found = False
-# 用于存储处理后的行的列表
-processed_lines = []
 
-# 处理每一行
-for line in lines:
-    if 'genre' in line:
-        if genre_found:
-            # 如果已经标记找到过"genre"，则跳过当前行（即删除第一个相邻的"genre"行）
-            continue
-        else:
-            # 否则，标记找到"genre"，并处理当前行（保留第二个相邻的"genre"行）
-            genre_found = True
-            processed_lines.append(line)
-    else:
-        # 对于不包含"genre"的行，总是添加到结果列表
-        processed_lines.append(line)
-
-    # 重置标志，以便检测下一对相邻的"genre"行
-    if not 'genre' in line:
-        genre_found = False
-
-# 将处理后的行写入到输出文件
-with open('网络收集.txt', 'w', encoding='utf-8') as outfile:
-    outfile.writelines(processed_lines)
 print("任务运行完毕，频道列表可查看文件夹内源.txt文件！")
