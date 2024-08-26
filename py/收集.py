@@ -269,7 +269,7 @@ import re
 import os
 # 定义一个包含所有要排除的关键词的列表
 excluded_keywords = [
-    'epg', 'mitv', 'udp', 'rtp', '[', 'P2p', 'p2p', 'p3p', 'P2P', 'P3p', '/hls/', '/tsfile/', 'P3P', '腔', '曲', '春节'
+    'epg', 'mitv', 'udp', 'rtp', '[', 'P2p', 'p2p', 'p3p', 'P2P', 'P3p', '/hls/', '/tsfile/', 'P3P', '腔', '曲', '/zy.', '春节'
 ]
 
 # 定义一个包含所有要提取的关键词的列表
@@ -321,7 +321,7 @@ def parse_file(input_file_path, output_file_name):
 
     # 过滤掉小于5000字节的IP或域名段
     filtered_ip_or_domain_to_lines = {ip_or_domain: lines for ip_or_domain, lines in ip_or_domain_to_lines.items()
-                                      if sum(len(line) for line in lines) >= 1000}
+                                      if sum(len(line) for line in lines) >= 500}
 
     # 如果没有满足条件的IP或域名段，则不生成文件
     if not filtered_ip_or_domain_to_lines:
