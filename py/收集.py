@@ -240,7 +240,7 @@ replacement_dict = {
 # 原始文件名
 input_filename = '汇总.txt'
 # 新文件名
-output_filename = '汇总.txt'
+output_filename = '2.txt'
 
 # 打开原始文件和新文件
 with open(input_filename, 'r') as infile, open(output_filename, 'w') as outfile:
