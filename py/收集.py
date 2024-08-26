@@ -436,7 +436,7 @@ def parse_file(input_file_path, output_file_name):
 parse_file('网络收集.txt', '网络收集.txt')
 
 ################################################################################################任务结束，删除不必要的过程文件
-files_to_remove = ["2.txt", "汇总.txt"]
+files_to_remove = ["2#.txt", "汇总.txt"]
 
 for file in files_to_remove:
     if os.path.exists(file):
