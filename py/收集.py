@@ -25,12 +25,14 @@ from translate import Translator  # 导入Translator类,用于文本翻译
 # 定义txt文件的URL列表
 urls = [
     'http://124.223.177.85:88/svip/%E7%9B%B4%E6%92%AD%E6%8C%BA%E5%BF%AB.txt',
+    '',
     'https://jihulab.com/jiayan/tv/-/raw/main/zhibo.txt?ref_type=heads',
     'https://raw.githubusercontent.com/kimwang1978/tvbox/main/%E5%A4%A9%E5%A4%A9%E5%BC%80%E5%BF%83/lives/%E2%91%AD%E5%BC%80%E5%BF%83%E7%BA%BF%E8%B7%AF.txt',#################
     'https://raw.githubusercontent.com/pxiptv/live/main/iptv.txt', #ADD 【2024-08-02 16:48:40】#每日更新1次
     'https://notabug.org/vnjd/yydu/raw/master/yyfug.txt', #ADD 【2024-08-06】
     'https://pan.beecld.com/f/OXMcA/%E6%98%A5%E8%B5%A2%E5%A4%A9%E4%B8%8B.txt', #ADD 【2024-08-06】
     'https://raw.githubusercontent.com/yuanzl77/IPTV/main/live.txt',   #ADD 2024-08-05 每天更新一次，量太多转到blacklist处理
+    'http://mywlkj.ddns.net:5212/f/EErCL/%E5%8F%B0%E6%B9%BE%E7%94%B5%E8%A7%86TV.txt',   #ADD 【2024-08-10】
     'https://raw.githubusercontent.com/Guovin/TV/gd/result.txt', #每天自动更新1次
     'https://raw.githubusercontent.com/ssili126/tv/main/itvlist.txt', #每天自动更新1次
     'https://raw.githubusercontent.com/mlvjfchen/TV/main/iptv_list.txt', #每天早晚各自动更新1次 2024-06-03 17:50
@@ -113,11 +115,12 @@ def remove_duplicates(input_file, output_file):
 # 使用方法
 remove_duplicates('汇总.txt', '汇总.txt')   
 
-
-
-# 字符替换字典
-replacement_dict = {
-        "CCTV-1高清测试": "",
+########################################################################################################
+# 导入fileinput模块
+import fileinput
+# 定义替换规则的字典
+replacements = {
+    	"CCTV-1高清测试": "",
     	"CCTV-2高清测试": "",
     	"CCTV-7高清测试": "",
     	"CCTV-10高清测试": "",
@@ -126,10 +129,10 @@ replacement_dict = {
     	"HD": "",
     	"标清": "",
     	"-": "",
+    	"_": "",
     	"超清": "",
     	"频道": "",
-    	"-": "",
-    	"-": "",
+    	"CCTV-": "CCTV",
     	"CCTV_": "CCTV",
     	" ": "",
     	"CCTV风云剧场": "风云剧场",
@@ -234,24 +237,17 @@ replacement_dict = {
     	"CCTV7CCTV7": "CCTV7",
     	"CCTV10CCTV10": "CCTV10"
 }
+# 打开原始文件读取内容，并写入新文件
+with open('汇总.txt', 'r', encoding='utf-8') as file:
+    lines = file.readlines()
+# 创建新文件并写入替换后的内容
+with open('2.txt', 'w', encoding='utf-8') as new_file:
+    for line in lines:
+        for old, new in replacements.items():
+            line = line.replace(old, new)
+        new_file.write(line)
+print("替换完成，新文件已保存。")
 
-# 原始文件名
-input_filename = '汇总.txt'
-# 新文件名
-output_filename = '2.txt'
-
-# 打开原始文件和新文件
-with open(input_filename, 'r') as infile, open(output_filename, 'w') as outfile:
-    # 逐行读取文件
-    for line in infile:
-        # 分割每一行
-        parts = line.strip().split(',')
-        # 对逗号前面的部分进行字符替换
-        modified_part = ''.join(replacement_dict.get(char, char) for char in parts[0])
-        # 写入新文件
-        outfile.write(f"{modified_part},{parts[1]}\n")
-
-print(f"文件 {input_filename} 已处理，结果保存在 {output_filename}")
 
 
 ########################################################################################################
