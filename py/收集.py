@@ -32,7 +32,6 @@ urls = [
         'https://raw.githubusercontent.com/gdstchdr1/IPTV/main/bc.txt',  # 【2024-08-01 10:40:29】
         'https://raw.githubusercontent.com/lalifeier/IPTV/main/txt/IPTV.txt',  # 【2024-08-01 10:40:29】
         'https://raw.githubusercontent.com/yoursmile66/TVBox/main/live.txt',  #【2024-08-01 10:40:29】
-        'https://raw.githubusercontent.com/hujingguang/ChinaIPTV/main/cnTV_AutoUpdate.m3u8', #15分钟更新1次   # 【2024-08-01 10:40:29】
         'https://raw.githubusercontent.com/PizazzGY/TVBox/main/live.txt', # 【2024-08-01 10:40:29】
         'https://raw.githubusercontent.com/pxiptv/live/main/iptv.txt', # 【2024-08-02 16:48:40】#每日更新1次
         'https://notabug.org/vnjd/yydu/raw/master/yyfug.txt', # 【2024-08-06】
