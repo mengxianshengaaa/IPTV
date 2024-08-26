@@ -1,4 +1,3 @@
-zy.otioi.cn,#genre#
 CCTV1,http://zy.otioi.cn/live/live.php?token=EkShOWBY&id=cctv1
 CCTV1,http://zy.otioi.cn/live/live.php?token=OTl3ByOe14&id=cctv1
 CCTV1,http://zy.otioi.cn/live/live.php?token=pfVmkew4&id=cctv1
@@ -79,8 +78,6 @@ CCTV17,http://zy.otioi.cn/live/cqyx.php?token=pfVmkew4&id=cctv17
 四川卫视,http://zy.otioi.cn/live/live.php?token=EkShOWBY&id=scws
 天津卫视,http://zy.otioi.cn/live/live.php?token=EkShOWBY&id=tjws
 浙江卫视,http://zy.otioi.cn/live/live.php?token=EkShOWBY&id=zjws
-ottrrs.hl.chinamobile.com,#genre#
-mdxgh.tpddns.cn:88,#genre#
 CCTV1,http://mdxgh.tpddns.cn:88/mdxgh/cctv1
 CCTV2,http://mdxgh.tpddns.cn:88/mdxgh/cctv2
 CCTV3,http://mdxgh.tpddns.cn:88/mdxgh/cctv3
@@ -133,14 +130,6 @@ CCTV17,http://mdxgh.tpddns.cn:88/mdxgh/cctv17
 新疆卫视,http://mdxgh.tpddns.cn:88/mdxgh/xinjiang
 云南卫视,http://mdxgh.tpddns.cn:88/mdxgh/yunnan
 浙江卫视,http://mdxgh.tpddns.cn:88/mdxgh/zhejiang
-livednow.com,#genre#
-gslbservzqhsw.itv.cmvideo.cn,#genre#
-dbiptv.sn.chinamobile.com,#genre#
-stream1.freetv.fun,#genre#
-115.153.254.81,#genre#
-my4.zhoujie218.top:50000,#genre#
-gslbserv.itv.cmvideo.cn:80,#genre#
-120.76.248.139,#genre#
 CCTV1,http://120.76.248.139/live/bfgd/4200000488.m3u8
 CCTV1,http://120.76.248.139/live/bfgd/4200000201.m3u8
 CCTV1,http://120.76.248.139/live/bfgd/4200000484.m3u8
@@ -179,9 +168,6 @@ CCTV15,http://120.76.248.139/live/bfgd/4200000133.m3u8
 新疆卫视,http://120.76.248.139/live/otvgd/64.m3u8?bt=2300
 云南卫视,http://120.76.248.139/live/otvgd/61.m3u8?bt=2300
 浙江卫视,http://120.76.248.139/live/otvgd/19.m3u8?bt=2300
-124.205.11.242:91,#genre#
-103.116.245.163,#genre#
-120.77.28.4:8648,#genre#
 CCTV1,http://120.77.28.4:8648/mgu.php?id=cctv1
 CCTV2,http://120.77.28.4:8648/mgu.php?id=cctv2
 CCTV3,http://120.77.28.4:8648/mgu.php?id=cctv3
@@ -227,7 +213,6 @@ CHC家庭影院,http://120.77.28.4:8648/mgu.php?id=jtyy
 西藏卫视,http://120.77.28.4:8648/mgu.php?id=xzws
 新疆卫视,http://120.77.28.4:8648/mgu.php?id=xjws
 云南卫视,http://120.77.28.4:8648/mgu.php?id=ynws
-live.goodiptv.club,#genre#
 CCTV1,https://live.goodiptv.club/api/bestv.php?id=cctv1hd8m/8000000
 CCTV2,https://live.goodiptv.club/api/bestv.php?id=cctv2hd8m/8000000
 CCTV3,https://live.goodiptv.club/api/bestv.php?id=cctv38m/8000000
