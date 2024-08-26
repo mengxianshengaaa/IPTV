@@ -65,25 +65,23 @@ def merge_txt_files(urls, output_filename='汇总.txt'):
 merge_txt_files(urls)
 
 
-# 打开文本文件并读取内容
-def process_file(file_path, encodings=['utf-8', 'gbk', 'latin1']):
-    for encoding in encodings:
-        try:
-            with open(file_path, 'r', encoding=encoding) as file:
-                lines = file.readlines()
-            # 如果没有异常发生，说明找到了正确的编码
-            break
-        except UnicodeDecodeError:
-            # 如果出现解码错误，尝试下一种编码
-            continue
-    # 处理每一行，去除每一行中第一个$及其后的所有内容
-    processed_lines = [line.split('vvv', 1)[0].rstrip('\n') + '\n' for line in lines]
-    # 将处理后的内容写回到文件，使用找到的正确编码
-    with open(file_path, 'w', encoding=encoding) as file:
-        file.writelines(processed_lines)
-# 调用函数并传入文件路径
-file_path = '汇总.txt'  # 替换为你的文件路径
-process_file(file_path)
+# 打开文本文件进行读取
+with open('汇总.txt', 'r', encoding='utf-8') as file:
+    lines = file.readlines()
+# 创建或打开一个输出文件用于写入处理后的数据
+with open('汇总.txt', 'w', encoding='utf-8') as outfile:
+    # 处理每一行
+    for line in lines:
+        if '$' in line:
+            # 如果行中包含'$'，截取到'$'之前的部分
+            processed_line = line.split('$')[0]
+            outfile.write(processed_line)  # 写入处理后的行到文件，不自动添加换行符
+        else:
+            # 如果行中不包含'$'，正常写入
+            outfile.write(line)  # 写入原始行到文件
+
+# 注意：上面的脚本会在每个写入操作后自动添加换行符，因为write方法默认在写入字符串后添加换行符。
+# 如果你不希望在行之间有换行符，可以在write方法中不添加`\n`
 
 ########################################################################################################
 def remove_duplicates(input_file, output_file):
