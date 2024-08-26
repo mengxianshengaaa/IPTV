@@ -431,27 +431,29 @@ for file in files_to_remove:
 # 打开文本文件进行读取
 with open('网络收集.txt', 'r', encoding='utf-8') as file:
     lines = file.readlines()
-# 初始化一个计数器来跟踪遇到的第一个包含"genre"的行
-first_genre_encountered = False
+# 初始化一个标志来跟踪是否遇到包含"genre"的行
+genre_found = False
 # 用于存储处理后的行的列表
 processed_lines = []
+
 # 处理每一行
 for line in lines:
     if 'genre' in line:
-        if not first_genre_encountered:
-            # 如果这是第一个包含"genre"的行，标记已遇到并继续读取
-            first_genre_encountered = True
-        else:
-            # 如果已经遇到第一个包含"genre"的行，跳过这个包含"genre"的行
+        if genre_found:
+            # 如果已经标记找到过"genre"，则跳过当前行（即删除第一个相邻的"genre"行）
             continue
-    else:
-        # 对于不包含"genre"的行，总是写入
-        processed_lines.append(line)
-# 特殊情况：如果文件中只有一个包含"genre"的行，那么它应该被写入
-if not first_genre_encountered:
-    for line in lines:
-        if 'genre' in line:
+        else:
+            # 否则，标记找到"genre"，并处理当前行（保留第二个相邻的"genre"行）
+            genre_found = True
             processed_lines.append(line)
+    else:
+        # 对于不包含"genre"的行，总是添加到结果列表
+        processed_lines.append(line)
+
+    # 重置标志，以便检测下一对相邻的"genre"行
+    if not 'genre' in line:
+        genre_found = False
+
 # 将处理后的行写入到输出文件
 with open('网络收集.txt', 'w', encoding='utf-8') as outfile:
     outfile.writelines(processed_lines)
