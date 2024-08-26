@@ -65,6 +65,18 @@ def merge_txt_files(urls, output_filename='汇总.txt'):
 merge_txt_files(urls)
 
 
+# 打开文本文件并读取内容
+def process_file(file_path):
+    with open(file_path, 'r', encoding='utf-8') as file:
+        lines = file.readlines()
+    # 处理每一行，去除每一行中第一个$及其后的所有内容
+    processed_lines = [line.split('$', 1)[0] for line in lines]
+    # 将处理后的内容写回到文件
+    with open(file_path, 'w', encoding='utf-8') as file:
+        file.write(''.join(processed_lines))
+# 调用函数并传入文件路径
+file_path = '汇总.txt'  # 替换为你的文件路径
+process_file(file_path)
 
 ########################################################################################################
 def remove_duplicates(input_file, output_file):
