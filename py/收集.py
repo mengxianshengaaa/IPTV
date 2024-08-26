@@ -355,6 +355,99 @@ for ip_key, result in detected_ips.items():
 
 
 
+
+#################################################### 对整理好的频道列表测试HTTP连接
+def test_connectivity(url, max_attempts=1): #定义测试HTTP连接的次数
+    # 尝试连接指定次数    
+   for _ in range(max_attempts):  
+    try:
+        response = requests.head(url, timeout=3)  # 发送HEAD请求,仅支持V4,修改此行数字可定义链接超时##////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+        #response = requests.get(url, timeout=1)  # 发送get请求,支持V6,修改此行数字可定义链接超时##############################//////////////////////////////////////////////////////////////////////////////////////
+        return response.status_code == 200  # 返回True如果状态码为200
+    except requests.RequestException:  # 捕获requests引发的异常
+        pass  # 发生异常时忽略
+   #return False  # 如果所有尝试都失败,返回False
+   pass   
+# 使用队列来收集结果的函数
+def process_line(line, result_queue):
+    parts = line.strip().split(",")  # 去除行首尾空白并按逗号分割
+    if len(parts) == 2 and parts[1]:  # 确保有URL,并且URL不为空
+        channel_name, channel_url = parts  # 分别赋值频道名称和URL
+        if test_connectivity(channel_url):  # 测试URL是否有效
+            result_queue.put((channel_name, channel_url, "有效"))  # 将结果放入队列
+        else:
+            result_queue.put((channel_name, channel_url, "无效"))  # 将结果放入队列
+    else:
+        # 格式不正确的行不放入队列
+        pass
+# 主函数
+def main(source_file_path, output_file_path):
+    with open(source_file_path, "r", encoding="utf-8") as source_file:  # 打开源文件
+        lines = source_file.readlines()  # 读取所有行s     
+    result_queue = queue.Queue()  # 创建队列
+    threads = []  # 初始化线程列表
+    for line in tqdm(lines, desc="检测进行中"):  # 显示进度条
+        thread = threading.Thread(target=process_line, args=(line, result_queue))  # 创建线程
+        thread.start()  # 启动线程
+        threads.append(thread)  # 将线程加入线程列表
+    for thread in threads:  # 等待所有线程完成
+        thread.join()
+    # 初始化计数器
+    valid_count = 0
+    invalid_count = 0
+    with open(output_file_path, "w", encoding="utf-8") as output_file:  # 打开输出文件
+        for _ in range(result_queue.qsize()):  # 使用队列的大小来循环
+            item = result_queue.get()  # 获取队列中的项目
+            # 只有在队列中存在有效的项目时才写入文件
+            if item[0] and item[1]:  # 确保channel_name和channel_url都不为None
+                output_file.write(f"{item[0]},{item[1]},{item[2]}\n")  # 写入文件
+                if item[2] == "有效":  # 统计有效源数量
+                    valid_count += 1
+                else:  # 统计无效源数量
+                    invalid_count += 1
+    print(f"任务完成, 有效源数量: {valid_count}, 无效源数量: {invalid_count}")  # 打印结果
+if __name__ == "__main__":
+    try:
+        source_file_path = "网络收集.txt"  # 输入源文件路径
+        output_file_path = "网络收集.txt"  # 设置输出文件路径
+        main(source_file_path, output_file_path)  # 调用main函数
+    except Exception as e:
+        print(f"程序发生错误: {e}")  # 打印错误信息
+        
+#########################################################################提取网络收集中的有效行
+def filter_lines(file_path):
+    with open(file_path, 'r', encoding='utf-8') as file:  # 打开文件
+        lines = file.readlines()  # 读取所有行
+    filtered_lines = []  # 初始化过滤后的行列表
+    for line in lines:  # 遍历所有行
+        if 'genre' in line or '有效' in line:  # 如果行中包含'genre'或'有效'
+            filtered_lines.append(line)  # 将行添加到过滤后的行列表
+    return filtered_lines  # 返回过滤后的行列表
+def write_filtered_lines(output_file_path, filtered_lines):
+    with open(output_file_path, 'w', encoding='utf-8') as output_file:  # 打开输出文件
+        output_file.writelines(filtered_lines)  # 写入过滤后的行
+if __name__ == "__main__":
+    input_file_path = "网络收集.txt"  # 设置输入文件路径
+    output_file_path = "网络收集.txt"  # 设置输出文件路径
+    filtered_lines = filter_lines(input_file_path)  # 调用filter_lines函数
+    write_filtered_lines(output_file_path, filtered_lines)  # 调用write_filtered_lines函数
+###################################################################################定义替换规则的字典,对整行内的内容进行替换
+replacements = {
+    ",有效": "",  # 将",有效"替换为空字符串
+    "#genre#,无效": "#genre#",  # 将"#genre#,无效"替换为"#genre#"
+}
+# 打开原始文件读取内容,并写入新文件
+with open('网络收集.txt', 'r', encoding='utf-8') as file:
+    lines = file.readlines()
+# 创建新文件并写入替换后的内容
+with open('网络收集.txt', 'w', encoding='utf-8') as new_file:
+    for line in lines:
+        for old, new in replacements.items():  # 遍历替换规则字典
+            line = line.replace(old, new)  # 替换行中的内容
+        new_file.write(line)  # 写入新文件
+print("新文件已保存。")  # 打印完成信息
+
+
 import re
 from pypinyin import lazy_pinyin
 # 打开一个utf-8编码的文本文件
