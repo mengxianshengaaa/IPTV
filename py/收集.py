@@ -325,7 +325,7 @@ def parse_file(input_file_path, output_file_name):
     with open(output_file_name, 'w', encoding='utf-8') as output_file:
         for ip_or_domain, lines in filtered_ip_or_domain_to_lines.items():
             # 写入IP或域名及其对应的行到输出文件
-            output_file.write(f"{ip_or_domain},#genre#\n")
+            output_file.write(f"频道,#genre#\n")
             for line in lines:
                 output_file.write(line + '\n')
             output_file.write('\n')  # 在每个小段后添加一个空行作为分隔
