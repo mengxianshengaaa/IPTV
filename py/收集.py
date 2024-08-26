@@ -266,7 +266,7 @@ def filter_lines(file_path):
     filtered_lines = []
     for line in lines:
         if ',' in line:
-         if 'epg' not in line and 'mitv' not in line and 'udp' not in line and 'rtp' not in line and 'tsfile' not in line and '/hls/' not in line and '嘻嘻嘻' not in line \
+         if 'epg' not in line and 'mitv' not in line and 'udp' not in line and 'rtp' not in line and 'tsfile' not in line and '/hls/' not in line and '[' not in line \
             and 'P2p' not in line and 'p2p' not in line and 'p3p' not in line and 'P2P' not in line and 'P3p' not in line and 'P3P' not in line and '腔' not in line and '曲' not in line and '春节' not in line:
           filtered_lines.append(line)
     return filtered_lines
@@ -344,7 +344,73 @@ def parse_file(input_file_path, output_file_name):
 # 调用函数并传入文件路径和输出文件名
 parse_file('2.txt', '网络收集.txt')
 
-
+import cv2
+import time
+from tqdm import tqdm
+# 初始化酒店源字典
+detected_ips = {}
+# 存储文件路径
+file_path = "网络收集.txt"
+output_file_path = "网络收集.txt"
+def get_ip_key(url):
+    """从URL中提取IP地址,并构造一个唯一的键"""
+    # 找到'//'到第三个'.'之间的字符串
+    start = url.find('://') + 3  # '://'.length 是 3
+    end = start
+    dot_count = 0
+    while dot_count < 3:
+        end = url.find('.', end)
+        if end == -1:  # 如果没有找到第三个'.',就结束
+            break
+        dot_count += 1
+    return url[start:end] if dot_count == 3 else None
+# 打开输入文件和输出文件
+with open(file_path, 'r', encoding='utf-8') as file:
+    lines = file.readlines()
+# 获取总行数用于进度条
+total_lines = len(lines)
+# 写入通过检测的行到新文件
+with open(output_file_path, 'w', encoding='utf-8') as output_file:
+    # 使用tqdm显示进度条
+    for i, line in tqdm(enumerate(lines), total=total_lines, desc="Processing", unit='line'):
+        # 检查是否包含 'genre'
+        if 'genre' in line:
+            output_file.write(line)
+            continue
+        # 分割频道名称和URL,并去除空白字符
+        parts = line.split(',', 1)
+        if len(parts) == 2:
+            channel_name, url = parts
+            channel_name = channel_name.strip()
+            url = url.strip()
+            # 构造IP键
+            ip_key = get_ip_key(url)
+            if ip_key and ip_key in detected_ips:
+                # 如果IP键已存在,根据之前的结果决定是否写入新文件
+                if detected_ips[ip_key]['status'] == 'ok':
+                    output_file.write(line)
+            elif ip_key:  # 新IP键,进行检测
+                # 进行检测
+                cap = cv2.VideoCapture(url)
+                start_time = time.time()
+                frame_count = 0
+                # 尝试捕获10秒内的帧
+                while frame_count < 240 and (time.time() - start_time) < 10:
+                    ret, frame = cap.read()
+                    if not ret:
+                        break
+                    frame_count += 1
+                # 释放资源
+                cap.release()
+                # 根据捕获的帧数判断状态并记录结果
+                if frame_count >= 240:  #10秒内超过230帧则写入
+                    detected_ips[ip_key] = {'status': 'ok'}
+                    output_file.write(line)  # 写入检测通过的行
+                else:
+                    detected_ips[ip_key] = {'status': 'fail'}
+# 打印酒店源
+for ip_key, result in detected_ips.items():
+    print(f"IP Key: {ip_key}, Status: {result['status']}")
 
 
 ################################################################################################任务结束，删除不必要的过程文件
