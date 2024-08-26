@@ -24,23 +24,31 @@ from urllib.parse import urlparse
 from translate import Translator  # 导入Translator类,用于文本翻译
 # 定义txt文件的URL列表
 urls = [
-    '',
-    '',
-    'https://jihulab.com/jiayan/tv/-/raw/main/zhibo.txt?ref_type=heads',
-    'https://raw.githubusercontent.com/kimwang1978/tvbox/main/%E5%A4%A9%E5%A4%A9%E5%BC%80%E5%BF%83/lives/%E2%91%AD%E5%BC%80%E5%BF%83%E7%BA%BF%E8%B7%AF.txt',#开心线路
-    '', #ADD 【2024-08-02 16:48:40】#每日更新1次
-    'https://notabug.org/vnjd/yydu/raw/master/yyfug.txt', #ADD 【2024-08-06】
-    'https://pan.beecld.com/f/OXMcA/%E6%98%A5%E8%B5%A2%E5%A4%A9%E4%B8%8B.txt', #ADD 春盈天下
-    '',   #ADD 
-    '',   #ADD 【2024-08-10】
-    '', #每天自动更新1次
-    '', #每天自动更新1次
-    '', #每天早晚各自动更新1次 2024-06-03 17:50
-    '',  #1小时自动更新1次11:11 2024/05/13
-    '', #1小时自动更新1次11:11 2024/05/13
-    '',  #每天自动更新1次 2024-06-24 16:37
-    'http://ttkx.live:55/lib/kx2024.txt', #ADD 2024-08-11 每天更新3次
-    '', #ADD 2024-08-12 每天更新3次
+        '',
+        '',
+        'https://gitlab.com/p2v5/wangtv/-/raw/main/wang-tvlive.txt',
+        'https://raw.githubusercontent.com/kimwang1978/tvbox/main/%E5%A4%A9%E5%A4%A9%E5%BC%80%E5%BF%83/lives/%E2%91%AD%E5%BC%80%E5%BF%83%E7%BA%BF%E8%B7%AF.txt',
+        'https://raw.githubusercontent.com/mlvjfchen/TV/main/iptv_list.txt', 
+        'https://raw.githubusercontent.com/gdstchdr1/IPTV/main/bc.txt',  # 【2024-08-01 10:40:29】
+        'https://raw.githubusercontent.com/lalifeier/IPTV/main/txt/IPTV.txt',  # 【2024-08-01 10:40:29】
+        'https://raw.githubusercontent.com/yoursmile66/TVBox/main/live.txt',  #【2024-08-01 10:40:29】
+        'https://raw.githubusercontent.com/hujingguang/ChinaIPTV/main/cnTV_AutoUpdate.m3u8', #15分钟更新1次   # 【2024-08-01 10:40:29】
+        'https://raw.githubusercontent.com/PizazzGY/TVBox/main/live.txt', # 【2024-08-01 10:40:29】
+        'https://raw.githubusercontent.com/pxiptv/live/main/iptv.txt', # 【2024-08-02 16:48:40】#每日更新1次
+        'https://notabug.org/vnjd/yydu/raw/master/yyfug.txt', # 【2024-08-06】
+        'https://tvkj.top/tvlive.txt', # 【2024-08-06】
+        'https://pan.beecld.com/f/OXMcA/%E6%98%A5%E8%B5%A2%E5%A4%A9%E4%B8%8B.txt', # 【2024-08-06】
+        'http://kxrj.site:55/lib/kx2024.txt',   # 【2024-08-07】
+        'https://raw.githubusercontent.com/yuanzl77/IPTV/main/live.txt',   # 2024-08-05 每天更新一次，量太多转到blacklist处理
+        'https://wzsvip.github.io/ipv4.txt',   # 【2024-08-08】
+        'http://wz.42web.io/ipv4.txt',   # 【2024-08-08】
+        'http://ttkx.live:55/lib/kx2024.txt',   # 【2024-08-10】每日更新3次，移动到main.py
+        'http://mywlkj.ddns.net:5212/f/EErCL/%E5%8F%B0%E6%B9%BE%E7%94%B5%E8%A7%86TV.txt',   # 【2024-08-10】
+        'http://yuhuahx.com/dsj66.txt',   # 【2024-08-14】
+        'https://raw.gitcode.com/xiaoqi719/yingshi/raw/main/zhibo.txt',  # 【2024-08-20】
+        'http://xhztv.top/tvlive.txt',  # 【2024-08-20】
+        'https://raw.githubusercontent.com/Andreayoo/ming/main/IPTV.txt', #【2024-08-24】
+        'http://gg.gg/cctvgg'   # 【2024-08-10】
 ]
 # 合并文件的函数
 def merge_txt_files(urls, output_filename='汇总.txt'):
@@ -267,7 +275,7 @@ excluded_keywords = [
 
 # 定义一个包含所有要提取的关键词的列表
 extract_keywords = [
-    'CCTV', '卫视', '动作电影', '风云剧场', '怀旧剧场', '影迷', '高清电影', '动作电影', '每日影院', '全球大片', '第一剧场', '家庭影院', '影迷电影', '星光', '华语', '美国大片', '峨眉', '凤凰', '星空', '人间', '亚洲', '环球'
+    'CCTV', '卫视', '动作电影', '风云剧场', '怀旧剧场', '影迷', '高清电影', '动作电影', '影院', '全球大片', '剧场', '家庭影院', '电影', '星光', '华语', '美国大片', '峨眉', '凤凰', '星空', '人间', '亚洲', '环球'
     # 在这里添加需要提取的关键词
 ]
 
