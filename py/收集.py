@@ -415,7 +415,7 @@ from urllib.parse import urlparse
 from tqdm import tqdm
 
 # 测试HTTP连接并尝试下载数据
-def test_connectivity_and_download(url, initial_timeout=0.3, retry_timeout=0.8):
+def test_connectivity_and_download(url, initial_timeout=0.3, retry_timeout=1):
     parsed_url = urlparse(url)
     if parsed_url.scheme not in ['http', 'https']:
         # 非HTTP(s)协议，尝试RTSP检测
@@ -424,10 +424,10 @@ def test_connectivity_and_download(url, initial_timeout=0.3, retry_timeout=0.8):
         # HTTP(s)协议，使用原始方法
         try:
             with requests.get(url, stream=True, timeout=initial_timeout) as response:
-                if response.status_code == 200:
+                if 200 <= response.status_code <= 402:
                     start_time = time.time()
                     while time.time() - start_time < initial_timeout:
-                        chunk = response.raw.read(512)  # 尝试下载1KB数据
+                        chunk = response.raw.read(128)  # 尝试下载1KB数据
                         if chunk:
                             return True  # 成功下载数据
         except requests.RequestException as e:
