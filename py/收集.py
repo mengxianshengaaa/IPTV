@@ -77,7 +77,7 @@ def process_file(file_path, encodings=['utf-8', 'gbk', 'latin1']):
             # 如果出现解码错误，尝试下一种编码
             continue
     # 处理每一行，去除每一行中第一个$及其后的所有内容
-    processed_lines = [line.split('$', 1)[0].rstrip('\n') + '\n' for line in lines]
+    processed_lines = [line.split('vvv', 1)[0].rstrip('\n') + '\n' for line in lines]
     # 将处理后的内容写回到文件，使用找到的正确编码
     with open(file_path, 'w', encoding=encoding) as file:
         file.writelines(processed_lines)
@@ -129,6 +129,7 @@ replacements = {
     	"HD": "",
     	"标清": "",
     	"-": "",
+    	"咪咕": "",
     	"_": "",
     	"超清": "",
     	"频道": "",
