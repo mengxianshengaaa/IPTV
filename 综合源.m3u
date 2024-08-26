@@ -707,8 +707,6 @@ http://37.27.111.214:8080/live/25/hls.m3u8
 https://test.zapi.us.kg/?id=moonbug
 #EXTINF:-1 tvg-logo="https://live.fanmingming.com/tv/Movie.png" group-title="港澳频道",Movie
 https://test.zapi.us.kg/?id=moviemovie
-#EXTINF:-1 tvg-logo="https://live.fanmingming.com/tv/NowViu剧集台.png" group-title="港澳频道",NowViu剧集台
-https://test.zapi.us.kg/?id=now-viu-drama
 #EXTINF:-1 tvg-logo="https://live.fanmingming.com/tv/Now华剧台.png" group-title="港澳频道",Now华剧台
 https://test.zapi.us.kg/?id=now-chinese-drama
 #EXTINF:-1 tvg-logo="https://live.fanmingming.com/tv/TVBS台剧台.png" group-title="港澳频道",TVBS台剧台
@@ -737,8 +735,6 @@ http://37.27.111.214:8080/live/31/hls.m3u8
 https://test.zapi.us.kg/?id=settv-zonghe
 #EXTINF:-1 tvg-logo="https://live.fanmingming.com/tv/三立都会台.png" group-title="港澳频道",三立都会台
 https://test.zapi.us.kg/?id=settv-city
-#EXTINF:-1 tvg-logo="https://live.fanmingming.com/tv/东森幼幼台.png" group-title="港澳频道",东森幼幼台
-https://test.zapi.us.kg/?id=ebc-yoyo
 #EXTINF:-1 tvg-logo="https://live.fanmingming.com/tv/东森新闻.png" group-title="港澳频道",东森新闻
 http://37.27.111.214:8080/live/20/hls.m3u8
 #EXTINF:-1 tvg-logo="https://live.fanmingming.com/tv/东森洋片.png" group-title="港澳频道",东森洋片
@@ -767,12 +763,8 @@ https://p2hs.vzan.com/slowlive/821481626725612417/live.m3u8?zbid=2046370057&tpid
 https://5ddce30eb4b55.streamlock.net/bltvhd/bltv1/chunklist_w511254805.m3u8
 #EXTINF:-1 tvg-logo="https://live.fanmingming.com/tv/八大娱乐.png" group-title="港澳频道",八大娱乐
 https://test.zapi.us.kg/?id=gtv-86
-#EXTINF:-1 tvg-logo="https://live.fanmingming.com/tv/八大第一.png" group-title="港澳频道",八大第一
-https://test.zapi.us.kg/?id=gtv27
 #EXTINF:-1 tvg-logo="https://live.fanmingming.com/tv/八大精彩台.png" group-title="港澳频道",八大精彩台
 https://test.zapi.us.kg/?id=gtv-jct
-#EXTINF:-1 tvg-logo="https://live.fanmingming.com/tv/八大综合.png" group-title="港澳频道",八大综合
-https://test.zapi.us.kg/?id=gtv28
 #EXTINF:-1 tvg-logo="https://live.fanmingming.com/tv/八大综艺.png" group-title="港澳频道",八大综艺
 https://test.zapi.us.kg/?id=grt
 #EXTINF:-1 tvg-logo="https://live.fanmingming.com/tv/凤凰中文.png" group-title="港澳频道",凤凰中文
