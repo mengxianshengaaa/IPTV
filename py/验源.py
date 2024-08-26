@@ -103,5 +103,6 @@ try:
             f.write(line + '\n')
     print(f"合并后的文本已保存到文件: {output_file}")
 except Exception as e:
+    continue
     # 打印保存文件时的错误信息
     print(f"保存文件时发生错误：{e}")
