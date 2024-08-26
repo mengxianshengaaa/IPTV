@@ -115,12 +115,11 @@ def remove_duplicates(input_file, output_file):
 # 使用方法
 remove_duplicates('汇总.txt', '汇总.txt')   
 
-########################################################################################################
-# 导入fileinput模块
-import fileinput
-# 定义替换规则的字典
-replacements = {
-    	"CCTV-1高清测试": "",
+
+
+# 字符替换字典
+replacement_dict = {
+        "CCTV-1高清测试": "",
     	"CCTV-2高清测试": "",
     	"CCTV-7高清测试": "",
     	"CCTV-10高清测试": "",
@@ -237,17 +236,24 @@ replacements = {
     	"CCTV7CCTV7": "CCTV7",
     	"CCTV10CCTV10": "CCTV10"
 }
-# 打开原始文件读取内容，并写入新文件
-with open('汇总.txt', 'r', encoding='utf-8') as file:
-    lines = file.readlines()
-# 创建新文件并写入替换后的内容
-with open('2.txt', 'w', encoding='utf-8') as new_file:
-    for line in lines:
-        for old, new in replacements.items():
-            line = line.replace(old, new)
-        new_file.write(line)
-print("替换完成，新文件已保存。")
 
+# 原始文件名
+input_filename = '汇总.txt'
+# 新文件名
+output_filename = '汇总.txt'
+
+# 打开原始文件和新文件
+with open(input_filename, 'r') as infile, open(output_filename, 'w') as outfile:
+    # 逐行读取文件
+    for line in infile:
+        # 分割每一行
+        parts = line.strip().split(',')
+        # 对逗号前面的部分进行字符替换
+        modified_part = ''.join(replacement_dict.get(char, char) for char in parts[0])
+        # 写入新文件
+        outfile.write(f"{modified_part},{parts[1]}\n")
+
+print(f"文件 {input_filename} 已处理，结果保存在 {output_filename}")
 
 
 ########################################################################################################
