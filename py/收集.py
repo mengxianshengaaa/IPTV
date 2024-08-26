@@ -296,18 +296,14 @@ detected_ips = {}
 # 存储文件路径
 file_path = "网络收集.txt"
 output_file_path = "网络收集.txt"
+
 def get_ip_key(url):
-    """从URL中提取IP地址,并构造一个唯一的键"""
-    # 找到'//'到第三个'.'之间的字符串
+    """从URL中提取IP地址，并构造一个唯一的键"""
+    # 找到'//'到第一个'/'之间的字符串
     start = url.find('://') + 3  # '://'.length 是 3
-    end = start
-    dot_count = 0
-    while dot_count < 3:
-        end = url.find('.', end)
-        if end == -1:  # 如果没有找到第三个'.',就结束
-            break
-        dot_count += 1
-    return url[start:end] if dot_count == 3 else None
+    end = url.find('/', start)  # 找到第一个'/'的位置
+    return url[start:end] if end != -1 else None
+    
 # 打开输入文件和输出文件
 with open(file_path, 'r', encoding='utf-8') as file:
     lines = file.readlines()
