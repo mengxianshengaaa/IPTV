@@ -334,7 +334,7 @@ def parse_file(input_file_path, output_file_name):
                 output_file.write(line + '\n')
             output_file.write('\n')  # 在每个小段后添加一个空行作为分隔
 # 调用函数并传入文件路径和输出文件名
-parse_file('2.txt', '收集.txt')
+parse_file('2.txt', '网络收集.txt')
 
 
 
