@@ -294,16 +294,15 @@ from tqdm import tqdm
 # 初始化2字典
 detected_ips = {}
 # 存储文件路径
-file_path = "网络收集.txt"
+file_path = "2.txt"
 output_file_path = "网络收集.txt"
 
 def get_ip_key(url):
-    """从URL中提取后面的16个字符作为IP地址键"""
-    # 找到'://'之后的位置
+    """从URL中提取IP地址，并构造一个唯一的键"""
+    # 找到'//'到第一个'/'之间的字符串
     start = url.find('://') + 3  # '://'.length 是 3
-    # 截取start位置后面16个字符
-    ip_key = url[start:start + 10]
-    return ip_key
+    end = url.find('/', start)  # 找到第一个'/'的位置
+    return url[start:end] if end != -1 else None
     
 # 打开输入文件和输出文件
 with open(file_path, 'r', encoding='utf-8') as file:
@@ -433,7 +432,7 @@ def parse_file(input_file_path, output_file_name):
 parse_file('网络收集.txt', '网络收集.txt')
 
 ################################################################################################任务结束，删除不必要的过程文件
-files_to_remove = ["2#.txt", "汇总.txt"]
+files_to_remove = ["2.txt", "汇总.txt"]
 
 for file in files_to_remove:
     if os.path.exists(file):
