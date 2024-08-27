@@ -807,8 +807,6 @@ http://37.27.111.214:8080/live/67/hls.m3u8
 http://ottproxy2.ist.ooo/livehls/MOB-U1-NO/03.m3u8
 #EXTINF:-1 tvg-logo="https://live.fanmingming.com/tv/美国中文电视.png" group-title="港澳频道",美国中文电视
 https://test.zapi.us.kg/?id=sinovision
-#EXTINF:-1 tvg-logo="https://live.fanmingming.com/tv/翡翠台.png" group-title="港澳频道",翡翠台
-http://tvdrs.wsrtv.com.cn:8100/channellive/ch1.flv
 #EXTINF:-1 tvg-logo="https://live.fanmingming.com/tv/镜新闻.png" group-title="港澳频道",镜新闻
 http://37.27.111.214:8080/live/62/hls.m3u8
 #EXTINF:-1 tvg-logo="https://live.fanmingming.com/tv/非凡新闻.png" group-title="港澳频道",非凡新闻
