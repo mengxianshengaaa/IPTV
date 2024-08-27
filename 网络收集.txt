@@ -1,4 +1,3 @@
-
 B1[需VPN],#genre#
 AMC电影台,https://gat.zhoujie218.top/litv/4gtv-4gtv017
 CATCHPLAY电影台,https://gat.zhoujie218.top/litv/4gtv-4gtv076
@@ -80,20 +79,5 @@ popc电影台,http://8.137.59.151:3009/dianshimi/fenghuang666.php?id=38
 中视闽南台,http://8.137.59.151:3009/dianshimi/fenghuang666.php?id=45
 中视新闻台,http://8.137.59.151:3009/dianshimi/fenghuang666.php?id=80
 
-D1[UA设置okhttp],#genre#
-河北都市,http://tv.pull.hebtv.com/jishi/dushipindao.flv?t=2510710360&k=82fa2120c1c91f181bbdf82de498faad
-河北都市,http://tv.pull.hebtv.com/jishi/dushipindao.m3u8?t=2510710360&k=0a371e84fa6980927f5b617687e1ad11
-河北公共,http://tv.pull.hebtv.com/jishi/gonggongpindao.flv?t=2510710360&k=3656451936184a7500239d3ba501cf7f
-河北公共,https://tv.pull.hebtv.com/jishi/gonggongpindao.m3u8?t=1963555917&k=fc9fcfabd123ab877e24ee9a0ef0c862
-河北经济,https://tv.pull.hebtv.com/jishi/jingjishenghuo.m3u8?t=1963555098&k=188078e4cff948b7252bb3e5f88306b2
-河北经济生活,http://tv.pull.hebtv.com/jishi/jingjishenghuo.flv?t=2510710360&k=fa8a788d96df5d75e67186f6b6864b40
-河北农民,http://tv.pull.hebtv.com/jishi/nongminpindao.flv?t=2510710360&k=61bdf654828c9db6c20fbb4717fc6dee
-河北农民,https://tv.pull.hebtv.com/jishi/nongminpindao.m3u8?t=1963555153&k=322fe32502d1e3695b0bdef5e698635e
-河北少儿,http://tv.pull.hebtv.com/jishi/shaoerkejiao.flv?t=2510710360&k=87b12e4fe703265f4f59538a2399246c
-河北少儿,https://tv.pull.hebtv.com/jishi/shaoerkejiao.m3u8?t=1963555882&k=3b5e2390e33ef21bf9697e4d1811e261
-河北卫视,http://tv.pull.hebtv.com/jishi/weishipindao.m3u8?t=2510710360&k=f1b16a3a3866dafecb94ec2bb4160e58#http://tv.pull.hebtv.com/jishi/weishipindao.flv?t=2510710360&k=689e494c226aa7038632a897aa3dbd27#rtmp://tv.pull.hebtv.com/jishi/weishipindao?t=2510710360&k=6cdf3c059a496f8c8375f86e1fb53346
-河北卫视,https://tv.pull.hebtv.com/jishi/weishipindao.m3u8?t=1963555056&k=a2a2ee6412906c8b2d9a6fd19116c6d9
-河北卫视,rtmp://tv.pull.hebtv.com/jishi/weishipindao?t=2510710360&k=6cdf3c059a496f8c8375f86e1fb53346
-河北影视,http://tv.pull.hebtv.com/jishi/yingshijupindao.flv?t=2510710360&k=acc030f5a46fa7ec8a6794ce0f3bee42
-河北影视,https://tv.pull.hebtv.com/zhibo/yingshijupindao.m3u8?t=1963555862&k=c1c7d65caa03f1cbd6c9585b5d840534
+
 
