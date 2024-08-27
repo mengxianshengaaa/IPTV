@@ -24,6 +24,7 @@ from urllib.parse import urlparse
 from translate import Translator  # 导入Translator类,用于文本翻译
 # 定义txt文件的URL列表
 urls = [
+       'https://github.com/hanhan8127/TVBox/blob/main/live.txt',
        'https://dimaston.github.io/live.m3u',  #假m3u
        'https://gitlab.com/tvtg/vip/-/raw/main/log.txt',
        'https://cdn05042023.gitlink.org.cn/api/v1/repos/xuanbei/tv/raw/live.txt'
