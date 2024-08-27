@@ -31,6 +31,7 @@ TVBS综艺台,https://gat.zhoujie218.top/4gtv/284
 靖天育乐台,https://gat.zhoujie218.top/litv/4gtv-4gtv062
 靖天资讯台,https://gat.zhoujie218.top/litv/4gtv-4gtv065
 靖天综合台,https://gat.zhoujie218.top/litv/4gtv-4gtv046
+靖洋戏剧台,https://gat.zhoujie218.top/litv/4gtv-4gtv045
 龙华电影,https://gat.zhoujie218.top/litv/litv-longturn03
 龙华经典,https://gat.zhoujie218.top/litv/litv-longturn21
 龙华卡通,https://gat.zhoujie218.top/litv/litv-longturn01
@@ -49,6 +50,7 @@ TVBS综艺台,https://gat.zhoujie218.top/4gtv/284
 人间卫视,https://gat.zhoujie218.top/4gtv/210
 三立新闻,https://gat.zhoujie218.top/4gtv/229
 三立综合台,https://gat.zhoujie218.top/4gtv/169
+台湾戏剧台,https://gat.zhoujie218.top/litv/litv-longturn22
 影迷数位电影台,https://gat.zhoujie218.top/litv/4gtv-4gtv011
 中视,https://gat.zhoujie218.top/litv/4gtv-4gtv040
 中视菁采,https://gat.zhoujie218.top/litv/4gtv-4gtv064
@@ -68,7 +70,6 @@ TVBS新闻台,http://95.179.139.113:5566/4gtv/291
 TVBS综艺台,http://95.179.139.113:5566/4gtv/284
 amc电影台,http://95.179.139.113:5566/4gtv/39
 八大精彩台,http://95.179.139.113:5566/4gtv/172
-八大综艺台,http://95.179.139.113:5566/4gtv/114
 半岛国际新闻台,http://95.179.139.113:5566/4gtv/85
 大爱电视,http://95.179.139.113:5566/4gtv/209
 大爱二台,http://95.179.139.113:5566/4gtv/230
@@ -91,10 +92,10 @@ amc电影台,http://95.179.139.113:5566/4gtv/39
 靖天育乐台,http://95.179.139.113:5566/4gtv/83
 靖天资讯台,http://95.179.139.113:5566/4gtv/88
 靖天综合台,http://95.179.139.113:5566/4gtv/21
+靖洋戏剧台,http://95.179.139.113:5566/4gtv/118
 龙华电影台,http://95.179.139.113:5566/4gtv/121
 龙华日韩台,http://95.179.139.113:5566/4gtv/28
 龙华戏剧台,http://95.179.139.113:5566/4gtv/23
-民视,http://95.179.139.113:5566/4gtv/246
 民视第一台,http://95.179.139.113:5566/4gtv/1
 民视第一台,http://95.179.139.113:5566/4gtv/254
 民视旅游台,http://95.179.139.113:5566/4gtv/61
@@ -107,13 +108,14 @@ amc电影台,http://95.179.139.113:5566/4gtv/39
 人间卫视,http://95.179.139.113:5566/4gtv/210
 三立新闻iNEW,http://95.179.139.113:5566/4gtv/229
 三立综合台,http://95.179.139.113:5566/4gtv/169
+戏剧免费看1台,http://95.179.139.113:5566/4gtv/270
+戏剧免费看2台,http://95.179.139.113:5566/4gtv/244
 影迷数位电影台,http://95.179.139.113:5566/4gtv/40
 中视,http://95.179.139.113:5566/4gtv/4
 中视菁采台,http://95.179.139.113:5566/4gtv/123
 中视经典台,http://95.179.139.113:5566/4gtv/124
 中视新闻,http://95.179.139.113:5566/4gtv/258
 中视新闻,http://95.179.139.113:5566/4gtv/33
-中天新闻台,http://95.179.139.113:5566/4gtv/260
 中天新闻台,http://95.179.139.113:5566/4gtv/30
 猪哥亮歌厅秀,http://95.179.139.113:5566/4gtv/113
 
@@ -123,7 +125,6 @@ Thrill电影台,http://8.137.59.151:3009/dianshimi/fenghuang666.php?id=37
 东森电影台,http://8.137.59.151:3009/dianshimi/fenghuang666.php?id=86
 东森新闻台,http://8.137.59.151:3009/dianshimi/fenghuang666.php?id=75
 东森洋片台,http://8.137.59.151:3009/dianshimi/fenghuang666.php?id=87
-凤凰卫视,http://8.137.59.151:3009/dianshimi/fenghuang666.php?id=122
 凤凰香港台,http://8.137.59.151:3009/dianshimi/fenghuang666.php?id=123
 凤凰资讯,http://8.137.59.151:3009/dianshimi/fenghuang666.php?id=121
 华视闽南台,http://8.137.59.151:3009/dianshimi/fenghuang666.php?id=46
@@ -131,6 +132,7 @@ Thrill电影台,http://8.137.59.151:3009/dianshimi/fenghuang666.php?id=37
 黄金翡翠台,http://8.137.59.151:3009/dianshimi/fenghuang666.php?id=11
 黄金华剧台,http://8.137.59.151:3009/dianshimi/fenghuang666.php?id=24
 靖天电影台,http://8.137.59.151:3009/dianshimi/fenghuang666.php?id=150
+靖洋戏剧台,http://8.137.59.151:3009/dianshimi/fenghuang666.php?id=53
 龙华电影台,http://8.137.59.151:3009/dianshimi/fenghuang666.php?id=93
 龙华戏剧台,http://8.137.59.151:3009/dianshimi/fenghuang666.php?id=90
 龙祥时代台,http://8.137.59.151:3009/dianshimi/fenghuang666.php?id=85
