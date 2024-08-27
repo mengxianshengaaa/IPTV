@@ -1,4 +1,4 @@
-A1,#genre#
+直播中国,#genre#
 CCTV电视塔东,https://gcalic.v.myalicdn.com/gc/ztd_1/index.m3u8
 CCTV电视塔南,https://gcalic.v.myalicdn.com/gc/ztn_1/index.m3u8
 北京-CCTV电视塔东,http://gcalic.v.myalicdn.com/gc/ztd_1/index.m3u8?contentid=2820180516001
@@ -162,10 +162,6 @@ CCTV电视塔南,https://gcalic.v.myalicdn.com/gc/ztn_1/index.m3u8
 浙江舟山东极岛,https://gcalic.v.myalicdn.com/gc/djd01_1/index.m3u8
 直播中国,https://gcalic.v.myalicdn.com/gc/wgw05_1/index.m3u8?contentid=2820180516001
 直播中国精编直播,https://gcalic.v.myalicdn.com/gc/wgw05_1/index.m3u8
-å¤©å¾®ç§æ,https://gcalic.v.myalicdn.com/gc/ylxs11_1/index.m3u8
-ç¦å»ºæ­¦å¤·å±±çå¥³å³°,https://gcalic.v.myalicdn.com/gc/wysynf_1/index.m3u8
-é»å±±å§äºå³°,https://gcalic.v.myalicdn.com/gc/hswlf_1/index.m3u8
-
 B1,#genre#
 CCTV1,https://live.goodiptv.club/api/bestv.php?id=cctv1hd8m/8000000
 CCTV2,https://live.goodiptv.club/api/bestv.php?id=cctv2hd8m/8000000
