@@ -588,6 +588,20 @@ def parse_file(input_file_path, output_file_name):
 # 调用函数并传入文件路径和输出文件名
 parse_file('网络收集.txt', '网络收集.txt')
 
+
+#简体转繁体
+# 创建一个OpenCC对象,指定转换的规则为繁体字转简体字
+converter = OpenCC('t2s.json')#繁转简
+#converter = OpenCC('s2t.json')#简转繁
+# 打开txt文件
+with open('网络收集.txt', 'r', encoding='utf-8') as file:
+    traditional_text = file.read()
+# 进行繁体字转简体字的转换
+simplified_text = converter.convert(traditional_text)
+# 将转换后的简体字写入txt文件
+with open('网络收集.txt', 'w', encoding='utf-8') as file:
+    file.write(simplified_text)
+
 ################################################################################################任务结束，删除不必要的过程文件
 files_to_remove = ["2.txt", "汇总.txt"]
 for file in files_to_remove:
