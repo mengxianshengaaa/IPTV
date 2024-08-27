@@ -302,7 +302,7 @@ excluded_keywords = [
 
 # 定义一个包含所有要提取的关键词的列表
 extract_keywords = [
-       'CCTV', '卫视', '凤凰卫视', '人间卫视', '亚洲卫视', '香港卫视', '神乐', '翡翠台', '凤凰香港', '凤凰中文', '凤凰资讯', 'AXN', '电影台', '大爱', '东森', \
+       '星空卫视', '凤凰卫视', '人间卫视', '亚洲卫视', '香港卫视', '神乐', '翡翠台', '凤凰香港', '凤凰中文', '凤凰资讯', 'AXN', '电影台', '大爱', '东森', \
        '中天', '天良', '翡翠台', '美亚', '星影台', '纬来', '天映', '无线功夫', '华剧台', '华丽台', '新闻台', '亚剧台', 'Movie', '八大', '采昌', \
        '靖天', '美亚', '民視', '中视', '豬哥亮', 'TVB', '东森', '公视', '华视', '寰宇', '靖天', '龙华', '龙祥', '民视', '三立', '中视', '猪哥亮'
     # 在这里添加需要提取的关键词
@@ -349,7 +349,7 @@ def parse_file(input_file_path, output_file_name):
                 ip_or_domain_to_lines[ip_or_domain].append(line)
     ############################################################################### 过滤掉小于1500字节的IP或域名段
     filtered_ip_or_domain_to_lines = {ip_or_domain: lines for ip_or_domain, lines in ip_or_domain_to_lines.items()
-                                      if sum(len(line) for line in lines) >= 800}
+                                      if sum(len(line) for line in lines) >= 100}
     # 如果没有满足条件的IP或域名段，则不生成文件
     if not filtered_ip_or_domain_to_lines:
         print("没有满足条件的IP或域名段，不生成文件。")
@@ -557,7 +557,7 @@ def parse_file(input_file_path, output_file_name):
                 ip_or_domain_to_lines[ip_or_domain].append(line)
     # 过滤掉小于1000字节的IP或域名段
     filtered_ip_or_domain_to_lines = {ip_or_domain: lines for ip_or_domain, lines in ip_or_domain_to_lines.items()
-                                      if sum(len(line) for line in lines) >= 500}   # 过滤掉小于1000字节的IP或域名段
+                                      if sum(len(line) for line in lines) >= 100}   # 过滤掉小于1000字节的IP或域名段
     # 如果没有满足条件的IP或域名段，则不生成文件
     if not filtered_ip_or_domain_to_lines:
         print("没有满足条件的IP或域名段，不生成文件。")
