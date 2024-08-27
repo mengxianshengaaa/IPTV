@@ -31,16 +31,11 @@ from translate import Translator  # 导入Translator类,用于文本翻译
 ######################################################################################################################
 ######################################################################################################################
 urls = [
-    #"https://fofa.info/result?qbase64=c2VydmVyPSJHWF9PUyAxLjAiICYmIHJlZ2lvbj0iSHVuYW4i",#server="GX_OS 1.0" && region="湖南"
-    "https://fofa.info/result?qbase64=c2VydmVyPSJHWF9PUyAxLjAiICYmIHJlZ2lvbj0iSGVuYW4i",#server="GX_OS 1.0" && region="河南"
-    "https://fofa.info/result?qbase64=c2VydmVyPSJHWF9PUyAxLjAiICYmIHJlZ2lvbj0iSGViZWki",##server="GX_OS 1.0" && region="河北"
-    "https://fofa.info/result?qbase64=c2VydmVyPSJHWF9PUyAxLjAiICYmIHJlZ2lvbj0i5bm%2F5LicIg%3D%3D",#server="GX_OS 1.0" && region="广东"
-    #"https://fofa.info/result?qbase64=IlpIR1hUViIgJiYgcmVnaW9uPSJndWFuZ2Rvbmci",#广东
-    #"https://fofa.info/result?qbase64=IlpIR1hUViIgJiYgcmVnaW9uPSJIdW5hbiI%3D",#湖南
+    "https://fofa.info/result?qbase64=IlpIR1hUViIgJiYgcmVnaW9uPSJndWFuZ2Rvbmci",#广东
+    "https://fofa.info/result?qbase64=IlpIR1hUViIgJiYgcmVnaW9uPSJIdW5hbiI%3D",#湖南
     "https://fofa.info/result?qbase64=Ym9keT0i5pm65oWn5YWJ6L%2BFIg%3D%3D",#body="智慧光迅"
-    #"https://fofa.info/result?qbase64=c2VydmVyPSJHWF9PUyAxLjAi",#server="GX_OS 1.0"
-    #"https://fofa.info/result?qbase64=c2VydmVyPSJuZ2lueCI%3D",#河南#
-    #"https://fofa.info/result?qbase64=IlpIR1hUViIgJiYgcmVnaW9uPSJoZWJlaSI%3D",#河北#
+    "https://fofa.info/result?qbase64=c2VydmVyPSJuZ2lueCI%3D",#河南#
+    "https://fofa.info/result?qbase64=IlpIR1hUViIgJiYgcmVnaW9uPSJoZWJlaSI%3D",#河北#
 ]
 #定义网址替换规则
 def modify_urls(url):
@@ -286,7 +281,7 @@ for line in fileinput.input("iptv.txt", inplace=True):  #打开文件,并对其�
 #定义智慧桌面采集地址
 urls = [
     "https://fofa.info/result?qbase64=ImlwdHYvbGl2ZS96aF9jbi5qcyIgJiYgcG9ydD0iMTExMSI%3D",  # 1111
-    #"https://fofa.info/result?qbase64=ImlwdHYvbGl2ZS96aF9jbi5qcyIgJiYgcG9ydD0iODA5NiI%3D",  #8096
+    "https://fofa.info/result?qbase64=ImlwdHYvbGl2ZS96aF9jbi5qcyIgJiYgcG9ydD0iODA5NiI%3D",  #8096
     "https://fofa.info/result?qbase64=ImlwdHYvbGl2ZS96aF9jbi5qcyIgJiYgY291bnRyeT0iQ04iICYmIHJlZ2lvbj0i5rKz5YyXIg%3D%3D",  #河北
     "https://fofa.info/result?qbase64=ImlwdHYvbGl2ZS96aF9jbi5qcyIgJiYgY291bnRyeT0iQ04iICYmIHJlZ2lvbj0i5bm%2F5LicIg%3D%3D",  #广东
     "https://fofa.info/result?qbase64=ImlwdHYvbGl2ZS96aF9jbi5qcyIgJiYgY291bnRyeT0iQ04iICYmIHJlZ2lvbj0i5rKz5Y2XIg%3D%3D",  # 河南
@@ -548,7 +543,7 @@ def test_connectivity(url, max_attempts=2): #定义测试HTTP连接的次数
     # 尝试连接指定次数    
    for _ in range(max_attempts):  
     try:
-        response = requests.head(url, timeout=0.5)  # 发送HEAD请求,仅支持V4,修改此行数字可定义链接超时##////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+        response = requests.head(url, timeout=1)  # 发送HEAD请求,仅支持V4,修改此行数字可定义链接超时##////////////////////////////////////////////////////////////////////////////////////////////////////////////////
         #response = requests.get(url, timeout=1)  # 发送get请求,支持V6,修改此行数字可定义链接超时##############################//////////////////////////////////////////////////////////////////////////////////////
         return response.status_code == 200  # 返回True如果状态码为200
     except requests.RequestException:  # 捕获requests引发的异常
@@ -715,7 +710,7 @@ with open(output_file_path, 'w', encoding='utf-8') as output_file:
                 start_time = time.time()
                 frame_count = 0
                 # 尝试捕获5秒内的帧
-                while frame_count < 220 and (time.time() - start_time) < 10:#//////////////////////////////////////////////////////////////////////////////////////###########
+                while frame_count < 200 and (time.time() - start_time) < 10:#//////////////////////////////////////////////////////////////////////////////////////###########
                     ret, frame = cap.read()
                     if not ret:
                         break
@@ -723,7 +718,7 @@ with open(output_file_path, 'w', encoding='utf-8') as output_file:
                 # 释放资源
                 cap.release()
                 # 根据捕获的帧数判断状态并记录结果#////////////////////////////////////////////////////////////////////////////////////////////////////////////////###########
-                if frame_count >= 220:  #5秒内超过100帧则写入#/////////////////////////////////////////////////////////////////////////////////////////////////////###########
+                if frame_count >= 200:  #5秒内超过100帧则写入#/////////////////////////////////////////////////////////////////////////////////////////////////////###########
                     detected_ips[ip_key] = {'status': 'ok'}
                     output_file.write(line)  # 写入检测通过的行
                 else:
