@@ -367,7 +367,6 @@ parse_file('2.txt', '2.txt')
 
 
 
-############################################################################检测同IP第一个链接，缩小验源数量
 import cv2
 import time
 from tqdm import tqdm
@@ -403,6 +402,7 @@ with open(output_file_path, 'w', encoding='utf-8') as output_file:
             url = url.strip()
             # 构造IP键
             ip_key = get_ip_key(url)
+            # 检查IP键是否存在
             if ip_key and ip_key in detected_ips:
                 # 如果IP键已存在,根据之前的结果决定是否写入新文件
                 if detected_ips[ip_key]['status'] == 'ok':
@@ -412,21 +412,22 @@ with open(output_file_path, 'w', encoding='utf-8') as output_file:
                 cap = cv2.VideoCapture(url)
                 start_time = time.time()
                 frame_count = 0
-                # 尝试捕获10秒内的帧
-                while frame_count < 10 and (time.time() - start_time) < 3:
+                # 尝试捕获4秒内的帧
+                while frame_count < 7 and (time.time() - start_time) < 4:
                     ret, frame = cap.read()
                     if not ret:
                         break
                     frame_count += 1
                 # 释放资源
                 cap.release()
+
                 # 根据捕获的帧数判断状态并记录结果
-                if frame_count >= 10:  #10秒内超过230帧则写入
+                if frame_count >= 7:  # 10秒内超过10帧则写入
                     detected_ips[ip_key] = {'status': 'ok'}
                     output_file.write(line)  # 写入检测通过的行
                 else:
                     detected_ips[ip_key] = {'status': 'fail'}
-# 打印2
+# 打印结果
 for ip_key, result in detected_ips.items():
     print(f"IP Key: {ip_key}, Status: {result['status']}")
 
