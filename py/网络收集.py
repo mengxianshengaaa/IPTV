@@ -1,5 +1,6 @@
 from lxml import etree
 import time
+import datetime
 from datetime import datetime, timedelta  # 确保 timedelta 被导入
 import concurrent.futures
 from selenium import webdriver
@@ -525,7 +526,7 @@ with open("网络收集.txt", "w", encoding="utf-8") as file:
 
 
 import re
-def parse_file(input_file_path, output_file_name):
+def parse_file(input_file_path, file_name):    #output_
     # 正则表达式匹配从'//'开始到第一个'/'或第一个'::'结束的部分
     ip_or_domain_pattern = re.compile(r'//([^/:]*:[^/:]*::[^/:]*|[^/]*)')
     # 用于存储每个IP或域名及其对应的行列表
@@ -559,7 +560,12 @@ def parse_file(input_file_path, output_file_name):
         print("没有满足条件的IP或域名段，不生成文件。")
         return
     # 合并所有满足条件的IP或域名的行到一个文件
-    with open(output_file_name, 'w', encoding='utf-8') as output_file:
+
+    # 获取当前日期并格式化为 YYYY-MM-DD 的形式
+    current_date = datetime.datetime.now().strftime('%m-%d')
+    # 假设你想创建一个文本文件
+    file_name = f"网络收集{current_date}.txt"
+    with open(file_name, 'w', encoding='utf-8') as output_file:   #output_
         for ip_or_domain, lines in filtered_ip_or_domain_to_lines.items():
             # 检查是否需要递增数字计数器
             if alphabet_counter >= 26:
@@ -573,22 +579,10 @@ def parse_file(input_file_path, output_file_name):
             output_file.write('\n')  # 在每个小段后添加一个空行作为分隔
             alphabet_counter += 1  # 递增字母计数器
 # 调用函数并传入文件路径和输出文件名
-parse_file('网络收集.txt', '网络收集.txt')
+parse_file('网络收集.txt', file_name)
 
-import datetime
 
-# 获取当前日期并格式化为 YYYY-MM-DD 的形式
-current_date = datetime.datetime.now().strftime('%m-%d')
-# 假设你想创建一个文本文件
-file_name = f"网络收集{current_date}.txt"
-# 接下来，你可以使用这个文件名来创建或保存文件
-with open("网络收集.txt", "r", encoding="utf-8") as file:
-    # 读取所有行并存储到列表中
-    lines = file.readlines()
-with open(file_name, 'w') as file:
-    file.write(line)
 
-print(f"文件已创建：{file_name}")
 
 ################################################################################################任务结束，删除不必要的过程文件
 files_to_remove = ["2.txt", "汇总.txt"]
@@ -598,3 +592,7 @@ for file in files_to_remove:
     else:              # 如果文件不存在，则提示异常并打印提示信息
         print(f"文件 {file} 不存在，跳过删除。")
 print("任务运行完毕，频道列表可查看文件夹内源.txt文件！")
+
+
+
+
