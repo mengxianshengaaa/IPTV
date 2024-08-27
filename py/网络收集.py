@@ -525,8 +525,6 @@ with open("网络收集.txt", "w", encoding="utf-8") as file:
 
 
 
-current_date = datetime.datetime.now().strftime('%m%d')  # 获取当前日期并格式化
-output_file_name = '网络收集' + current_date + '.txt'  # 定义输出文件名
 def parse_file(input_file_path, output_file_name):    #
     # 正则表达式匹配从'//'开始到第一个'/'或第一个'::'结束的部分
     ip_or_domain_pattern = re.compile(r'//([^/:]*:[^/:]*::[^/:]*|[^/]*)')
@@ -575,7 +573,7 @@ def parse_file(input_file_path, output_file_name):    #
             output_file.write('\n')  # 在每个小段后添加一个空行作为分隔
             alphabet_counter += 1  # 递增字母计数器
 # 调用函数并传入文件路径和输出文件名
-parse_file('网络收集.txt', output_file_name)
+parse_file('网络收集.txt', '网络收集.txt')
 
 
 
