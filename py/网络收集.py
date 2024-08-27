@@ -292,7 +292,7 @@ import re
 import os
 # 定义一个包含所有要排除的关键词的列表
 excluded_keywords = [
-    'epg', 'mitv', 'udp', 'rtp', 'P2p', 'p2p', 'p3p', 'P2P', '/livednow', 'P3p', '/hls/', '/tsfile/', 'P3P', '/bfgd/', '腔', '曲', '/zy.', '/xgj.', '春节'
+    'epg', 'mitv', 'udp', 'rtp', 'P2p', 'p2p', 'p3p', 'P2P', '/livednow', 'P3p', '[', '/hls/', '/tsfile/', 'P3P', '/bfgd/', '腔', '曲', '/zy.', '/xgj.', '春节'
 ]
 
 # 定义一个包含所有要提取的关键词的列表
