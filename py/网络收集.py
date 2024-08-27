@@ -75,51 +75,42 @@ urls = [
 # 合并文件的函数
 def merge_txt_files(urls, output_filename='汇总.txt'):
     try:
-        # 打开文件准备写入
         with open(output_filename, 'w', encoding='utf-8') as outfile:
             for url in urls:
                 try:
-                    # 发送HTTP GET请求
                     response = requests.get(url)
-                    # 检查请求是否成功
                     response.raise_for_status()
-                    # 读取内容并写入输出文件
                     outfile.write(response.text + '\n')
                 except requests.RequestException as e:
-                    # 打印错误信息并继续下一个循环
                     print(f'Error downloading {url}: {e}')
     except IOError as e:
-        # 处理文件写入错误
         print(f'Error writing to file: {e}')
+
 # 调用函数
 merge_txt_files(urls)
 
-
 # 打开文本文件进行读取
 def read_and_process_file(input_filename, output_filename, encodings=['utf-8', 'gbk']):
-    # 尝试使用不同的编码读取文件
     for encoding in encodings:
         try:
             with open(input_filename, 'r', encoding=encoding) as file:
                 lines = file.readlines()
-                break  # 如果成功读取，跳出循环
+                break
         except UnicodeDecodeError:
-            continue  # 如果出现编码错误，尝试下一个编码
+            continue
     else:
-        raise ValueError(f"文件 '{input_filename}' 的编码无法识别或不支持")
-    # 使用 UTF-8 编码创建或打开输出文件
+        raise ValueError(f"Cannot decode file '{input_filename}' with any of the provided encodings")
+
     with open(output_filename, 'w', encoding='utf-8') as outfile:
-        # 处理每一行
         for line in lines:
-            if '$' in line:
-                # 截取到'$'之前的部分，注意去除可能的换行符
-                processed_line = line.split('￥')[0].rstrip('\n')
-                outfile.write(processed_line + '\n')  # 写入处理后的行到文件，并添加换行符
+            if '#$' in line:
+                processed_line = line.split('#$')[0].rstrip('\n')
+                outfile.write(processed_line + '\n')
             else:
-                # 正常写入行到文件，并添加换行符
                 outfile.write(line)
+
 # 调用函数
-read_and_process_file('汇总.txt', '汇总.txt')
+read_and_process_file('汇总.txt', '汇总.txt')  # 修改输出文件名以避免覆盖原始文件
 
 ###################################################################去重#####################################
 def remove_duplicates(input_file, output_file):
