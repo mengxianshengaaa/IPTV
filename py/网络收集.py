@@ -25,29 +25,51 @@ from translate import Translator  # 导入Translator类,用于文本翻译
 # 定义txt文件的URL列表
 urls = [
         '',
-        'https://raw.githubusercontent.com/Fairy8o/IPTV/main/PDX-V4.txt',
-        'https://gitlab.com/p2v5/wangtv/-/raw/main/wang-tvlive.txt',
-        'https://raw.githubusercontent.com/kimwang1978/tvbox/main/%E5%A4%A9%E5%A4%A9%E5%BC%80%E5%BF%83/lives/%E2%91%AD%E5%BC%80%E5%BF%83%E7%BA%BF%E8%B7%AF.txt',
-        'https://raw.githubusercontent.com/mlvjfchen/TV/main/iptv_list.txt', 
-        'https://raw.githubusercontent.com/gdstchdr1/IPTV/main/bc.txt',  # 【2024-08-01 10:40:29】
-        'https://raw.githubusercontent.com/lalifeier/IPTV/main/txt/IPTV.txt',  # 【2024-08-01 10:40:29】
-        'https://raw.githubusercontent.com/yoursmile66/TVBox/main/live.txt',  #【2024-08-01 10:40:29】
-        'https://raw.githubusercontent.com/PizazzGY/TVBox/main/live.txt', # 【2024-08-01 10:40:29】
-        'https://raw.githubusercontent.com/pxiptv/live/main/iptv.txt', # 【2024-08-02 16:48:40】#每日更新1次
-        'https://notabug.org/vnjd/yydu/raw/master/yyfug.txt', # 【2024-08-06】
-        'https://tvkj.top/tvlive.txt', # 【2024-08-06】
-        'https://pan.beecld.com/f/OXMcA/%E6%98%A5%E8%B5%A2%E5%A4%A9%E4%B8%8B.txt', # 【2024-08-06】
-        'http://kxrj.site:55/lib/kx2024.txt',   # 【2024-08-07】
-        'https://raw.githubusercontent.com/yuanzl77/IPTV/main/live.txt',   # 2024-08-05 每天更新一次，量太多转到blacklist处理
-        'https://wzsvip.github.io/ipv4.txt',   # 【2024-08-08】
-        'http://wz.42web.io/ipv4.txt',   # 【2024-08-08】
-        'http://ttkx.live:55/lib/kx2024.txt',   # 【2024-08-10】每日更新3次，移动到main.py
-        'http://mywlkj.ddns.net:5212/f/EErCL/%E5%8F%B0%E6%B9%BE%E7%94%B5%E8%A7%86TV.txt',   # 【2024-08-10】
-        'http://yuhuahx.com/dsj66.txt',   # 【2024-08-14】
-        'https://raw.gitcode.com/xiaoqi719/yingshi/raw/main/zhibo.txt',  # 【2024-08-20】
-        'http://xhztv.top/tvlive.txt',  # 【2024-08-20】
-        'https://raw.githubusercontent.com/Andreayoo/ming/main/IPTV.txt', #【2024-08-24】
-        'http://gg.gg/cctvgg'   # 【2024-08-10】
+       'https://gitlab.com/tvtg/vip/-/raw/main/log.txt',
+       'https://cdn05042023.gitlink.org.cn/api/v1/repos/xuanbei/tv/raw/live.txt'
+       'http://rihou.cc:555/gggg.nzk'
+       'https://raw.githubusercontent.com/ssili126/tv/main/itvlist.txt',
+       'https://raw.githubusercontent.com/Supprise0901/TVBox_live/main/live.txt',
+       'https://raw.githubusercontent.com/Guovin/TV/gd/result.txt',
+       'https://m3u.ibert.me/txt/fmml_ipv6.txt',
+       'https://m3u.ibert.me/txt/ycl_iptv.txt',
+       'https://m3u.ibert.me/txt/y_g.txt',
+       'https://m3u.ibert.me/txt/j_home.txt',
+       'https://raw.githubusercontent.com/gaotianliuyun/gao/master/list.txt',
+       'https://gitee.com/xxy002/zhiboyuan/raw/master/zby.txt',
+       'https://raw.githubusercontent.com/mlvjfchen/TV/main/iptv_list.txt',
+       'https://raw.githubusercontent.com/fenxp/iptv/main/live/ipv6.txt',
+       'https://raw.githubusercontent.com/fenxp/iptv/main/live/tvlive.txt',
+       'https://raw.githubusercontent.com/zwc456baby/iptv_alive/master/live.txt',
+       'https://gitlab.com/p2v5/wangtv/-/raw/main/lunbo.txt',
+       'https://raw.githubusercontent.com/PizazzGY/TVBox/main/live.txt',
+       'https://gitcode.net/MZ011/BHJK/-/raw/master/BHZB1.txt',
+       'http://47.99.102.252/live.txt',
+       'http://ttkx.live:55/lib/kx2024.txt',
+       'https://raw.githubusercontent.com/vbskycn/iptv/master/tv/iptv4.txt',
+       'http://117.72.68.25:9230/latest.txt',
+       'http://xhztv.top/v6.txt',
+       'https://tvkj.top/tvlive.txt',
+       'https://raw.githubusercontent.com/junge3333/juds6/main/yszb1.txt',
+       'https://raw.githubusercontent.com/Fairy8o/IPTV/main/PDX-V4.txt',
+       'https://gitlab.com/p2v5/wangtv/-/raw/main/wang-tvlive.txt',
+       'https://raw.githubusercontent.com/kimwang1978/tvbox/main/%E5%A4%A9%E5%A4%A9%E5%BC%80%E5%BF%83/lives/%E2%91%AD%E5%BC%80%E5%BF%83%E7%BA%BF%E8%B7%AF.txt',
+       'https://raw.githubusercontent.com/gdstchdr1/IPTV/main/bc.txt',
+       'https://raw.githubusercontent.com/lalifeier/IPTV/main/txt/IPTV.txt',
+       'https://raw.githubusercontent.com/yoursmile66/TVBox/main/live.txt',
+       'https://raw.githubusercontent.com/pxiptv/live/main/iptv.txt',
+       'https://notabug.org/vnjd/yydu/raw/master/yyfug.txt',
+       'https://pan.beecld.com/f/OXMcA/%E6%98%A5%E8%B5%A2%E5%A4%A9%E4%B8%8B.txt',
+       'http://kxrj.site:55/lib/kx2024.txt',
+       'https://raw.githubusercontent.com/yuanzl77/IPTV/main/live.txt',
+       'https://wzsvip.github.io/ipv4.txt',
+       'http://wz.42web.io/ipv4.txt',
+       'http://mywlkj.ddns.net:5212/f/EErCL/%E5%8F%B0%E6%B9%BE%E7%94%B5%E8%A7%86TV.txt',
+       'http://yuhuahx.com/dsj66.txt',
+       'https://raw.gitcode.com/xiaoqi719/yingshi/raw/main/zhibo.txt',
+       'http://xhztv.top/tvlive.txt',
+       'https://raw.githubusercontent.com/Andreayoo/ming/main/IPTV.txt',
+       'http://gg.gg/cctvgg'
 ]
 # 合并文件的函数
 def merge_txt_files(urls, output_filename='汇总.txt'):
@@ -274,7 +296,7 @@ excluded_keywords = [
 
 # 定义一个包含所有要提取的关键词的列表
 extract_keywords = [
-    'CCTV', '卫视', '动作电影', '风云剧场', '怀旧剧场', '影迷', '高清电影', '动作电影', '影院', '全球大片', '剧场', 'TVB', '家庭影院', '电影', '星光', '华语', '美国大片', '峨眉', '凤凰', '星空', '人间', '亚洲', '环球'
+    'CCTV', '卫视', '动作电影', '风云剧场', '怀旧剧场', '影迷', '高清电影', '动作电影', '影院', '全球大片', '第一剧场', 'TVB', '家庭影院', '神乐电影', '星光', '华语', '美国大片', '峨眉', '凤凰', '星空', '人间', '亚洲', '环球'
     # 在这里添加需要提取的关键词
 ]
 
