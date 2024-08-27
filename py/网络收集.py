@@ -575,7 +575,20 @@ def parse_file(input_file_path, output_file_name):
 # 调用函数并传入文件路径和输出文件名
 parse_file('网络收集.txt', '网络收集.txt')
 
+import datetime
 
+# 获取当前日期并格式化为 YYYY-MM-DD 的形式
+current_date = datetime.datetime.now().strftime('%m-%d')
+# 假设你想创建一个文本文件
+file_name = f"网络收集{current_date}.txt"
+# 接下来，你可以使用这个文件名来创建或保存文件
+with open("网络收集.txt", "r", encoding="utf-8") as file:
+    # 读取所有行并存储到列表中
+    lines = file.readlines()
+with open(file_name, 'w') as file:
+    file.write(line)
+
+print(f"文件已创建：{file_name}")
 
 ################################################################################################任务结束，删除不必要的过程文件
 files_to_remove = ["2.txt", "汇总.txt"]
