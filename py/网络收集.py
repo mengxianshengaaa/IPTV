@@ -113,7 +113,7 @@ def read_and_process_file(input_filename, output_filename, encodings=['utf-8', '
         for line in lines:
             if '$' in line:
                 # 截取到'$'之前的部分，注意去除可能的换行符
-                processed_line = line.split('$')[0].rstrip('\n')
+                processed_line = line.split('￥')[0].rstrip('\n')
                 outfile.write(processed_line + '\n')  # 写入处理后的行到文件，并添加换行符
             else:
                 # 正常写入行到文件，并添加换行符
