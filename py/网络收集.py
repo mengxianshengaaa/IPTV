@@ -25,7 +25,7 @@ from translate import Translator  # 导入Translator类,用于文本翻译
 # 定义txt文件的URL列表
 urls = [
        'https://dimaston.github.io/live.m3u',  #假m3u
-       'http://rihou.cc:555/gggg.nzk'
+       'http://rihou.cc:555/gggg.nzk',
        'https://raw.githubusercontent.com/gaotianliuyun/gao/master/list.txt',   #暂时保留
        'http://117.72.68.25:9230/latest.txt',
        'http://ttkx.live:55/lib/kx2024.txt',
