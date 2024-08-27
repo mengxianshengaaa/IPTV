@@ -347,7 +347,7 @@ def parse_file(input_file_path, output_file_name):
                 ip_or_domain_to_lines[ip_or_domain].append(line)
     ############################################################################### 过滤掉小于1500字节的IP或域名段
     filtered_ip_or_domain_to_lines = {ip_or_domain: lines for ip_or_domain, lines in ip_or_domain_to_lines.items()
-                                      if sum(len(line) for line in lines) >= 1500}
+                                      if sum(len(line) for line in lines) >= 200}
     # 如果没有满足条件的IP或域名段，则不生成文件
     if not filtered_ip_or_domain_to_lines:
         print("没有满足条件的IP或域名段，不生成文件。")
@@ -411,7 +411,7 @@ with open(output_file_path, 'w', encoding='utf-8') as output_file:
                 start_time = time.time()
                 frame_count = 0
                 # 尝试捕获10秒内的帧
-                while frame_count < 10 and (time.time() - start_time) < 3:
+                while frame_count < 10 and (time.time() - start_time) < 5:
                     ret, frame = cap.read()
                     if not ret:
                         break
@@ -439,7 +439,7 @@ from urllib.parse import urlparse
 from tqdm import tqdm
 
 # 测试HTTP连接并尝试下载数据
-def test_connectivity_and_download(url, initial_timeout=1, retry_timeout=2):
+def test_connectivity_and_download(url, initial_timeout=3, retry_timeout=5):
     parsed_url = urlparse(url)
     if parsed_url.scheme not in ['http', 'https']:
         # 非HTTP(s)协议，尝试RTSP检测
@@ -451,7 +451,7 @@ def test_connectivity_and_download(url, initial_timeout=1, retry_timeout=2):
                 if 200 <= response.status_code <= 403:
                     start_time = time.time()
                     while time.time() - start_time < initial_timeout:
-                        chunk = response.raw.read(1024)  # 尝试下载1KB数据
+                        chunk = response.raw.read(256)  # 尝试下载1KB数据
                         if chunk:
                             return True  # 成功下载数据
         except requests.RequestException as e:
@@ -555,7 +555,7 @@ def parse_file(input_file_path, output_file_name):
                 ip_or_domain_to_lines[ip_or_domain].append(line)
     # 过滤掉小于1000字节的IP或域名段
     filtered_ip_or_domain_to_lines = {ip_or_domain: lines for ip_or_domain, lines in ip_or_domain_to_lines.items()
-                                      if sum(len(line) for line in lines) >= 1000}   # 过滤掉小于1000字节的IP或域名段
+                                      if sum(len(line) for line in lines) >= 200}   # 过滤掉小于1000字节的IP或域名段
     # 如果没有满足条件的IP或域名段，则不生成文件
     if not filtered_ip_or_domain_to_lines:
         print("没有满足条件的IP或域名段，不生成文件。")
