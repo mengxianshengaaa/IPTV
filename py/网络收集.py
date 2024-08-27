@@ -525,7 +525,8 @@ with open("网络收集.txt", "w", encoding="utf-8") as file:
 
 
 
-import re
+current_date = datetime.datetime.now().strftime('%m%d')  # 获取当前日期并格式化
+output_file_name = '网络收集' + current_date + '.txt'  # 定义输出文件名
 def parse_file(input_file_path, output_file_name):    #
     # 正则表达式匹配从'//'开始到第一个'/'或第一个'::'结束的部分
     ip_or_domain_pattern = re.compile(r'//([^/:]*:[^/:]*::[^/:]*|[^/]*)')
@@ -560,8 +561,6 @@ def parse_file(input_file_path, output_file_name):    #
         print("没有满足条件的IP或域名段，不生成文件。")
         return
     # 合并所有满足条件的IP或域名的行到一个文件
-    # 获取当前日期并格式化为 YYYY-MM-DD 的形式
-    current_date = datetime.datetime.now().strftime('%m%d')
     with open(output_file_name, 'w', encoding='utf-8') as output_file:   #output_
         for ip_or_domain, lines in filtered_ip_or_domain_to_lines.items():
             # 检查是否需要递增数字计数器
@@ -576,7 +575,7 @@ def parse_file(input_file_path, output_file_name):    #
             output_file.write('\n')  # 在每个小段后添加一个空行作为分隔
             alphabet_counter += 1  # 递增字母计数器
 # 调用函数并传入文件路径和输出文件名
-parse_file('网络收集.txt', '网络收集{current_date}.txt')
+parse_file('网络收集.txt', output_file_name)
 
 
 
