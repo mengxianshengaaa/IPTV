@@ -2,7 +2,7 @@ name: 网络收集
 
 on:
   schedule:
-    - cron: '35 3 */7 * *' # 这里更改自动运行的时间#_ud
+    - cron: '35 3 * * *' # 这里更改自动运行的时间#_ud
   workflow_dispatch:
     branches:
       - main
@@ -25,7 +25,7 @@ jobs:
           pip install --upgrade pip
           pip install selenium requests ffmpeg futures eventlet opencv-python Beautifulsoup4 translate termcolor func_timeout replace input opencc pypinyin pytz tqdm
       - name: Run iptv
-        run: python ${{ github.workspace }}/py/收集.py
+        run: python ${{ github.workspace }}/py/网络收集.py
         
       # 提交和推送的步骤，不再检查文件是否发生变化#
       - name: Commit and push changes
