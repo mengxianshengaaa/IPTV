@@ -765,8 +765,12 @@ https://test.zapi.us.kg/?id=phtv-hk
 https://test.zapi.us.kg/?id=animal-planet
 #EXTINF:-1 tvg-logo="https://live.fanmingming.com/tv/华视新闻.png" group-title="港澳频道",华视新闻
 http://37.27.111.214:8080/live/8/hls.m3u8
+#EXTINF:-1 tvg-logo="https://live.fanmingming.com/tv/大立电视.png" group-title="港澳频道",大立电视
+http://www.dalitv.com.tw:4568/live/dali/index.m3u8
 #EXTINF:-1 tvg-logo="https://live.fanmingming.com/tv/天映频道.png" group-title="港澳频道",天映频道
 https://test.zapi.us.kg/?id=celestial
+#EXTINF:-1 tvg-logo="https://live.fanmingming.com/tv/天良综合台.png" group-title="港澳频道",天良综合台
+http://60.248.91.20:8000/main
 #EXTINF:-1 tvg-logo="https://live.fanmingming.com/tv/寰宇新闻台.png" group-title="港澳频道",寰宇新闻台
 https://test.zapi.us.kg/?id=global-news
 #EXTINF:-1 tvg-logo="https://live.fanmingming.com/tv/幸福空间.png" group-title="港澳频道",幸福空间
