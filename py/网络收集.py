@@ -345,7 +345,7 @@ def parse_file(input_file_path, output_file_name):
                 ip_or_domain_to_lines[ip_or_domain].append(line)
     ############################################################################### 过滤掉小于1500字节的IP或域名段
     filtered_ip_or_domain_to_lines = {ip_or_domain: lines for ip_or_domain, lines in ip_or_domain_to_lines.items()
-                                      if sum(len(line) for line in lines) >= 100}
+                                      if sum(len(line) for line in lines) >= 800}
     # 如果没有满足条件的IP或域名段，则不生成文件
     if not filtered_ip_or_domain_to_lines:
         print("没有满足条件的IP或域名段，不生成文件。")
@@ -526,7 +526,7 @@ with open("网络收集.txt", "w", encoding="utf-8") as file:
 
 
 import re
-def parse_file(input_file_path, file_name):    #output_
+def parse_file(input_file_path, output_file_name):    #
     # 正则表达式匹配从'//'开始到第一个'/'或第一个'::'结束的部分
     ip_or_domain_pattern = re.compile(r'//([^/:]*:[^/:]*::[^/:]*|[^/]*)')
     # 用于存储每个IP或域名及其对应的行列表
@@ -554,18 +554,15 @@ def parse_file(input_file_path, file_name):    #output_
                 ip_or_domain_to_lines[ip_or_domain].append(line)
     # 过滤掉小于1000字节的IP或域名段
     filtered_ip_or_domain_to_lines = {ip_or_domain: lines for ip_or_domain, lines in ip_or_domain_to_lines.items()
-                                      if sum(len(line) for line in lines) >= 100}   # 过滤掉小于1000字节的IP或域名段
+                                      if sum(len(line) for line in lines) >= 500}   # 过滤掉小于1000字节的IP或域名段
     # 如果没有满足条件的IP或域名段，则不生成文件
     if not filtered_ip_or_domain_to_lines:
         print("没有满足条件的IP或域名段，不生成文件。")
         return
     # 合并所有满足条件的IP或域名的行到一个文件
-
     # 获取当前日期并格式化为 YYYY-MM-DD 的形式
-    current_date = datetime.datetime.now().strftime('%m-%d')
-    # 假设你想创建一个文本文件
-    file_name = f"网络收集{current_date}.txt"
-    with open(file_name, 'w', encoding='utf-8') as output_file:   #output_
+    current_date = datetime.datetime.now().strftime('%m%d')
+    with open(output_file_name, 'w', encoding='utf-8') as output_file:   #output_
         for ip_or_domain, lines in filtered_ip_or_domain_to_lines.items():
             # 检查是否需要递增数字计数器
             if alphabet_counter >= 26:
@@ -579,7 +576,7 @@ def parse_file(input_file_path, file_name):    #output_
             output_file.write('\n')  # 在每个小段后添加一个空行作为分隔
             alphabet_counter += 1  # 递增字母计数器
 # 调用函数并传入文件路径和输出文件名
-parse_file('网络收集.txt', file_name)
+parse_file('网络收集.txt', '网络收集{current_date}.txt')
 
 
 
