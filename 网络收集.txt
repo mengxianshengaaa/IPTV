@@ -72,12 +72,12 @@ AMC电影台,http://95.179.139.113:5566/4gtv/39
 KLT-靖天国际台,http://95.179.139.113:5566/4gtv/84
 MTVLive音乐,http://95.179.139.113:5566/4gtv/213
 NiceTV靖天欢乐,http://95.179.139.113:5566/4gtv/119
-TVB,http://95.179.139.113:5566/4gtv/183
 TVBS欢乐台,http://95.179.139.113:5566/4gtv/184
 TVBS精采台,http://95.179.139.113:5566/4gtv/227
 TVBS台剧台,http://95.179.139.113:5566/4gtv/285
 TVBS新闻台,http://95.179.139.113:5566/4gtv/291
 TVBS综艺台,http://95.179.139.113:5566/4gtv/284
+TVBS,http://95.179.139.113:5566/4gtv/183
 爱尔达生活旅游,http://95.179.139.113:5566/4gtv/237
 八大精彩台,http://95.179.139.113:5566/4gtv/172
 八大综艺台,http://95.179.139.113:5566/4gtv/114
@@ -120,7 +120,7 @@ fun探索娱乐台,http://95.179.139.113:5566/4gtv/274
 民视影剧台,http://95.179.139.113:5566/4gtv/24
 民视综艺台,http://95.179.139.113:5566/4gtv/16
 人间卫视,http://95.179.139.113:5566/4gtv/210
-三立新闻iNEW,http://95.179.139.113:5566/4gtv/229
+三立新闻iNEWS,http://95.179.139.113:5566/4gtv/229
 三立综合台,http://95.179.139.113:5566/4gtv/169
 戏剧免费看1台,http://95.179.139.113:5566/4gtv/270
 戏剧免费看2台,http://95.179.139.113:5566/4gtv/244
@@ -144,17 +144,16 @@ CATCHPLAY电影台,https://gat.zhoujie218.top/litv/4gtv-4gtv076
 ELTA生活旅游,https://gat.zhoujie218.top/4gtv/237
 Fun探索娱乐台,https://gat.zhoujie218.top/4gtv/274
 MTVLive音乐,https://gat.zhoujie218.top/4gtv/213
-TVB,https://gat.zhoujie218.top/litv/4gtv-4gtv073
 TVBS欢乐台,https://gat.zhoujie218.top/litv/4gtv-4gtv068
 TVBS精采台,https://gat.zhoujie218.top/litv/4gtv-4gtv067
+TVBS台剧台,https://gat.zhoujie218.top/4gtv/285
 TVBS新闻台,https://gat.zhoujie218.top/litv/4gtv-4gtv072
 TVBS综艺台,https://gat.zhoujie218.top/4gtv/284
+TVBS,https://gat.zhoujie218.top/litv/4gtv-4gtv073
 八大精彩台,https://gat.zhoujie218.top/litv/4gtv-4gtv034
 八大综艺台,https://gat.zhoujie218.top/litv/4gtv-4gtv039
 半岛新闻,https://gat.zhoujie218.top/litv/litv-ftv10
 采昌影剧,https://gat.zhoujie218.top/litv/4gtv-4gtv049
-大爱电视,https://gat.zhoujie218.top/4gtv/209
-大爱电视2,https://gat.zhoujie218.top/4gtv/230
 东森财经新闻,https://gat.zhoujie218.top/litv/4gtv-4gtv153
 东森新闻,https://gat.zhoujie218.top/litv/4gtv-4gtv152
 非凡新闻,https://gat.zhoujie218.top/litv/4gtv-4gtv010
@@ -214,7 +213,6 @@ D1,#genre#
 ELT-影剧台,http://8.137.59.151:3009/dianshimi/fenghuang666.php?id=59
 TVN电影台,http://8.137.59.151:3009/dianshimi/fenghuang666.php?id=41
 Thrill电影台,http://8.137.59.151:3009/dianshimi/fenghuang666.php?id=37
-东森电影台,http://8.137.59.151:3009/dianshimi/fenghuang666.php?id=86
 东森新闻台,http://8.137.59.151:3009/dianshimi/fenghuang666.php?id=75
 东森洋片台,http://8.137.59.151:3009/dianshimi/fenghuang666.php?id=87
 凤凰卫视,http://8.137.59.151:3009/dianshimi/fenghuang666.php?id=122
@@ -251,18 +249,4 @@ tvbs新闻台,http://8.137.59.151:3009/dianshimi/fenghuang666.php?id=78
 亚洲旅游台,http://8.137.59.151:3009/dianshimi/fenghuang666.php?id=71
 中视闽南台,http://8.137.59.151:3009/dianshimi/fenghuang666.php?id=45
 中视新闻台,http://8.137.59.151:3009/dianshimi/fenghuang666.php?id=80
-
-E1,#genre#
-TVB,https://test.zapi.us.kg/?id=tvbs-hd
-TVBSæ¬¢ä¹å°,https://test.zapi.us.kg/?id=tvbs-huanle
-TVBSç²¾éå°,https://test.zapi.us.kg/?id=tvbs-jc
-TVBäºæ´²å§å°,https://test.zapi.us.kg/?id=tvb-asia-drama
-TVBåç¦§ç»å¸å°,https://test.zapi.us.kg/?id=tvb-classic
-TVBåè¯­å§å°,https://test.zapi.us.kg/?id=tvb-drama
-TVBæ çº¿æ°é»å°,https://test.zapi.us.kg/?id=tvb-news
-TVBæç å°,https://test.zapi.us.kg/?id=pearl
-TVBç²¤è¯­çå°,https://test.zapi.us.kg/?id=tvb-yueyu
-TVBç¿¡ç¿ å°,https://test.zapi.us.kg/?id=feicui
-TVBé»éç¿¡ç¿ å°,https://test.zapi.us.kg/?id=golden-jade
-é©å½å¨±ä¹å°KMTV,https://test.zapi.us.kg/?id=kmtv
 
