@@ -26,7 +26,6 @@ from translate import Translator  # 导入Translator类,用于文本翻译
 # 定义txt文件的URL列表
 urls = [
        'https://dimaston.github.io/live.m3u',  #假m3u
-       'http://rihou.cc:555/gggg.nzk',
        'https://raw.githubusercontent.com/gaotianliuyun/gao/master/list.txt',   #暂时保留
        'http://117.72.68.25:9230/latest.txt',
        'http://ttkx.live:55/lib/kx2024.txt',
@@ -36,7 +35,7 @@ urls = [
        'https://raw.githubusercontent.com/ddhola/file/d7afb504b1ba4fef31813e1166cb892215a9c063/0609test',
        'https://raw.githubusercontent.com/vbskycn/iptv/2738b3bec8c298f57e0e2052b155846ab6ea3787/dsyy/hd.txt',
        'https://raw.githubusercontent.com/frxz751113/AAAAA/main/IPTV/TW.txt',
-       'https://github.com/ljlfct01/ljlfct01.github.io/blob/20d15728f71ab9dfca83e18593c0e3235c5a92b2/list.%E8%87%AA%E7%94%A8#L674',
+       'https://raw.githubusercontent.com/ljlfct01/ljlfct01.github.io/main/list.%E8%87%AA%E7%94%A8',
        '',
        '',
        '',
