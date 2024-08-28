@@ -85,6 +85,25 @@ def merge_txt_files(urls, output_filename='汇总.txt'):
 # 调用函数
 merge_txt_files(urls)
 
+
+#简体转繁体
+# 创建一个OpenCC对象,指定转换的规则为繁体字转简体字
+converter = OpenCC('t2s.json')#繁转简
+#converter = OpenCC('s2t.json')#简转繁
+# 打开txt文件
+with open('汇总.txt', 'r', encoding='utf-8') as file:
+    traditional_text = file.read()
+# 进行繁体字转简体字的转换
+simplified_text = converter.convert(traditional_text)
+# 将转换后的简体字写入txt文件
+with open('汇总.txt', 'w', encoding='utf-8') as file:
+    file.write(simplified_text)
+
+
+
+
+
+
 # 打开文本文件进行读取
 def read_and_process_file(input_filename, output_filename, encodings=['utf-8', 'gbk']):
     for encoding in encodings:
@@ -277,18 +296,6 @@ with open('2.txt', 'w', encoding='utf-8') as new_file:
 print("替换完成，新文件已保存。")
 
 
-#简体转繁体
-# 创建一个OpenCC对象,指定转换的规则为繁体字转简体字
-converter = OpenCC('t2s.json')#繁转简
-#converter = OpenCC('s2t.json')#简转繁
-# 打开txt文件
-with open('2.txt', 'r', encoding='utf-8') as file:
-    traditional_text = file.read()
-# 进行繁体字转简体字的转换
-simplified_text = converter.convert(traditional_text)
-# 将转换后的简体字写入txt文件
-with open('2.txt', 'w', encoding='utf-8') as file:
-    file.write(simplified_text)
 
 
 
