@@ -31,8 +31,8 @@ jobs:
          
       - name: 提交更改
         run: |
-          git config --local user.email "lucheng7996@163.com"
-          git config --local user.name "lucheng7996"
+          git config --local user.email "actions@163.com"
+          git config --local user.name "GitHub Action"
           #git reset --hard origin/main
           git add .
           git commit -m "Add generated file"
