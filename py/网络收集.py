@@ -35,7 +35,7 @@ urls = [
        'http://gg.gg/cctvgg',
        'https://raw.githubusercontent.com/ddhola/file/d7afb504b1ba4fef31813e1166cb892215a9c063/0609test',
        'https://raw.githubusercontent.com/vbskycn/iptv/2738b3bec8c298f57e0e2052b155846ab6ea3787/dsyy/hd.txt',
-       '',
+       'https://raw.githubusercontent.com/frxz751113/AAAAA/main/IPTV/TW.txt',
        '',
        '',
        '',
