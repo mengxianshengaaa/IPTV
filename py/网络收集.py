@@ -36,7 +36,7 @@ urls = [
        'https://raw.githubusercontent.com/ddhola/file/d7afb504b1ba4fef31813e1166cb892215a9c063/0609test',
        'https://raw.githubusercontent.com/vbskycn/iptv/2738b3bec8c298f57e0e2052b155846ab6ea3787/dsyy/hd.txt',
        'https://raw.githubusercontent.com/frxz751113/AAAAA/main/IPTV/TW.txt',
-       '',
+       'https://github.com/ljlfct01/ljlfct01.github.io/blob/20d15728f71ab9dfca83e18593c0e3235c5a92b2/list.%E8%87%AA%E7%94%A8#L674',
        '',
        '',
        '',
@@ -81,9 +81,37 @@ def merge_txt_files(urls, output_filename='汇总.txt'):
                     print(f'Error downloading {url}: {e}')
     except IOError as e:
         print(f'Error writing to file: {e}')
-
 # 调用函数
 merge_txt_files(urls)
+
+
+
+with open('汇总.txt', 'r', encoding="utf-8") as file:
+    # 读取所有行并存储到列表中
+    lines = file.readlines()
+#定义替换规则的字典对频道名替换
+replacements = {
+    	" ": ""
+}
+with open('汇总.txt', 'w', encoding='utf-8') as new_file:
+    for line in lines:
+        # 去除行尾的换行符
+        line = line.rstrip('\n')
+        # 分割行，获取逗号前的字符串
+        parts = line.split(',', 1)
+        if len(parts) > 0:
+            # 替换逗号前的字符串
+            before_comma = parts[0]
+            for old, new in replacements.items():
+                before_comma = before_comma.replace(old, new)
+            # 将替换后的逗号前部分和逗号后部分重新组合成一行，并写入新文件
+            new_line = f'{before_comma},{parts[1]}\n' if len(parts) > 1 else f'{before_comma}\n'
+            new_file.write(new_line)
+
+
+
+
+
 
 
 #简体转繁体
