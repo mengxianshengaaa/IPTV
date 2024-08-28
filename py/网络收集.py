@@ -86,30 +86,6 @@ merge_txt_files(urls)
 
 
 
-with open('汇总.txt', 'r', encoding="utf-8") as file:
-    # 读取所有行并存储到列表中
-    lines = file.readlines()
-#定义替换规则的字典对频道名替换
-replacements = {
-    	" ": ""
-}
-with open('汇总.txt', 'w', encoding='utf-8') as new_file:
-    for line in lines:
-        # 去除行尾的换行符
-        line = line.rstrip('\n')
-        # 分割行，获取逗号前的字符串
-        parts = line.split(',', 1)
-        if len(parts) > 0:
-            # 替换逗号前的字符串
-            before_comma = parts[0]
-            for old, new in replacements.items():
-                before_comma = before_comma.replace(old, new)
-            # 将替换后的逗号前部分和逗号后部分重新组合成一行，并写入新文件
-            new_line = f'{before_comma},{parts[1]}\n' if len(parts) > 1 else f'{before_comma}\n'
-            new_file.write(new_line)
-
-
-
 
 
 
@@ -129,66 +105,10 @@ with open('汇总.txt', 'w', encoding='utf-8') as file:
 
 
 
-
-
-
-# 打开文本文件进行读取
-def read_and_process_file(input_filename, output_filename, encodings=['utf-8', 'gbk']):
-    for encoding in encodings:
-        try:
-            with open(input_filename, 'r', encoding=encoding) as file:
-                lines = file.readlines()
-                break
-        except UnicodeDecodeError:
-            continue
-    else:
-        raise ValueError(f"Cannot decode file '{input_filename}' with any of the provided encodings")
-
-    with open(output_filename, 'w', encoding='utf-8') as outfile:
-        for line in lines:
-            if '$' in line:
-                processed_line = line.split('$')[0].rstrip('\n')
-                outfile.write(processed_line + '\n')
-            else:
-                outfile.write(line)
-
-# 调用函数
-read_and_process_file('汇总.txt', '汇总.txt')  # 修改输出文件名以避免覆盖原始文件
-
-###################################################################去重#####################################
-def remove_duplicates(input_file, output_file):
-    # 用于存储已经遇到的URL和包含genre的行
-    seen_urls = set()
-    seen_lines_with_genre = set()
-    # 用于存储最终输出的行
-    output_lines = []
-    # 打开输入文件并读取所有行
-    with open(input_file, 'r', encoding='utf-8') as f:
-        lines = f.readlines()
-        print("去重前的行数：", len(lines))
-        # 遍历每一行
-        for line in lines:
-            # 使用正则表达式查找URL和包含genre的行,默认最后一行
-            urls = re.findall(r'[https]?[http]?[rtsp]?[rtmp]?://(?:[a-zA-Z]|[0-9]|[$-_@.&+]|[!*\\(\\),]|(?:%[0-9a-fA-F][0-9a-fA-F]))+', line)
-            genre_line = re.search(r'\bgenre\b', line, re.IGNORECASE) is not None
-            # 如果找到URL并且该URL尚未被记录
-            if urls and urls[0] not in seen_urls:
-                seen_urls.add(urls[0])
-                output_lines.append(line)
-            # 如果找到包含genre的行，无论是否已被记录，都写入新文件
-            if genre_line:
-                output_lines.append(line)
-    # 将结果写入输出文件
-    with open(output_file, 'w', encoding='utf-8') as f:
-        f.writelines(output_lines)
-    print("去重后的行数：", len(output_lines))
-# 使用方法
-remove_duplicates('汇总.txt', '汇总.txt')   
-
-###############################################################################替换#########################
-# 导入fileinput模块
-import fileinput
-# 定义替换规则的字典
+with open('汇总.txt', 'r', encoding="utf-8") as file:
+    # 读取所有行并存储到列表中
+    lines = file.readlines()
+#定义替换规则的字典对频道名替换
 replacements = {
     	"CCTV-1高清测试": "",
     	"CCTV-2高清测试": "",
@@ -242,6 +162,7 @@ replacements = {
     	"CCTW": "CCTV",
     	"试看": "",
     	"测试": "",
+    	" ": "",
     	"测试cctv": "CCTV",
     	"CCTV1综合": "CCTV1",
     	"CCTV2财经": "CCTV2",
@@ -312,16 +233,79 @@ replacements = {
     	"CCTV7CCTV7": "CCTV7",
     	"CCTV10CCTV10": "CCTV10"
 }
-# 打开原始文件读取内容，并写入新文件
-with open('汇总.txt', 'r', encoding='utf-8') as file:
-    lines = file.readlines()
-# 创建新文件并写入替换后的内容
-with open('2.txt', 'w', encoding='utf-8') as new_file:
+with open('汇总.txt', 'w', encoding='utf-8') as new_file:
     for line in lines:
-        for old, new in replacements.items():
-            line = line.replace(old, new)
-        new_file.write(line)
-print("替换完成，新文件已保存。")
+        # 去除行尾的换行符
+        line = line.rstrip('\n')
+        # 分割行，获取逗号前的字符串
+        parts = line.split(',', 1)
+        if len(parts) > 0:
+            # 替换逗号前的字符串
+            before_comma = parts[0]
+            for old, new in replacements.items():
+                before_comma = before_comma.replace(old, new)
+            # 将替换后的逗号前部分和逗号后部分重新组合成一行，并写入新文件
+            new_line = f'{before_comma},{parts[1]}\n' if len(parts) > 1 else f'{before_comma}\n'
+            new_file.write(new_line)
+
+
+
+
+
+
+# 打开文本文件进行读取
+def read_and_process_file(input_filename, output_filename, encodings=['utf-8', 'gbk']):
+    for encoding in encodings:
+        try:
+            with open(input_filename, 'r', encoding=encoding) as file:
+                lines = file.readlines()
+                break
+        except UnicodeDecodeError:
+            continue
+    else:
+        raise ValueError(f"Cannot decode file '{input_filename}' with any of the provided encodings")
+
+    with open(output_filename, 'w', encoding='utf-8') as outfile:
+        for line in lines:
+            if '$' in line:
+                processed_line = line.split('$')[0].rstrip('\n')
+                outfile.write(processed_line + '\n')
+            else:
+                outfile.write(line)
+
+# 调用函数
+read_and_process_file('汇总.txt', '汇总.txt')  # 修改输出文件名以避免覆盖原始文件
+
+###################################################################去重#####################################
+def remove_duplicates(input_file, output_file):
+    # 用于存储已经遇到的URL和包含genre的行
+    seen_urls = set()
+    seen_lines_with_genre = set()
+    # 用于存储最终输出的行
+    output_lines = []
+    # 打开输入文件并读取所有行
+    with open(input_file, 'r', encoding='utf-8') as f:
+        lines = f.readlines()
+        print("去重前的行数：", len(lines))
+        # 遍历每一行
+        for line in lines:
+            # 使用正则表达式查找URL和包含genre的行,默认最后一行
+            urls = re.findall(r'[https]?[http]?[rtsp]?[rtmp]?://(?:[a-zA-Z]|[0-9]|[$-_@.&+]|[!*\\(\\),]|(?:%[0-9a-fA-F][0-9a-fA-F]))+', line)
+            genre_line = re.search(r'\bgenre\b', line, re.IGNORECASE) is not None
+            # 如果找到URL并且该URL尚未被记录
+            if urls and urls[0] not in seen_urls:
+                seen_urls.add(urls[0])
+                output_lines.append(line)
+            # 如果找到包含genre的行，无论是否已被记录，都写入新文件
+            if genre_line:
+                output_lines.append(line)
+    # 将结果写入输出文件
+    with open(output_file, 'w', encoding='utf-8') as f:
+        f.writelines(output_lines)
+    print("去重后的行数：", len(output_lines))
+# 使用方法
+remove_duplicates('汇总.txt', '2.txt')   
+
 
 
 
