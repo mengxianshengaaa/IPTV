@@ -74,12 +74,18 @@ def merge_txt_files(urls, output_filename='汇总.txt'):
             for url in urls:
                 try:
                     response = requests.get(url)
-                    response.raise_for_status()
-                    outfile.write(response.text + '\n')
+                    response.raise_for_status()  # 确保请求成功
+                    # 尝试将响应内容解码为UTF-8，如果失败则尝试其他编码
+                    try:
+                        content = response.content.decode('utf-8')
+                    except UnicodeDecodeError:
+                        content = response.content.decode('gbk')  # 尝试GBK编码
+                    outfile.write(content + '\n')
                 except requests.RequestException as e:
                     print(f'Error downloading {url}: {e}')
     except IOError as e:
         print(f'Error writing to file: {e}')
+
 # 调用函数
 merge_txt_files(urls)
 
