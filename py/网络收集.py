@@ -297,7 +297,7 @@ import re
 import os
 # 定义一个包含所有要排除的关键词的列表
 excluded_keywords = [
-    'epg', 'mitv', 'udp', 'rtp', 'P2p', 'p2p', 'p3p', 'P2P', '新闻综合', '/livednow', 'P3p', '购物', 'goodiptv', '[', 'P3P', '/bfgd/', '腔', '曲', '/zy.', '/xgj.', '春节'
+    'epg', 'mitv', 'udp', 'rtp', 'P2p', 'p2p', 'p3p', 'P2P', '新闻综合', 'P3p', '购物', '[', 'P3P', '腔', '曲', '/zy#.', '/xgj#.', '春节'
 ]
 
 # 定义一个包含所有要提取的关键词的列表
@@ -410,11 +410,11 @@ with open(output_file_path, 'w', encoding='utf-8') as output_file:
                     output_file.write(line)
             elif ip_key:  # 新IP键,进行检测
                 # 进行检测
-                cap = cv2.VideoCapture(url)
+                cap = cv2.VideoCapture(url)  #支持http(s)/rts(m)p协议
                 start_time = time.time()
                 frame_count = 0
                 # 尝试捕获4秒内的帧
-                while frame_count < 7 and (time.time() - start_time) < 4:
+                while frame_count < 25 and (time.time() - start_time) < 6:
                     ret, frame = cap.read()
                     if not ret:
                         break
@@ -423,7 +423,7 @@ with open(output_file_path, 'w', encoding='utf-8') as output_file:
                 cap.release()
 
                 # 根据捕获的帧数判断状态并记录结果
-                if frame_count >= 7:  # 10秒内超过10帧则写入
+                if frame_count >= 25:  # 6秒内超过25帧则写入
                     detected_ips[ip_key] = {'status': 'ok'}
                     output_file.write(line)  # 写入检测通过的行
                 else:
@@ -443,7 +443,7 @@ from urllib.parse import urlparse
 from tqdm import tqdm
 
 # 测试HTTP连接并尝试下载数据
-def test_connectivity_and_download(url, initial_timeout=2, retry_timeout=3):
+def test_connectivity_and_download(url, initial_timeout=3, retry_timeout=5):
     parsed_url = urlparse(url)
     if parsed_url.scheme not in ['http', 'https']:
         # 非HTTP(s)协议，尝试RTSP检测
@@ -465,7 +465,7 @@ def test_connectivity_and_download(url, initial_timeout=2, retry_timeout=3):
 
 print("/" * 80)
 # 测试RTSP连接并尝试读取流
-def test_rtsp_connectivity(url, timeout=3):
+def test_rtsp_connectivity(url, timeout=5):
     cap = cv2.VideoCapture(url)
     if not cap.isOpened():
         return False
