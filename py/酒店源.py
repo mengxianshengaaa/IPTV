@@ -286,7 +286,7 @@ def modify_urls(url):
     base_url = url[:ip_start_index]
     ip_address = url[ip_start_index:ip_end_index]
     port = url[ip_end_index:]
-    ip_end = "/ZHGXTV/Public/json/live_interface.txt"
+    ip_end = "/iptv/live/1000.json?key=txiptv"
     for i in range(1, 256):
         modified_ip = f"{ip_address[:-1]}{i}"
         modified_url = f"{base_url}{modified_ip}{port}{ip_end}"
