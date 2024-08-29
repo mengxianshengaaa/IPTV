@@ -123,23 +123,18 @@ for url in valid_urls:
             for line in lines:
                 # 检查行中需包含'hls'，但排除'udp'和'trp'
                 if 'hls' in line and ('udp' not in line or 'rtp' not in line):
-                    line = line.strip()
-                    if line:
-                        # 如果行不为空，进行分割操作
-                        name, channel_url = line.split(',')
-                        urls = channel_url.split('/', 5)
-                        url_data = json_url.split('/', 5)
-                        if len(urls) >= 3:
-                            # 构建新的 URL
-                            urld = (f"{urls[0]}//{url_data[1]}/{urls[2]}/{urls[3]}/{urls[4]}")
-                        else:
-                            urld = (f"{urls}")
-                        print(f"{name},{urld}")
-        except:
-            pass
-    except:
-        pass
-
+                        line = line.strip()
+                        if line:
+                            # 如果行不为空，进行分割操作
+                            name, channel_url = line.split(',')
+                            urls = channel_url.split('/', 5)
+                            url_data = json_url.split('/', 5)
+                            if len(urls) >= 3:
+                                # 构建新的 URL
+                                urld = (f"{urls[0]}//{url_data[1]}/{urls[2]}/{urls[3]}/{urls[4]}")
+                            else:
+                                urld = (f"{urls}")
+                            print(f"{name},{urld}")
                         if name and urld:
                             name = name.replace("高清电影", "影迷电影")                            
                             name = name.replace("中央", "CCTV")
