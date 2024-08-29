@@ -31,7 +31,7 @@ from translate import Translator  # 导入Translator类,用于文本翻译
 ######################################################################################################################
 ######################################################################################################################
 urls = [
-    "https://fofa.info/result?qbase64=Ym9keT0i5pm65oWn5YWJ6L%2BFIg%3D%3D",#body="智慧光迅"
+    #"https://fofa.info/result?qbase64=Ym9keT0i5pm65oWn5YWJ6L%2BFIg%3D%3D",#body="智慧光迅"
     "https://fofa.info/result?qbase64=c2VydmVyPSJuZ2lueCI%3D",#河南#
     "https://fofa.info/result?qbase64=IlpIR1hUViIgJiYgcmVnaW9uPSJoZWJlaSI%3D",#河北#
 ]
