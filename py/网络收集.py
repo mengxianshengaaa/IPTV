@@ -36,7 +36,7 @@ urls = [
        'https://raw.githubusercontent.com/vbskycn/iptv/2738b3bec8c298f57e0e2052b155846ab6ea3787/dsyy/hd.txt',
        'https://raw.githubusercontent.com/frxz751113/AAAAA/main/IPTV/TW.txt',
        'https://raw.githubusercontent.com/ljlfct01/ljlfct01.github.io/main/list.%E8%87%AA%E7%94%A8',
-       '',
+       'https://notabug.org/qcfree/TVBox-api/raw/main/live.txt', #通用源
        '',
        '',
        '',
