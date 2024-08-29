@@ -146,16 +146,18 @@ for url in valid_urls:
                     
                     # 解析json_url以提取IP和端口
                     parsed_json_url = urlparse(url)
-                    json_ip = parsed_json_url.hostname
-                    json_port = ':' + parsed_json_url.port if parsed_json_url.port else ''
+                    json_ip_with_port = parsed_json_url.hostname + ':' + parsed_json_url.port
                     
-                    # 替换原始URL中的IP地址和端口为json_url中的IP地址和端口
-                    new_channel_url = channel_url.replace(channel_url.split('/')[2], json_ip)
-                    if json_port:  # 如果json_url中有端口号，也进行替换
-                        new_channel_url = new_channel_url.replace(f":{channel_url.split(':')[1]}", json_port)
+                    # 仅提取JSON中的IP部分用于替换，假设channel_url中的IP是直接跟在"http://"或"https://"之后
+                    channel_ip = channel_url.split('/')[2]
                     
-                    # 构造新的行并打印
+                    # 替换原始URL中的IP地址为json_url中的IP地址和端口
+                    new_channel_url = channel_url.replace(channel_ip, json_ip_with_port)
+                    
+                    # 构造新的行
                     new_line = f"{name},{new_channel_url}"
+                    
+                    # 打印新的行
                     print(new_line)  # 打印新的行
                     
                     # 写入到文件中
@@ -163,4 +165,5 @@ for url in valid_urls:
                         outfile.write(new_line + '\n')
     except requests.exceptions.RequestException as e:
         print(f"Error fetching or processing the JSON data: {e}")
+
 print("频道列表文件iptv.txt获取完成！")
