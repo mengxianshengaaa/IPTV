@@ -30,17 +30,18 @@ from translate import Translator  # 导入Translator类,用于文本翻译
 ###########################################################ZHGX采集####################################################
 ######################################################################################################################
 ######################################################################################################################
+import requests
+
 urls = [
-    #"https://fofa.info/result?qbase64=Ym9keT0i5pm65oWn5YWJ6L%2BFIg%3D%3D",#body="智慧光迅"
-    "https://fofa.info/result?qbase64=IlpIR1hUViImJiBwb3J0PSIyMjIyMiI%3D",#河南22222
-    "https://fofa.info/result?qbase64=IlpIR1hUViIgJiYgcmVnaW9uPSJoZWJlaSI%3D",#河北#
+    "https://fofa.info/result?qbase64=IlpIR1hUViImJiBwb3J0PSIyMjIyMiI%3D",
+    "https://fofa.info/result?qbase64=IlpIR1hUViIgJiYgcmVnaW9uPSJoZWJlaSI%3D",
 ]
-#定义网址替换规则
+
 def modify_urls(url):
     modified_urls = []
     ip_start_index = url.find("//") + 2
     ip_end_index = url.find(":", ip_start_index)
-    base_url = url[:ip_start_index]  # http:// or https://
+    base_url = url[:ip_start_index]
     ip_address = url[ip_start_index:ip_end_index]
     port = url[ip_end_index:]
     ip_end = "/ZHGXTV/Public/json/live_interface.txt"
@@ -49,31 +50,21 @@ def modify_urls(url):
         modified_url = f"{base_url}{modified_ip}{port}{ip_end}"
         modified_urls.append(modified_url)
     return modified_urls
-#定义超时时间以及是否返回正确的状态码
+
 def is_url_accessible(url):
     try:
-        response = requests.get(url, timeout=10)          #//////////////////
-        #if response.status_code == 200:
+        response = requests.get(url, timeout=10)
         if 200 <= response.status_code <= 401:
             return url
     except requests.exceptions.RequestException:
         pass
     return None
+
 results = []
 for url in urls:
-    # 创建一个Chrome WebDriver实例
-    chrome_options = Options()
-    chrome_options.add_argument('--headless')
-    chrome_options.add_argument('--no-sandbox')
-    chrome_options.add_argument('--disable-dev-shm-usage')
-    driver = webdriver.Chrome(options=chrome_options)
-    # 使用WebDriver访问网页
-    driver.get(url)  # 将网址替换为你要访问的网页地址
-    time.sleep(10)
-    # 获取网页内容
-    page_content = driver.page_source
-    # 关闭WebDriver
-    driver.quit()
+    response = requests.get(url)
+    page_content = response.text
+
     # 查找所有符合指定格式的网址
     pattern = r"http://\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}:\d+"  # 设置匹配的格式,如http://8.8.8.8:8888
     urls_all = re.findall(pattern, page_content)
