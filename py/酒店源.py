@@ -110,27 +110,24 @@ for url in urls:
                 valid_urls.append(result)
     for url in valid_urls:
         print(url)
-for url in valid_urls:
-    # 遍历 valid_urls 列表中的每个 URL
-    try:
-        # 发送 GET 请求获取 JSON 文件，设置超时时间为 3 秒
-        json_url = f"{url}"
-        response = requests.get(json_url, timeout=3)
-        json_data = response.content.decode('utf-8')
+    # 遍历网址列表,获取JSON文件并解析
+    for url in valid_urls:
         try:
-            # 按行分割数据
-            lines = json_data.split('\n')
-            for line in lines:
-                # 检查行中需包含'hls'，但排除'udp'和'trp'
-                if 'hls' in line and ('udp' not in line or 'rtp' not in line):
+            # 发送GET请求获取JSON文件,设置超时时间为0.5秒
+            json_url = f"{url}"
+            response = requests.get(json_url, timeout=3)################################
+            json_data = response.content.decode('utf-8')
+            try:
+                    # 按行分割数据
+             lines = json_data.split('\n')
+             for line in lines:
+                 if 'hls' in line and ('udp' not in line or 'rtp' not in line):  #行中需包含m3u,但排除udp和trp
                         line = line.strip()
                         if line:
-                            # 如果行不为空，进行分割操作
                             name, channel_url = line.split(',')
                             urls = channel_url.split('/', 5)
                             url_data = json_url.split('/', 5)
                             if len(urls) >= 3:
-                                # 构建新的 URL
                                 urld = (f"{urls[0]}//{url_data[1]}/{urls[2]}/{urls[3]}/{urls[4]}")
                             else:
                                 urld = (f"{urls}")
@@ -240,10 +237,10 @@ for url in valid_urls:
                             name = name.replace("电视剧", "影视")
                             name = name.replace("奥运匹克", "")
                             results.append(f"{name},{urld}")
-                except:
-                    continue
             except:
                 continue
+        except:
+            continue
 channels = []
 for result in results:
     line = result.strip()
@@ -360,6 +357,8 @@ for url in urls:
                 valid_urls.append(result)
     for url in valid_urls:
         print(url)
+        print("URL获取完成")
+
     # 遍历网址列表,获取JSON文件并解析
     for url in valid_urls:
         try:
