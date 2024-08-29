@@ -357,18 +357,22 @@ for url in urls:
                 valid_urls.append(result)
     for url in valid_urls:
         print(url)
-    # 遍历网址列表,获取JSON文件并解析
+    # 遍历有效的URL列表，这些URL指向包含JSON数据的资源
     for url in valid_urls:
         try:
-            # 发送GET请求获取JSON文件,设置超时时间为0.5秒
-            ip_start_index = url.find("//") + 2
-            ip_dot_start = url.find(".") + 1
-            ip_index_second = url.find("/", ip_dot_start)
-            base_url = url[:ip_start_index]  # http:// or https://
-            ip_address = url[ip_start_index:ip_index_second]
+        # 从当前URL中提取基础URL和IP地址
+        # 假设URL格式为 http://或https://后跟IP地址，然后是其他部分
+            ip_start_index = url.find("//") + 2  # 找到"//"后的第一个字符的索引
+            ip_dot_start = url.find(".") + 1    # 找到第一个"."后的第一个字符的索引
+            ip_index_second = url.find("/", ip_dot_start)  # 从IP地址后的第一个"/"开始
+            base_url = url[:ip_start_index]   # 提取基础URL部分，如http://或https://
+            ip_address = url[ip_start_index:ip_index_second] # 提取IP地址部分
+            # 构造一个新的基础URL，用于后续拼接
             url_x = f"{base_url}{ip_address}"
+            # 这里似乎是一个错误，json_url应该使用url_x，但代码中使用了原始的url
             json_url = f"{url}"
-            response = requests.get(json_url, timeout=3)                        #///////////////
+            response = requests.get(json_url, timeout=3)  # 发送GET请求到json_url，获取JSON格式的数据，设置超时时间为3秒
+            # 将响应的内容解析为JSON格式
             json_data = response.json()
             try:
                 # 解析JSON文件,获取name和url字段
@@ -500,22 +504,29 @@ for url in urls:
                 continue
         except:
             continue
+# 初始化一个空列表，用于存储频道信息
 channels = []
+# 遍历结果列表，每个结果代表一行数据
 for result in results:
+    # 去除每行数据首尾的空白字符
     line = result.strip()
     try:
-        # 尝试分割字符串，如果格式不正确则引发 ValueError
-        channel_name, channel_url = line.split(',', 1)  # 使用逗号分割一次
+        # 尝试使用逗号分割字符串，分割一次，返回一个包含两部分的元组
+        channel_name, channel_url = line.split(',', 1)
+        # 如果分割成功，将频道名称和频道URL作为元组添加到channels列表中
         channels.append((channel_name, channel_url))
     except ValueError:
-        # 如果发生 ValueError 则打印错误信息并跳过该行
+        # 如果分割失败，即数据格式不正确，打印错误信息并跳过当前行
         print(f"跳过无法解析的行: {line}")
-# 打开文本文件以追加的形式写入
+# 使用with语句打开"iptv.txt"文件，以追加模式'a'写入，指定文件编码为'utf-8'
 with open("iptv.txt", 'a', encoding='utf-8') as file:
+    # 遍历channels列表，列表中的每个元素都是一个包含频道名称和URL的元组
     for channel_name, channel_url in channels:
+        # 将频道名称和URL写入文件，以逗号分隔，后跟换行符
         file.write(f"{channel_name},{channel_url}\n")
-print("频道列表文件iptv.txt追加写入成功！")
 
+# 打印成功信息，告知用户频道列表已成功追加写入到文件中
+print("频道列表文件iptv.txt追加写入成功！")
 
 
 ######################################################################################################################
