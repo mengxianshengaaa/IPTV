@@ -342,7 +342,7 @@ for url in urls:
                 valid_urls.append(result)
     for url in valid_urls:
         print(url)
-        print("URL获取完成")
+    print("URL获取完成")
 
     # 遍历网址列表,获取JSON文件并解析
     for url in valid_urls:
@@ -976,7 +976,7 @@ for line in lines:
 with open('酒店优选.txt', 'w', encoding="utf-8") as file:
  file.writelines(unique_lines)
 #任务结束,删除不必要的过程文件
-files_to_remove = ['去重.txt', "2.txt", "iptv.txt", "e.txt", "a0.txt", "a.txt", "a1.txt", "b.txt", "c.txt", "c1.txt", "c2.txt", "d.txt", "f.txt", "o1.txt", "o.txt", "酒店源.txt"]
+files_to_remove = ['去重.txt', "2.txt", "iptv#.txt", "e.txt", "a0.txt", "a.txt", "a1.txt", "b.txt", "c.txt", "c1.txt", "c2.txt", "d.txt", "f.txt", "o1.txt", "o.txt", "酒店源.txt"]
 for file in files_to_remove:
     if os.path.exists(file):
         os.remove(file)
