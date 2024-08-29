@@ -21,6 +21,11 @@ import cv2
 from bs4 import BeautifulSoup
 from urllib.parse import urlparse
 from translate import Translator  # 导入Translator类,用于文本翻译
+import requests
+import re
+import concurrent.futures
+from selenium import webdriver
+from selenium.webdriver.chrome.options import Options
 
 urls = [
     "https://fofa.info/result?qbase64=IlpIR1hUViIgJiYgcmVnaW9uPSJndWFuZ2Rvbmci",  # 广东
@@ -122,17 +127,15 @@ for url in urls:
                             line = line.strip()
                             if line:
                                 name, channel_url = line.split(',')
-                                urls = channel_url.split('/', 3)
-                                url_data = json_url.split('/', 3)
-                                ip_port = url_data[2]
-                                urls[2] = urls[2].replace(urls[2].split('/')[2].split(':')[0], ip_port.split(':')[0])
-                                urls[2] = urls[2].replace(urls[2].split('/')[2].split(':')[1], ip_port.split(':')[1])
-                                if len(urls) >= 4:
-                                    urld = (f"{urls[0]}//{urls[2]}/{urls[3]}")
-                                else:
-                                    urld = (f"{urls[0]}//{urls[2]}")
+                                # 提取行中的 URL
+                                url_in_line = channel_url
+                                # 提取 json_url 的 IP 和端口
+                                ip_port_in_json_url = json_url.split('//')[1].split('/')[0]
+                                # 构建新的 URL
+                                new_url = url_in_line.replace(url_in_line.split('//')[1].split(':')[0], ip_port_in_json_url.split(':')[0])
+                                new_url = new_url.replace(url_in_line.split('//')[1].split(':')[1], ip_port_in_json_url.split(':')[1])
                                 with open('iptv.txt', 'a', encoding='utf-8') as outfile:
-                                    outfile.write(f"{name},{urld}\n")
+                                    outfile.write(f"{name},{new_url}\n")
                 except Exception as e:
                     print(f"Error processing line in JSON: {e}")
             except Exception as e:
@@ -141,6 +144,7 @@ for url in urls:
         print(f"Error with URL {url}: {e}")
 
 print("频道列表文件 iptv.txt 获取完成！")
+
 
 
 
