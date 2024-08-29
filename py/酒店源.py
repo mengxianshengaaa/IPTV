@@ -139,7 +139,8 @@ for url in urls:
                             # 检查分割后的urls列表长度是否至少为4
                             if len(urls) >= 4:
                                 # 构造一个新的URL字符串
-                                urld = (f"{urls[0]}//{urls[3]}")   #{url_data[2]}/
+                                #urld = (f"{urls[0]}//{url_data[2]}/{urls[3]}")   #原
+                                urld = f"http://{modified_ip}/{'/'.join(urls[3:])}"
                             else:
                                 urld = (f"{urls[0]}//{url_data[2]}")
                             print(f"{name},{urld}")
