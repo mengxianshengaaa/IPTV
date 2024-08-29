@@ -53,7 +53,7 @@ def modify_urls(url):
 
 def is_url_accessible(url):
     try:
-        response = requests.get(url, timeout=10)
+        response = requests.get(url, timeout=3)
         if 200 <= response.status_code <= 401:
             return url
     except requests.exceptions.RequestException:
@@ -106,7 +106,7 @@ for url in urls:
         try:
             # 发送GET请求获取JSON文件,设置超时时间为0.5秒
             json_url = f"{url}"
-            response = requests.get(json_url, timeout=10)################################
+            response = requests.get(json_url, timeout=3)################################
             json_data = response.content.decode('utf-8')
             try:
                     # 按行分割数据
@@ -292,7 +292,7 @@ def modify_urls(url):
 
 def is_url_accessible(url):
     try:
-        response = requests.get(url, timeout=10)
+        response = requests.get(url, timeout=3)
         if 200 <= response.status_code <= 401:
             return url
     except requests.exceptions.RequestException:
@@ -357,7 +357,7 @@ for url in urls:
             # 将原始URL赋值给json_url变量
             json_url = f"{url}"
             # 使用requests库发起一个GET请求到json_url，超时时间设置为3秒
-            response = requests.get(json_url, timeout=10)
+            response = requests.get(json_url, timeout=3)
             # 将响应的内容解析为JSON格式
             json_data = response.json()
             try:
