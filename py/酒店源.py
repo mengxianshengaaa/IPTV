@@ -240,10 +240,10 @@ for url in valid_urls:
                             name = name.replace("电视剧", "影视")
                             name = name.replace("奥运匹克", "")
                             results.append(f"{name},{urld}")
+                except:
+                    continue
             except:
                 continue
-        except:
-            continue
 channels = []
 for result in results:
     line = result.strip()
