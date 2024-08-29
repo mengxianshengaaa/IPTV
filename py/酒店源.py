@@ -114,19 +114,19 @@ urls = set(x_urls)
 # 初始化一个空列表，用于存储验证后的可访问URL
 valid_urls = []
     #   多线程获取可用url
-    with concurrent.futures.ThreadPoolExecutor(max_workers=100) as executor:
-        futures = []
-        for url in urls:
-            url = url.strip()
-            modified_urls = modify_urls(url)
-            for modified_url in modified_urls:
-                futures.append(executor.submit(is_url_accessible, modified_url))
-        for future in concurrent.futures.as_completed(futures):
-            result = future.result()
-            if result:
-                valid_urls.append(result)
-    for url in valid_urls:
-        print(url)
+with concurrent.futures.ThreadPoolExecutor(max_workers=100) as executor:
+    futures = []
+    for url in urls:
+        url = url.strip()
+        modified_urls = modify_urls(url)
+        for modified_url in modified_urls:
+            futures.append(executor.submit(is_url_accessible, modified_url))
+    for future in concurrent.futures.as_completed(futures):
+        result = future.result()
+        if result:
+            valid_urls.append(result)
+for url in valid_urls:
+    print(url)
 # 遍历网址列表,获取JSON文件并解析
 for url in valid_urls:
     try:
