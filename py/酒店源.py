@@ -40,7 +40,7 @@ urls = [
     "https://fofa.info/result?qbase64=IlpIR1hUViIgJiYgcmVnaW9uPSJ6aGVqaWFuZyI=",#浙江#
     "https://fofa.info/result?qbase64=IlpIR1hUViIgJiYgcmVnaW9uPSJoZWJlaSI%3D",#河北#
 ]
-#定义网址替换规则
+#定义网址替换规则http://ip:port/ZHGXTV/Public/json/live_interface.txt
 def modify_urls(url):
     modified_urls = []
     ip_start_index = url.find("//") + 2
@@ -290,7 +290,7 @@ urls = [
     "https://fofa.info/result?qbase64=ImlwdHYvbGl2ZS96aF9jbi5qcyIgJiYgY2l0eT0ieXVsaW4i",#玉林
     "https://fofa.info/result?qbase64=ImlwdHYvbGl2ZS96aF9jbi5qcyIgJiYgY291bnRyeT0iQ04iICYmIHJlZ2lvbj0ibGlhb25pbmci",  # Liaoning (辽宁)
 ]
-def modify_urls(url):
+def modify_urls(url):  #网址替换规则http://ip:port/iptv/live/1000.json?key=txiptv
     modified_urls = []
     ip_start_index = url.find("//") + 2
     ip_end_index = url.find(":", ip_start_index)
