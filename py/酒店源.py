@@ -82,11 +82,25 @@ with open('iptv.txt', 'w', encoding='utf-8') as outfile:
                 if 'hls' in line and ('udp' not in line and 'rtp' not in line):
                     line = line.strip()
                     if line:
-                        # 直接使用原始URL，不进行IP变体生成
+                        # 解析json_url以提取IP和端口
+                        parsed_json_url = urlparse(json_url)
+                        json_ip = parsed_json_url.hostname
+                        json_port = ':' + parsed_json_url.port if parsed_json_url.port else ''
+                        
+                        # 分割行以获取频道名和原始URL
+                        name, channel_url = line.split(',')
+                        
+                        # 替换原始URL中的IP地址和端口为json_url中的IP地址和端口
+                        new_channel_url = channel_url.replace(channel_url.split('/')[2], json_ip)
+                        if json_port:
+                            new_channel_url = new_channel_url.replace(f":{channel_url.split(':')[1]}", json_port)
+
                         # 写入到文件中
-                        outfile.write(line + '\n')
+                        outfile.write(f"{name},{new_channel_url}\n")
         except requests.exceptions.RequestException as e:
             print(f"Error fetching or processing the JSON data: {e}")
+
+print("频道列表文件iptv.txt获取完成！")
 print("频道列表文件iptv.txt获取完成！")
 
 
