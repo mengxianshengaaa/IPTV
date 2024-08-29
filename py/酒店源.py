@@ -125,10 +125,10 @@ for url in urls:
                         line = line.strip()
                         if line:
                             name, channel_url = line.split(',')
-                            urls = channel_url.split('/', 3)
-                            url_data = json_url.split('/', 3)
+                            urls = channel_url.split('/', 5)
+                            url_data = json_url.split('/', 5)
                             if len(urls) >= 3:
-                                urld = (f"{urls[0]}//{url_data[2]}/{urls[2]}")
+                                urld = (f"{urls[0]}//{url_data[1]}/{urls[2]}/{urls[3]}/{urls[4]}")
                             else:
                                 urld = (f"{urls}")
                             print(f"{name},{urld}")
