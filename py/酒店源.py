@@ -133,9 +133,10 @@ for url in urls:
                             # 按照逗号分隔，获取频道名称和频道URL
                             name, channel_url = line.split(',')
                             # 将频道URL按照'/'分割成多个部分
-                            urls = channel_url.split('/', 3)
+                            urls = channel_url.split('/', 3) #原
+                            urls = channel_url.split('/')
                             # 假设json_url是另一个变量，这里也按照'/'分割
-                            url_data = json_url.split('/', 3)
+                            #url_data = json_url.split('/', 3)  先注释掉
                             # 检查分割后的urls列表长度是否至少为4
                             if len(urls) >= 4:
                                 # 构造一个新的URL字符串
