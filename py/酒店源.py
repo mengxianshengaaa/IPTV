@@ -85,27 +85,60 @@ for url in urls:
     # urls = list(set(urls_all))  # 去重得到唯一的URL列表
     urls = set(urls_all)  # 去重得到唯一的URL列表
     x_urls = []
-
-# 遍历网址列表，获取JSON文件并解析
-results = []
-for url in urls:
-    try:
-        response = requests.get(url, timeout=1)
-        json_data = response.content.decode('utf-8')
-        
-        lines = json_data.split('\n')
-        for line in lines:
-            line = line.strip()
-            if not line or ('udp' in line and 'rtp' in line):
-                continue
-            if 'hls' in line:
-                name, channel_url = line.split(',')
-                # 使用modify_urls函数替换IP地址和端口
-                for modified_url in modify_urls(channel_url):
-                    if is_url_accessible(modified_url):
-                        # 替换频道名称中的特定文本
-                        if name:
-                            name = name.replace("高清电影", "影迷电影")
+    for url in urls:  # 对urls进行处理,ip第四位修改为1,并去重
+        url = url.strip()
+        ip_start_index = url.find("//") + 2
+        ip_end_index = url.find(":", ip_start_index)
+        ip_dot_start = url.find(".") + 1
+        ip_dot_second = url.find(".", ip_dot_start) + 1
+        ip_dot_three = url.find(".", ip_dot_second) + 1
+        base_url = url[:ip_start_index]  # http:// or https://
+        ip_address = url[ip_start_index:ip_dot_three]
+        port = url[ip_end_index:]
+        ip_end = "1"
+        modified_ip = f"{ip_address}{ip_end}"
+        x_url = f"{base_url}{modified_ip}{port}"
+        x_urls.append(x_url)
+    urls = set(x_urls)  # 去重得到唯一的URL列表
+    valid_urls = []
+    #   多线程获取可用url
+    with concurrent.futures.ThreadPoolExecutor(max_workers=100) as executor:
+        futures = []
+        for url in urls:
+            url = url.strip()
+            modified_urls = modify_urls(url)
+            for modified_url in modified_urls:
+                futures.append(executor.submit(is_url_accessible, modified_url))
+        for future in concurrent.futures.as_completed(futures):
+            result = future.result()
+            if result:
+                valid_urls.append(result)
+    for url in valid_urls:
+        print(url)
+    # 遍历网址列表,获取JSON文件并解析
+    for url in valid_urls:
+        try:
+            # 发送GET请求获取JSON文件,设置超时时间为0.5秒
+            json_url = f"{url}"
+            response = requests.get(json_url, timeout=1)################################
+            json_data = response.content.decode('utf-8')
+            try:
+                    # 按行分割数据
+             lines = json_data.split('\n')
+             for line in lines:
+                 if 'hls' in line and ('udp' not in line or 'rtp' not in line):  #行中需包含m3u,但排除udp和trp
+                        line = line.strip()
+                        if line:
+                            name, channel_url = line.split(',')
+                            urls = channel_url.split('/', 3)
+                            url_data = json_url.split('/', 3)
+                            if len(urls) >= 3:
+                                urld = (f"http://{urls[1]/{urls[2]/{urls[3]}")
+                            else:
+                                urld = (f"{urls[0]}//{url_data[2]}")
+                            print(f"{name},{urld}")
+                        if name and urld:
+                            name = name.replace("高清电影", "影迷电影")                            
                             name = name.replace("中央", "CCTV")
                             name = name.replace("高清", "")
                             name = name.replace("HD", "")
@@ -208,24 +241,21 @@ for url in urls:
                             name = name.replace("影视剧", "影视")
                             name = name.replace("电视剧", "影视")
                             name = name.replace("奥运匹克", "")
-                        results.append(f"{name},{modified_url}")
-                        break  # 找到可访问的URL后跳出循环
-
-    except requests.exceptions.RequestException as e:
-        print(f"请求URL {url} 时发生错误: {e}")
-
-# 以下是处理results列表并写入文件的代码
+                            results.append(f"{name},{urld}")
+            except:
+                continue
+        except:
+            continue
 channels = []
 for result in results:
+    line = result.strip()
     if result:
         channel_name, channel_url = result.split(',')
         channels.append((channel_name, channel_url))
-
 with open("iptv.txt", 'w', encoding='utf-8') as file:
-    for channel_name, channel_url in channels:
-        file.write(f"{channel_name},{channel_url}\n")
-        print(f"{channel_name},{channel_url}")
-
+    for result in results:
+        file.write(result + "\n")
+        print(result)
 print("频道列表文件iptv.txt获取完成！")
 
 
