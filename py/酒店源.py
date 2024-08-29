@@ -110,15 +110,13 @@ for url in urls:
                 valid_urls.append(result)
     for url in valid_urls:
         print(url)
-    # 遍历网址列表,获取JSON文件并解析
 for url in valid_urls:
     # 遍历 valid_urls 列表中的每个 URL
     try:
-        # 发送 GET 请求获取 JSON 文件，设置超时时间为 3 秒（你代码中此处 timeout 的值为 3，不是你注释里的 0.5 秒）
+        # 发送 GET 请求获取 JSON 文件，设置超时时间为 3 秒
         json_url = f"{url}"
         response = requests.get(json_url, timeout=3)
         json_data = response.content.decode('utf-8')
-        # 将获取到的响应内容解码为 UTF-8 格式的字符串
         try:
             # 按行分割数据
             lines = json_data.split('\n')
@@ -131,7 +129,7 @@ for url in valid_urls:
                         name, channel_url = line.split(',')
                         urls = channel_url.split('/', 5)
                         url_data = json_url.split('/', 5)
-                        if len(urls) >= 5:
+                        if len(urls) >= 3:
                             # 构建新的 URL
                             urld = (f"{urls[0]}//{url_data[1]}/{urls[2]}/{urls[3]}/{urls[4]}")
                         else:
