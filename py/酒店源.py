@@ -156,9 +156,6 @@ for url in valid_urls:
         pass
 
                     # 写入到文件中
-                    with open('iptv.txt', 'a', encoding='utf-8') as outfile:
-                        outfile.write(new_line + '\n')
-    except requests.exceptions.RequestException as e:
-        print(f"Error fetching or processing the JSON data: {e}")
-
+with open('iptv.txt', 'a', encoding='utf-8') as outfile:
+     outfile.write(new_line + '\n')
 print("频道列表文件iptv.txt获取完成！")
