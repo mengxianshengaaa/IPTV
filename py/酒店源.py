@@ -142,18 +142,19 @@ for url in valid_urls:
                         name, channel_url = line.split(',')
                         urls = channel_url.split('/', 3)
                         url_data = json_url.split('/', 3)
+                        ip_port = url_data[2]
+                        urls[2] = urls[2].replace(urls[2].split('/')[2].split(':')[0], ip_port.split(':')[0])
+                        urls[2] = urls[2].replace(urls[2].split('/')[2].split(':')[1], ip_port.split(':')[1])
                         if len(urls) >= 4:
-                            # 获取 json_url 中的 ip 和 port
-                            ip_port = json_url.split('//')[1].split(':')[0] + ':' + json_url.split('//')[1].split(':')[1]
-                            urld = (f"{urls[0]}//{ip_port}/{urls[3]}")
+                            urld = (f"{urls[0]}//{urls[2]}/{urls[3]}")
                         else:
-                            # 获取 json_url 中的 ip 和 port
-                            ip_port = json_url.split('//')[1].split(':')[0] + ':' + json_url.split('//')[1].split(':')[1]
-                            urld = (f"{urls[0]}//{ip_port}")
+                            urld = (f"{urls[0]}//{urls[2]}")
+                        print(f"{name},{urld}")
         except:
             pass
     except:
         pass
+
 
                     # 写入到文件中
 with open('iptv.txt', 'a', encoding='utf-8') as outfile:
