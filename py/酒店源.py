@@ -1,8 +1,26 @@
-import requests
-import re
+#本程序只适用于酒店源的检测,请勿移植他用
+import time
 import concurrent.futures
 from selenium import webdriver
 from selenium.webdriver.chrome.options import Options
+from concurrent.futures import ThreadPoolExecutor
+import requests
+import re
+import os
+import threading
+from queue import Queue
+import queue
+from datetime import datetime
+import replace
+import fileinput
+from tqdm import tqdm
+from pypinyin import lazy_pinyin
+from opencc import OpenCC
+import base64
+import cv2
+from bs4 import BeautifulSoup
+from urllib.parse import urlparse
+from translate import Translator  # 导入Translator类,用于文本翻译
 
 urls = [
     "https://fofa.info/result?qbase64=IlpIR1hUViIgJiYgcmVnaW9uPSJndWFuZ2Rvbmci",  # 广东
