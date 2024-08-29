@@ -2,7 +2,7 @@ name: 网络收集
 
 on:
   schedule:
-    - cron: '35 3 */2 * *' # 这里更改自动运行的时间#_ud
+    - cron: '35 3 */12 * *' # 这里更改自动运行的时间#_ud
   workflow_dispatch:
     branches:
       - main
