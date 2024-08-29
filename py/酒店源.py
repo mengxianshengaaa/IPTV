@@ -133,7 +133,7 @@ for url in urls:
                             urls = channel_url.split('/', 3)
                             url_data = json_url.split('/', 3)
                             if len(urls) >= 3:
-                                urld = (f"http://{urls[1]/{urls[2]/{urls[3]}")
+                                urld = (f"url_data[0]/{urls[1]/{urls[2]/{urls[3]}")
                             else:
                                 urld = (f"{urls[0]}//{url_data[2]}")
                             print(f"{name},{urld}")
