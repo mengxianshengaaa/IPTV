@@ -130,36 +130,31 @@ for url in valid_urls:
 # 遍历网址列表,获取JSON文件并解析
 for url in valid_urls:
     try:
-        # 发送GET请求获取JSON文件,设置超时时间为0.5秒
-        response = requests.get(url, timeout=0.5)
+        json_url = f"{url}"
+        response = requests.get(json_url, timeout=1)
         json_data = response.content.decode('utf-8')
+        try:
+            lines = json_data.split('\n')
+            for line in lines:
+                if 'hls' in line and ('udp' not in line or 'rtp' not in line):
+                    line = line.strip()
+                    if line:
+                        name, channel_url = line.split(',')
+                        urls = channel_url.split('/', 3)
+                        url_data = json_url.split('/', 3)
+                        if len(urls) >= 4:
+                            # 获取 json_url 中的 ip 和 port
+                            ip_port = json_url.split('//')[1].split(':')[0] + ':' + json_url.split('//')[1].split(':')[1]
+                            urld = (f"{urls[0]}//{ip_port}/{urls[3]}")
+                        else:
+                            # 获取 json_url 中的 ip 和 port
+                            ip_port = json_url.split('//')[1].split(':')[0] + ':' + json_url.split('//')[1].split(':')[1]
+                            urld = (f"{urls[0]}//{ip_port}")
+        except:
+            pass
+    except:
+        pass
 
-        # 按行分割数据
-        lines = json_data.split('\n')
-        for line in lines:
-            # 行中需包含hls，但排除udp和rtp
-            if 'hls' in line and ('udp' not in line and 'rtp' not in line):
-                line = line.strip()
-                if line:
-                    # 分割行以获取频道名和原始URL
-                    name, channel_url = line.split(',')
-                    
-                    # 解析json_url以提取IP和端口
-                    parsed_json_url = urlparse(url)
-                    json_ip_with_port = parsed_json_url.hostname + ':' + parsed_json_url.port
-                    
-                    # 仅提取JSON中的IP部分用于替换，假设channel_url中的IP是直接跟在"http://"或"https://"之后
-                    channel_ip = channel_url.split('/')[2]
-                    
-                    # 替换原始URL中的IP地址为json_url中的IP地址和端口
-                    new_channel_url = channel_url.replace(channel_ip, json_ip_with_port)
-                    
-                    # 构造新的行
-                    new_line = f"{name},{new_channel_url}"
-                    
-                    # 打印新的行
-                    print(new_line)  # 打印新的行
-                    
                     # 写入到文件中
                     with open('iptv.txt', 'a', encoding='utf-8') as outfile:
                         outfile.write(new_line + '\n')
