@@ -52,7 +52,7 @@ def modify_urls(url):
 #定义超时时间以及是否返回正确的状态码
 def is_url_accessible(url):
     try:
-        response = requests.get(url, timeout=3)          #//////////////////
+        response = requests.get(url, timeout=10)          #//////////////////
         #if response.status_code == 200:
         if 200 <= response.status_code <= 401:
             return url
@@ -115,7 +115,7 @@ for url in urls:
         try:
             # 发送GET请求获取JSON文件,设置超时时间为0.5秒
             json_url = f"{url}"
-            response = requests.get(json_url, timeout=3)################################
+            response = requests.get(json_url, timeout=10)################################
             json_data = response.content.decode('utf-8')
             try:
                     # 按行分割数据
