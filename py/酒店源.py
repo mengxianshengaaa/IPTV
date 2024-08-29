@@ -300,7 +300,7 @@ def modify_urls(url):
     return modified_urls
 def is_url_accessible(url):
     try:
-        response = requests.get(url, timeout=3)          #//////////////////
+        response = requests.get(url, timeout=10)          #//////////////////
         if response.status_code == 200:
             return url
     except requests.exceptions.RequestException:
@@ -362,26 +362,39 @@ for url in urls:
     # 遍历网址列表,获取JSON文件并解析
     for url in valid_urls:
         try:
-            # 发送GET请求获取JSON文件,设置超时时间为0.5秒
             ip_start_index = url.find("//") + 2
+            # 找到URL中"//"的位置，并从该位置的下一个字符开始截取，直到找到第一个"/"字符
             ip_dot_start = url.find(".") + 1
+            # 从URL中找到第一个"."的位置，并从该位置的下一个字符开始截取，直到找到第二个"/"字符
             ip_index_second = url.find("/", ip_dot_start)
-            base_url = url[:ip_start_index]  # http:// or https://
+            base_url = url[:ip_start_index]  # 截取URL中的协议部分，例如"http://"或"https://"
+            # 截取从"//"之后到第一个"/"之前的部分，这通常是IP地址或域名
             ip_address = url[ip_start_index:ip_index_second]
+            # 构造一个新的URL，由基本URL和IP地址组成
             url_x = f"{base_url}{ip_address}"
+            # 将原始URL赋值给json_url变量
             json_url = f"{url}"
-            response = requests.get(json_url, timeout=3)                        #///////////////
+            # 使用requests库发起一个GET请求到json_url，超时时间设置为3秒
+            response = requests.get(json_url, timeout=10)
+            # 将响应的内容解析为JSON格式
             json_data = response.json()
             try:
-                # 解析JSON文件,获取name和url字段
+            # 尝试执行以下代码块，如果发生错误则跳转至except部分
+                # 解析JSON文件，获取'data'键对应的列表中的每个元素
                 for item in json_data['data']:
+                    # 检查每个元素是否为字典类型
                     if isinstance(item, dict):
+                        # 从字典中获取'name'键的值，如果键不存在则返回None
                         name = item.get('name')
+                        # 从字典中获取'url'键的值，如果键不存在则返回None
                         urlx = item.get('url')
+                        # 如果urlx包含'udp'或'rtp'字符串，则跳过当前循环的剩余部分
                         if 'udp' in urlx or 'rtp' in urlx:
-                            continue  # 跳过包含'udp'或'rtp'的行
+                            continue  # 跳过包含'udp'或'rtp'的url
+                        # 如果urlx以'http'开头，则直接使用这个url
                         if 'http' in urlx:
                             urld = f"{urlx}"
+                        # 如果urlx不以'http'开头，则在前面添加一个前缀（注意：这里的url_x变量未在代码中定义）
                         else:
                             urld = f"{url_x}{urlx}"
                         if name and urld:
