@@ -123,17 +123,23 @@ for url in urls:
             response = requests.get(json_url, timeout=3)################################
             json_data = response.content.decode('utf-8')
             try:
-                    # 按行分割数据
+              # 按行分割json格式的数据字符串
              lines = json_data.split('\n')
              for line in lines:
-                 if 'hls' in line and ('udp' not in line or 'rtp' not in line):  #行中需包含m3u,但排除udp和trp
-                        line = line.strip()
-                        if line:
+                 # 检查当前行是否包含'hls'，并且不包含'udp'和'rtp'
+                 if 'hls' in line and ('udp' not in line or 'rtp' not in line):
+                        line = line.strip()  # 去除行首尾的空白字符
+                        if line: # 确保行不为空
+                            # 按照逗号分隔，获取频道名称和频道URL
                             name, channel_url = line.split(',')
+                            # 将频道URL按照'/'分割成多个部分
                             urls = channel_url.split('/', 3)
+                            # 假设json_url是另一个变量，这里也按照'/'分割
                             url_data = json_url.split('/', 3)
+                            # 检查分割后的urls列表长度是否至少为4
                             if len(urls) >= 4:
-                                urld = (f"{urls[0]}//{url_data[2]}/{urls[3]}")
+                                # 构造一个新的URL字符串
+                                urld = (f"{urls[0]}//{urls[3]}")   #{url_data[2]}/
                             else:
                                 urld = (f"{urls[0]}//{url_data[2]}")
                             print(f"{name},{urld}")
