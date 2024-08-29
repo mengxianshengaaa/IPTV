@@ -1,4 +1,4 @@
-name: 网络收集
+name: 调试
 
 on:
   schedule:
