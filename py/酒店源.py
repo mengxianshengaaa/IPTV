@@ -244,7 +244,7 @@ for result in results:
 with open("iptv.txt", 'w', encoding='utf-8') as file:
     for result in results:
         file.write(result + "\n")
-        print(result)
+        #print(result)  #关闭频道名称和频道地址打印，缩短运行时间
 print("频道列表文件iptv.txt获取完成！")
 for line in fileinput.input("iptv.txt", inplace=True):  #打开文件,并对其进行关键词原地替换
     line = line.replace("河南河南", "河南")
