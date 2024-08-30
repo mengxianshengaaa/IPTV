@@ -34,9 +34,7 @@ import requests
 
 urls = [
     "https://fofa.info/result?qbase64=IlpIR1hUViIgJiYgcmVnaW9uPSJndWFuZ2Rvbmci",  #广东
-    "https://fofa.info/result?qbase64=IlpIR1hUViIgJiYgcmVnaW9uPSJzaGFueGki",  #山西
-    "https://fofa.info/result?qbase64=IlpIR1hUViIgJiYgcmVnaW9uPSJzaWNodWFuIg==",  #四川
-    "https://fofa.info/result?qbase64=IlpIR1hUViIgJiYgcmVnaW9uPSJoZW5hbiI=",  #河南
+    "https://fofa.info/result?qbase64=IlpIR1hUViIgJiYgcmVnaW9uPSJoZW5hbiI%3D",  #河南
     "https://fofa.info/result?qbase64=IlpIR1hUViIgJiYgcmVnaW9uPSJoZWJlaSI%3D", #河北
 ]
 
@@ -125,7 +123,7 @@ for url in urls:
                                 urld = (f"{urls[0]}//{url_data[2]}/{urls[3]}")
                             else:
                                 urld = (f"{urls}")
-                            #print(f"{name},{urld}")  #关闭频道名称和频道地址打印，缩短运行时间
+                            print(f"{name},{urld}")  #关闭频道名称和频道地址打印，缩短运行时间
                         if name and urld:
                             name = name.replace("高清电影", "影迷电影")                            
                             name = name.replace("中央", "CCTV")
@@ -244,7 +242,7 @@ for result in results:
 with open("iptv.txt", 'w', encoding='utf-8') as file:
     for result in results:
         file.write(result + "\n")
-        #print(result)  #关闭频道名称和频道地址打印，缩短运行时间
+        print(result)  #关闭频道名称和频道地址打印，缩短运行时间
 print("频道列表文件iptv.txt获取完成！")
 for line in fileinput.input("iptv.txt", inplace=True):  #打开文件,并对其进行关键词原地替换
     line = line.replace("河南河南", "河南")
@@ -381,7 +379,7 @@ for url in urls:
                         # 如果urlx不以'http'开头，则在前面添加一个前缀（注意：这里的url_x变量未在代码中定义）
                         else:
                             urld = f"{url_x}{urlx}"
-                        #print(f"{name},{urld}")  #关闭频道名称和频道地址打印，缩短运行时间
+                        print(f"{name},{urld}")  #关闭频道名称和频道地址打印，缩短运行时间
                         if name and urld:
                             name = name.replace("高清电影", "影迷电影")                            
                             name = name.replace("中央", "CCTV")
