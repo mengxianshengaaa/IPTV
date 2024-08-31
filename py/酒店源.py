@@ -45,7 +45,7 @@ def modify_urls(url):
     ip_start_index = url.find("//") + 2
     # 找到 URL 中 IP 地址结束的索引位置，从 ip_start_index 开始查找第一个 ":" 的位置
     ip_end_index = url.find(":", ip_start_index)
-    # 获取 URL 的基础部分，即从开头到 IP 地址开始的部分
+    # 找到 URL 中 IP 地址结束的索引位置，从 ip_start_index 开始查找第一个 ":" 的位置
     base_url = url[:ip_start_index]
     # 获取 URL 中的 IP 地址部分
     ip_address = url[ip_start_index:ip_end_index]
@@ -85,13 +85,13 @@ for url in urls:
     page_content = response.text
 
     # 查找所有符合指定格式的网址
-    pattern = r"http://\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}:\d+"  # 设置匹配的格式,如 http://8.8.8.8:8888
+    pattern = r"http://\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}:\d+"   # 设置匹配的格式,如 http://8.8.8.8:8888
     # 使用正则表达式在页面内容中查找所有符合格式的 URL
     urls_all = re.findall(pattern, page_content)
-    # urls = list(set(urls_all))  # 去重得到唯一的 URL 列表
-    urls = set(urls_all)  # 去重得到唯一的 URL 列表
+    # urls = list(set(urls_all))  # 去重得到唯一的URL列表
+    urls = set(urls_all)  # 去重得到唯一的URL列表
     x_urls = []
-    for url in urls:  # 对 urls 进行处理，ip 第四位修改为 1，并去重
+    for url in urls:  # 对urls进行处理,ip第四位修改为1,并去重
         url = url.strip()
         # 找到 URL 中 IP 地址开始的索引位置，"//" 后两个字符开始为 IP 地址起始位置
         ip_start_index = url.find("//") + 2
@@ -117,9 +117,9 @@ for url in urls:
         x_url = f"{base_url}{modified_ip}{port}"
         # 将新的 URL 添加到列表中
         x_urls.append(x_url)
-    urls = set(x_urls)  # 去重得到唯一的 URL 列表
+    urls = set(x_urls)  # 去重得到唯一的URL列表
     valid_urls = []
-    # 多线程获取可用 url
+    #   多线程获取可用url
     with concurrent.futures.ThreadPoolExecutor(max_workers=100) as executor:
         futures = []
         for url in urls:
@@ -136,7 +136,6 @@ for url in urls:
                 valid_urls.append(result)
     for url in valid_urls:
         print(url)
-
     # 遍历网址列表,获取JSON文件并解析
     for url in valid_urls:
         try:
