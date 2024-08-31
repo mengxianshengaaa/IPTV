@@ -176,6 +176,7 @@ for url in urls:
                             name = name.replace("CHC家", "家")
                             name = name.replace("CHC影", "影")
                             name = name.replace("-", "")
+                            name = name.replace("都市6", "都市")
                             name = name.replace(" ", "")
                             name = name.replace("PLUS", "+")
                             name = name.replace("＋", "+")
@@ -436,6 +437,7 @@ for url in urls:
                             name = name.replace("PLUS", "+")
                             name = name.replace("＋", "+")
                             name = name.replace("(", "")
+                            name = name.replace("综合体育", "")
                             name = name.replace(")", "")
                             name = name.replace("CHC", "")
                             name = name.replace("L", "")
@@ -527,6 +529,7 @@ for url in urls:
                             name = name.replace("奥运匹克", "")
                             name = name.replace("TVBTVB", "TVB")
                             name = name.replace("星空卫视", "动物杂技")
+                            urld = urld.replace("key=txiptv&playlive=1&authid=0", "")
                             results.append(f"{name},{urld}")
             except:
                 continue
