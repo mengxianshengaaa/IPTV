@@ -281,18 +281,6 @@ with open("iptv.txt", 'w', encoding='utf-8') as file:
         print(result)  #关闭频道名称和频道地址打印，缩短运行时间
 print("频道列表文件iptv.txt获取完成！")
 
-######################################################################################################################
-###################################################去除列表中的组播地址,酒店源验证整理
-def filter_lines(input_file, output_file):
-    with open(input_file, 'r', encoding='utf-8') as file:
-        lines = file.readlines()
-    filtered_lines = []
-    for line in lines:
-        if 'hls' in line:
-          if '东森' not in line and '龙祥' not in line:
-    with open(output_file, 'w', encoding='utf-8') as output_file:
-        output_file.writelines(filtered_lines)
-filter_lines("iptv.txt", "iptv.txt")
 
 
 
