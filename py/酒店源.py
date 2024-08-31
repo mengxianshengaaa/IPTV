@@ -555,7 +555,7 @@ for result in results:
 with open("iptv.txt", 'a', encoding='utf-8') as file:
     for channel_name, channel_url in channels:
         file.write(f"{channel_name},{channel_url}\n")
-        print(result)  #关闭频道名称和频道地址打印，缩短运行时间
+        print(f"{name},{urld}")  #关闭频道名称和频道地址打印，缩短运行时间
 print("频道列表文件iptv.txt追加写入成功！")
 
 def remove_duplicates(input_file, output_file):
