@@ -146,8 +146,9 @@ for url in urls:
             try:
                     # 按行分割数据
              lines = json_data.split('\n')
+             excluded_keywords = ['udp', 'rtp', '东森', '龙祥']   
              for line in lines:
-                 if 'hls' in line and ('udp' not in line and 'rtp' not in line and '东森' not in line and '龙祥' not in line):  #行中需包含m3u,但排除udp和trp
+                 if 'hls' in line and all(keyword not in line for keyword in excluded_keywords):
                         line = line.strip()
                         if line:
                             name, channel_url = line.split(',')
@@ -157,7 +158,7 @@ for url in urls:
                                 urld = (f"{urls[0]}//{url_data[2]}/{urls[3]}")
                             else:
                                 urld = (f"{urls}")
-                            print(f"{name},{urld}")  #关闭频道名称和频道地址打印，缩短运行时间
+                            #print(f"{name},{urld}")  #关闭频道名称和频道地址打印，缩短运行时间
                         if name and urld:
                             name = name.replace("高清电影", "影迷电影")                            
                             name = name.replace("中央", "CCTV")
@@ -419,7 +420,7 @@ for url in urls:
                         # 如果urlx不以'http'开头，则在前面添加一个前缀（注意：这里的url_x变量未在代码中定义）
                         else:
                             urld = f"{url_x}{urlx}"
-                        print(f"{name},{urld}")  #关闭频道名称和频道地址打印，缩短运行时间
+                        #print(f"{name},{urld}")  #关闭频道名称和频道地址打印，缩短运行时间
                         if name and urld:
                             name = name.replace("高清电影", "影迷电影")                            
                             name = name.replace("中央", "CCTV")
@@ -554,6 +555,7 @@ for result in results:
 with open("iptv.txt", 'a', encoding='utf-8') as file:
     for channel_name, channel_url in channels:
         file.write(f"{channel_name},{channel_url}\n")
+        print(result)  #关闭频道名称和频道地址打印，缩短运行时间
 print("频道列表文件iptv.txt追加写入成功！")
 
 def remove_duplicates(input_file, output_file):
