@@ -1,9 +1,0 @@
-音乐广播,#genre#
-怀集音乐台,http://live.xmcdn.com:80/live/966/64.m3u8
-西安音乐广播,https://stream3.xiancity.cn/4/sd/live.m3u8
-高清音乐台,http://live.xmcdn.com:80/live/1427/64.m3u8
-清晨音乐台,http://live.xmcdn.com:80/live/1011/64.m3u8
-老歌音乐台,http://live.xmcdn.com:80/live/2628/64.m3u8
-亚洲经典音乐台,http://live.xmcdn.com:80/live/1005/64.m3u8
-CNR音乐之声,http://ngcdn003.cnr.cn/live/yyzs/index.m3u8
-CNR经典音乐广播,http://ngcdn004.cnr.cn/live/dszs/index.m3u8
