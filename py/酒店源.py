@@ -264,7 +264,7 @@ for url in urls:
                             name = name.replace("影视剧", "影视")
                             name = name.replace("电视剧", "影视")
                             name = name.replace("奥运匹克", "")
-                            urld = urld.replace("index.m3u8", "index.m3u8?$智慧光迅")
+                            urld = urld.replace("index.m3u8", "index.m3u8?$智慧光迅听说名字越长越好看")
                             results.append(f"{name},{urld}")
             except:
                 continue
@@ -534,8 +534,8 @@ for url in urls:
                             name = name.replace("奥运匹克", "")
                             name = name.replace("TVBTVB", "TVB")
                             name = name.replace("星空卫视", "动物杂技")
-                            urld = urld.replace("key=txiptv&playlive=1&authid=0", "$智慧桌面")
-                            urld = urld.replace("key=txiptv&playlive=0&authid=0", "$智慧桌面")
+                            urld = urld.replace("&playlive=1&authid=0", "$智慧桌面洗了又洗")
+                            urld = urld.replace("&playlive=0&authid=0", "$智慧桌面洗了又洗")
                             results.append(f"{name},{urld}")
             except:
                 continue
