@@ -316,7 +316,6 @@ urls = [
     "https://fofa.info/result?qbase64=ImlwdHYvbGl2ZS96aF9jbi5qcyIgJiYgY291bnRyeT0iQ04iICYmIHJlZ2lvbj0i5rKz5Y2XIg%3D%3D",  # 河南
     "https://fofa.info/result?qbase64=ImlwdHYvbGl2ZS96aF9jbi5qcyIgJiYgcG9ydD0iODE4MSIgJiYgY2l0eT0iR3VpZ2FuZyI%3D",  #贵港8181
     "https://fofa.info/result?qbase64=ImlwdHYvbGl2ZS96aF9jbi5qcyIgJiYgY2l0eT0ieXVsaW4i",#玉林
-    "https://fofa.info/result?qbase64=ImlwdHYvbGl2ZS96aF9jbi5qcyIgJiYgY291bnRyeT0iQ04iICYmIHJlZ2lvbj0ibGlhb25pbmci",  # Liaoning (辽宁)
 ]
 def modify_urls(url):
     modified_urls = []
@@ -536,6 +535,7 @@ for url in urls:
                             name = name.replace("TVBTVB", "TVB")
                             name = name.replace("星空卫视", "动物杂技")
                             urld = urld.replace("key=txiptv&playlive=1&authid=0", "$智慧桌面")
+                            urld = urld.replace("key=txiptv&playlive=0&authid=0", "$智慧桌面")
                             results.append(f"{name},{urld}")
             except:
                 continue
