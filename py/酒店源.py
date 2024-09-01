@@ -534,7 +534,7 @@ for url in urls:
                             name = name.replace("奥运匹克", "")
                             name = name.replace("TVBTVB", "TVB")
                             name = name.replace("星空卫视", "动物杂技")
-                            urld = urld.replace("key=txiptv&playlive=1&authid=0", "不见黄河心不死")
+                            urld = urld.replace("key=txiptv&playlive=1&authid=0", "不见黄河心不死") #key=txiptv&playlive=1&authid=0
                             urld = urld.replace("key=txiptv&playlive=0&authid=0", "不见黄河心不死")
                             results.append(f"{name},{urld}")
             except:
