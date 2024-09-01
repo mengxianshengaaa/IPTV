@@ -17,8 +17,8 @@ CCTV4,http://111.225.49.155:9901/tsfile/live/faacts/0004_1.m3u8?
 CCTV5,http://106.46.35.133:808/hls/5/index.m3u8?$智慧光迅听说名字越长越好看
 CCTV5+,http://106.46.35.133:808/hls/18/index.m3u8?$智慧光迅听说名字越长越好看
 CCTV5,http://182.123.73.215:8090/hls/5/index.m3u8?$智慧光迅听说名字越长越好看
-CCTV5,http://111.225.49.66:9901/tsfile/live/0005_1.m3u8?
 CCTV5+,http://111.225.49.66:9901/tsfile/live/0016_1.m3u8?
+CCTV5,http://111.225.49.66:9901/tsfile/live/0005_1.m3u8?
 CCTV5,http://111.225.49.155:9901/tsfile/live/0005_1.m3u8?
 CCTV5+,http://111.225.49.155:9901/tsfile/live/0016_1.m3u8?
 CCTV6,http://106.46.35.133:808/hls/6/index.m3u8?$智慧光迅听说名字越长越好看
@@ -59,8 +59,8 @@ CCTV14,http://111.225.49.66:9901/tsfile/live/faacts/0014_1.m3u8?
 CCTV14,http://111.225.49.155:9901/tsfile/live/faacts/0014_1.m3u8?
 CCTV15,http://106.46.35.133:808/hls/15/index.m3u8?$智慧光迅听说名字越长越好看
 CCTV15,http://182.123.73.215:8090/hls/15/index.m3u8?$智慧光迅听说名字越长越好看
-CCTV15,http://111.225.49.66:9901/tsfile/live/0015_1.m3u8?
 CCTV15,http://111.225.49.155:9901/tsfile/live/0015_1.m3u8?
+CCTV15,http://111.225.49.66:9901/tsfile/live/0015_1.m3u8?
 CCTV17,http://106.46.35.133:808/hls/17/index.m3u8?$智慧光迅听说名字越长越好看
 CCTV17,http://111.225.49.66:9901/tsfile/live/0019_1.m3u8?
 CCTV17,http://111.225.49.155:9901/tsfile/live/0019_1.m3u8?
