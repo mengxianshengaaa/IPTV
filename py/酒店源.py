@@ -419,8 +419,8 @@ for url in urls:
                         if 'udp' in urlx or 'rtp' in urlx:
                             continue  # 跳过包含'udp'或'rtp'的url
                        # 使用正则表达式判断 IP
-                        if re.search(r'182\.117\.136\.\d{1,3}\.\d{1,3}', urlx):
-                             continue                 
+                        if re.search(r'182\.117\.136\.\d{1,3}\:\d{1,5}|1\.1\.1\.\d{1,3}\:\d{1,5}|1\.1\.1\.\d{1,3}\:\d{1,5}', urlx):  #(1,5)表示1到5位数
+                            continue                 
                         # 如果urlx以'http'开头，则直接使用这个url
                         if 'http' in urlx:
                             urld = f"{urlx}"
