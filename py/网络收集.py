@@ -438,7 +438,7 @@ with open(output_file_path, 'w', encoding='utf-8') as output_file:
                 start_time = time.time()
                 frame_count = 0
                 # 尝试捕获4秒内的帧
-                while frame_count < 25 and (time.time() - start_time) < 6:
+                while frame_count < 60 and (time.time() - start_time) < 3:
                     ret, frame = cap.read()
                     if not ret:
                         break
@@ -447,7 +447,7 @@ with open(output_file_path, 'w', encoding='utf-8') as output_file:
                 cap.release()
 
                 # 根据捕获的帧数判断状态并记录结果
-                if frame_count >= 25:  # 6秒内超过25帧则写入
+                if frame_count >= 60:  # 6秒内超过25帧则写入
                     detected_ips[ip_key] = {'status': 'ok'}
                     output_file.write(line)  # 写入检测通过的行
                 else:
