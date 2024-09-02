@@ -34,9 +34,9 @@ import requests
 
 urls = [
     "https://fofa.info/result?qbase64=IlpIR1hUViIgJiYgcmVnaW9uPSJndWFuZ2Rvbmci",  #广东
-    #"https://fofa.info/result?qbase64=IlpIR1hUViIgJiYgcmVnaW9uPSJoZW5hbiI%3D",  #河南
+    "https://fofa.info/result?qbase64=IlpIR1hUViIgJiYgcmVnaW9uPSJoZW5hbiI%3D",  #河南
     "https://fofa.info/result?qbase64=IlpIR1hUViIgJiYgcmVnaW9uPSJoZW5hbiIgJiYgcG9ydD0iODA5MCI=",  #河南8090
-    #"https://fofa.info/result?qbase64=IlpIR1hUViIgJiYgcmVnaW9uPSJoZWJlaSI%3D", #河北
+    "https://fofa.info/result?qbase64=IlpIR1hUViIgJiYgcmVnaW9uPSJoZWJlaSI%3D", #河北
 ]
 
 def modify_urls(url):
@@ -55,15 +55,15 @@ def modify_urls(url):
     # 定义一个字符串，表示 IP 地址的结尾部分
     ip_end = "/ZHGXTV/Public/json/live_interface.txt"
     # 遍历 1 到 255 的数字
-    for i in range(1, 256):
+  #  for i in range(1, 256):
         # 修改 IP 地址的最后一位数字
-        modified_ip = f"{ip_address[:-1]}{i}"
+  #      modified_ip = f"{ip_address[:-1]}{i}"
         # 组合成新的 URL
-        modified_url = f"{base_url}{modified_ip}{port}{ip_end}"
+  #      modified_url = f"{base_url}{modified_ip}{port}{ip_end}"
         # 将新的 URL 添加到列表中
-        modified_urls.append(modified_url)
+  #      modified_urls.append(modified_url)
     # 返回修改后的 URL 列表
-    return modified_urls
+  #  return modified_urls
 
 def is_url_accessible(url):
     try:
@@ -313,14 +313,14 @@ for line in fileinput.input("iptv.txt", inplace=True):  #打开文件,并对其�
 ######################################################################################################################
 #定义智慧桌面采集地址
 urls = [
-    #"https://fofa.info/result?qbase64=ImlwdHYvbGl2ZS96aF9jbi5qcyIgJiYgY291bnRyeT0iQ04iICYmIHJlZ2lvbj0i5rKz5YyXIg%3D%3D",  #河北
-    #"https://fofa.info/result?qbase64=ImlwdHYvbGl2ZS96aF9jbi5qcyIgJiYgY291bnRyeT0iQ04iICYmIHJlZ2lvbj0i5bm%2F5LicIg%3D%3D",  #广东
-    #"https://fofa.info/result?qbase64=ImlwdHYvbGl2ZS96aF9jbi5qcyIgJiYgY291bnRyeT0iQ04iICYmIHJlZ2lvbj0i5rKz5Y2XIg%3D%3D",  # 河南
-    #"https://fofa.info/result?qbase64=ImlwdHYvbGl2ZS96aF9jbi5qcyIgJiYgY291bnRyeT0iQ04iICYmIHBvcnQ9IjgwOTYi",  # 8096
+    "https://fofa.info/result?qbase64=ImlwdHYvbGl2ZS96aF9jbi5qcyIgJiYgY291bnRyeT0iQ04iICYmIHJlZ2lvbj0i5rKz5YyXIg%3D%3D",  #河北
+    "https://fofa.info/result?qbase64=ImlwdHYvbGl2ZS96aF9jbi5qcyIgJiYgY291bnRyeT0iQ04iICYmIHJlZ2lvbj0i5bm%2F5LicIg%3D%3D",  #广东
+    "https://fofa.info/result?qbase64=ImlwdHYvbGl2ZS96aF9jbi5qcyIgJiYgY291bnRyeT0iQ04iICYmIHJlZ2lvbj0i5rKz5Y2XIg%3D%3D",  # 河南
+    "https://fofa.info/result?qbase64=ImlwdHYvbGl2ZS96aF9jbi5qcyIgJiYgY291bnRyeT0iQ04iICYmIHBvcnQ9IjgwOTYi",  # 8096
     "https://fofa.info/result?qbase64=ImlwdHYvbGl2ZS96aF9jbi5qcyIgJiYgY291bnRyeT0iQ04iICYmIHBvcnQ9Ijk5MDEi",  # 9901
     "https://fofa.info/result?qbase64=ImlwdHYvbGl2ZS96aF9jbi5qcyIgJiYgY291bnRyeT0iQ04iICYmIHBvcnQ9Ijk5MDIi",  # 9902
-    #"https://fofa.info/result?qbase64=ImlwdHYvbGl2ZS96aF9jbi5qcyIgJiYgY291bnRyeT0iQ04iICYmIGNpdHk9Imd1aWdhbmci",  #贵港
-    #"https://fofa.info/result?qbase64=ImlwdHYvbGl2ZS96aF9jbi5qcyIgJiYgY291bnRyeT0iQ04iICYmIHBvcnQ9IjgxODEii",#8181
+    "https://fofa.info/result?qbase64=ImlwdHYvbGl2ZS96aF9jbi5qcyIgJiYgY291bnRyeT0iQ04iICYmIGNpdHk9Imd1aWdhbmci",  #贵港
+    "https://fofa.info/result?qbase64=ImlwdHYvbGl2ZS96aF9jbi5qcyIgJiYgY291bnRyeT0iQ04iICYmIHBvcnQ9IjgxODEii",#8181
 ]
 def modify_urls(url):
     modified_urls = []
@@ -330,11 +330,11 @@ def modify_urls(url):
     ip_address = url[ip_start_index:ip_end_index]
     port = url[ip_end_index:]
     ip_end = "/iptv/live/1000.json?key=txiptv"
-    for i in range(1, 256):
-        modified_ip = f"{ip_address[:-1]}{i}"
-        modified_url = f"{base_url}{modified_ip}{port}{ip_end}"
-        modified_urls.append(modified_url)
-    return modified_urls
+   # for i in range(1, 256):
+      #  modified_ip = f"{ip_address[:-1]}{i}"
+      #  modified_url = f"{base_url}{modified_ip}{port}{ip_end}"
+     #   modified_urls.append(modified_url)
+  #  return modified_urls
 
 def is_url_accessible(url):
     try:
