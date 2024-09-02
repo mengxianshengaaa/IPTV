@@ -37,8 +37,8 @@ urls = [
        'https://raw.githubusercontent.com/frxz751113/AAAAA/main/IPTV/TW.txt',
        'https://raw.githubusercontent.com/ljlfct01/ljlfct01.github.io/main/list.%E8%87%AA%E7%94%A8',
        'https://notabug.org/qcfree/TVBox-api/raw/main/live.txt', #通用源
-       '',
-       '',
+       'https://47.93.222.173/gonglijun010/ys0826/-/raw/05f5829362d550d96c6c3196b3451b6a3effde67/fmml_ipv4_0206.txt?inline=false',
+       'https://notabug.org/bxtv/a/raw/master/315.txt',
        '',
        '',
        '',
@@ -326,7 +326,7 @@ excluded_keywords = [
 ]
 
 # 定义一个包含所有要提取的关键词的列表
-extract_keywords = ['9901/tsfile',  
+extract_keywords = ['9901/tsfile',  '9931/tsfile',  
        '1905', '凤凰卫视', '人间卫视', '亚洲卫视', '香港卫视', '神乐', '翡翠台', '凤凰香港', '凤凰中文', '凤凰资讯', 'AXN', 'AMC', '香蕉', '电影台', '大爱', '东森', 'MTV', '华视', 
        '中天', '天良', '翡翠台', '美亚', '星影', '纬来', '天映', '无线', '华剧台', '华丽台', '剧台', 'Movie', '八大', '采昌', '靖天', '美亚', '民視', '探索', '旅游', '影视2', '影视3', 
        '中视', '豬哥亮', 'TVB', '东森', '公视', '华视', '寰宇', '戏剧', '靖', '龙华', '龙祥', '民视', '三立', '中视', '猪哥亮', '综艺', '新闻', '影迷', '影剧', '电视剧'
