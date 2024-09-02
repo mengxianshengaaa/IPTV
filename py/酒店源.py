@@ -40,24 +40,24 @@ urls = [
 ]
 
 def modify_urls(url):
-    # 创建一个空列表用于存储修改后的 URL
-    modified_urls = []
-    # 找到 URL 中 IP 地址开始的索引位置，"//" 后两个字符开始为 IP 地址起始位置
-    ip_start_index = url.find("//") + 2
-    # 找到 URL 中 IP 地址结束的索引位置，从 ip_start_index 开始查找第一个 ":" 的位置
-    ip_end_index = url.find(":", ip_start_index)
-    # 获取 URL 中的 IP 地址部分
-    ip_address = url[ip_start_index:ip_end_index]
-    # 获取 URL 中的端口部分
-    port = url[ip_end_index:]
     # 定义一个字符串，表示 IP 地址的结尾部分
     ip_end = "/ZHGXTV/Public/json/live_interface.txt"
+    # 找到 URL 中 "://" 的位置
+    protocol_end_index = url.find("://")
+    # 找到 URL 中 IP 地址开始的索引位置，"://" 后直到第一个 ":" 之前都是 IP 地址
+    ip_start_index = protocol_end_index + 3
+    # 找到 URL 中 IP 地址和端口之间的 ":" 的位置
+    port_start_index = url.find(":", ip_start_index)
+    # 获取 URL 中的协议部分
+    protocol = url[:protocol_end_index + 3]
+    # 获取 URL 中的 IP 地址部分
+    ip_address = url[ip_start_index:port_start_index]
+    # 获取 URL 中的端口部分
+    port = url[port_start_index:]
     # 组合成新的 URL
-    modified_url = f"{url[:ip_start_index]}{ip_address}{port}{ip_end}"
-    # 将新的 URL 添加到列表中
-    modified_urls.append(modified_url)
-    # 返回修改后的 URL 列表
-    return modified_urls
+    modified_url = f"{protocol}{ip_address}{port}{ip_end}"
+    # 返回修改后的 URL
+    return modified_url
 
 def is_url_accessible(url):
     try:
