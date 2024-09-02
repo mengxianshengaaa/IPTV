@@ -46,24 +46,18 @@ def modify_urls(url):
     ip_start_index = url.find("//") + 2
     # 找到 URL 中 IP 地址结束的索引位置，从 ip_start_index 开始查找第一个 ":" 的位置
     ip_end_index = url.find(":", ip_start_index)
-    # 找到 URL 中 IP 地址结束的索引位置，从 ip_start_index 开始查找第一个 ":" 的位置
-    base_url = url[:ip_start_index]
     # 获取 URL 中的 IP 地址部分
     ip_address = url[ip_start_index:ip_end_index]
     # 获取 URL 中的端口部分
     port = url[ip_end_index:]
     # 定义一个字符串，表示 IP 地址的结尾部分
     ip_end = "/ZHGXTV/Public/json/live_interface.txt"
-    # 遍历 1 到 255 的数字
-  #  for i in range(1, 256):
-        # 修改 IP 地址的最后一位数字
-  #      modified_ip = f"{ip_address[:-1]}{i}"
-        # 组合成新的 URL
-  #      modified_url = f"{base_url}{modified_ip}{port}{ip_end}"
-        # 将新的 URL 添加到列表中
-  #      modified_urls.append(modified_url)
+    # 组合成新的 URL
+    modified_url = f"{url[:ip_end_index]}{ip_end}"
+    # 将新的 URL 添加到列表中
+    modified_urls.append(modified_url)
     # 返回修改后的 URL 列表
-  #  return modified_urls
+    return modified_urls
 
 def is_url_accessible(url):
     try:
@@ -323,18 +317,25 @@ urls = [
     "https://fofa.info/result?qbase64=ImlwdHYvbGl2ZS96aF9jbi5qcyIgJiYgY291bnRyeT0iQ04iICYmIHBvcnQ9IjgxODEii",#8181
 ]
 def modify_urls(url):
+    # 创建一个空列表用于存储修改后的 URL
     modified_urls = []
+    # 找到 URL 中 IP 地址开始的索引位置，"//" 后两个字符开始为 IP 地址起始位置
     ip_start_index = url.find("//") + 2
+    # 找到 URL 中 IP 地址结束的索引位置，从 ip_start_index 开始查找第一个 ":" 的位置
     ip_end_index = url.find(":", ip_start_index)
-    base_url = url[:ip_start_index]
+    # 获取 URL 中的 IP 地址部分
     ip_address = url[ip_start_index:ip_end_index]
+    # 获取 URL 中的端口部分
     port = url[ip_end_index:]
+    # 定义一个字符串，表示 IP 地址的结尾部分
     ip_end = "/iptv/live/1000.json?key=txiptv"
-   # for i in range(1, 256):
-      #  modified_ip = f"{ip_address[:-1]}{i}"
-      #  modified_url = f"{base_url}{modified_ip}{port}{ip_end}"
-     #   modified_urls.append(modified_url)
-  #  return modified_urls
+    # 组合成新的 URL
+    modified_url = f"{url[:ip_end_index]}{ip_end}"
+    # 将新的 URL 添加到列表中
+    modified_urls.append(modified_url)
+    # 返回修改后的 URL 列表
+    return modified_urls
+
 
 def is_url_accessible(url):
     try:
