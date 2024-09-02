@@ -412,7 +412,7 @@ with open(file_path, 'r', encoding='utf-8') as file:
 # 获取总行数用于进度条
 total_lines = len(lines)
 # 写入通过检测的行到新文件
-with open(output_file_path, 'w', encoding='utf-8') as output_file:
+with open(output_file_path, 'a', encoding='utf-8') as output_file:
     # 使用tqdm显示进度条
     for i, line in tqdm(enumerate(lines), total=total_lines, desc="Processing", unit='line'):
         # 检查是否包含 'genre'
@@ -438,7 +438,7 @@ with open(output_file_path, 'w', encoding='utf-8') as output_file:
                 start_time = time.time()
                 frame_count = 0
                 # 尝试捕获4秒内的帧
-                while frame_count < 60 and (time.time() - start_time) < 3:
+                while frame_count < 50 and (time.time() - start_time) < 3:
                     ret, frame = cap.read()
                     if not ret:
                         break
@@ -447,7 +447,7 @@ with open(output_file_path, 'w', encoding='utf-8') as output_file:
                 cap.release()
 
                 # 根据捕获的帧数判断状态并记录结果
-                if frame_count >= 60:  # 6秒内超过25帧则写入
+                if frame_count >= 50:  # 6秒内超过25帧则写入
                     detected_ips[ip_key] = {'status': 'ok'}
                     output_file.write(line)  # 写入检测通过的行
                 else:
@@ -455,6 +455,38 @@ with open(output_file_path, 'w', encoding='utf-8') as output_file:
 # 打印结果
 for ip_key, result in detected_ips.items():
     print(f"IP Key: {ip_key}, Status: {result['status']}")
+
+
+
+def remove_duplicates(input_file, output_file):
+    # 用于存储已经遇到的URL和包含genre的行
+    seen_urls = set()
+    seen_lines_with_genre = set()
+    # 用于存储最终输出的行
+    output_lines = []
+    # 打开输入文件并读取所有行
+    with open(input_file, 'r', encoding='utf-8') as f:
+        lines = f.readlines()
+        print("去重前的行数：", len(lines))
+        # 遍历每一行
+        for line in lines:
+            # 使用正则表达式查找URL和包含genre的行,默认最后一行
+            urls = re.findall(r'[https]?[http]?[P2p]?[mitv]?://(?:[a-zA-Z]|[0-9]|[$-_@.&+]|[!*\\(\\),]|(?:%[0-9a-fA-F][0-9a-fA-F]))+', line)
+            genre_line = re.search(r'\bgenre\b', line, re.IGNORECASE) is not None
+            # 如果找到URL并且该URL尚未被记录
+            if urls and urls[0] not in seen_urls:
+                seen_urls.add(urls[0])
+                output_lines.append(line)
+            # 如果找到包含genre的行,无论是否已被记录,都写入新文件
+            if genre_line:
+                output_lines.append(line)
+    # 将结果写入输出文件
+    with open(output_file, 'w', encoding='utf-8') as f:
+        f.writelines(output_lines)
+    print("去重后的行数：", len(output_lines))
+# 使用方法
+remove_duplicates('网络收集.txt', '网络收集.txt')
+
 
 
 
