@@ -415,14 +415,15 @@ for url in urls:
                         name = item.get('name')
                         # 从字典中获取'url'键的值，如果键不存在则返回None
                         urlx = item.get('url')
-                        print(f"过滤要排除的url: {urlx}")
                         match = re.search(r'182\.117\.136\.\d{1,3}\.\d{1,3}\:\d{1,5}|192\.168\.\d{1,3}\.\d{1,3}\:\d{1,5}|10\.0\.0\.\d{1,3}\:\d{1,5}', urlx)
                         print(f"要排除的ip行: {match}")
                         # 如果urlx包含'udp'或'rtp'字符串，则跳过当前循环的剩余部分
                         if 'udp' in urlx or 'rtp' in urlx:
+                            print(f"Excluded line with keyword: {urlx}")
                             continue  # 跳过包含'udp'或'rtp'的url
                        # 使用正则表达式判断 IP
                         if match:
+                            print(f"Excluded IP: {match.group()}")
                             continue                 
                         # 如果urlx以'http'开头，则直接使用这个url
                         if 'http' in urlx:
