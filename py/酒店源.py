@@ -53,7 +53,7 @@ def modify_urls(url):
     # 获取 URL 中的 IP 地址部分
     ip_address = url[ip_start_index:port_start_index]
     # 获取 URL 中的端口部分
-    port = url[port_start_index:]
+    port = url[port_start_index + 1:]  # 跳过冒号本身
     # 组合成新的 URL
     modified_url = f"{protocol}{ip_address}{port}{ip_end}"
     # 返回修改后的 URL
