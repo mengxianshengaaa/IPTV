@@ -53,11 +53,9 @@ def modify_urls(url):
     # 定义一个字符串，表示 IP 地址的结尾部分
     ip_end = "/ZHGXTV/Public/json/live_interface.txt"
     # 组合成新的 URL
-    modified_url = f"{url[:ip_end_index]}{ip_end}"
+    modified_url = f"{url[:ip_start_index]}{ip_address}{port}{ip_end}"
     # 将新的 URL 添加到列表中
-    modified_urls.append(modified_url)
-    # 返回修改后的 URL 列表
-    return modified_urls
+    return [modified_url]
 
 def is_url_accessible(url):
     try:
@@ -330,12 +328,9 @@ def modify_urls(url):
     # 定义一个字符串，表示 IP 地址的结尾部分
     ip_end = "/iptv/live/1000.json?key=txiptv"
     # 组合成新的 URL
-    modified_url = f"{url[:ip_end_index]}{ip_end}"
+    modified_url = f"{url[:ip_start_index]}{ip_address}{port}{ip_end}"
     # 将新的 URL 添加到列表中
-    modified_urls.append(modified_url)
-    # 返回修改后的 URL 列表
-    return modified_urls
-
+    return [modified_url]
 
 def is_url_accessible(url):
     try:
