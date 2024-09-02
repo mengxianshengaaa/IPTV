@@ -416,7 +416,7 @@ for url in urls:
                         # 从字典中获取'url'键的值，如果键不存在则返回None
                         urlx = item.get('url')
                         # 如果urlx包含'udp'或'rtp'字符串，则跳过当前循环的剩余部分
-                        if 'udp' in urlx or 'rtp' in urlx or '/182' in urlx:
+                        if 'udp' in urlx or 'rtp' in urlx:
                             continue  # 跳过包含'udp'或'rtp'的url
                         # 如果urlx以'http'开头，则直接使用这个url
                         if 'http' in urlx:
@@ -584,9 +584,9 @@ def remove_duplicates(input_file, output_file):
     with open(output_file, 'w', encoding='utf-8') as f:
         f.writelines(output_lines)
     print("去重后的行数：", len(output_lines))
-
 # 使用方法
 remove_duplicates('iptv.txt', 'iptv.txt')
+
 
 
 ######################################################################################################################
@@ -597,7 +597,7 @@ def filter_lines(input_file, output_file):
     filtered_lines = []
     for line in lines:
         if ('hls' in line and 'm3u' in line) or ('tsfile' in line and 'm3u' in line):  #行中包含m3u的同时还要包含hls或者tsfile
-          if 'udp' not in line and 'rtp' not in line:   # and 'CCTV' not in line and '卫视' not in line  排除组播地址
+          if 'udp' not in line and 'rtp' not in line and '182.117.136' not in line:   # and 'CCTV' not in line and '卫视' not in line  排除组播地址
             filtered_lines.append(line)
     with open(output_file, 'w', encoding='utf-8') as output_file:
         output_file.writelines(filtered_lines)
