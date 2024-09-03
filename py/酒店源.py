@@ -546,7 +546,19 @@ with open("iptv.txt", 'a', encoding='utf-8') as file:
         print(result)  #关闭频道名称和频道地址打印，缩短运行时间
 print("频道列表文件iptv.txt追加写入成功！")
 
-# 定义要搜索的关键词
+
+######################################################################
+#定义一个关键词组，用于排除掉含有关键词的行
+keywords = ['CCTV', '卫视', '关键词 3']
+with open('iptv.txt', 'r', encoding='utf-8') as infile:
+    lines = infile.readlines()
+filtered_lines = [line for line in lines if not any(keyword in line for keyword in keywords)]
+with open('iptv.txt', 'w', encoding='utf-8') as outfile:
+    outfile.writelines(filtered_lines)
+#####################################################################
+
+#####################################################################
+# 定义要搜索的关键词，从文件中提取包含这个关键词的行，然后添加到另一个文件尾
 keywords = ['hls', 'tsfile']
 # 打开1.txt文件并读取内容
 with open('网络收集.txt', 'r', encoding='utf-8') as file:
@@ -557,8 +569,9 @@ filtered_lines = [line for line in lines if any(keyword in line for keyword in k
 with open('iptv.txt', 'a', encoding='utf-8') as file:
     file.writelines(filtered_lines)
 print("频道列表文件iptv.txt再次追加写入成功！")
+#####################################################################
 
-
+################################################按网址去除重复行#####
 def remove_duplicates(input_file, output_file):
     # 用于存储已经遇到的URL和包含genre的行
     seen_urls = set()
@@ -1034,16 +1047,16 @@ def check_and_write_file(input_file, output_file, keywords):
     else:
         print(f"文件已提取关键词并保存为: {output_file}")
 # 按类别提取关键词并写入文件
-#check_and_write_file('酒店源.txt',  'a0.txt',  keywords="央视频道, 8K, 4K, 4k")
-#check_and_write_file('酒店源.txt',  'a.txt',  keywords="央视频道, CCTV, 风云, 女性时尚, 地理世界, 音乐")
-#check_and_write_file('酒店源.txt',  'a1.txt',  keywords="央视频道")
-#check_and_write_file('酒店源.txt',  'b.txt',  keywords="卫视频道, 卫视, 凤凰, 星空")
+check_and_write_file('酒店源.txt',  'a0.txt',  keywords="央视频道, 8K, 4K, 4k")
+check_and_write_file('酒店源.txt',  'a.txt',  keywords="央视频道, CCTV, 风云, 女性时尚, 地理世界, 音乐")
+check_and_write_file('酒店源.txt',  'a1.txt',  keywords="央视频道")
+check_and_write_file('酒店源.txt',  'b.txt',  keywords="卫视频道, 卫视, 凤凰, 星空")
 check_and_write_file('酒店源.txt',  'c.txt',  keywords="影视频道, 剧, 选, 影")
 check_and_write_file('酒店源.txt',  'e.txt',  keywords="港澳频道, shuma, TVB, 珠江台, 澳门, 龙华, 广场舞, 动物杂技, 民视, 中视, 华视, AXN, MOMO, 采昌, 耀才, 靖天, 镜新闻, 靖洋, 莲花, 年代, 爱尔达, 好莱坞, 华丽, 非凡, 公视, \
 寰宇, 无线, EVEN, MoMo, 爆谷, 面包, momo, 唐人, 中华小, 三立, 37.27, 猪哥亮, 综艺, Movie, 八大, 中天, 中视, 东森, 凤凰, 天映, 美亚, 环球, 翡翠, ZIPP, 大爱, 大愛, 明珠, jdshipin, AMC, 龙祥, 台视, 1905, 纬来, 神话, 经典都市, 视界, \
 番薯, 私人, 酒店, TVB, 凤凰, 半岛, 星光视界, 大愛, 新加坡, 星河, 明珠, 环球, 翡翠台")
-#check_and_write_file('酒店源.txt',  'f.txt',  keywords="省市频道, 湖北, 武汉, 河北, 广东, 河南, 陕西, 四川, 湖南, 广西, 山西, 石家庄, 南宁, 汕头, 揭阳, 普宁, 福建, 辽宁")
-#check_and_write_file('酒店源.txt',  'o1.txt',  keywords="其他频道, 新闻, 综合, 文艺, 电视, 公共, 科教, 教育, 民生, 轮播, 套, 法制, 文化, 经济, 生活")
+check_and_write_file('酒店源.txt',  'f.txt',  keywords="省市频道, 湖北, 武汉, 河北, 广东, 河南, 陕西, 四川, 湖南, 广西, 山西, 石家庄, 南宁, 汕头, 揭阳, 普宁, 福建, 辽宁")
+check_and_write_file('酒店源.txt',  'o1.txt',  keywords="其他频道, 新闻, 综合, 文艺, 电视, 公共, 科教, 教育, 民生, 轮播, 套, 法制, 文化, 经济, 生活")
 check_and_write_file('酒店源.txt',  'o.txt',  keywords="其他频道, , ")
 #
 #对生成的文件进行合并
