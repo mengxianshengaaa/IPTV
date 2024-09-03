@@ -67,12 +67,11 @@ for url in urls:
     unique_urls = set(urls_all)
     valid_urls = check_urls(unique_urls, fixed_string)
     results.extend(valid_urls)
-
+# 关闭会话对象
+session.close()
 # 打印所有有效的URL
 for url in results:
     print(url)
-# 关闭会话对象
-session.close()
     # 遍历网址列表,获取JSON文件并解析
     for url in valid_urls:
         try:
