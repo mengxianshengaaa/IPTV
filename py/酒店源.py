@@ -376,11 +376,11 @@ for url in urls:
             try:
             # 尝试执行以下代码块，如果发生错误则跳转至except部分
                 # 解析JSON文件，获取'data'键对应的列表中的每个元素
-                for item in json_data['data'
+                for item in json_data['data']:
                     # 检查每个元素是否为字典类型
-                    if isinstance(item, dict
+                    if isinstance(item, dict):
                         # 从字典中获取'name'键的值，如果键不存在则返回None
-                        name = item.get('name'
+                        name = item.get('name')
                         # 从字典中获取'url'键的值，如果键不存在则返回None
                         urlx = item.get('url')
                         # 如果urlx包含'udp'或'rtp'字符串，则跳过当前循环的剩余部分
@@ -391,7 +391,7 @@ for url in urls:
                             urld = f"{urlx}"
                         # 如果urlx不以'http'开头，则在前面添加一个前缀（注意：这里的url_x变量未在代码中定义）
                         else:
-                            urld = f"{url_x}{urlx}
+                            urld = f"{url_x}{urlx}"
                         #print(f"{name},{urld}")  #关闭频道名称和频道地址打印，缩短运行时间
                         if name and urld:
                             name = name.replace("高清电影", "影迷电影")                            
