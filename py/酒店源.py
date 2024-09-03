@@ -54,14 +54,9 @@ def modify_urls(url):
     port = url[ip_end_index:]
     # 定义一个字符串，表示 IP 地址的结尾部分
     ip_end = "/ZHGXTV/Public/json/live_interface.txt"
-    # 遍历 1 到 255 的数字
-    for i in range(1, 256):
-        # 修改 IP 地址的最后一位数字
-        modified_ip = f"{ip_address[:-1]}{i}"
-        # 组合成新的 URL
-        modified_url = f"{base_url}{ip_address}{port}{ip_end}"
+    modified_url = f"{base_url}{ip_address}{port}{ip_end}"
         # 将新的 URL 添加到列表中
-        modified_urls.append(modified_url)
+    modified_urls.append(modified_url)
     # 返回修改后的 URL 列表
     return modified_urls
 
