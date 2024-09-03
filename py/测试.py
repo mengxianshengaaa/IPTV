@@ -111,8 +111,6 @@ for valid_url in valid_urls:  # 确保这里是 valid_urls
         response = requests.get(valid_url, timeout=3)
         json_data = response.content.decode('utf-8')
         lines = json_data.split('\n')
-    except requests.RequestException as e:
-        pass
         
         # 正则表达式匹配 #EXTINF 行
         pattern = r"#EXTINF:-1 group-title=\"([^\"]+)\","
