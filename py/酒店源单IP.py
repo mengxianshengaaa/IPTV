@@ -35,6 +35,8 @@ import requests
 urls = [
     "https://fofa.info/result?qbase64=IlpIR1hUViIgJiYgcmVnaW9uPSJndWFuZ2Rvbmci",  #广东
     "https://fofa.info/result?qbase64=IlpIR1hUViIgJiYgcmVnaW9uPSJoZW5hbiI%3D",  #河南
+    "https://fofa.info/result?qbase64=IlpIR1hUViIgJiYgcmVnaW9uPSJzaWNodWFuIg==",  #河南
+    "https://fofa.info/result?qbase64=IlpIR1hUViIg",    #ZHGX
     "https://fofa.info/result?qbase64=IlpIR1hUViIgJiYgcmVnaW9uPSJoZW5hbiIgJiYgcG9ydD0iODA5MCI=",  #河南8090
     "https://fofa.info/result?qbase64=IlpIR1hUViIgJiYgcmVnaW9uPSJoZWJlaSI%3D", #河北
 ]
@@ -284,7 +286,9 @@ for line in fileinput.input("iptv.txt", inplace=True):  #打开文件,并对其�
 #定义智慧桌面采集地址
 urls = [
     "https://fofa.info/result?qbase64=ImlwdHYvbGl2ZS96aF9jbi5qcyIgJiYgY291bnRyeT0iQ04iICYmIHJlZ2lvbj0i5rKz5YyXIg%3D%3D",  #河北
+    "https://fofa.info/result?qbase64=Ym9keV9oYXNoPSI0OTQ5NTY3NTki",   #body_hash="494956759"
     "https://fofa.info/result?qbase64=ImlwdHYvbGl2ZS96aF9jbi5qcyIgJiYgY291bnRyeT0iQ04iICYmIHJlZ2lvbj0i5bm%2F5LicIg%3D%3D",  #广东
+    "https://fofa.info/result?qbase64=ImlwdHYvbGl2ZS96aF9jbi5qcyIgJiYgY291bnRyeT0iQ04iICYmIHJlZ2lvbj0iU2ljaHVhbiI%3D",  #广东
     "https://fofa.info/result?qbase64=ImlwdHYvbGl2ZS96aF9jbi5qcyIgJiYgY291bnRyeT0iQ04iICYmIHJlZ2lvbj0i5rKz5Y2XIg%3D%3D",  # 河南
     "https://fofa.info/result?qbase64=ImlwdHYvbGl2ZS96aF9jbi5qcyIgJiYgY291bnRyeT0iQ04iICYmIHBvcnQ9IjgwOTYi",  # 8096
     "https://fofa.info/result?qbase64=ImlwdHYvbGl2ZS96aF9jbi5qcyIgJiYgY291bnRyeT0iQ04iICYmIHBvcnQ9Ijk5MDEi",  # 9901
