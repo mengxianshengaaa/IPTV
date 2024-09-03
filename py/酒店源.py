@@ -41,24 +41,23 @@ urls = [
 
 def modify_urls(url):
     modified_urls = []
-    # 找到协议结束的位置，即 "://" 后的部分
-    protocol_end_index = url.find("://") + 3
-    # 找到端口号后面第一个 "/" 的位置
-    slash_after_port_index = url.find("/", protocol_end_index)
-    if slash_after_port_index == -1:
-        # 如果没有找到 "/"，说明 URL 可能不包含路径，我们使用 URL 的结尾
-        slash_after_port_index = len(url)
-    # 截取从协议部分到端口后面的第一个 "/" 之前的部分
-    base_url = url[:slash_after_port_index]
-    # 固定字符
-    fixed_string = "/ZHGXTV/Public/json/live_interface.txt"
-    # 组合成新的 URL
-    modified_url = f"{base_url}{fixed_string}"
-    # 将新的 URL 添加到列表中
-    modified_urls.append(modified_url)
-    # 返回修改后的 URL 列表
+    # 正则表达式匹配协议、IP 地址或域名以及端口，但不包括端口后的斜杠
+    pattern = r'^(https?://[^/:]+(?::\d+)?)[/]?'
+    match = re.match(pattern, url)
+    
+    if match:
+        base_url = match.group(1)
+        # 固定字符
+        fixed_string = "/ZHGXTV/Public/json/live_interface.txt"
+        # 组合成新的 URL
+        modified_url = f"{base_url}{fixed_string}"
+        modified_urls.append(modified_url)
+    else:
+        print("URL format is not recognized.")
+    
     return modified_urls
-
+    for url in modified_urls
+        print(url)
     
 
 
