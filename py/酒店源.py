@@ -58,8 +58,9 @@ def modify_urls(url):
     for i in range(1, 256):
         # 修改 IP 地址的最后一位数字
         modified_ip = f"{ip_address[:-1]}{i}"
-        # 组合成新的 URL
-        modified_url = f"{base_url}{modified_ip}{port}{ip_end}"
+        # 组合成新的 URL   #modified_url = f"{url[:ip_start_index]}{ip_address}{port}{ip_end}"
+        #modified_url = f"{base_url}{modified_ip}{port}{ip_end}"
+        modified_url = f"{url[:ip_start_index]}{ip_address}{port}{ip_end}"
         # 将新的 URL 添加到列表中
         modified_urls.append(modified_url)
     # 返回修改后的 URL 列表
@@ -332,7 +333,8 @@ def modify_urls(url):
     ip_end = "/iptv/live/1000.json?key=txiptv"
     for i in range(1, 256):
         modified_ip = f"{ip_address[:-1]}{i}"
-        modified_url = f"{base_url}{modified_ip}{port}{ip_end}"
+        #modified_url = f"{base_url}{modified_ip}{port}{ip_end}"
+        modified_url = f"{url[:ip_start_index]}{ip_address}{port}{ip_end}"
         modified_urls.append(modified_url)
     return modified_urls
 
