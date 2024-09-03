@@ -84,7 +84,7 @@ for url in urls:
     # 去重得到唯一的URL列表
     unique_urls = set(urls_all)
     # 排除包含特定子字符串的域名
-    unique_urls = {u for u in unique_urls if "fofa.info" not in u}
+    unique_urls = {u for u in unique_urls if "fofa.info" not in u and "status.rapidssl.com" not in u}
     
     valid_urls = []
     # 多线程获取可用url
