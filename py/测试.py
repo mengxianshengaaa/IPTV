@@ -84,7 +84,9 @@ for url in urls:
     urls_all = re.findall(pattern, page_content)
     # 去重得到唯一的URL列表
     unique_urls = set(urls_all)
-
+    # 排除包含特定子字符串的域名
+    unique_urls = {u for u in unique_urls if "fofa.info" not in u}
+    
     valid_urls = []
     # 多线程获取可用url
     with ThreadPoolExecutor(max_workers=100) as executor:
