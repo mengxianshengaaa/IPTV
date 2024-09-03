@@ -39,7 +39,7 @@ urls = [
        'https://notabug.org/qcfree/TVBox-api/raw/main/live.txt', #通用源
        'https://47.93.222.173/gonglijun010/ys0826/-/raw/05f5829362d550d96c6c3196b3451b6a3effde67/fmml_ipv4_0206.txt?inline=false',
        'https://notabug.org/bxtv/a/raw/master/315.txt',
-       '',
+       'https://raw.githubusercontent.com/xiangjiao169/yf2025/main/yf169.txt',
        '',
        '',
        '',
