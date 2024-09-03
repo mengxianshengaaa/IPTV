@@ -416,16 +416,6 @@ for url in urls:
                             name = name.replace("CHC影", "影")
                             name = name.replace("-", "")
                             name = name.replace(" ", "")
-                            name = name.replace("BM9家庭影院", "东森电影")
-                            name = name.replace("BM15广东影视", "广东影视")
-                            name = name.replace("BM20", "")
-                            name = name.replace("3X电影", "龙祥时代")
-                            name = name.replace("4DS", "东森")
-                            name = name.replace("1ZX", "凤凰资讯HD")
-                            name = name.replace("2ZW", "凤凰中文HD")
-                            name = name.replace("3XG", "凤凰香港")
-                            name = name.replace("4ZW", "凤凰中文")
-                            name = name.replace("5ZX", "凤凰资讯")
                             name = name.replace("", "")    #########################
                             name = name.replace("", "")
                             name = name.replace("", "")
@@ -622,6 +612,16 @@ filter_lines("iptv.txt", "iptv.txt")
 replacements = {
     	"2珠江": "TVB星河",
         "T[": "T",
+    	"BM9家庭影院": "东森电影",
+    	"BM15广东影视": "广东影视",
+    	"BM20": "",
+    	"3X电影": "龙祥时代",
+    	"4DS": "东森",
+    	"1ZX": "凤凰资讯HD",
+    	"2ZW": "凤凰中文HD",
+    	"3XG": "凤凰香港",
+    	"4ZW": "凤凰中文",
+    	"5ZX": "凤凰资讯",    
         "dx[": "[",
         "g[": "[",
         "P[": "+[",
@@ -633,7 +633,7 @@ replacements = {
         "dx,": ",",
         "g,": ",",
         "TVBTVB": "TVB",
-        "": "",
+        "5音乐台": "CCTV15",
         "": "",
         "": "",
         "": "",
