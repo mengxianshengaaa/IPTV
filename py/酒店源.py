@@ -121,7 +121,7 @@ for url in urls:
              lines = json_data.split('\n')
              excluded_keywords = ['udp', 'rtp', '东森', '龙祥', 'CCTV', '卫视']   
              for line in lines:
-                 if 'hls' in line and all(keyword not in line for keyword in excluded_keywords):
+                 if 'hls' in line and all(not re.search(r'\b' + re.escape(keyword) + r'\b', line) for keyword in excluded_keywords):
                         line = line.strip()
                         if line:
                             name, channel_url = line.split(',')
