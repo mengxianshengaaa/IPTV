@@ -119,7 +119,7 @@ for url in urls:
             try:
                     # 按行分割数据
              lines = json_data.split('\n')
-             excluded_keywords = ['udp', 'rtp', '东森', '龙祥']   
+             excluded_keywords = ['udp', 'rtp', '东森', '龙祥', 'CCTV', '卫视']   
              for line in lines:
                  if 'hls' in line and all(keyword not in line for keyword in excluded_keywords):
                         line = line.strip()
@@ -388,7 +388,7 @@ for url in urls:
                         # 从字典中获取'url'键的值，如果键不存在则返回None
                         urlx = item.get('url')
                         # 如果urlx包含'udp'或'rtp'字符串，则跳过当前循环的剩余部分
-                        if 'udp' in urlx or 'rtp' in urlx:
+                        if 'udp' in urlx or 'rtp' in urlx or 'CCTV' in urlx or '卫视' in urlx:
                             continue  # 跳过包含'udp'或'rtp'的url
                         # 如果urlx以'http'开头，则直接使用这个url
                         if 'http' in urlx:
@@ -1034,16 +1034,16 @@ def check_and_write_file(input_file, output_file, keywords):
     else:
         print(f"文件已提取关键词并保存为: {output_file}")
 # 按类别提取关键词并写入文件
-check_and_write_file('酒店源.txt',  'a0.txt',  keywords="央视频道, 8K, 4K, 4k")
-check_and_write_file('酒店源.txt',  'a.txt',  keywords="央视频道, CCTV, 风云, 女性时尚, 地理世界, 音乐")
-check_and_write_file('酒店源.txt',  'a1.txt',  keywords="央视频道")
-check_and_write_file('酒店源.txt',  'b.txt',  keywords="卫视频道, 卫视, 凤凰, 星空")
+#check_and_write_file('酒店源.txt',  'a0.txt',  keywords="央视频道, 8K, 4K, 4k")
+#check_and_write_file('酒店源.txt',  'a.txt',  keywords="央视频道, CCTV, 风云, 女性时尚, 地理世界, 音乐")
+#check_and_write_file('酒店源.txt',  'a1.txt',  keywords="央视频道")
+#check_and_write_file('酒店源.txt',  'b.txt',  keywords="卫视频道, 卫视, 凤凰, 星空")
 check_and_write_file('酒店源.txt',  'c.txt',  keywords="影视频道, 剧, 选, 影")
 check_and_write_file('酒店源.txt',  'e.txt',  keywords="港澳频道, shuma, TVB, 珠江台, 澳门, 龙华, 广场舞, 动物杂技, 民视, 中视, 华视, AXN, MOMO, 采昌, 耀才, 靖天, 镜新闻, 靖洋, 莲花, 年代, 爱尔达, 好莱坞, 华丽, 非凡, 公视, \
 寰宇, 无线, EVEN, MoMo, 爆谷, 面包, momo, 唐人, 中华小, 三立, 37.27, 猪哥亮, 综艺, Movie, 八大, 中天, 中视, 东森, 凤凰, 天映, 美亚, 环球, 翡翠, ZIPP, 大爱, 大愛, 明珠, jdshipin, AMC, 龙祥, 台视, 1905, 纬来, 神话, 经典都市, 视界, \
 番薯, 私人, 酒店, TVB, 凤凰, 半岛, 星光视界, 大愛, 新加坡, 星河, 明珠, 环球, 翡翠台")
-check_and_write_file('酒店源.txt',  'f.txt',  keywords="省市频道, 湖北, 武汉, 河北, 广东, 河南, 陕西, 四川, 湖南, 广西, 山西, 石家庄, 南宁, 汕头, 揭阳, 普宁, 福建, 辽宁")
-check_and_write_file('酒店源.txt',  'o1.txt',  keywords="其他频道, 新闻, 综合, 文艺, 电视, 公共, 科教, 教育, 民生, 轮播, 套, 法制, 文化, 经济, 生活")
+#check_and_write_file('酒店源.txt',  'f.txt',  keywords="省市频道, 湖北, 武汉, 河北, 广东, 河南, 陕西, 四川, 湖南, 广西, 山西, 石家庄, 南宁, 汕头, 揭阳, 普宁, 福建, 辽宁")
+#check_and_write_file('酒店源.txt',  'o1.txt',  keywords="其他频道, 新闻, 综合, 文艺, 电视, 公共, 科教, 教育, 民生, 轮播, 套, 法制, 文化, 经济, 生活")
 check_and_write_file('酒店源.txt',  'o.txt',  keywords="其他频道, , ")
 #
 #对生成的文件进行合并
