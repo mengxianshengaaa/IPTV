@@ -32,7 +32,7 @@ from translate import Translator  # 导入Translator类,用于文本翻译
 import requests
 
 urls = [
-    "https://fofa.info/result?qbase64=IixodHRwIiAmJiAi5Yek5YewIiAmJiAi5Lic5qOuIg%3D%3D", 
+    "https://fofa.info/result?qbase64=IuWNq%2BinhixodHRwIiAmJiAidHNmaWxlIg%3D%3D", 
 ]
 
 
