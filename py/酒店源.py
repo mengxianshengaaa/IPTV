@@ -34,9 +34,9 @@ import requests
 
 urls = [
     "https://fofa.info/result?qbase64=IlpIR1hUViIgJiYgcmVnaW9uPSJndWFuZ2Rvbmci",  #广东
-    #"https://fofa.info/result?qbase64=IlpIR1hUViIgJiYgcmVnaW9uPSJoZW5hbiI%3D",  #河南
+    "https://fofa.info/result?qbase64=IlpIR1hUViIgJiYgcmVnaW9uPSJoZW5hbiI%3D",  #河南
     "https://fofa.info/result?qbase64=IlpIR1hUViIgJiYgcmVnaW9uPSJoZW5hbiIgJiYgcG9ydD0iODA5MCI=",  #河南8090
-    #"https://fofa.info/result?qbase64=IlpIR1hUViIgJiYgcmVnaW9uPSJoZWJlaSI%3D", #河北
+    "https://fofa.info/result?qbase64=IlpIR1hUViIgJiYgcmVnaW9uPSJoZWJlaSI%3D", #河北
 ]
 
 def modify_urls(url):
@@ -333,8 +333,7 @@ def modify_urls(url):
     ip_end = "/iptv/live/1000.json?key=txiptv"
     for i in range(1, 256):
         modified_ip = f"{ip_address[:-1]}{i}"
-        #modified_url = f"{base_url}{modified_ip}{port}{ip_end}"
-        modified_url = f"{url[:ip_start_index]}{ip_address}{port}{ip_end}"
+        modified_url = f"{base_url}{ip_address}{port}{ip_end}"
         modified_urls.append(modified_url)
     return modified_urls
 
