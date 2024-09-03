@@ -416,6 +416,23 @@ for url in urls:
                             name = name.replace("CHC影", "影")
                             name = name.replace("-", "")
                             name = name.replace(" ", "")
+                            name = name.replace("BM9家庭影院", "东森电影")
+                            name = name.replace("BM15广东影视", "广东影视")
+                            name = name.replace("BM20", "")
+                            name = name.replace("3X电影", "龙祥时代")
+                            name = name.replace("4DS", "东森")
+                            name = name.replace("1ZX", "凤凰资讯HD")
+                            name = name.replace("2ZW", "凤凰中文HD")
+                            name = name.replace("3XG", "凤凰香港")
+                            name = name.replace("4ZW", "凤凰中文")
+                            name = name.replace("5ZX", "凤凰资讯")
+                            name = name.replace("", "")    #########################
+                            name = name.replace("", "")
+                            name = name.replace("", "")
+                            name = name.replace("", "")
+                            name = name.replace("", "")
+                            name = name.replace("", "")
+                            name = name.replace("", "")
                             name = name.replace("PLUS", "+")
                             name = name.replace("＋", "+")
                             name = name.replace("(", "")
@@ -581,11 +598,44 @@ def filter_lines(input_file, output_file):
     filtered_lines = []
     for line in lines:
         if ('hls' in line and 'm3u' in line) or ('tsfile' in line and 'm3u' in line):  #行中包含m3u的同时还要包含hls或者tsfile
-          if 'udp' not in line and 'rtp' not in line and '182.117.136' not in line:   # and 'CCTV' not in line and '卫视' not in line  排除组播地址
+          if 'udp' not in line and 'rtp' not in line and 'BM' not in line and 'B1' not in line and 'B2' not in line and 'B3' not in line and '1TY' not in line:   #  排除组播地址
             filtered_lines.append(line)
     with open(output_file, 'w', encoding='utf-8') as output_file:
         output_file.writelines(filtered_lines)
 filter_lines("iptv.txt", "iptv.txt")
+
+
+#####################################定义替换规则的字典,对整行内的多余标识内容进行替换
+replacements = {
+    	"2珠江": "TVB星河",
+        "T[": "T",
+        "dx[": "[",
+        "g[": "[",
+        "P[": "+[",
+        "lt[": "[",
+        "电信": "",
+        "卫视高清": "卫视",
+        "SCTV5": "",
+        "T,": ",",
+        "dx,": ",",
+        "g,": ",",
+        "TVBTVB": "TVB",
+        "": "",
+        "": "",
+        "": "",
+        "": "",
+        "": ""
+}
+# 打开原始文件读取内容，并写入新文件
+with open('iptv.txt', 'r', encoding='utf-8') as file:
+    lines = file.readlines()
+# 创建新文件并写入替换后的内容
+with open('iptv.txt', 'w', encoding='utf-8') as new_file:
+    for line in lines:
+        for old, new in replacements.items():
+            line = line.replace(old, new)
+        new_file.write(line)
+print("替换完成，新文件已保存。")
 
 #################################################### 对整理好的频道列表测试HTTP连接
 def test_connectivity(url, max_attempts=2): #定义测试HTTP连接的次数
@@ -989,7 +1039,7 @@ check_and_write_file('酒店源.txt',  'a.txt',  keywords="央视频道, CCTV, �
 check_and_write_file('酒店源.txt',  'a1.txt',  keywords="央视频道")
 check_and_write_file('酒店源.txt',  'b.txt',  keywords="卫视频道, 卫视, 凤凰, 星空")
 check_and_write_file('酒店源.txt',  'c.txt',  keywords="影视频道, 剧, 选, 影")
-check_and_write_file('酒店源.txt',  'e.txt',  keywords="港澳频道, TVB, 珠江台, 澳门, 龙华, 广场舞, 动物杂技, 民视, 中视, 华视, AXN, MOMO, 采昌, 耀才, 靖天, 镜新闻, 靖洋, 莲花, 年代, 爱尔达, 好莱坞, 华丽, 非凡, 公视, \
+check_and_write_file('酒店源.txt',  'e.txt',  keywords="港澳频道, shuma, TVB, 珠江台, 澳门, 龙华, 广场舞, 动物杂技, 民视, 中视, 华视, AXN, MOMO, 采昌, 耀才, 靖天, 镜新闻, 靖洋, 莲花, 年代, 爱尔达, 好莱坞, 华丽, 非凡, 公视, \
 寰宇, 无线, EVEN, MoMo, 爆谷, 面包, momo, 唐人, 中华小, 三立, 37.27, 猪哥亮, 综艺, Movie, 八大, 中天, 中视, 东森, 凤凰, 天映, 美亚, 环球, 翡翠, ZIPP, 大爱, 大愛, 明珠, jdshipin, AMC, 龙祥, 台视, 1905, 纬来, 神话, 经典都市, 视界, \
 番薯, 私人, 酒店, TVB, 凤凰, 半岛, 星光视界, 大愛, 新加坡, 星河, 明珠, 环球, 翡翠台")
 check_and_write_file('酒店源.txt',  'f.txt',  keywords="省市频道, 湖北, 武汉, 河北, 广东, 河南, 陕西, 四川, 湖南, 广西, 山西, 石家庄, 南宁, 汕头, 揭阳, 普宁, 福建, 辽宁")
