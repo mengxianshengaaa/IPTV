@@ -39,29 +39,14 @@ urls = [
     "https://fofa.info/result?qbase64=IlpIR1hUViIgJiYgcmVnaW9uPSJoZWJlaSI%3D", #河北
 ]
 
-def modify_urls(url):
-    # 找到 URL 中 IP 地址开始的索引位置，"//" 后两个字符开始为 IP 地址起始位置
-    ip_start_index = url.find("//") + 2
-    # 找到 URL 中 IP 地址结束的索引位置，从 ip_start_index 开始查找第一个 ":" 的位置
-    ip_end_index = url.find(":", ip_start_index)
-    # 获取基础 URL 部分
-    base_url = url[:ip_start_index]
-    # 获取 URL 中的 IP 地址部分
-    ip_address = url[ip_start_index:ip_end_index]
-    # 获取 URL 中的端口部分
-    port = url[ip_end_index:]
-    # 定义一个字符串，表示 IP 地址的结尾部分
-    ip_end = "/ZHGXTV/Public/json/live_interface.txt"
-    # 使用原始的 IP 地址和端口构造新的 URL
-    modified_url = f"{base_url}{ip_address}{port}{ip_end}"
-    # 返回修改后的 URL
-    return modified_url
 
+
+# 定义一个函数来检查URL是否可访问
 def is_url_accessible(url):
     try:
-        # 发送 GET 请求，设置超时时间为 3 秒
+        # 发送GET请求，设置超时时间为3秒
         response = requests.get(url, timeout=3)
-        # 如果响应状态码在 200 到 401 之间（包括 200 和 401），则认为 URL 可访问
+        # 如果响应状态码在200到401之间（包括200和401），则认为URL可访问
         if 200 <= response.status_code <= 401:
             return url
     except requests.exceptions.RequestException:
@@ -71,64 +56,44 @@ def is_url_accessible(url):
 
 # 创建一个空列表用于存储结果
 results = []
+
+# 固定的字符串，你希望添加到每个URL的末尾
+fixed_string = "/ZHGXTV/Public/json/live_interface.txt"
+
 for url in urls:
-    # 发送 GET 请求获取 URL 的内容
+    # 发送GET请求获取URL的内容
     response = requests.get(url)
     # 获取响应的文本内容
     page_content = response.text
 
     # 查找所有符合指定格式的网址
-    pattern = r"http://\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}:\d+"   # 设置匹配的格式,如 http://8.8.8.8:8888
-    # 使用正则表达式在页面内容中查找所有符合格式的 URL
+    pattern = r"http://\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}:\d+"  # 设置匹配的格式，如http://8.8.8.8:8888
+    # 使用正则表达式在页面内容中查找所有符合格式的URL
     urls_all = re.findall(pattern, page_content)
-    # urls = list(set(urls_all))  # 去重得到唯一的URL列表
-    urls = set(urls_all)  # 去重得到唯一的URL列表
-    x_urls = []
-    for url in urls:  # 对urls进行处理,ip第四位修改为1,并去重
-        url = url.strip()
-        # 找到 URL 中 IP 地址开始的索引位置，"//" 后两个字符开始为 IP 地址起始位置
-        ip_start_index = url.find("//") + 2
-        # 找到 URL 中 IP 地址结束的索引位置，从 ip_start_index 开始查找第一个 ":" 的位置
-        ip_end_index = url.find(":", ip_start_index)
-        # 找到 IP 地址中第一个 "." 的位置
-        ip_dot_start = url.find(".") + 1
-        # 找到 IP 地址中第二个 "." 的位置
-        ip_dot_second = url.find(".", ip_dot_start) + 1
-        # 找到 IP 地址中第三个 "." 的位置
-        ip_dot_three = url.find(".", ip_dot_second) + 1
-        # 获取 URL 的基础部分，即从开头到 IP 地址开始的部分
-        base_url = url[:ip_start_index]  # http:// or https://
-        # 获取 URL 中的 IP 地址部分，截取到第三个 "." 的位置
-        ip_address = url[ip_start_index:ip_dot_three]
-        # 获取 URL 中的端口部分
-        port = url[ip_end_index:]
-        # 定义一个字符串，表示 IP 地址的结尾部分为 "1"
-        ip_end = "1"
-        # 修改 IP 地址的最后一位为 "1"
-        modified_ip = f"{ip_address}{ip_end}"
-        # 组合成新的 URL
-        x_url = f"{base_url}{modified_ip}{port}"
-        # 将新的 URL 添加到列表中
-        x_urls.append(x_url)
-    urls = set(x_urls)  # 去重得到唯一的URL列表
+    # 去重得到唯一的URL列表
+    unique_urls = set(urls_all)
+
     valid_urls = []
-    #   多线程获取可用url
+    # 多线程获取可用url
     with concurrent.futures.ThreadPoolExecutor(max_workers=100) as executor:
         futures = []
-        for url in urls:
-            url = url.strip()
-            # 获取修改后的 URL 列表
-            modified_urls = modify_urls(url)
-            for modified_url in modified_urls:
-                # 提交任务，检查每个修改后的 URL 是否可访问
-                futures.append(executor.submit(is_url_accessible, modified_url))
+        for original_url in unique_urls:
+            # 在原始URL后面添加固定字符串
+            new_url = original_url + fixed_string
+            # 提交任务，检查每个新构造的URL是否可访问
+            futures.append(executor.submit(is_url_accessible, new_url))
         for future in concurrent.futures.as_completed(futures):
             result = future.result()
             if result:
-                # 如果 URL 可访问，将其添加到有效 URL 列表中
+                # 如果URL可访问，将其添加到有效URL列表中
                 valid_urls.append(result)
-    for url in valid_urls:
-        print(url)
+
+    # 将找到的有效URL添加到结果列表中
+    results.extend(valid_urls)
+
+# 打印所有有效的URL
+for url in results:
+    print(url)
     # 遍历网址列表,获取JSON文件并解析
     for url in valid_urls:
         try:
