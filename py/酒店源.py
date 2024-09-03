@@ -557,6 +557,19 @@ with open("iptv.txt", 'a', encoding='utf-8') as file:
         print(result)  #关闭频道名称和频道地址打印，缩短运行时间
 print("频道列表文件iptv.txt追加写入成功！")
 
+# 定义要搜索的关键词
+keywords = ['hls', 'tsfile']
+# 打开1.txt文件并读取内容
+with open('网络收集.txt', 'r', encoding='utf-8') as file:
+    lines = file.readlines()
+# 创建一个新的列表，只包含包含关键词的行
+filtered_lines = [line for line in lines if any(keyword in line for keyword in keywords)]
+# 将这些行追加写入到2.txt文件
+with open('iptv.txt', 'a', encoding='utf-8') as file:
+    file.writelines(filtered_lines)
+print("频道列表文件iptv.txt再次追加写入成功！")
+
+
 def remove_duplicates(input_file, output_file):
     # 用于存储已经遇到的URL和包含genre的行
     seen_urls = set()
