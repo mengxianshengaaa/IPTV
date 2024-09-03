@@ -32,6 +32,7 @@ from translate import Translator  # 导入Translator类,用于文本翻译
 import requests
 
 urls = [
+    #"https://fofa.info/result?qbase64=IuWNq%2BinhixodHRwIiAmJiAiaGxzIg%3D%3D", 
     "https://fofa.info/result?qbase64=IuWNq%2BinhixodHRwIiAmJiAidHNmaWxlIg%3D%3D", 
 ]
 
@@ -111,10 +112,11 @@ for valid_url in valid_urls:  # 确保这里是 valid_urls
         response = requests.get(valid_url, timeout=3)
         json_data = response.content.decode('utf-8')
         lines = json_data.split('\n')
-        
+
         # 正则表达式匹配 #EXTINF 行
         pattern = r"#EXTINF:-1 group-title=\"([^\"]+)\","
         matches = re.finditer(pattern, json_data)
+
         for match in matches:
             channel_name = match.group(1)
             # 获取下一行的 URL
