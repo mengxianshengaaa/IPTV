@@ -279,69 +279,57 @@ urls = [
     #"https://fofa.info/result?qbase64=ImlwdHYvbGl2ZS96aF9jbi5qcyIgJiYgY291bnRyeT0iQ04iICYmIGNpdHk9Imd1aWdhbmci",  #贵港
     #"https://fofa.info/result?qbase64=ImlwdHYvbGl2ZS96aF9jbi5qcyIgJiYgY291bnRyeT0iQ04iICYmIHBvcnQ9IjgxODEii",#8181
 ]
-def modify_urls(url):
-    modified_urls = []
-    ip_start_index = url.find("//") + 2
-    ip_end_index = url.find(":", ip_start_index)
-    base_url = url[:ip_start_index]
-    ip_address = url[ip_start_index:ip_end_index]
-    port = url[ip_end_index:]
-    ip_end = "/iptv/live/1000.json?key=txiptv"
-    for i in range(1, 256):
-        modified_ip = f"{ip_address[:-1]}{i}"
-        modified_url = f"{base_url}{ip_address}{port}{ip_end}"
-        modified_urls.append(modified_url)
-    return modified_urls
-
+    # 定义一个函数来检查URL是否可访问
 def is_url_accessible(url):
     try:
+        # 发送GET请求，设置超时时间为3秒
         response = requests.get(url, timeout=3)
+        # 如果响应状态码在200到401之间（包括200和401），则认为URL可访问
         if 200 <= response.status_code <= 401:
             return url
     except requests.exceptions.RequestException:
+        # 如果请求过程中出现异常，不做任何处理，直接跳过
         pass
     return None
 
+# 创建一个空列表用于存储结果
 results = []
+
+# 固定的字符串，你希望添加到每个URL的末尾
+fixed_string = "/iptv/live/1000.json?key=txiptv"
+
 for url in urls:
+    # 发送GET请求获取URL的内容
     response = requests.get(url)
+    # 获取响应的文本内容
     page_content = response.text
+
     # 查找所有符合指定格式的网址
-    pattern = r"http://\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}:\d+"  # 设置匹配的格式,如http://8.8.8.8:8888
+    pattern = r"http://\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}:\d+"  # 设置匹配的格式，如http://8.8.8.8:8888
+    # 使用正则表达式在页面内容中查找所有符合格式的URL
     urls_all = re.findall(pattern, page_content)
-    # urls = list(set(urls_all))  # 去重得到唯一的URL列表
-    urls = set(urls_all)  # 去重得到唯一的URL列表
-    x_urls = []
-    for url in urls:  # 对urls进行处理,ip第四位修改为1,并去重
-        url = url.strip()
-        ip_start_index = url.find("//") + 2
-        ip_end_index = url.find(":", ip_start_index)
-        ip_dot_start = url.find(".") + 1
-        ip_dot_second = url.find(".", ip_dot_start) + 1
-        ip_dot_three = url.find(".", ip_dot_second) + 1
-        base_url = url[:ip_start_index]  # http:// or https://
-        ip_address = url[ip_start_index:ip_dot_three]
-        port = url[ip_end_index:]
-        ip_end = "1"
-        modified_ip = f"{ip_address}{ip_end}"
-        x_url = f"{base_url}{modified_ip}{port}"
-        x_urls.append(x_url)
-    urls = set(x_urls)  # 去重得到唯一的URL列表
+    # 去重得到唯一的URL列表
+    unique_urls = set(urls_all)
+
     valid_urls = []
-    #   多线程获取可用url
+    # 多线程获取可用url
     with concurrent.futures.ThreadPoolExecutor(max_workers=100) as executor:
         futures = []
-        for url in urls:
-            url = url.strip()
-            modified_urls = modify_urls(url)
-            for modified_url in modified_urls:
-                futures.append(executor.submit(is_url_accessible, modified_url))
+        for original_url in unique_urls:
+            # 在原始URL后面添加固定字符串
+            new_url = original_url + fixed_string
+            # 提交任务，检查每个新构造的URL是否可访问
+            futures.append(executor.submit(is_url_accessible, new_url))
         for future in concurrent.futures.as_completed(futures):
             result = future.result()
             if result:
+                # 如果URL可访问，将其添加到有效URL列表中
                 valid_urls.append(result)
-    for url in valid_urls:
-        print(url)
+    # 将找到的有效URL添加到结果列表中
+    results.extend(valid_urls)
+# 打印所有有效的URL
+for url in results:
+    print(url)
 
     # 遍历网址列表,获取JSON文件并解析
     for url in valid_urls:
