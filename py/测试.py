@@ -114,10 +114,8 @@ for valid_url in valid_urls:  # 确保这里是 valid_urls
         # 如果解码成功，处理 text_data
         # 例如打印或进一步处理
         print(text_data)  # 这里只是打印，你可以根据需要进行其他处理
-        except:
-        # 如果出现 UnicodeDecodeError，打印错误信息并跳过当前循环
-        print(f"无法解码来自 {url} 的响应内容，跳过此 URL。")
-        continue
+    except UnicodeDecodeError:
+        pass
         # 正则表达式匹配 #EXTINF 行
         pattern = r"#EXTINF:-1 group-title=\"([^\"]+)\","
         matches = re.finditer(pattern, json_data)
