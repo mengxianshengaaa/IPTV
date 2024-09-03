@@ -396,7 +396,7 @@ for url in urls:
                         # 如果urlx不以'http'开头，则在前面添加一个前缀（注意：这里的url_x变量未在代码中定义）
                         else:
                             urld = f"{url_x}{urlx}"
-                        #print(f"{name},{urld}")  #关闭频道名称和频道地址打印，缩短运行时间
+                        print(f"{name},{urld}")  #关闭频道名称和频道地址打印，缩短运行时间
                         if name and urld:
                             name = name.replace("高清电影", "影迷电影")                            
                             name = name.replace("中央", "CCTV")
