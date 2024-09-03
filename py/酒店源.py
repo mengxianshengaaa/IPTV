@@ -56,8 +56,7 @@ def modify_urls(url):
         print("URL format is not recognized.")
     
     return modified_urls
-    for url in modified_urls
-        print(url)
+
     
 
 
