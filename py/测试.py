@@ -109,11 +109,8 @@ for valid_url in valid_urls:  # 确保这里是 valid_urls
     try:
         # 发送GET请求获取JSON文件,设置超时时间为3秒
         response = requests.get(valid_url, timeout=3)
-        # 尝试解码响应内容为 UTF-8 格式的文本
-        text_data = response.content.decode('utf-8')
-        # 如果解码成功，处理 text_data
-        # 例如打印或进一步处理
-        print(text_data)  # 这里只是打印，你可以根据需要进行其他处理
+        json_data = response.content.decode('utf-8')
+        lines = json_data.split('\n')
     except UnicodeDecodeError:
         pass
         # 正则表达式匹配 #EXTINF 行
