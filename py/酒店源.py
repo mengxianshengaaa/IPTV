@@ -1,0 +1,661 @@
+#本程序只适用于酒店源的检测,请勿移植他用
+import time
+import concurrent.futures
+from selenium import webdriver
+from selenium.webdriver.chrome.options import Options
+from concurrent.futures import ThreadPoolExecutor
+import requests
+import re
+import os
+import threading
+from queue import Queue
+import queue
+from datetime import datetime
+import fileinput
+from tqdm import tqdm
+from pypinyin import lazy_pinyin
+from opencc import OpenCC
+import base64
+import cv2
+from bs4 import BeautifulSoup
+from urllib.parse import urlparse
+from translate import Translator  # 导入Translator类,用于文本翻译
+# 扫源测绘空间地址
+# 搜素关键词："iptv/live/zh_cn.js" && country="CN" && region="Hunan" && city="changsha"
+# 搜素关键词："ZHGXTV" && country="CN" && region="Hunan" && city="changsha"
+#"isShowLoginJs"智能KUTV管理
+######################################################################################################################
+######################################################################################################################
+###########################################################ZHGX采集####################################################
+######################################################################################################################
+######################################################################################################################
+import requests
+
+urls = [
+    #"https://fofa.info/result?qbase64=IlpIR1hUViIgJiYgcmVnaW9uPSJndWFuZ2Rvbmci", #广东
+    "https://fofa.info/result?qbase64=IlpIR1hUViIgJiYgcmVnaW9uPSJIZW5hbiI%3D" ,   #河南
+    #“https://fofa.info/result?qbase64=IlpIR1hUViIg”，#ZHGX
+    "https://fofa.info/result?qbase64=IlpIR1hUViIgJiYgcmVnaW9uPSJoZW5hbiIgJiYgcG9ydD0iODA5MCI=" ,   #河南8090
+    #"https://fofa.info/result?qbase64=IlpIR1hUViIgJiYgcmVnaW9uPSJoZWJlaSI%3D", #河北
+]
+
+def modify_urls(url):
+    # 创建一个空列表用于存储修改后的 URL
+    modified_urls = []
+    # 找到 URL 中 IP 地址开始的索引位置，"//" 后两个字符开始为 IP 地址起始位置
+    ip_start_index = url.find("//") + 2
+    # 找到 URL 中 IP 地址结束的索引位置，从 ip_start_index 开始查找第一个 ":" 的位置
+    ip_end_index = url.find(":", ip_start_index)
+    # 找到 URL 中 IP 地址结束的索引位置，从 ip_start_index 开始查找第一个 ":" 的位置
+    base_url = url[:ip_start_index]
+    # 获取 URL 中的 IP 地址部分
+    ip_address = url[ip_start_index:ip_end_index]
+    # 获取 URL 中的端口部分
+    port = url[ip_end_index:]
+    # 定义一个字符串，表示 IP 地址的结尾部分
+    ip_end = "/ZHGXTV/Public/json/live_interface.txt"
+    # 遍历 1 到 255 的数字
+    for i in range(1, 256):
+        # 修改 IP 地址的最后一位数字
+        modified_ip = f"{ip_address[:-1]}{i}"
+        # 组合成新的 URL
+        modified_url = f"{base_url}{modified_ip}{port}{ip_end}"
+        # 将新的 URL 添加到列表中
+        modified_urls.append(modified_url)
+    # 返回修改后的 URL 列表
+    return modified_urls
+
+def is_url_accessible(url):
+    try:
+        # 发送 GET 请求，设置超时时间为 3 秒
+        response = requests.get(url, timeout=3)
+        # 如果响应状态码在 200 到 401 之间（包括 200 和 401），则认为 URL 可访问
+        if 200 <= response.status_code <= 401:
+            return url
+    except requests.exceptions.RequestException:
+        # 如果请求过程中出现异常，不做任何处理，直接跳过
+        pass
+    return None
+
+# 创建一个空列表用于存储结果
+results = []
+for url in urls:
+    # 发送 GET 请求获取 URL 的内容
+    response = requests.get(url)
+    # 获取响应的文本内容
+    page_content = response.text
+
+    # 查找所有符合指定格式的网址
+    pattern = r"http://\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}:\d+"   # 设置匹配的格式,如 http://8.8.8.8:8888
+    # 使用正则表达式在页面内容中查找所有符合格式的 URL
+    urls_all = re.findall(pattern, page_content)
+    # urls = list(set(urls_all))  # 去重得到唯一的URL列表
+    urls = set(urls_all)  # 去重得到唯一的URL列表
+    x_urls = []
+    for url in urls:  # 对urls进行处理,ip第四位修改为1,并去重
+        url = url.strip()
+        # 找到 URL 中 IP 地址开始的索引位置，"//" 后两个字符开始为 IP 地址起始位置
+        ip_start_index = url.find("//") + 2
+        # 找到 URL 中 IP 地址结束的索引位置，从 ip_start_index 开始查找第一个 ":" 的位置
+        ip_end_index = url.find(":", ip_start_index)
+        # 找到 IP 地址中第一个 "." 的位置
+        ip_dot_start = url.find(".") + 1
+        # 找到 IP 地址中第二个 "." 的位置
+        ip_dot_second = url.find(".", ip_dot_start) + 1
+        # 找到 IP 地址中第三个 "." 的位置
+        ip_dot_three = url.find(".", ip_dot_second) + 1
+        # 获取 URL 的基础部分，即从开头到 IP 地址开始的部分
+        base_url = url[:ip_start_index]  # http:// or https://
+        # 获取 URL 中的 IP 地址部分，截取到第三个 "." 的位置
+        ip_address = url[ip_start_index:ip_dot_three]
+        # 获取 URL 中的端口部分
+        port = url[ip_end_index:]
+        # 定义一个字符串，表示 IP 地址的结尾部分为 "1"
+        ip_end = "1"
+        # 修改 IP 地址的最后一位为 "1"
+        modified_ip = f"{ip_address}{ip_end}"
+        # 组合成新的 URL
+        x_url = f"{base_url}{modified_ip}{port}"
+        # 将新的 URL 添加到列表中
+        x_urls.append(x_url)
+    urls = set(x_urls)  # 去重得到唯一的URL列表
+    valid_urls = []
+    #   多线程获取可用url
+    with concurrent.futures.ThreadPoolExecutor(max_workers=100) as executor:
+        futures = []
+        for url in urls:
+            url = url.strip()
+            # 获取修改后的 URL 列表
+            modified_urls = modify_urls(url)
+            for modified_url in modified_urls:
+                # 提交任务，检查每个修改后的 URL 是否可访问
+                futures.append(executor.submit(is_url_accessible, modified_url))
+        for future in concurrent.futures.as_completed(futures):
+            result = future.result()
+            if result:
+                # 如果 URL 可访问，将其添加到有效 URL 列表中
+                valid_urls.append(result)
+    for url in valid_urls:
+        print(url)
+    # 遍历网址列表,获取JSON文件并解析
+    for url in valid_urls:
+        try:
+            # 发送GET请求获取JSON文件,设置超时时间为0.5秒
+            json_url = f"{url}"
+            response = requests.get(json_url, timeout=3)################################
+            json_data = response.content.decode('utf-8')
+            try:
+                    # 按行分割数据
+             lines = json_data.split('\n')
+             excluded_keywords = ['udp', 'rtp', '东森', '龙祥']   
+             for line in lines:
+                 if 'hls' in line and all(keyword not in line for keyword in excluded_keywords):
+                        line = line.strip()
+                        if line:
+                            name, channel_url = line.split(',')
+                            urls = channel_url.split('/', 3)
+                            url_data = json_url.split('/', 3)
+                            if len(urls) >= 3:
+                                urld = (f"{urls[0]}//{url_data[2]}/{urls[3]}")
+                            else:
+                                urld = (f"{urls}")
+                            #print(f"{name},{urld}")  #关闭频道名称和频道地址打印，缩短运行时间
+
+ #####################################################################################################################################                               
+                        if name and urld:
+                            name = name.replace("奥运匹克", "")
+                            urld = urld.replace("index.m3u8", "index.m3u8?$智慧光迅听说名字越长越好看")
+                            results.append(f"{name},{urld}")
+            except:
+                continue
+        except:
+            continue
+channels = []
+for result in results:
+    line = result.strip()
+    if result:
+        channel_name, channel_url = result.split(',')
+        channels.append((channel_name, channel_url))
+with open("iptv.txt", 'w', encoding='utf-8') as file:
+    for result in results:
+        file.write(result + "\n")
+        print(result)  #关闭频道名称和频道地址打印，缩短运行时间
+print("频道列表文件iptv.txt获取完成！")
+
+
+
+
+######################################################################################################################
+#定义智慧桌面采集地址
+urls = [
+    #"https://fofa.info/result?qbase64=ImlwdHYvbGl2ZS96aF9jbi5qcyIgJiYgY291bnRyeT0iQ04iICYmIHJlZ2lvbj0i5rKz5YyXIg%3D%3D",  #河北
+    #"https://fofa.info/result?qbase64=Ym9keV9oYXNoPSI0OTQ5NTY3NTki",   #body_hash="494956759"
+    "https://fofa.info/result?qbase64=ImlwdHYvbGl2ZS96aF9jbi5qcyIgJiYgY291bnRyeT0iQ04iICYmIHJlZ2lvbj0ic2ljaHVhbiIgJiYgY2l0eT0ibWlhbnlhbmci",  #四川绵阳
+    #"https://fofa.info/result?qbase64=ImlwdHYvbGl2ZS96aF9jbi5qcyIgJiYgY291bnRyeT0iQ04iICYmIHJlZ2lvbj0i5rKz5Y2XIg%3D%3D",  # 河南
+    #"https://fofa.info/result?qbase64=ImlwdHYvbGl2ZS96aF9jbi5qcyIgJiYgY291bnRyeT0iQ04iICYmIHBvcnQ9IjgwOTYi",  # 8096
+    "https://fofa.info/result?qbase64=ImlwdHYvbGl2ZS96aF9jbi5qcyIgJiYgY291bnRyeT0iQ04iICYmIHBvcnQ9Ijk5MDEi",  # 9901
+    "https://fofa.info/result?qbase64=ImlwdHYvbGl2ZS96aF9jbi5qcyIgJiYgY291bnRyeT0iQ04iICYmIHBvcnQ9Ijk5MDIi",  # 9902
+    "https://fofa.info/result?qbase64=ImlwdHYvbGl2ZS96aF9jbi5qcyIgJiYgY291bnRyeT0iQ04iICYmIGNpdHk9Inl1bGluIg==",  #玉林
+    "https://fofa.info/result?qbase64=ImlwdHYvbGl2ZS96aF9jbi5qcyIgJiYgY291bnRyeT0iQ04iICYmIHBvcnQ9IjgxODEii",#8181
+]
+def modify_urls(url):
+    modified_urls = []
+    ip_start_index = url.find("//") + 2
+    ip_end_index = url.find(":", ip_start_index)
+    base_url = url[:ip_start_index]
+    ip_address = url[ip_start_index:ip_end_index]
+    port = url[ip_end_index:]
+    ip_end = "/iptv/live/1000.json?key=txiptv"
+    for i in range(1, 256):
+        modified_ip = f"{ip_address[:-1]}{i}"
+        modified_url = f"{base_url}{modified_ip}{port}{ip_end}"
+        modified_urls.append(modified_url)
+    return modified_urls
+
+def is_url_accessible(url):
+    try:
+        response = requests.get(url, timeout=3)
+        if 200 <= response.status_code <= 401:
+            return url
+    except requests.exceptions.RequestException:
+        pass
+    return None
+
+results = []
+for url in urls:
+    response = requests.get(url)
+    page_content = response.text
+    # 查找所有符合指定格式的网址
+    pattern = r"http://\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}:\d+"  # 设置匹配的格式,如http://8.8.8.8:8888
+    urls_all = re.findall(pattern, page_content)
+    # urls = list(set(urls_all))  # 去重得到唯一的URL列表
+    urls = set(urls_all)  # 去重得到唯一的URL列表
+    x_urls = []
+    for url in urls:  # 对urls进行处理,ip第四位修改为1,并去重
+        url = url.strip()
+        ip_start_index = url.find("//") + 2
+        ip_end_index = url.find(":", ip_start_index)
+        ip_dot_start = url.find(".") + 1
+        ip_dot_second = url.find(".", ip_dot_start) + 1
+        ip_dot_three = url.find(".", ip_dot_second) + 1
+        base_url = url[:ip_start_index]  # http:// or https://
+        ip_address = url[ip_start_index:ip_dot_three]
+        port = url[ip_end_index:]
+        ip_end = "1"
+        modified_ip = f"{ip_address}{ip_end}"
+        x_url = f"{base_url}{modified_ip}{port}"
+        x_urls.append(x_url)
+    urls = set(x_urls)  # 去重得到唯一的URL列表
+    valid_urls = []
+    #   多线程获取可用url
+    with concurrent.futures.ThreadPoolExecutor(max_workers=100) as executor:
+        futures = []
+        for url in urls:
+            url = url.strip()
+            modified_urls = modify_urls(url)
+            for modified_url in modified_urls:
+                futures.append(executor.submit(is_url_accessible, modified_url))
+        for future in concurrent.futures.as_completed(futures):
+            result = future.result()
+            if result:
+                valid_urls.append(result)
+    for url in valid_urls:
+        print(url)
+
+    # 遍历网址列表,获取JSON文件并解析
+    for url in valid_urls:
+        try:
+            ip_start_index = url.find("//") + 2
+            # 找到URL中"//"的位置，并从该位置的下一个字符开始截取，直到找到第一个"/"字符
+            ip_dot_start = url.find(".") + 1
+            # 从URL中找到第一个"."的位置，并从该位置的下一个字符开始截取，直到找到第二个"/"字符
+            ip_index_second = url.find("/", ip_dot_start)
+            base_url = url[:ip_start_index]  # 截取URL中的协议部分，例如"http://"或"https://"
+            # 截取从"//"之后到第一个"/"之前的部分，这通常是IP地址或域名
+            ip_address = url[ip_start_index:ip_index_second]
+            # 构造一个新的URL，由基本URL和IP地址组成
+            url_x = f"{base_url}{ip_address}"
+            # 将原始URL赋值给json_url变量
+            json_url = f"{url}"
+            # 使用requests库发起一个GET请求到json_url，超时时间设置为3秒
+            response = requests.get(json_url, timeout=3)
+            # 将响应的内容解析为JSON格式
+            json_data = response.json()
+            try:
+            # 尝试执行以下代码块，如果发生错误则跳转至except部分
+                # 解析JSON文件，获取'data'键对应的列表中的每个元素
+                for item in json_data['data']:
+                    # 检查每个元素是否为字典类型
+                    if isinstance(item, dict):
+                        # 从字典中获取'name'键的值，如果键不存在则返回None
+                        name = item.get('name')
+                        # 从字典中获取'url'键的值，如果键不存在则返回None
+                        urlx = item.get('url')
+                        # 如果urlx包含'udp'或'rtp'字符串，则跳过当前循环的剩余部分
+                        if 'udp' in urlx or 'rtp' in urlx or 'CCTV' in name or '卫视' in name:
+                            continue  # 跳过包含'udp'或'rtp'的url
+                        # 如果urlx以'http'开头，则直接使用这个url
+                        if 'http' in urlx:
+                            urld = f"{urlx}"
+                        # 如果urlx不以'http'开头，则在前面添加一个前缀（注意：这里的url_x变量未在代码中定义）
+                        else:
+                            urld = f"{url_x}{urlx}"
+                        #print(f"{name},{urld}")  #关闭频道名称和频道地址打印，缩短运行时间
+                        if name and urld:
+                            urld = urld.replace("key", "$不见黄河心不死") #key=txiptv&playlive=1&down=1  key=txiptv&playlive=0&authid=0  key=txiptv&playlive=1&authid=0
+                            results.append(f"{name},{urld}")
+            except:
+                continue
+        except:
+            continue
+channels = []
+for result in results:
+    line = result.strip()
+    if result:
+        channel_name, channel_url = result.split(',')
+        channels.append((channel_name, channel_url))
+with open("iptv.txt", 'a', encoding='utf-8') as file:
+    for result in results:
+        file.write(result + "\n")
+        print(result)  #关闭频道名称和频道地址打印，缩短运行时间
+print("频道列表文件iptv.txt追加写入成功！")
+
+
+
+
+################################################按网址去除重复行#####
+def remove_duplicates(input_file, output_file):
+    # 用于存储已经遇到的URL和包含genre的行
+    seen_urls = set()
+    seen_lines_with_genre = set()
+    # 用于存储最终输出的行
+    output_lines = []
+    # 打开输入文件并读取所有行
+    with open(input_file, 'r', encoding='utf-8') as f:
+        lines = f.readlines()
+        print("去重前的行数：", len(lines))
+        # 遍历每一行
+        for line in lines:
+            # 使用正则表达式查找URL和包含genre的行,默认最后一行
+            urls = re.findall(r'[https]?[http]?[P2p]?[mitv]?://(?:[a-zA-Z]|[0-9]|[$-_@.&+]|[!*\\(\\),]|(?:%[0-9a-fA-F][0-9a-fA-F]))+', line)
+            genre_line = re.search(r'\bgenre\b', line, re.IGNORECASE) is not None
+            # 如果找到URL并且该URL尚未被记录
+            if urls and urls[0] not in seen_urls:
+                seen_urls.add(urls[0])
+                output_lines.append(line)
+            # 如果找到包含genre的行，无论是否已被记录，都写入新文件
+            if genre_line:
+                output_lines.append(line)
+    # 将结果写入输出文件
+    with open(output_file, 'w', encoding='utf-8') as f:
+        f.writelines(output_lines)
+    print("去重后的行数：", len(output_lines))
+# 使用方法
+remove_duplicates('iptv.txt', 'iptv.txt')
+
+
+
+######################################################################################################################
+###################################################去除列表中的组播地址,酒店源验证整理
+def filter_lines(input_file, output_file):
+    with open(input_file, 'r', encoding='utf-8') as file:
+        lines = file.readlines()
+    filtered_lines = []
+    for line in lines:
+        if ('hls' in line and 'm3u' in line) or ('tsfile' in line and 'm3u' in line):  #行中包含m3u的同时还要包含hls或者tsfile
+          if 'udp' not in line and 'rtp' not in line and 'BM' not in line and 'B1' not in line and 'B2' not in line and 'B3' not in line and '1TY' not in line:   #  排除组播地址
+            filtered_lines.append(line)
+    with open(output_file, 'w', encoding='utf-8') as output_file:
+        output_file.writelines(filtered_lines)
+filter_lines("iptv.txt", "iptv.txt")
+
+
+
+
+#################################################### 对整理好的频道列表测试HTTP连接
+def test_connectivity(url, max_attempts=2): #定义测试HTTP连接的次数
+    # 尝试连接指定次数    
+   for _ in range(max_attempts):  
+    try:
+        response = requests.head(url, timeout=3)  # 发送HEAD请求,仅支持V4,修改此行数字可定义链接超时##////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+        #response = requests.get(url, timeout=1)  # 发送get请求,支持V6,修改此行数字可定义链接超时##############################//////////////////////////////////////////////////////////////////////////////////////
+        return response.status_code == 200  # 返回True如果状态码为200
+    except requests.RequestException:  # 捕获requests引发的异常
+        pass  # 发生异常时忽略
+   #return False  # 如果所有尝试都失败,返回False
+   pass   
+# 使用队列来收集结果的函数
+def process_line(line, result_queue):
+    parts = line.strip().split(",")  # 去除行首尾空白并按逗号分割
+    if len(parts) == 2 and parts[1]:  # 确保有URL,并且URL不为空
+        channel_name, channel_url = parts  # 分别赋值频道名称和URL
+        if test_connectivity(channel_url):  # 测试URL是否有效
+            result_queue.put((channel_name, channel_url, "有效"))  # 将结果放入队列
+        else:
+            result_queue.put((channel_name, channel_url, "无效"))  # 将结果放入队列
+    else:
+        # 格式不正确的行不放入队列
+        pass
+# 主函数
+def main(source_file_path, output_file_path):
+    with open(source_file_path, "r", encoding="utf-8") as source_file:  # 打开源文件
+        lines = source_file.readlines()  # 读取所有行s     
+    result_queue = queue.Queue()  # 创建队列
+    threads = []  # 初始化线程列表
+    for line in tqdm(lines, desc="检测进行中"):  # 显示进度条
+        thread = threading.Thread(target=process_line, args=(line, result_queue))  # 创建线程
+        thread.start()  # 启动线程
+        threads.append(thread)  # 将线程加入线程列表
+    for thread in threads:  # 等待所有线程完成
+        thread.join()
+    # 初始化计数器
+    valid_count = 0
+    invalid_count = 0
+    with open(output_file_path, "w", encoding="utf-8") as output_file:  # 打开输出文件
+        for _ in range(result_queue.qsize()):  # 使用队列的大小来循环
+            item = result_queue.get()  # 获取队列中的项目
+            # 只有在队列中存在有效的项目时才写入文件
+            if item[0] and item[1]:  # 确保channel_name和channel_url都不为None
+                output_file.write(f"{item[0]},{item[1]},{item[2]}\n")  # 写入文件
+                if item[2] == "有效":  # 统计有效源数量
+                    valid_count += 1
+                else:  # 统计无效源数量
+                    invalid_count += 1
+    print(f"任务完成, 有效源数量: {valid_count}, 无效源数量: {invalid_count}")  # 打印结果
+if __name__ == "__main__":
+    try:
+        source_file_path = "iptv.txt"  # 输入源文件路径
+        output_file_path = "酒店源.txt"  # 设置输出文件路径
+        main(source_file_path, output_file_path)  # 调用main函数
+    except Exception as e:
+        print(f"程序发生错误: {e}")  # 打印错误信息
+        
+#########################################################################提取酒店源中的有效行
+def filter_lines(file_path):
+    with open(file_path, 'r', encoding='utf-8') as file:  # 打开文件
+        lines = file.readlines()  # 读取所有行
+    filtered_lines = []  # 初始化过滤后的行列表
+    for line in lines:  # 遍历所有行
+        if 'genre' in line or '有效' in line:  # 如果行中包含'genre'或'有效'
+            filtered_lines.append(line)  # 将行添加到过滤后的行列表
+    return filtered_lines  # 返回过滤后的行列表
+def write_filtered_lines(output_file_path, filtered_lines):
+    with open(output_file_path, 'w', encoding='utf-8') as output_file:  # 打开输出文件
+        output_file.writelines(filtered_lines)  # 写入过滤后的行
+if __name__ == "__main__":
+    input_file_path = "酒店源.txt"  # 设置输入文件路径
+    output_file_path = "酒店源.txt"  # 设置输出文件路径
+    filtered_lines = filter_lines(input_file_path)  # 调用filter_lines函数
+    write_filtered_lines(output_file_path, filtered_lines)  # 调用write_filtered_lines函数
+###################################################################################定义替换规则的字典,对整行内的内容进行替换
+replacements = {
+    ",有效": "",  # 将",有效"替换为空字符串
+    "#genre#,无效": "#genre#",  # 将"#genre#,无效"替换为"#genre#"
+}
+# 打开原始文件读取内容,并写入新文件
+with open('酒店源.txt', 'r', encoding='utf-8') as file:
+    lines = file.readlines()
+# 创建新文件并写入替换后的内容
+with open('酒店源.txt', 'w', encoding='utf-8') as new_file:
+    for line in lines:
+        for old, new in replacements.items():  # 遍历替换规则字典
+            line = line.replace(old, new)  # 替换行中的内容
+        new_file.write(line)  # 写入新文件
+print("新文件已保存。")  # 打印完成信息
+
+#对生成的文件进行合并
+file_contents = []
+file_paths = ['酒店源.txt']  # 替换为实际的文件路径列表
+for file_path in file_paths:
+    if os.path.exists(file_path):
+        with open(file_path, 'r', encoding="utf-8") as file:
+            content = file.read()
+            file_contents.append(content)
+    else:                # 如果文件不存在,则提示异常并打印提示信息
+        print(f"文件 {file_path} 不存在,跳过")
+# 写入合并后的文件
+with open('酒店源.txt', "w", encoding="utf-8") as output:
+    output.write('\n'.join(file_contents))
+#
+
+##########################################################################################简体转繁体
+# 创建一个OpenCC对象,指定转换的规则为繁体字转简体字
+converter = OpenCC('t2s.json')#繁转简
+#converter = OpenCC('s2t.json')#简转繁
+# 打开txt文件
+with open('酒店源.txt', 'r', encoding='utf-8') as file:
+    traditional_text = file.read()
+# 进行繁体字转简体字的转换
+simplified_text = converter.convert(traditional_text)
+# 将转换后的简体字写入txt文件
+with open('酒店源.txt', 'w', encoding='utf-8') as file:
+    file.write(simplified_text)
+#
+
+
+import cv2
+import time
+from tqdm import tqdm
+# 初始化酒店源字典
+detected_ips = {}
+# 存储文件路径
+file_path = "酒店源.txt"
+output_file_path = "酒店优选.txt"
+def get_ip_key(url):
+    """从URL中提取IP地址,并构造一个唯一的键"""
+    # 找到'//'到第三个'.'之间的字符串
+    start = url.find('://') + 3  # '://'.length 是 3
+    end = start
+    dot_count = 0
+    while dot_count < 3:
+        end = url.find('.', end)
+        if end == -1:  # 如果没有找到第三个'.',就结束
+            break
+        dot_count += 1
+    return url[start:end] if dot_count == 3 else None
+# 打开输入文件和输出文件
+with open(file_path, 'r', encoding='utf-8') as file:
+    lines = file.readlines()
+# 获取总行数用于进度条
+total_lines = len(lines)
+# 写入通过检测的行到新文件
+with open(output_file_path, 'w', encoding='utf-8') as output_file:
+    # 使用tqdm显示进度条
+    for i, line in tqdm(enumerate(lines), total=total_lines, desc="Processing", unit='line'):
+        # 检查是否包含 'genre'
+        if 'genre' in line:
+            output_file.write(line)
+            continue
+        # 分割频道名称和URL,并去除空白字符
+        parts = line.split(',', 1)
+        if len(parts) == 2:
+            channel_name, url = parts
+            channel_name = channel_name.strip()
+            url = url.strip()
+            # 构造IP键
+            ip_key = get_ip_key(url)
+            if ip_key and ip_key in detected_ips:
+                # 如果IP键已存在,根据之前的结果决定是否写入新文件
+                if detected_ips[ip_key]['status'] == 'ok':
+                    output_file.write(line)
+            elif ip_key:  # 新IP键,进行检测
+                # 进行检测
+                cap = cv2.VideoCapture(url)
+                start_time = time.time()
+                frame_count = 0
+                # 尝试捕获5秒内的帧
+                while frame_count < 60 and (time.time() - start_time) < 5:#//////////////////////////////////////////////////////////////////////////////////////###########
+                    ret, frame = cap.read()
+                    if not ret:
+                        break
+                    frame_count += 1
+                # 释放资源
+                cap.release()
+                # 根据捕获的帧数判断状态并记录结果#////////////////////////////////////////////////////////////////////////////////////////////////////////////////###########
+                if frame_count >= 60:  #5秒内超过100帧则写入#/////////////////////////////////////////////////////////////////////////////////////////////////////###########
+                    detected_ips[ip_key] = {'status': 'ok'}
+                    output_file.write(line)  # 写入检测通过的行
+                else:
+                    detected_ips[ip_key] = {'status': 'fail'}
+# 打印酒店源
+for ip_key, result in detected_ips.items():
+    print(f"IP Key: {ip_key}, Status: {result['status']}")
+
+
+
+
+
+
+
+###############################################################################文本排序
+# 打开原始文件读取内容，并写入新文件
+with open('酒店优选.txt', 'r', encoding='utf-8') as file:
+    lines = file.readlines()
+# 定义一个函数，用于提取每行的第一个数字
+def extract_first_number(line):
+    match = re.search(r'\d+', line)
+    return int(match.group()) if match else float('inf')
+# 对列表中的行进行排序
+# 按照第一个数字的大小排列，如果不存在数字则按中文拼音排序
+sorted_lines = sorted(lines, key=lambda x: (not 'CCTV' in x, extract_first_number(x) if 'CCTV' in x else lazy_pinyin(x.strip())))
+# 将排序后的行写入新的utf-8编码的文本文件，文件名基于原文件名
+output_file_path = "sorted_" + os.path.basename(file_path)
+# 写入新文件
+with open('酒店源.txt', "w", encoding="utf-8") as file:
+    for line in sorted_lines:
+        file.write(line)
+print(f"文件已排序并保存为新文件")
+print("\n\n\n\n\n\n")
+
+
+########################################################################定义关键词分割规则,分类提取
+def check_and_write_file(input_file, output_file, keywords):
+    # 使用 split(', ') 而不是 split(',') 来分割关键词
+    keywords_list = keywords.split(', ')
+    first_keyword = keywords_list[0]  # 获取第一个关键词作为头部信息
+    pattern = '|'.join(re.escape(keyword) for keyword in keywords_list)
+    extracted_lines = False
+    with open(input_file, 'r', encoding='utf-8') as file:
+        lines = file.readlines()
+    with open(output_file, 'w', encoding='utf-8') as out_file:
+        out_file.write(f'{first_keyword},#genre#\n')  # 使用第一个关键词作为头部信息
+        for line in lines:
+            if 'genre' not in line and 'epg' not in line:
+                if re.search(pattern, line):
+                    out_file.write(line)
+                    extracted_lines = True
+    # 如果没有提取到任何关键词,则不保留输出文件
+    if not extracted_lines:
+        os.remove(output_file)  # 删除空的输出文件
+        print(f"未提取到关键词,{output_file} 已被删除。")
+    else:
+        print(f"文件已提取关键词并保存为: {output_file}")
+# 按类别提取关键词并写入文件
+#check_and_write_file('酒店源.txt',  'a0.txt',  keywords="央视频道, 8K, 4K, 4k")
+#check_and_write_file('酒店源.txt',  'a.txt',  keywords="央视频道, CCTV, 风云, 女性时尚, 地理世界, 音乐")
+#check_and_write_file('酒店源.txt',  'a1.txt',  keywords="央视频道")
+#check_and_write_file('酒店源.txt',  'b.txt',  keywords="卫视频道, 卫视, 凤凰, 星空")
+check_and_write_file('酒店源.txt',  'c.txt',  keywords="影视频道, 剧, 选, 影")
+check_and_write_file('酒店源.txt',  'e.txt',  keywords="港澳频道, shuma, TVB, 珠江台, 澳门, 龙华, 广场舞, 动物杂技, 民视, 中视, 华视, AXN, MOMO, 采昌, 耀才, 靖天, 镜新闻, 靖洋, 莲花, 年代, 爱尔达, 好莱坞, 华丽, 非凡, 公视, \
+寰宇, 无线, EVEN, MoMo, 爆谷, 面包, momo, 唐人, 中华小, 三立, 37.27, 猪哥亮, 综艺, Movie, 八大, 中天, 中视, 东森, 凤凰, 天映, 美亚, 环球, 翡翠, ZIPP, 大爱, 大愛, 明珠, jdshipin, AMC, 龙祥, 台视, 1905, 纬来, 神话, 经典都市, 视界, \
+番薯, 私人, 酒店, TVB, 凤凰, 半岛, 星光视界, 大愛, 新加坡, 星河, 明珠, 环球, 翡翠台")
+#check_and_write_file('酒店源.txt',  'f.txt',  keywords="省市频道, 湖北, 武汉, 河北, 广东, 河南, 陕西, 四川, 湖南, 广西, 山西, 石家庄, 南宁, 汕头, 揭阳, 普宁, 福建, 辽宁")
+#check_and_write_file('酒店源.txt',  'o1.txt',  keywords="其他频道, 新闻, 综合, 文艺, 电视, 公共, 科教, 教育, 民生, 轮播, 套, 法制, 文化, 经济, 生活")
+#check_and_write_file('酒店源.txt',  'o.txt',  keywords="其他频道, , ")
+#
+#对生成的文件进行合并
+file_contents = []
+file_paths = ["e.txt", "a0.txt", "a.txt", "a1.txt", "b.txt", "c.txt", "c1.txt", "c2.txt", "d.txt", "f.txt", "o1.txt", "o.txt"]  # 替换为实际的文件路径列表
+for file_path in file_paths:
+    if os.path.exists(file_path):
+        with open(file_path, 'r', encoding="utf-8") as file:
+            content = file.read()
+            file_contents.append(content)
+    else:                # 如果文件不存在,则提示异常并打印提示信息
+        print(f"文件 {file_path} 不存在,跳过")
+# 写入合并后的文件
+with open("去重.txt", "w", encoding="utf-8") as output:
+    output.write('\n'.join(file_contents))
+#
+##################################################################### 打开文档并读取所有行 ,对提取后重复的频道去重
+with open('去重.txt', 'r', encoding="utf-8") as file:
+ lines = file.readlines()
+# 使用列表来存储唯一的行的顺序 
+ unique_lines = [] 
+ seen_lines = set() 
+# 遍历每一行,如果是新的就加入unique_lines 
+for line in lines:
+ if line not in seen_lines:
+  unique_lines.append(line)
+  seen_lines.add(line)
+# 将唯一的行写入新的文档 
+with open('酒店优选.txt', 'w', encoding="utf-8") as file:
+ file.writelines(unique_lines)
+#任务结束,删除不必要的过程文件
+files_to_remove = ['去重.txt', "2.txt", "iptv.txt", "e.txt", "a0.txt", "a.txt", "a1.txt", "b.txt", "c.txt", "c1.txt", "c2.txt", "d.txt", "f.txt", "o1.txt", "o.txt", "酒店源.txt"]
+for file in files_to_remove:
+    if os.path.exists(file):
+        os.remove(file)
+    else:              # 如果文件不存在,则提示异常并打印提示信息
+        print(f"文件 {file} 不存在,跳过删除。")
+print("任务运行完毕,酒店源频道列表可查看文件夹内txt文件！")
