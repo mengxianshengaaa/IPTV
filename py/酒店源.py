@@ -33,11 +33,11 @@ from translate import Translator  # 导入Translator类,用于文本翻译
 import requests
 
 urls = [
-    "https://fofa.info/result?qbase64=IlpIR1hUViIgJiYgcmVnaW9uPSJndWFuZ2Rvbmci",  #广东
-    "https://fofa.info/result?qbase64=IlpIR1hUViIg",    #ZHGX
-    "https://fofa.info/result?qbase64=IlpIR1hUViIgJiYgcmVnaW9uPSJoZW5hbiI%3D",  #河南
-    "https://fofa.info/result?qbase64=IlpIR1hUViIgJiYgcmVnaW9uPSJoZW5hbiIgJiYgcG9ydD0iODA5MCI=",  #河南8090
-    "https://fofa.info/result?qbase64=IlpIR1hUViIgJiYgcmVnaW9uPSJoZWJlaSI%3D", #河北
+    #"https://fofa.info/result?qbase64=IlpIR1hUViIgJiYgcmVnaW9uPSJndWFuZ2Rvbmci", #广东
+    "https://fofa.info/result?qbase64=IlpIR1hUViIgJiYgcmVnaW9uPSJIZW5hbiI%3D" ,   #河南
+    #“https://fofa.info/result?qbase64=IlpIR1hUViIg”，#ZHGX
+    "https://fofa.info/result?qbase64=IlpIR1hUViIgJiYgcmVnaW9uPSJoZW5hbiIgJiYgcG9ydD0iODA5MCI=" ,   #河南8090
+    #"https://fofa.info/result?qbase64=IlpIR1hUViIgJiYgcmVnaW9uPSJoZWJlaSI%3D", #河北
 ]
 
 def modify_urls(url):
@@ -314,14 +314,14 @@ for line in fileinput.input("iptv.txt", inplace=True):  #打开文件,并对其�
 ######################################################################################################################
 #定义智慧桌面采集地址
 urls = [
-    "https://fofa.info/result?qbase64=ImlwdHYvbGl2ZS96aF9jbi5qcyIgJiYgY291bnRyeT0iQ04iICYmIHJlZ2lvbj0i5rKz5YyXIg%3D%3D",  #河北
-    "https://fofa.info/result?qbase64=Ym9keV9oYXNoPSI0OTQ5NTY3NTki",   #body_hash="494956759"
-    "https://fofa.info/result?qbase64=ImlwdHYvbGl2ZS96aF9jbi5qcyIgJiYgY291bnRyeT0iQ04iICYmIHJlZ2lvbj0i5bm%2F5LicIg%3D%3D",  #广东
-    "https://fofa.info/result?qbase64=ImlwdHYvbGl2ZS96aF9jbi5qcyIgJiYgY291bnRyeT0iQ04iICYmIHJlZ2lvbj0i5rKz5Y2XIg%3D%3D",  # 河南
-    "https://fofa.info/result?qbase64=ImlwdHYvbGl2ZS96aF9jbi5qcyIgJiYgY291bnRyeT0iQ04iICYmIHBvcnQ9IjgwOTYi",  # 8096
+    #"https://fofa.info/result?qbase64=ImlwdHYvbGl2ZS96aF9jbi5qcyIgJiYgY291bnRyeT0iQ04iICYmIHJlZ2lvbj0i5rKz5YyXIg%3D%3D",  #河北
+    #"https://fofa.info/result?qbase64=Ym9keV9oYXNoPSI0OTQ5NTY3NTki",   #body_hash="494956759"
+    "https://fofa.info/result?qbase64=ImlwdHYvbGl2ZS96aF9jbi5qcyIgJiYgY291bnRyeT0iQ04iICYmIHJlZ2lvbj0ic2ljaHVhbiIgJiYgY2l0eT0ibWlhbnlhbmci",  #四川绵阳
+    #"https://fofa.info/result?qbase64=ImlwdHYvbGl2ZS96aF9jbi5qcyIgJiYgY291bnRyeT0iQ04iICYmIHJlZ2lvbj0i5rKz5Y2XIg%3D%3D",  # 河南
+    #"https://fofa.info/result?qbase64=ImlwdHYvbGl2ZS96aF9jbi5qcyIgJiYgY291bnRyeT0iQ04iICYmIHBvcnQ9IjgwOTYi",  # 8096
     "https://fofa.info/result?qbase64=ImlwdHYvbGl2ZS96aF9jbi5qcyIgJiYgY291bnRyeT0iQ04iICYmIHBvcnQ9Ijk5MDEi",  # 9901
     "https://fofa.info/result?qbase64=ImlwdHYvbGl2ZS96aF9jbi5qcyIgJiYgY291bnRyeT0iQ04iICYmIHBvcnQ9Ijk5MDIi",  # 9902
-    "https://fofa.info/result?qbase64=ImlwdHYvbGl2ZS96aF9jbi5qcyIgJiYgY291bnRyeT0iQ04iICYmIGNpdHk9Imd1aWdhbmci",  #贵港
+    "https://fofa.info/result?qbase64=ImlwdHYvbGl2ZS96aF9jbi5qcyIgJiYgY291bnRyeT0iQ04iICYmIGNpdHk9Inl1bGluIg==",  #玉林
     "https://fofa.info/result?qbase64=ImlwdHYvbGl2ZS96aF9jbi5qcyIgJiYgY291bnRyeT0iQ04iICYmIHBvcnQ9IjgxODEii",#8181
 ]
 def modify_urls(url):
@@ -418,7 +418,7 @@ for url in urls:
                         # 从字典中获取'url'键的值，如果键不存在则返回None
                         urlx = item.get('url')
                         # 如果urlx包含'udp'或'rtp'字符串，则跳过当前循环的剩余部分
-                        if 'udp' in urlx or 'rtp' in urlx:
+                        if 'udp' in urlx or 'rtp' in urlx or 'CCTV' in name or '卫视' in name:
                             continue  # 跳过包含'udp'或'rtp'的url
                         # 如果urlx以'http'开头，则直接使用这个url
                         if 'http' in urlx:
@@ -559,7 +559,19 @@ with open("iptv.txt", 'a', encoding='utf-8') as file:
         print(result)  #关闭频道名称和频道地址打印，缩短运行时间
 print("频道列表文件iptv.txt追加写入成功！")
 
-# 定义要搜索的关键词
+
+######################################################################
+#定义一个关键词组，用于排除掉含有关键词的行
+keywords = ['CCTV', '卫视', '广东', '广西', '南宁', '河南', '河北', '公共', '教育', '新闻', 'SCTV', '动漫', '卡通', '少儿', '中国', '玉林', '陆川', '新疆', '摄影']
+with open('iptv.txt', 'r', encoding='utf-8') as infile:
+    lines = infile.readlines()
+filtered_lines = [line for line in lines if not any(keyword in line for keyword in keywords)]
+with open('iptv.txt', 'w', encoding='utf-8') as outfile:
+    outfile.writelines(filtered_lines)
+#####################################################################
+
+#####################################################################
+# 定义要搜索的关键词，从文件中提取包含这个关键词的行，然后添加到另一个文件尾
 keywords = ['hls', 'tsfile']
 # 打开1.txt文件并读取内容
 with open('网络收集.txt', 'r', encoding='utf-8') as file:
@@ -570,8 +582,9 @@ filtered_lines = [line for line in lines if any(keyword in line for keyword in k
 with open('iptv.txt', 'a', encoding='utf-8') as file:
     file.writelines(filtered_lines)
 print("频道列表文件iptv.txt再次追加写入成功！")
+#####################################################################
 
-
+################################################按网址去除重复行#####
 def remove_duplicates(input_file, output_file):
     # 用于存储已经遇到的URL和包含genre的行
     seen_urls = set()
@@ -611,18 +624,61 @@ def filter_lines(input_file, output_file):
     filtered_lines = []
     for line in lines:
         if ('hls' in line and 'm3u' in line) or ('tsfile' in line and 'm3u' in line):  #行中包含m3u的同时还要包含hls或者tsfile
-          if 'udp' not in line and 'rtp' not in line and '182.117.136' not in line:   # and 'CCTV' not in line and '卫视' not in line  排除组播地址
+          if 'udp' not in line and 'rtp' not in line and 'BM' not in line and 'B1' not in line and 'B2' not in line and 'B3' not in line and '1TY' not in line:   #  排除组播地址
             filtered_lines.append(line)
     with open(output_file, 'w', encoding='utf-8') as output_file:
         output_file.writelines(filtered_lines)
 filter_lines("iptv.txt", "iptv.txt")
+
+
+#####################################定义替换规则的字典,对整行内的多余标识内容进行替换
+replacements = {
+    	"2珠江": "TVB星河",
+        "T[": "T",
+    	"BM9家庭影院": "东森电影",
+    	"BM15广东影视": "广东影视",
+    	"BM20": "",
+    	"3X电影": "龙祥时代",
+    	"4DS": "东森",
+    	"1ZX": "凤凰资讯HD",
+    	"2ZW）": "凤凰中文HD",
+    	"3XG": "凤凰香港",
+    	"4ZW": "凤凰中文",
+    	"5ZX": "凤凰资讯",    
+        "dx[": "[",
+        "g[": "[",
+        "P[": "+[",
+        "lt[": "[",
+        "电信": "",
+        "卫视高清": "卫视",
+        "SCTV5": "",
+        "T,": ",",
+        "dx,": ",",
+        "g,": ",",
+        "TVBTVB": "TVB",
+        "5音乐台": "CCTV15",
+        "": "",
+        "": "",
+        "": "",
+        "": ""
+}
+# 打开原始文件读取内容，并写入新文件
+with open('iptv.txt', 'r', encoding='utf-8') as file:
+    lines = file.readlines()
+# 创建新文件并写入替换后的内容
+with open('iptv.txt', 'w', encoding='utf-8') as new_file:
+    for line in lines:
+        for old, new in replacements.items():
+            line = line.replace(old, new)
+        new_file.write(line)
+print("替换完成，新文件已保存。")
 
 #################################################### 对整理好的频道列表测试HTTP连接
 def test_connectivity(url, max_attempts=2): #定义测试HTTP连接的次数
     # 尝试连接指定次数    
    for _ in range(max_attempts):  
     try:
-        response = requests.head(url, timeout=1)  # 发送HEAD请求,仅支持V4,修改此行数字可定义链接超时##////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+        response = requests.head(url, timeout=3)  # 发送HEAD请求,仅支持V4,修改此行数字可定义链接超时##////////////////////////////////////////////////////////////////////////////////////////////////////////////////
         #response = requests.get(url, timeout=1)  # 发送get请求,支持V6,修改此行数字可定义链接超时##############################//////////////////////////////////////////////////////////////////////////////////////
         return response.status_code == 200  # 返回True如果状态码为200
     except requests.RequestException:  # 捕获requests引发的异常
@@ -789,7 +845,7 @@ with open(output_file_path, 'w', encoding='utf-8') as output_file:
                 start_time = time.time()
                 frame_count = 0
                 # 尝试捕获5秒内的帧
-                while frame_count < 100 and (time.time() - start_time) < 5:#//////////////////////////////////////////////////////////////////////////////////////###########
+                while frame_count < 60 and (time.time() - start_time) < 5:#//////////////////////////////////////////////////////////////////////////////////////###########
                     ret, frame = cap.read()
                     if not ret:
                         break
@@ -797,7 +853,7 @@ with open(output_file_path, 'w', encoding='utf-8') as output_file:
                 # 释放资源
                 cap.release()
                 # 根据捕获的帧数判断状态并记录结果#////////////////////////////////////////////////////////////////////////////////////////////////////////////////###########
-                if frame_count >= 100:  #5秒内超过100帧则写入#/////////////////////////////////////////////////////////////////////////////////////////////////////###########
+                if frame_count >= 60:  #5秒内超过100帧则写入#/////////////////////////////////////////////////////////////////////////////////////////////////////###########
                     detected_ips[ip_key] = {'status': 'ok'}
                     output_file.write(line)  # 写入检测通过的行
                 else:
@@ -1014,17 +1070,17 @@ def check_and_write_file(input_file, output_file, keywords):
     else:
         print(f"文件已提取关键词并保存为: {output_file}")
 # 按类别提取关键词并写入文件
-check_and_write_file('酒店源.txt',  'a0.txt',  keywords="央视频道, 8K, 4K, 4k")
-check_and_write_file('酒店源.txt',  'a.txt',  keywords="央视频道, CCTV, 风云, 女性时尚, 地理世界, 音乐")
-check_and_write_file('酒店源.txt',  'a1.txt',  keywords="央视频道")
-check_and_write_file('酒店源.txt',  'b.txt',  keywords="卫视频道, 卫视, 凤凰, 星空")
+#check_and_write_file('酒店源.txt',  'a0.txt',  keywords="央视频道, 8K, 4K, 4k")
+#check_and_write_file('酒店源.txt',  'a.txt',  keywords="央视频道, CCTV, 风云, 女性时尚, 地理世界, 音乐")
+#check_and_write_file('酒店源.txt',  'a1.txt',  keywords="央视频道")
+#check_and_write_file('酒店源.txt',  'b.txt',  keywords="卫视频道, 卫视, 凤凰, 星空")
 check_and_write_file('酒店源.txt',  'c.txt',  keywords="影视频道, 剧, 选, 影")
-check_and_write_file('酒店源.txt',  'e.txt',  keywords="港澳频道, TVB, 珠江台, 澳门, 龙华, 广场舞, 动物杂技, 民视, 中视, 华视, AXN, MOMO, 采昌, 耀才, 靖天, 镜新闻, 靖洋, 莲花, 年代, 爱尔达, 好莱坞, 华丽, 非凡, 公视, \
+check_and_write_file('酒店源.txt',  'e.txt',  keywords="港澳频道, shuma, TVB, 珠江台, 澳门, 龙华, 广场舞, 动物杂技, 民视, 中视, 华视, AXN, MOMO, 采昌, 耀才, 靖天, 镜新闻, 靖洋, 莲花, 年代, 爱尔达, 好莱坞, 华丽, 非凡, 公视, \
 寰宇, 无线, EVEN, MoMo, 爆谷, 面包, momo, 唐人, 中华小, 三立, 37.27, 猪哥亮, 综艺, Movie, 八大, 中天, 中视, 东森, 凤凰, 天映, 美亚, 环球, 翡翠, ZIPP, 大爱, 大愛, 明珠, jdshipin, AMC, 龙祥, 台视, 1905, 纬来, 神话, 经典都市, 视界, \
 番薯, 私人, 酒店, TVB, 凤凰, 半岛, 星光视界, 大愛, 新加坡, 星河, 明珠, 环球, 翡翠台")
-check_and_write_file('酒店源.txt',  'f.txt',  keywords="省市频道, 湖北, 武汉, 河北, 广东, 河南, 陕西, 四川, 湖南, 广西, 山西, 石家庄, 南宁, 汕头, 揭阳, 普宁, 福建, 辽宁")
-check_and_write_file('酒店源.txt',  'o1.txt',  keywords="其他频道, 新闻, 综合, 文艺, 电视, 公共, 科教, 教育, 民生, 轮播, 套, 法制, 文化, 经济, 生活")
-check_and_write_file('酒店源.txt',  'o.txt',  keywords="其他频道, , ")
+#check_and_write_file('酒店源.txt',  'f.txt',  keywords="省市频道, 湖北, 武汉, 河北, 广东, 河南, 陕西, 四川, 湖南, 广西, 山西, 石家庄, 南宁, 汕头, 揭阳, 普宁, 福建, 辽宁")
+#check_and_write_file('酒店源.txt',  'o1.txt',  keywords="其他频道, 新闻, 综合, 文艺, 电视, 公共, 科教, 教育, 民生, 轮播, 套, 法制, 文化, 经济, 生活")
+#check_and_write_file('酒店源.txt',  'o.txt',  keywords="其他频道, , ")
 #
 #对生成的文件进行合并
 file_contents = []
