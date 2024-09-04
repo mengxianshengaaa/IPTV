@@ -65,7 +65,6 @@ CCTV17,http://[2409:8087:1a01:df::4077]/ottrrs.hl.chinamobile.com/PLTV/88888888/
 CHC动作电影,http://video.qd.sdu.edu.cn/liverespath/e0096742f0c5be4c5225cf3c7ab1077177bec05f/index.m3u8
 CHC家庭影院,http://video.qd.sdu.edu.cn/liverespath/449d51febadb152094085d373b9af94a6ac5f1dd/index.m3u8
 CHC影迷电影,http://video.qd.sdu.edu.cn/liverespath/bca6167afdef7fc773405c38e695b342c1d1eca0/index.m3u8
-苏州4K,http://liveshowbak2.kan0512.com/ksz-norecord/csztv4k_4k.m3u8
 BRTV生活,http://video.qd.sdu.edu.cn/liverespath/89ed1379f4c4cc9a436aacabc882365f512a7595/index.m3u8
 BRTV文艺,http://video.qd.sdu.edu.cn/liverespath/df76b690ed09ed3949eb8579ea5a7728e6cbd03f/index.m3u8
 怀集音乐台,http://live.xmcdn.com:80/live/966/64.m3u8
