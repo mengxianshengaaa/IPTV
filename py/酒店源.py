@@ -626,7 +626,7 @@ print("替换完成，新文件已保存。")
 
 #####################################################################
 # 定义要搜索的关键词，从文件中提取包含这个关键词的行，然后添加到另一个文件尾
-keywords = ['hls', 'tsfile']
+keywords = ['hls.m3u8', 'tsfile#']
 # 打开1.txt文件并读取内容
 with open('网络收集.txt', 'r', encoding='utf-8') as file:
     lines = file.readlines()
