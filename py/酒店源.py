@@ -355,23 +355,3 @@ remove_duplicates('iptv.txt', 'iptv.txt')
 
 
 
-###############################################################################文本排序
-# 打开原始文件读取内容，并写入新文件
-with open('iptv.txt', 'r', encoding='utf-8') as file:
-    lines = file.readlines()
-# 定义一个函数，用于提取每行的第一个数字
-def extract_first_number(line):
-    match = re.search(r'\d+', line)
-    return int(match.group()) if match else float('inf')
-# 对列表中的行进行排序
-# 按照第一个数字的大小排列，如果不存在数字则按中文拼音排序
-sorted_lines = sorted(lines, key=lambda x: (not 'CCTV' in x, extract_first_number(x) if 'CCTV' in x else lazy_pinyin(x.strip())))
-# 将排序后的行写入新的utf-8编码的文本文件，文件名基于原文件名
-output_file_path = "sorted_" + os.path.basename(file_path)
-# 写入新文件
-with open('iptv.txt', "w", encoding="utf-8") as file:
-    for line in sorted_lines:
-        file.write(line)
-print(f"文件已排序并保存为新文件")
-print("\n\n\n\n\n\n")
-
