@@ -118,7 +118,7 @@ for url in urls:
             try:
                     # 按行分割数据
              lines = json_data.split('\n')
-             excluded_keywords = ['udp', 'rtp', '东森', '龙祥', 'CCTV', '卫视']   
+             excluded_keywords = ['udp', 'rtp']   
              for line in lines:
                  if 'hls' in line and all(not re.search(r'\b' + re.escape(keyword) + r'\b', line) for keyword in excluded_keywords):
                         line = line.strip()
@@ -386,7 +386,7 @@ for url in urls:
                         # 从字典中获取'url'键的值，如果键不存在则返回None
                         urlx = item.get('url')
                         # 如果urlx包含'udp'或'rtp'字符串，则跳过当前循环的剩余部分
-                        if 'udp' in urlx or 'rtp' in urlx or 'CCTV' in urlx or '卫视' in urlx:
+                        if 'udp' in urlx or 'rtp' in urlx or 'CCTV' in name or '卫视' in name:
                             continue  # 跳过包含'udp'或'rtp'的url
                         # 如果urlx以'http'开头，则直接使用这个url
                         if 'http' in urlx:
