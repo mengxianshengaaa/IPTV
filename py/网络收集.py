@@ -13,7 +13,6 @@ import threading
 from queue import Queue
 import queue
 from datetime import datetime
-import replace
 import fileinput
 from tqdm import tqdm
 from pypinyin import lazy_pinyin
