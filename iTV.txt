@@ -1,3 +1,4 @@
+js=itv
 host=gslbserv.itv.cmvideo.cn=36.155.98.21;cache.ott.ystenlive.itv.cmvideo.cn=base-v4v6-cm-miguvideo.e.cdn.chinamobile.com;cache.ott.bestlive.itv.cmvideo.cn=base-v4v6-cm-miguvideo.e.cdn.chinamobile.com;cache.ott.wasulive.itv.cmvideo.cn=base-v4v6-cm-miguvideo.e.cdn.chinamobile.com;cache.ott.fifalive.itv.cmvideo.cn=base-v4v6-cm-miguvideo.e.cdn.chinamobile.com;cache.ott.hnbblive.itv.cmvideo.cn=base-v4v6-cm-miguvideo.e.cdn.chinamobile.com
 4KUHD_20M2160_易视腾,http://gslbserv.itv.cmvideo.cn/1000000004000011651/1.m3u8?channel-id=ystenlive&Contentid=1000000004000011651&livemode=1&stbId=3
 CCTV1_8M1080_华数,http://gslbserv.itv.cmvideo.cn/6000000001000029752/1.m3u8?channel-id=wasusyt&Contentid=6000000001000029752&livemode=1&stbId=3
