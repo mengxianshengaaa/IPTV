@@ -1,7 +1,8 @@
 港澳频道,#genre#
-TVB星河,http://171.110.10.194:8181/tsfile/live/1073_1.m3u8?$不见黄河心不死=txiptv&playlive=1&authid=0
-TVB星河[🏠],http://119.125.104.139:9901/tsfile/live/1005_1.m3u8?$不见黄河心不死=txiptv&playlive=1&down=1
-TVB星河[🏠],http://119.125.104.242:9901/tsfile/live/1005_1.m3u8?$不见黄河心不死=txiptv&playlive=1&down=1
+MTV,http://37.27.111.214:8080/live/25/hls.m3u8
+MTV,http://shuma004.chunfengyun.top:8080/live/25/hls.m3u8
+TVB星河[🏠],http://119.125.104.185:9901/tsfile/live/1005_1.m3u8?$不见黄河心不死=txiptv&playlive=1&down=1
+TVB星河[🏠],http://119.125.104.48:9901/tsfile/live/1005_1.m3u8?$不见黄河心不死=txiptv&playlive=1&down=1
 TVBS欢乐台,http://37.27.111.214:8080/live/24/hls.m3u8
 TVBS欢乐台,http://shuma004.chunfengyun.top:8080/live/24/hls.m3u8
 TVBS,http://37.27.111.214:8080/live/23/hls.m3u8
@@ -10,15 +11,12 @@ TVBS,http://shuma004.chunfengyun.top:8080/live/23/hls.m3u8
 东森新闻,http://shuma004.chunfengyun.top:8080/live/20/hls.m3u8
 elta生活旅游,http://37.27.111.214:8080/live/85/hls.m3u8
 elta生活旅游,http://shuma004.chunfengyun.top:8080/live/85/hls.m3u8
-翡翠台[🏠],http://119.125.104.139:9901/tsfile/live/1004_1.m3u8?$不见黄河心不死=txiptv&playlive=1&down=1
-翡翠台[🏠],http://119.125.104.242:9901/tsfile/live/1004_1.m3u8?$不见黄河心不死=txiptv&playlive=1&down=1
-凤凰香港[🏠],http://171.110.10.194:8181/tsfile/live/1084_1.m3u8?$不见黄河心不死=txiptv&playlive=1&authid=0
-凤凰中文[🏠],http://119.125.104.139:9901/tsfile/live/1036_1.m3u8?$不见黄河心不死=txiptv&playlive=1&down=1
-凤凰中文[🏠],http://119.125.104.242:9901/tsfile/live/1036_1.m3u8?$不见黄河心不死=txiptv&playlive=1&down=1
-凤凰中文[🏠],http://171.110.10.194:8181/tsfile/live/1083_1.m3u8?$不见黄河心不死=txiptv&playlive=1&authid=0
-凤凰资讯[🏠],http://119.125.104.139:9901/tsfile/live/1037_1.m3u8?$不见黄河心不死=txiptv&playlive=1&down=1
-凤凰资讯[🏠],http://119.125.104.242:9901/tsfile/live/1037_1.m3u8?$不见黄河心不死=txiptv&playlive=1&down=1
-凤凰资讯[🏠],http://171.110.10.194:8181/tsfile/live/1082_1.m3u8?$不见黄河心不死=txiptv&playlive=1&authid=0
+翡翠台[🏠],http://119.125.104.185:9901/tsfile/live/1004_1.m3u8?$不见黄河心不死=txiptv&playlive=1&down=1
+翡翠台[🏠],http://119.125.104.48:9901/tsfile/live/1004_1.m3u8?$不见黄河心不死=txiptv&playlive=1&down=1
+凤凰中文[🏠],http://119.125.104.185:9901/tsfile/live/1036_1.m3u8?$不见黄河心不死=txiptv&playlive=1&down=1
+凤凰中文[🏠],http://119.125.104.48:9901/tsfile/live/1036_1.m3u8?$不见黄河心不死=txiptv&playlive=1&down=1
+凤凰资讯[🏠],http://119.125.104.185:9901/tsfile/live/1037_1.m3u8?$不见黄河心不死=txiptv&playlive=1&down=1
+凤凰资讯[🏠],http://119.125.104.48:9901/tsfile/live/1037_1.m3u8?$不见黄河心不死=txiptv&playlive=1&down=1
 公视戏剧,http://37.27.111.214:8080/live/87/hls.m3u8
 公视戏剧,http://shuma004.chunfengyun.top:8080/live/87/hls.m3u8
 华视新闻,http://37.27.111.214:8080/live/8/hls.m3u8
@@ -45,11 +43,14 @@ elta生活旅游,http://shuma004.chunfengyun.top:8080/live/85/hls.m3u8
 民视台湾台,http://shuma004.chunfengyun.top:8080/live/5/hls.m3u8
 人间卫视,http://37.27.111.214:8080/live/101/hls.m3u8
 人间卫视,http://shuma004.chunfengyun.top:8080/live/101/hls.m3u8
+三立综合,http://shuma004.chunfengyun.top:8080/live/31/hls.m3u8
 三立综合台,http://37.27.111.214:8080/live/31/hls.m3u8
-天映经典[🏠],http://119.125.104.139:9901/tsfile/live/1043_1.m3u8?$不见黄河心不死=txiptv&playlive=1&down=1
-天映经典[🏠],http://119.125.104.242:9901/tsfile/live/1043_1.m3u8?$不见黄河心不死=txiptv&playlive=1&down=1
+天映经典[🏠],http://119.125.104.185:9901/tsfile/live/1043_1.m3u8?$不见黄河心不死=txiptv&playlive=1&down=1
+天映经典[🏠],http://119.125.104.48:9901/tsfile/live/1043_1.m3u8?$不见黄河心不死=txiptv&playlive=1&down=1
 亚洲旅游,http://shuma004.chunfengyun.top:8080/live/10/hls.m3u8
 亚洲旅游台,http://37.27.111.214:8080/live/10/hls.m3u8
+影剧,http://37.27.111.214:8080/live/88/hls.m3u8
+影剧,http://shuma004.chunfengyun.top:8080/live/88/hls.m3u8
 影迷,http://37.27.111.214:8080/live/92/hls.m3u8
 影迷,http://shuma004.chunfengyun.top:8080/live/92/hls.m3u8
 影视2,http://37.27.111.214:8080/live/109/hls.m3u8
@@ -65,36 +66,24 @@ elta生活旅游,http://shuma004.chunfengyun.top:8080/live/85/hls.m3u8
 猪哥亮,http://37.27.111.214:8080/live/35/hls.m3u8
 猪哥亮,http://shuma004.chunfengyun.top:8080/live/35/hls.m3u8
 珠江台,http://171.106.217.3:8181/tsfile/live/1015_1.m3u8?$不见黄河心不死=txiptv&playlive=1&authid=0
-珠江台,http://171.110.10.194:8181/tsfile/live/1000_1.m3u8?$不见黄河心不死=txiptv&playlive=1&authid=0
-珠江台,http://171.110.10.194:8181/tsfile/live/1060_1.m3u8?$不见黄河心不死=txiptv&playlive=1&authid=0
 综艺,http://37.27.111.214:8080/live/67/hls.m3u8
 综艺,http://shuma004.chunfengyun.top:8080/live/67/hls.m3u8
 
 影视频道,#genre#
-第一剧场,http://171.110.10.194:8181/tsfile/live/1108_1.m3u8?$不见黄河心不死=txiptv&playlive=1&authid=0
-谍战剧场,http://119.125.104.139:9901/tsfile/live/1041_1.m3u8?$不见黄河心不死=txiptv&playlive=1&down=1
-谍战剧场,http://119.125.104.242:9901/tsfile/live/1041_1.m3u8?$不见黄河心不死=txiptv&playlive=1&down=1
+HNTV5影视,http://42.237.178.250:7000/hls/80/index.m3u8?$智慧光迅听说名字越长越好看
+谍战剧场,http://119.125.104.185:9901/tsfile/live/1041_1.m3u8?$不见黄河心不死=txiptv&playlive=1&down=1
+谍战剧场,http://119.125.104.48:9901/tsfile/live/1041_1.m3u8?$不见黄河心不死=txiptv&playlive=1&down=1
 动作电影,http://1.69.113.112:9902/tsfile/live/1029_1.m3u8?$不见黄河心不死=txiptv&playlive=1&authid=0
-动作电影,http://171.110.10.194:8181/tsfile/live/1066_1.m3u8?$不见黄河心不死=txiptv&playlive=1&authid=0
 动作影院,http://1.69.113.112:9902/tsfile/live/1024_1.m3u8?$不见黄河心不死=txiptv&playlive=1&authid=0
 都市剧场,http://171.106.217.3:8181/tsfile/live/1075_1.m3u8?$不见黄河心不死=txiptv&playlive=0&authid=0
-峨眉电影[50FPS],http://61.157.139.15:9901/tsfile/live/2396_1.m3u8?$不见黄河心不死=txiptv&playlive=1&authid=0
-风云剧场,http://171.110.10.194:8181/tsfile/live/1106_1.m3u8?$不见黄河心不死=txiptv&playlive=1&authid=0
-怀旧剧场,http://171.110.10.194:8181/tsfile/live/1105_1.m3u8?$不见黄河心不死=txiptv&playlive=1&authid=0
 家庭影院,http://1.69.113.112:9902/tsfile/live/1025_1.m3u8?$不见黄河心不死=txiptv&playlive=1&authid=0
 家庭影院,http://1.69.113.112:9902/tsfile/live/1030_1.m3u8?$不见黄河心不死=txiptv&playlive=1&authid=0
-家庭影院,http://171.110.10.194:8181/tsfile/live/1056_1.m3u8?$不见黄河心不死=txiptv&playlive=0&authid=0
 经典电影,http://171.106.217.3:8181/tsfile/live/0141_1.m3u8?$不见黄河心不死=txiptv&playlive=1&authid=0
 精选,http://1.69.113.112:9902/tsfile/live/1022_1.m3u8?$不见黄河心不死=txiptv&playlive=1&authid=0
-热播剧场,http://61.52.159.118:808/hls/71/index.m3u8?$智慧光迅听说名字越长越好看
 山西影视,http://1.69.113.112:9902/tsfile/live/1005_1.m3u8?$不见黄河心不死=txiptv&playlive=1&authid=0
-深圳影视,http://171.110.10.194:8181/tsfile/live/1113_1.m3u8?$不见黄河心不死=txiptv&playlive=1&authid=0
 武侠剧场,http://1.69.113.112:9902/tsfile/live/1027_1.m3u8?$不见黄河心不死=txiptv&playlive=1&authid=0
 喜剧影院,http://1.69.113.112:9902/tsfile/live/1023_1.m3u8?$不见黄河心不死=txiptv&playlive=1&authid=0
 星影,http://1.69.113.112:9902/tsfile/live/1026_1.m3u8?$不见黄河心不死=txiptv&playlive=1&authid=0
 影迷电影,http://1.69.113.112:9902/tsfile/live/1028_1.m3u8?$不见黄河心不死=txiptv&playlive=1&authid=0
-影迷电影,http://171.110.10.194:8181/tsfile/live/1067_1.m3u8?$不见黄河心不死=txiptv&playlive=1&authid=0
-影视,http://61.52.159.118:808/hls/21/index.m3u8?$智慧光迅听说名字越长越好看
-有线电影,http://171.110.10.194:8181/tsfile/live/1081_1.m3u8?$不见黄河心不死=txiptv&playlive=1&authid=0
-珠江电影,http://119.125.104.139:9901/tsfile/live/1040_1.m3u8?$不见黄河心不死=txiptv&playlive=1&down=1
-珠江电影,http://119.125.104.242:9901/tsfile/live/1040_1.m3u8?$不见黄河心不死=txiptv&playlive=1&down=1
+珠江电影,http://119.125.104.185:9901/tsfile/live/1040_1.m3u8?$不见黄河心不死=txiptv&playlive=1&down=1
+珠江电影,http://119.125.104.48:9901/tsfile/live/1040_1.m3u8?$不见黄河心不死=txiptv&playlive=1&down=1
