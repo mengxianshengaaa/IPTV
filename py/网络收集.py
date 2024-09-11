@@ -40,7 +40,7 @@ urls = [
        'https://notabug.org/bxtv/a/raw/master/315.txt',
        'https://raw.githubusercontent.com/xiangjiao169/yf2025/main/yf169.txt',
        'http://ttkx.live:55/lib/kx2024.txt',   #天天开心
-       'http://rihou.cc:567/qtsd',      #晴天源
+       '',    
        '',
        '',
        '',
