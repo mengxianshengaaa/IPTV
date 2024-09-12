@@ -720,7 +720,18 @@ for line in fileinput.input("综合源.txt", inplace=True):   #打开临时文�
     line = line.replace("CCTV4K", "CCTV-4K")  
     print(line, end="")   
 
-
+import datetime
+now = datetime.datetime.utcnow() + datetime.timedelta(hours=8)
+current_time = now.strftime("%m-%d %H:%M")
+# 打开文本文件并将时间添加到开头
+file_path = "综合源.txt"
+with open(file_path, 'r+', encoding='utf-8') as f:
+    content = f.read()
+    f.seek(0, 0)
+    f.write(f'更新时间,#genre#\n')
+    f.write(f'请您欣赏,https://vd2.bdstatic.com/mda-mi1dd05gmhwejdwn/sc/cae_h264/1630576203346678103/mda-mi1dd05gmhwejdwn.mp4\n')
+    f.write(f'{current_time},#genre#\n')
+    f.write(f'虚情的爱,https://vd2.bdstatic.com/mda-mi1dd05gmhwejdwn/sc/cae_h264/1630576203346678103/mda-mi1dd05gmhwejdwn.mp4\n{content}')
 
 ################################################################################################任务结束,删除不必要的过程文件
 files_to_remove = ['去重.txt', '分类.txt', "2.txt", "4.txt", "5.txt", "主.txt", "a.txt", "b0.txt", "b.txt", "c0.txt", "c.txt", "d.txt"]
