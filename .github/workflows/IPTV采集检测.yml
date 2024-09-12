@@ -37,6 +37,7 @@ jobs:
           #git reset --hard origin/main
           git add .
           git commit -m "Add generated file"
+          git commit -m "Updated file names"
           #git commit *.txt -m "Add generated file"
           #git commit *.m3u -m "Add generated file"
           #git pull --rebase
