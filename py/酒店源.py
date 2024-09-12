@@ -1124,15 +1124,14 @@ with open('酒店优选.txt', 'w', encoding="utf-8") as file:
 
 import datetime
 now = datetime.datetime.utcnow() + datetime.timedelta(hours=8)
-current_time = now.strftime("%m-%d %H:%M")
+current_time = now.strftime("%Y-%m-%d %H:%M")
 # 打开文本文件并将时间添加到开头
 file_path = "酒店优选.txt"
 with open(file_path, 'r+', encoding='utf-8') as f:
     content = f.read()
     f.seek(0, 0)
-    f.write(f'更新时间,#genre#\n')
-    f.write(f'请您欣赏,https://vd2.bdstatic.com/mda-mi1dd05gmhwejdwn/sc/cae_h264/1630576203346678103/mda-mi1dd05gmhwejdwn.mp4\n')
-    f.write(f'{current_time},#genre#\n')
+    f.write(f'#鉴于酒店源的不实用性，本次最后一次更新。如果需要的话，请fork以后自行启用工作流程\n')
+    f.write(f'最后更新时间{current_time},#genre#\n')
     f.write(f'虚情的爱,https://vd2.bdstatic.com/mda-mi1dd05gmhwejdwn/sc/cae_h264/1630576203346678103/mda-mi1dd05gmhwejdwn.mp4\n{content}')
 
 
