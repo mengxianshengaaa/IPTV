@@ -414,7 +414,11 @@ def txt_to_m3u(input_file, output_file):
     with open(input_file, 'r', encoding='utf-8') as f:
         lines = f.readlines()
     # 打开m3u文件并写入内容
+    now = datetime.now()
+    current_time = now.strftime("%H:%M:%S")  
     with open(output_file, 'w', encoding='utf-8') as f:
+        f.write(f'#EXTINF:-1 ,更新时间{current_time}\n')    
+        f.write(f'https://vd2.bdstatic.com/mda-mi1dd05gmhwejdwn/sc/cae_h264/1630576203346678103/mda-mi1dd05gmhwejdwn.mp4\n')    
         f.write('#EXTM3U x-tvg-url="https://live.fanmingming.com/e.xml" catchup="append" catchup-source="?playseek=${(b)yyyyMMddHHmmss}-${(e)yyyyMMddHHmmss}"\n')
         # 初始化genre变量
         genre = ''
