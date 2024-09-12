@@ -749,6 +749,16 @@ for line in fileinput.input("综合源.txt", inplace=True):   #打开临时文�
     line = line.replace("CCTV4K", "CCTV-4K")  
     print(line, end="")   
 
+import datetime
+
+filenames = ["综合源.txt", "综合源.m3u", "组播优选.txt"]
+
+now = datetime.datetime.now()
+current_date = now.strftime("%d")
+
+new_filenames = [f"{current_date}_{filename}" for filename in filenames]
+
+print(new_filenames)
 
 
 ################################################################################################任务结束,删除不必要的过程文件
