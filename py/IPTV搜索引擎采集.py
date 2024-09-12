@@ -415,7 +415,7 @@ def txt_to_m3u(input_file, output_file):
         lines = f.readlines()
     # 打开m3u文件并写入内容
     now = datetime.datetime.utcnow() + datetime.timedelta(hours=8)
-    current_time = now.strftime("%Y-%m-%d %H:%M:%S")
+    current_time = now.strftime("%m-%d %H:%M")
     with open(output_file, 'w', encoding='utf-8') as f:
         f.write(f'#EXTINF:-1 group-title="更新时间",请您欣赏\n')    
         f.write(f'https://vd2.bdstatic.com/mda-nk3am8nwdgqfy6nh/sc/cae_h264/1667555203921394810/mda-nk3am8nwdgqfy6nh.mp4\n')    
