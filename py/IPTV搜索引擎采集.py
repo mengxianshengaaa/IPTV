@@ -38,8 +38,7 @@ def via_tonking(url):
     }
     try:
         response = requests.get(
-            #url=f'http://tonkiang.us/alllist.php?s={url}&c=false&y=false',
-            url=f'http://tonkiang.us/hotellist.html?s={url}&c=false&y=false',
+            url=f'http://tonkiang.us/alllist.php?s={url}&c=false&y=false',
             headers=headers,
             timeout=10
         )
