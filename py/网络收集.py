@@ -107,11 +107,6 @@ simplified_text = converter.convert(traditional_text)
 with open('汇总.txt', 'w', encoding='utf-8') as file:
     file.write(simplified_text)
 
-excluded_keywords = ['epg', 'mitv', 'udp', 'rtp', 'P2p', 'p2p', 'p3p', 'P2P', '新闻综合', 'P3p', '9930/qilu', 'shandong', 'jdshipin', 'goodiptv', '购物', '[', 'P3P', 'CCTV', '腔', '曲', '/pt', '//1', '/hls/', '春节']
-with open('汇总.txt', 'r', encoding='utf-8') as infile, open('汇总.txt', 'w', encoding='utf-8') as outfile:
-    for line in infile:
-        if not any(keyword in line for keyword in excluded_keywords):
-            outfile.write(line)
 
 
 with open('汇总.txt', 'r', encoding="utf-8") as file:
@@ -341,7 +336,7 @@ import re
 import os
 # 定义一个包含所有要排除的关键词的列表
 excluded_keywords = [
-    'epg', 'mitv', 'udp', 'rtp', 'P2p', 'p2p', 'p3p', 'P2P', '新闻综合', 'P3p', '9930/qilu', 'shandong', 'goodiptv', '购物', '[', 'P3P', '腔', '曲', '//1', '/hls/', '春节'
+    'epg', 'mitv', 'udp', 'rtp', 'P2p', 'p2p', 'p3p', 'P2P', '新闻综合', 'P3p', 'jdshipin', '9930/qilu', 'shandong', 'goodiptv', '购物', '[', 'P3P', '腔', '曲', '//1', '/hls/', '春节'
     # 在这里添加需要排除的关键词
 ]
 
