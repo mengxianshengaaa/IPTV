@@ -443,6 +443,10 @@ def txt_to_m3u(input_file, output_file):
     current_time = now.strftime("%m-%d %H:%M")
     with open(output_file, 'w', encoding='utf-8') as f:  
         f.write('#EXTM3U x-tvg-url="https://live.fanmingming.com/e.xml" catchup="append" catchup-source="?playseek=${(b)yyyyMMddHHmmss}-${(e)yyyyMMddHHmmss}"\n')
+        f.write(f'#EXTINF:-1 group-title="更新时间",请您欣赏\n')    
+        f.write(f'https://vd2.bdstatic.com/mda-nk3am8nwdgqfy6nh/sc/cae_h264/1667555203921394810/mda-nk3am8nwdgqfy6nh.mp4\n')    
+        f.write(f'#EXTINF:-1 group-title="{current_time}",虚情的爱\n')    
+        f.write(f'https://vd2.bdstatic.com/mda-mi1dd05gmhwejdwn/sc/cae_h264/1630576203346678103/mda-mi1dd05gmhwejdwn.mp4\n')    
         # 初始化genre变量
         genre = ''
         # 遍历txt文件内容
@@ -459,10 +463,7 @@ def txt_to_m3u(input_file, output_file):
                     # 将频道信息写入m3u文件
                     f.write(f'#EXTINF:-1 tvg-logo="https://live.fanmingming.com/tv/{channel_name}.png" group-title="{genre}",{channel_name}\n')
                     f.write(f'{channel_url}\n')
-                    f.write(f'#EXTINF:-1 group-title="更新时间",请您欣赏\n')    
-                    f.write(f'https://vd2.bdstatic.com/mda-nk3am8nwdgqfy6nh/sc/cae_h264/1667555203921394810/mda-nk3am8nwdgqfy6nh.mp4\n')    
-                    f.write(f'#EXTINF:-1 group-title="{current_time}",虚情的爱\n')    
-                    f.write(f'https://vd2.bdstatic.com/mda-mi1dd05gmhwejdwn/sc/cae_h264/1630576203346678103/mda-mi1dd05gmhwejdwn.mp4\n')            
+        
 # 将txt文件转换为m3u文件
 txt_to_m3u('综合源.txt', '综合源.m3u')
 
