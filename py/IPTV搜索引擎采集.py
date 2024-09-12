@@ -410,6 +410,7 @@ simplified_text = converter.convert(traditional_text)
 with open('综合源.txt', 'w', encoding='utf-8') as file:
     file.write(simplified_text)
 #TXT转M3U#
+import datetime
 def txt_to_m3u(input_file, output_file):
     # 读取txt文件内容
     with open(input_file, 'r', encoding='utf-8') as f:
