@@ -476,8 +476,8 @@ with open(file_path, 'r+', encoding='utf-8') as f:
     content = f.read()
     f.seek(0, 0)
     f.write(f'{content}\n')
-    f.write(f'#EXTINF:-1 group-title="更新时间",请您欣赏\n')    
-    f.write(f'http://em.21dtv.com/songs/60144971.mkv\n')    
+    #f.write(f'#EXTINF:-1 group-title="更新时间",请您欣赏\n')    
+    #f.write(f'http://em.21dtv.com/songs/60144971.mkv\n')    
     f.write(f'#EXTINF:-1 group-title="{current_time}",虚情的爱\n')    
     f.write(f'https://vd2.bdstatic.com/mda-mi1dd05gmhwejdwn/sc/cae_h264/1630576203346678103/mda-mi1dd05gmhwejdwn.mp4\n')       
 
@@ -773,8 +773,8 @@ with open(file_path, 'r+', encoding='utf-8') as f:
     content = f.read()
     f.seek(0, 0)
     f.write(f'{content}\n')
-    f.write(f'更新时间,#genre#\n')
-    f.write(f'请您欣赏,https://vd2.bdstatic.com/mda-mi1dd05gmhwejdwn/sc/cae_h264/1630576203346678103/mda-mi1dd05gmhwejdwn.mp4\n')
+    #f.write(f'更新时间,#genre#\n')
+    #f.write(f'请您欣赏,https://vd2.bdstatic.com/mda-mi1dd05gmhwejdwn/sc/cae_h264/1630576203346678103/mda-mi1dd05gmhwejdwn.mp4\n')
     f.write(f'{current_time},#genre#\n')
     f.write(f'虚情的爱,https://vd2.bdstatic.com/mda-mi1dd05gmhwejdwn/sc/cae_h264/1630576203346678103/mda-mi1dd05gmhwejdwn.mp4\n')
 
