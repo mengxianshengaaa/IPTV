@@ -1,4 +1,4 @@
-name: 酒店源
+name: 测试
 
 on:
   #schedule:
@@ -8,8 +8,10 @@ on:
       - main
 
 jobs:
-  build:
+  update_and_commit:
     runs-on: ubuntu-latest
+    permissions:
+      contents: write
 
     steps:
       - name: Checkout code
