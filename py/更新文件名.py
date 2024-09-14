@@ -27,16 +27,17 @@ def rename_files():
         # 检查文件是否是需要重命名的文件（根据初始文件名判断）
         if any(old_filename.endswith(init_filename) for init_filename in initial_filenames):
             if last_update_time and old_filename.startswith(f"{last_update_time}"):
-                # 如果文件名已包含上次时间，提取上次时间后的文件名部分，然后替换上次时间为当前时间
-                original_filename_after_last_time = old_filename[len(last_update_time):]
-                new_filename = f"{current_date}{original_filename_after_last_time}"
+                # 如果文件名已包含上次时间，删除该文件
+                full_old_path = os.path.join(os.getcwd(), old_filename)
+                os.remove(full_old_path)
+                print(f"Deleted {old_filename}")
             else:
                 # 首次重命名，直接加上当前时间
                 new_filename = f"{current_date}{old_filename}"
-            full_old_path = os.path.join(os.getcwd(), old_filename)
-            full_new_path = os.path.join(os.getcwd(), new_filename)
-            os.rename(full_old_path, full_new_path)
-            print(f"Renamed {old_filename} to {new_filename}")
+                full_old_path = os.path.join(os.getcwd(), old_filename)
+                full_new_path = os.path.join(os.getcwd(), new_filename)
+                os.rename(full_old_path, full_new_path)
+                print(f"Renamed {old_filename} to {new_filename}")
 
     # 更新记录时间的文件
     with open(time_file_path, 'w') as time_file:
