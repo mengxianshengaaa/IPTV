@@ -27,7 +27,7 @@ def rename_files():
         # 检查文件是否是需要重命名的文件（根据初始文件名判断）
         if any(old_filename.endswith(init_filename) for init_filename in initial_filenames):
             if last_update_time and old_filename.startswith(f"{last_update_time}"):
-                # 如果文件名已包含上次时间，删除该文件
+                # 如果存在上次重命名后的文件，删除它
                 full_old_path = os.path.join(os.getcwd(), old_filename)
                 os.remove(full_old_path)
                 print(f"Deleted {old_filename}")
