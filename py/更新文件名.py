@@ -21,7 +21,7 @@ def rename_files():
     all_files = os.listdir(os.getcwd())
 
     # 要重命名的文件名列表（初始文件名）
-    initial_filenames = ['综合源.txt', '综合源.m3u', '组播优选.txt', '网络收集.txt']
+    initial_filenames = ['综合源.txt']         #, '综合源.m3u', '组播优选.txt', '网络收集.txt'
 
     for old_filename in all_files:
         # 检查文件是否是需要重命名的文件（根据初始文件名判断）
