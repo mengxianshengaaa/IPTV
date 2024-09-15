@@ -20,8 +20,7 @@ def delete_nonstandard_files():
                         print(f"Deleted {old_filename}")
 
 def rename_standard_files():
-    # 获取当前日期时间
-    now = datetime.datetime.now()
+    now = datetime.datetime.utcnow() + datetime.timedelta(hours=8)
     current_date = now.strftime("%m%d")
 
     # 获取当前目录下的所有文件
