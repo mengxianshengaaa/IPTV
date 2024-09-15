@@ -22,7 +22,7 @@ def delete_nonstandard_files():
 def rename_standard_files():
     # 获取当前日期时间
     now = datetime.datetime.now()
-    current_date = now.strftime("%m%d%H%M")
+    current_date = now.strftime("%m%d")
 
     # 获取当前目录下的所有文件
     all_files = os.listdir(os.getcwd())
