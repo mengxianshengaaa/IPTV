@@ -64,7 +64,7 @@ for keyword in keywords:
     # 根据不同的 isp 设置不同的 org 值
     if province == "北京" and isp == "联通":
         isp_en = "cucc"
-        org = "China Unicom Beijing Province Network"
+        org = "China Unicom Beijing Province NeTwork"
     elif isp == "联通":
         isp_en = "cucc"
         org = "CHINA UNICOM China169 Backbone"
@@ -258,7 +258,7 @@ for ip_key, result in detected_ips.items():
 ######################################################################################################################
 
 #  获取远程港澳台直播源文件
-url = "https://raw.githubusercontent.com/frxz751113/AAAAA/main/TW.txt"          #源采集地址
+url = "https://raw.githubusercontent.com/frxz751113/AAAAA/main/TWW.txt"          #源采集地址
 r = requests.get(url)
 open('港澳.txt','wb').write(r.content)         #打开源文件并临时写入
 
@@ -266,15 +266,15 @@ open('港澳.txt','wb').write(r.content)         #打开源文件并临时写入
 
 #从文本中截取省市段生成两个新文件#
 #  获取远程港澳台直播源文件,打开文件并输出临时文件并替换关键词
-url = "https://raw.githubusercontent.com/frxz751113/AAAAA/main/IPTV/汇总.txt"          #源采集地址
+url = "https://raw.githubusercontent.com/frxz751113/AAAAA/main/IPTV/汇总汇总.txt"          #源采集地址
 r = requests.get(url)
-open('TW.txt','wb').write(r.content)         #打开源文件并临时写入
+open('TWW.txt','wb').write(r.content)         #打开源文件并临时写入
 
 # 定义关键词
 start_keyword = '省市频道,#genre#'
 end_keyword = '港澳频道,#genre#'
 # 输入输出文件路径
-input_file_path = 'TW.txt'  # 替换为你的输入文件路径
+input_file_path = 'TWW.txt'  # 替换为你的输入文件路径
 output_file_path = 'a.txt'  # 替换为你想要保存输出的文件路径
 deleted_lines_file_path = '省市.txt'  # 替换为你想要保存删除行的文件路径
 # 标记是否处于要删除的行范围内
@@ -482,7 +482,7 @@ with open(file_path, 'r+', encoding='utf-8') as f:
     f.write(f'https://vd2.bdstatic.com/mda-mi1dd05gmhwejdwn/sc/cae_h264/1630576203346678103/mda-mi1dd05gmhwejdwn.mp4\n')       
 
 #任务结束,删除不必要的过程文件#
-files_to_remove = ['组播源.txt', "TW.txt", "a.txt", "主.txt", "b.txt", "b1.txt", "港澳.txt", "省市.txt", "df.txt", "df1.txt", "少儿1.txt", "sr2.txt", \
+files_to_remove = ['组播源.txt', "TWW.txt", "a.txt", "主.txt", "b.txt", "b1.txt", "港澳.txt", "省市.txt", "df.txt", "df1.txt", "少儿1.txt", "sr2.txt", \
                    "c2.txt", "c1.txt", "DD.txt", "f.txt", "f1.txt"]
 for file in files_to_remove:
     if os.path.exists(file):
