@@ -46,8 +46,8 @@ def rename_files():
                 full_new_path = os.path.join(os.getcwd(), new_filename)
                 os.rename(full_old_path, full_new_path)
                 print(f"Renamed {old_filename} to {new_filename}")
-        else:
-            continue
+            else:
+                continue
     # 更新记录时间的文件
     with open(time_file_path, 'w') as time_file:
         time_file.write(current_date)
