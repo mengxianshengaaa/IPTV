@@ -23,23 +23,19 @@ def rename_files():
     # 要重命名的文件名列表（初始文件名）
     initial_filenames = ['综合源.m3u', '组播优选.txt', '综合源.txt']
 
+    # 重命名初始文件名的文件
     for old_filename in all_files:
-        # 检查文件是否是需要重命名的文件（根据初始文件名判断）
         if any(old_filename.endswith(init_filename) for init_filename in initial_filenames):
             new_filename = f"{current_date}{old_filename}"
             full_old_path = os.path.join(os.getcwd(), old_filename)
             full_new_path = os.path.join(os.getcwd(), new_filename)
             os.rename(full_old_path, full_new_path)
             print(f"Renamed {old_filename} to {new_filename}")
-        else:
-            continue
 
-    # 删除以上次时间加上初始文件名命名的文件
+    # 删除上一次命名过的文件
     if last_update_time:
         for old_filename in all_files:
-            starts_with_last_time = old_filename.startswith(f"{last_update_time}")
-            ends_with_initial_filename = any(old_filename.endswith(init_filename) for init_filename in initial_filenames)
-            if starts_with_last_time and ends_with_initial_filename:
+            if old_filename.startswith(f"{last_update_time}") and any(old_filename.endswith(init_filename) for init_filename in initial_filenames):
                 full_old_path = os.path.join(os.getcwd(), old_filename)
                 if os.path.exists(full_old_path):
                     os.remove(full_old_path)
