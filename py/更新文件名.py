@@ -2,7 +2,7 @@ import os
 import datetime
 
 # 定义一组固定字符
-fixed_characters = ['综合源.txt', '组播优选.txt', '网络收集.txt']
+fixed_characters = ['综合源.txt', '组播优选.txt', '综合源.m3u']
 
 def delete_nonstandard_files():
     # 获取当前目录下的所有文件
