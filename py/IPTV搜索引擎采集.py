@@ -242,6 +242,7 @@ for ip_key, result in detected_ips.items():
 ######################################################################################################################
 ######################################################################################################################
 ######################################################################################################################
+######################################################################################################################
 
 #  获取远程港澳台直播源文件
 url = "https://raw.githubusercontent.com/frxz751113/AAAAA/main/TW.txt"          #源采集地址
@@ -414,6 +415,10 @@ simplified_text = converter.convert(traditional_text)
 # 将转换后的简体字写入txt文件
 with open('综合源.txt', 'w', encoding='utf-8') as file:
     file.write(simplified_text)
+
+
+
+
 #TXT转M3U#
 import datetime
 def txt_to_m3u(input_file, output_file):
@@ -423,12 +428,12 @@ def txt_to_m3u(input_file, output_file):
     # 打开m3u文件并写入内容
     now = datetime.datetime.utcnow() + datetime.timedelta(hours=8)
     current_time = now.strftime("%m-%d %H:%M")
-    with open(output_file, 'w', encoding='utf-8') as f:
-        f.write(f'#EXTINF:-1 group-title="更新时间",请您欣赏\n')    
-        f.write(f'https://vd2.bdstatic.com/mda-nk3am8nwdgqfy6nh/sc/cae_h264/1667555203921394810/mda-nk3am8nwdgqfy6nh.mp4\n')    
-        f.write(f'#EXTINF:-1 group-title="{current_time}",虚情的爱\n')    
-        f.write(f'https://vd2.bdstatic.com/mda-mi1dd05gmhwejdwn/sc/cae_h264/1630576203346678103/mda-mi1dd05gmhwejdwn.mp4\n')    
+    with open(output_file, 'w', encoding='utf-8') as f:  
         f.write('#EXTM3U x-tvg-url="https://live.fanmingming.com/e.xml" catchup="append" catchup-source="?playseek=${(b)yyyyMMddHHmmss}-${(e)yyyyMMddHHmmss}"\n')
+        #f.write(f'#EXTINF:-1 group-title="更新时间",请您欣赏\n')    
+        #f.write(f'https://vd2.bdstatic.com/mda-nk3am8nwdgqfy6nh/sc/cae_h264/1667555203921394810/mda-nk3am8nwdgqfy6nh.mp4\n')    
+        #f.write(f'#EXTINF:-1 group-title="{current_time}",虚情的爱\n')    
+        #f.write(f'https://vd2.bdstatic.com/mda-mi1dd05gmhwejdwn/sc/cae_h264/1630576203346678103/mda-mi1dd05gmhwejdwn.mp4\n')    
         # 初始化genre变量
         genre = ''
         # 遍历txt文件内容
@@ -447,6 +452,22 @@ def txt_to_m3u(input_file, output_file):
                     f.write(f'{channel_url}\n')
 # 将txt文件转换为m3u文件
 txt_to_m3u('综合源.txt', '综合源.m3u')
+
+
+import datetime
+now = datetime.datetime.utcnow() + datetime.timedelta(hours=8)
+current_time = now.strftime("%m/%d %H")   #:%M
+# 打开文本文件并将时间添加到开头
+file_path = "综合源.m3u"
+with open(file_path, 'r+', encoding='utf-8') as f:
+    content = f.read()
+    f.seek(0, 0)
+    f.write(f'{content}\n')
+    #f.write(f'#EXTINF:-1 group-title="更新时间",请您欣赏\n')    
+    #f.write(f'http://em.21dtv.com/songs/60144971.mkv\n')    
+    f.write(f'#EXTINF:-1 group-title="{current_time}:00更新",虚情的爱\n')    
+    f.write(f'https://vd2.bdstatic.com/mda-mi1dd05gmhwejdwn/sc/cae_h264/1630576203346678103/mda-mi1dd05gmhwejdwn.mp4\n')       
+
 #任务结束,删除不必要的过程文件#
 files_to_remove = ['组播源.txt', "TW.txt", "a.txt", "主.txt", "b.txt", "b1.txt", "港澳.txt", "省市.txt", "df.txt", "df1.txt", "少儿1.txt", "sr2.txt", \
                    "c2.txt", "c1.txt", "DD.txt", "f.txt", "f1.txt"]
@@ -599,15 +620,20 @@ def check_and_write_file(input_file, output_file, keywords):
 # 按类别提取关键词并写入文件
 check_and_write_file('2.txt',  '主.txt',  keywords="央视频道, 8K, 4K, 4k")
 check_and_write_file('2.txt',  'a.txt',  keywords="央视频道, CCTV, CHC, 全球大片, 星光院线")
-check_and_write_file('2.txt',  'b0.txt',  keywords="卫视频道, 凤凰, 星空")
 check_and_write_file('2.txt',  'b.txt',  keywords="卫视频道, 卫视, 凤凰, 星空")
-check_and_write_file('2.txt',  'c0.txt',  keywords="组播剧场, 第一剧场, 怀旧剧场, 风云剧场, 欢笑剧场, 都市剧场, 高清电影, 家庭影院, 动作电影, 影迷, 峨眉, 重温")
+check_and_write_file('2.txt',  'c0.txt',  keywords="组播剧场, 第一剧场, 怀旧剧场, 风云音乐, 风云剧场, 欢笑剧场, 都市剧场, 高清电影, 家庭影院, 动作电影, 影迷, 峨眉, 重温, 女性, 地理")
 check_and_write_file('2.txt',  'c.txt',  keywords="组播剧场, 爱动漫, SiTV, 爱怀旧, 爱经典, 爱科幻, 爱青春, 爱悬疑, 爱幼教, 爱院线")
-check_and_write_file('2.txt',  'd.txt',  keywords="省市频道, 江苏, 北京, 河北, 浙江, 河南")
+#check_and_write_file('2.txt',  'd.txt',  keywords="少儿频道, 少儿, 卡通, 动漫, 宝贝, 哈哈, 学堂")
+check_and_write_file('2.txt',  'e0.txt',  keywords="河北河南, 河南都市, 河南民生, 河南法治, 河南公共, 河南功夫, 河南影视, 中原, 河南国际, 河南梨园, 河南文, 河南武术, 河南戏曲, 河南乡村, 河南新闻, 河南移动")
+check_and_write_file('2.txt',  'e.txt',  keywords="河北河南, 河南,郑州")
+check_and_write_file('2.txt',  'f0.txt',  keywords="河北河南, 石家庄")
+check_and_write_file('2.txt',  'f.txt',  keywords="河北河南, 河北, 石家庄")
+check_and_write_file('2.txt',  'h.txt',  keywords="江苏北京, 江苏")
+check_and_write_file('2.txt',  'i.txt',  keywords="江苏北京, 北京")
 ###############################################################################################################################################################################################################################
 ##############################################################对生成的文件进行合并
 file_contents = []
-file_paths = ["主.txt", "a.txt", "b0.txt", "b.txt", "c0.txt", "c.txt", "d.txt"]  # 替换为实际的文件路径列表
+file_paths = ["主.txt", "a.txt", "a1.txt", "b.txt", "c0.txt", "c.txt", "d.txt", "e0.txt", "e.txt", "f0.txt", "f.txt", "g.txt", "h.txt", "i.txt", "j.txt", "k.txt", "l.txt", "m.txt"]  # 替换为实际的文件路径列表
 for file_path in file_paths:
     if os.path.exists(file_path):
         with open(file_path, 'r', encoding="utf-8") as file:
@@ -727,19 +753,22 @@ for line in fileinput.input("综合源.txt", inplace=True):   #打开临时文�
 
 import datetime
 now = datetime.datetime.utcnow() + datetime.timedelta(hours=8)
-current_time = now.strftime("%m-%d %H:%M")
+current_time = now.strftime("%m/%d %H:00")  #%M
 # 打开文本文件并将时间添加到开头
 file_path = "综合源.txt"
 with open(file_path, 'r+', encoding='utf-8') as f:
     content = f.read()
     f.seek(0, 0)
-    f.write(f'更新时间,#genre#\n')
-    f.write(f'请您欣赏,https://vd2.bdstatic.com/mda-mi1dd05gmhwejdwn/sc/cae_h264/1630576203346678103/mda-mi1dd05gmhwejdwn.mp4\n')
-    f.write(f'{current_time},#genre#\n')
-    f.write(f'虚情的爱,https://vd2.bdstatic.com/mda-mi1dd05gmhwejdwn/sc/cae_h264/1630576203346678103/mda-mi1dd05gmhwejdwn.mp4\n{content}')
+    f.write(f'{content}\n')
+    #f.write(f'更新时间,#genre#\n')
+    #f.write(f'请您欣赏,https://vd2.bdstatic.com/mda-mi1dd05gmhwejdwn/sc/cae_h264/1630576203346678103/mda-mi1dd05gmhwejdwn.mp4\n')
+    f.write(f'{current_time}更新,#genre#\n')
+    f.write(f'虚情的爱,https://vd2.bdstatic.com/mda-mi1dd05gmhwejdwn/sc/cae_h264/1630576203346678103/mda-mi1dd05gmhwejdwn.mp4\n')
+
 
 ################################################################################################任务结束,删除不必要的过程文件
-files_to_remove = ['去重.txt', '分类.txt', "2.txt", "4.txt", "5.txt", "主.txt", "a.txt", "b0.txt", "b.txt", "c0.txt", "c.txt", "d.txt"]
+files_to_remove = ['去重.txt', '分类.txt', "2.txt", "4.txt", "5.txt", "主.txt", "a.txt", "a1.txt", "b.txt", "c0.txt", "c.txt", "d.txt", \
+                   "e0.txt", "e.txt", "f0.txt", "f.txt", "g.txt", "h.txt", "i.txt", "j.txt", "k.txt", "l.txt", "m.txt"]
 for file in files_to_remove:
     if os.path.exists(file):
         os.remove(file)
