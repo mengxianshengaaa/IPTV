@@ -30,15 +30,19 @@ header = {
     "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/123.0.0.0 Safari/537.36"
 }
 
-# 验证tonkiang可用IP
+import requests
+from lxml import etree
+
 def via_tonking(url):
     headers = {
         'Referer': 'http://tonkiang.us/hotellist.html',
         'User-Agent': header["User-Agent"],
     }
     try:
+        # 提取 IP 地址部分，去除协议
+        ip_address = url.split("//")[-1]
         response = requests.get(
-            url=f'http://tonkiang.us/alllist.php?s={url}&c=false&y=false',
+            url=f'http://tonkiang.us/hoteliptv.php?s={ip_address}&c=false&y=false',
             headers=headers,
             timeout=10
         )
@@ -47,8 +51,9 @@ def via_tonking(url):
         div_text = et.xpath('//div[@class="result"]/div/text()')[1]
         return "暂时失效" not in div_text
     except Exception as e:
-        print(f"验证IP时发生错误: {e}")
+        print(f"验证 IP 时发生错误: {e}")
         return False
+
 
 # 从tonkiang获取可用IP
 def get_tonkiang(keyword):
