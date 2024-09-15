@@ -37,7 +37,9 @@ def rename_files():
     # 删除以上次时间加上初始文件名命名的文件
     if last_update_time:
         for old_filename in all_files:
-            if any(old_filename.startswith(f"{last_update_time}") and old_filename.endswith(tuple(initial_filenames))):
+            starts_with_last_time = old_filename.startswith(f"{last_update_time}")
+            ends_with_initial_filename = any(old_filename.endswith(init_filename) for init_filename in initial_filenames)
+            if starts_with_last_time and ends_with_initial_filename:
                 full_old_path = os.path.join(os.getcwd(), old_filename)
                 if os.path.exists(full_old_path):
                     os.remove(full_old_path)
