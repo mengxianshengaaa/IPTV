@@ -1,8 +1,34 @@
-import datetime
 import os
+import datetime
 
 # 记录时间的文件路径
 time_file_path = '上次更新时间.txt'
+
+# 定义一组固定字符
+fixed_characters = ['综合源.txt', '组播优选.txt', '综合源.m3u']
+
+def delete_files():
+    try:
+        # 尝试读取上次记录的时间
+        with open(time_file_path, 'r') as time_file:
+            last_update_time = time_file.read()
+        print(f"Last update time read: {last_update_time}")
+    except FileNotFoundError:
+        last_update_time = ""
+
+    # 获取当前目录下的所有文件
+    all_files = os.listdir(os.getcwd())
+
+    # 删除非空字符加初始文件名的文件
+    for old_filename in all_files:
+        for fixed_char in fixed_characters:
+            if old_filename.endswith(fixed_char):
+                non_empty_prefix = old_filename[:-len(fixed_char)]
+                if non_empty_prefix and not old_filename.startswith(last_update_time):
+                    full_old_path = os.path.join(os.getcwd(), old_filename)
+                    if os.path.exists(full_old_path):
+                        os.remove(full_old_path)
+                        print(f"Deleted {old_filename}")
 
 def rename_files():
     try:
@@ -20,20 +46,10 @@ def rename_files():
     # 获取当前目录下的所有文件
     all_files = os.listdir(os.getcwd())
 
-    # 要重命名的文件名列表（初始文件名）
-    initial_filenames = ['综合源.txt', '组播优选.txt', '网络收集.txt']
-
+    # 重命名初始文件名的文件
     for old_filename in all_files:
-        # 检查文件是否是需要重命名的文件（根据初始文件名判断）
-        if any(old_filename.endswith(init_filename) for init_filename in initial_filenames):
-            if last_update_time and old_filename.startswith(f"{last_update_time}"):
-                # 如果文件名已包含上次时间，删除该文件
-                full_old_path = os.path.join(os.getcwd(), old_filename)
-                if os.path.exists(full_old_path):
-                    os.remove(full_old_path)
-                    print(f"Deleted {old_filename}")
-            else:
-                # 首次重命名，直接加上当前时间
+        for fixed_char in fixed_characters:
+            if old_filename.endswith(fixed_char):
                 new_filename = f"{current_date}{old_filename}"
                 full_old_path = os.path.join(os.getcwd(), old_filename)
                 full_new_path = os.path.join(os.getcwd(), new_filename)
@@ -44,4 +60,9 @@ def rename_files():
     with open(time_file_path, 'w') as time_file:
         time_file.write(current_date)
 
+# 先执行删除操作
+delete_files()
+
+# 再执行重命名操作
 rename_files()
+
