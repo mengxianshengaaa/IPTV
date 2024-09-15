@@ -5,18 +5,18 @@ import os
 now = datetime.datetime.now()
 current_date = now.strftime("%m%d")
 
-# 获取当前目录下的所有文件
-all_files = os.listdir(os.getcwd())
-
 # 要重命名的文件名列表（初始文件名）
 initial_filenames = ['综合源.m3u', '组播优选.txt', '综合源.txt']
+
+# 获取当前目录下的所有文件
+all_files = os.listdir(os.getcwd())
 
 # 删除初始文件名前面带有非空任意字符的文件
 for old_filename in all_files:
     for init_filename in initial_filenames:
-        if old_filename.endswith(init_filename) and not old_filename.startswith(current_date):
+        if old_filename.endswith(init_filename):
             non_empty_prefix = old_filename[:-len(init_filename)]
-            if non_empty_prefix:
+            if non_empty_prefix and not old_filename.startswith(current_date):
                 full_old_path = os.path.join(os.getcwd(), old_filename)
                 if os.path.exists(full_old_path):
                     os.remove(full_old_path)
