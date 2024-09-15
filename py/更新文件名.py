@@ -21,26 +21,24 @@ def rename_files():
     all_files = os.listdir(os.getcwd())
 
     # 要重命名的文件名列表（初始文件名）
-    initial_filenames = ['综合源.m3u', '组播优选.txt', '综合源.txt']         #, '综合源.m3u', '组播优选.txt', '网络收集.txt'
+    initial_filenames = ['综合源.m3u', '组播优选.txt', '综合源.txt']
 
     for old_filename in all_files:
         # 检查文件是否是需要重命名的文件（根据初始文件名判断）
         if any(old_filename.endswith(init_filename) for init_filename in initial_filenames):
-            if last_update_time and old_filename.startswith(f"{last_update_time}"):
-                # 如果只有上次重命名过的文件，用当前时间替换上次时间进行重命名
-                original_filename_after_last_time = old_filename[len(last_update_time):]
-                new_filename = f"{current_date}{original_filename_after_last_time}"
-                full_old_path = os.path.join(os.getcwd(), old_filename)
-                full_new_path = os.path.join(os.getcwd(), new_filename)
-                os.rename(full_old_path, full_new_path)
-                print(f"Renamed {old_filename} to {new_filename}")
-            else:
+            renamed_exists = False
+            for f in all_files:
+                if f.startswith(f"{last_update_time}{old_filename}"):
+                    renamed_exists = True
+                    break
+            if renamed_exists:
                 # 如果同时存在初始文件名和重命名过的文件，删除重命名过的文件
-                if any(f.endswith(old_filename) and f.startswith(last_update_time) for f in all_files):
-                    full_old_path = os.path.join(os.getcwd(), f"{last_update_time}{old_filename}")
+                full_old_path = os.path.join(os.getcwd(), f"{last_update_time}{old_filename}")
+                if os.path.exists(full_old_path):
                     os.remove(full_old_path)
                     print(f"Deleted {f'{last_update_time}{old_filename}'}")
-                # 对初始文件名文件进行重命名
+            else:
+                # 如果只有初始文件名的文件，进行重命名
                 new_filename = f"{current_date}{old_filename}"
                 full_old_path = os.path.join(os.getcwd(), old_filename)
                 full_new_path = os.path.join(os.getcwd(), new_filename)
