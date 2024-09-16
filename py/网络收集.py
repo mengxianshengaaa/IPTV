@@ -40,16 +40,15 @@ urls = [
        'https://notabug.org/bxtv/a/raw/master/315.txt',
        'https://raw.githubusercontent.com/xiangjiao169/yf2025/main/yf169.txt',
        'http://ttkx.live:55/lib/kx2024.txt',   #天天开心
-       'https://raw.githubusercontent.com/KAN314go/A/e81a1c22cd1b9f459bc363bd916c13133e235510/tv/%E5%AE%89%E5%8D%9A8K.txt',           'http://rihou.cc:555/gggg.nzk
+       'https://raw.githubusercontent.com/KAN314go/A/e81a1c22cd1b9f459bc363bd916c13133e235510/tv/%E5%AE%89%E5%8D%9A8K.txt',
+       'http://rihou.cc:555/gggg.nzk',
        'https://2912.kstore.space/520.txt',
        'https://gitlab.com/tvtg/vip/-/raw/main/log.txt',
        'https://cdn05042023.gitlink.org.cn/api/v1/repos/xuanbei/tv/raw/live.txt',
        'https://d.kstore.space/download/7395/xiaohei.txt',
        'http://home.jundie.top:81/Cat/tv/live.txt',
-       'https://raw.githubusercontent.com/BP3388/BP001.github.io/main/tivi.list
        'https://raw.githubusercontent.com/frxz751113/IPTVzb1/main/%E7%BB%BC%E5%90%88%E6%BA%90.txt',
        'https://raw.githubusercontent.com/ssili126/tv/main/itvlist.txt',
-       'https://raw.githubusercontent.com/joevess/IPTV/main/iptv.m3u8
        'https://raw.githubusercontent.com/Supprise0901/TVBox_live/main/live.txt',
        'https://raw.githubusercontent.com/Guovin/TV/gd/result.txt',
        'https://m3u.ibert.me/txt/fmml_ipv6.txt',
