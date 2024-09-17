@@ -102,7 +102,7 @@ def gen_files(valid_ips, province, isp):
     with open(txt_filename, 'a', encoding='utf-8') as new_file:
         new_file.write(f'{province}{isp},#genre#\n')
         for url in valid_ips:
-            if index < 10:
+            if index < 15:
                 # 确保 url 是一个完整的 URL 字符串，并且以 'http://' 开头
                 base_url = "rtp://"
                 if not url.startswith("http://"):
