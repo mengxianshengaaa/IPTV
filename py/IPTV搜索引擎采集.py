@@ -427,12 +427,12 @@ def txt_to_m3u(input_file, output_file):
         lines = f.readlines()
     # 打开m3u文件并写入内容
     now = datetime.datetime.utcnow() + datetime.timedelta(hours=8)
-    current_time = now.strftime("%m-%d %H:%M")
+    current_time = now.strftime("%m/%d %H:%M")
     with open(output_file, 'w', encoding='utf-8') as f:  
         f.write('#EXTM3U x-tvg-url="https://live.fanmingming.com/e.xml" catchup="append" catchup-source="?playseek=${(b)yyyyMMddHHmmss}-${(e)yyyyMMddHHmmss}"\n')
         #f.write(f'#EXTINF:-1 group-title="更新时间",请您欣赏\n')    
         #f.write(f'https://vd2.bdstatic.com/mda-nk3am8nwdgqfy6nh/sc/cae_h264/1667555203921394810/mda-nk3am8nwdgqfy6nh.mp4\n')    
-        #f.write(f'#EXTINF:-1 group-title="{current_time}",虚情的爱\n')    
+        #f.write(f'#EXTINF:-1 group-title="2024/{current_time}",虚情的爱\n')    
         #f.write(f'https://vd2.bdstatic.com/mda-mi1dd05gmhwejdwn/sc/cae_h264/1630576203346678103/mda-mi1dd05gmhwejdwn.mp4\n')    
         # 初始化genre变量
         genre = ''
@@ -465,7 +465,7 @@ with open(file_path, 'r+', encoding='utf-8') as f:
     f.write(f'{content}\n')
     #f.write(f'#EXTINF:-1 group-title="更新时间",请您欣赏\n')    
     #f.write(f'http://em.21dtv.com/songs/60144971.mkv\n')    
-    f.write(f'#EXTINF:-1 group-title="{current_time}:00更新",虚情的爱\n')    
+    f.write(f'#EXTINF:-1 group-title="2024/{current_time}:00更新",虚情的爱\n')    
     f.write(f'https://vd2.bdstatic.com/mda-mi1dd05gmhwejdwn/sc/cae_h264/1630576203346678103/mda-mi1dd05gmhwejdwn.mp4\n')       
 
 #任务结束,删除不必要的过程文件#
@@ -760,9 +760,9 @@ with open(file_path, 'r+', encoding='utf-8') as f:
     content = f.read()
     f.seek(0, 0)
     f.write(f'{content}\n')
-    f.write(f'2004年')
+    f.write(f'')
     #f.write(f'请您欣赏,https://vd2.bdstatic.com/mda-mi1dd05gmhwejdwn/sc/cae_h264/1630576203346678103/mda-mi1dd05gmhwejdwn.mp4\n')
-    f.write(f'{current_time}更新,#genre#\n')
+    f.write(f'2024/{current_time}更新,#genre#\n')
     f.write(f'虚情的爱,https://vd2.bdstatic.com/mda-mi1dd05gmhwejdwn/sc/cae_h264/1630576203346678103/mda-mi1dd05gmhwejdwn.mp4\n')
 
 
