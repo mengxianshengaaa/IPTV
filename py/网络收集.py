@@ -522,7 +522,7 @@ remove_duplicates('网络收集.txt', '网络收集.txt')
 
 
 ############################################################################全部检测，防止IP段失效
-﻿import requests
+import requests
 from tqdm import tqdm
 import cv2
 import threading
