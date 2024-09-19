@@ -379,6 +379,7 @@ with open('2.txt', 'r', encoding='utf-8') as file, open('2.txt', 'w', encoding='
 
 ###############################################################
 import re
+
 def parse_file(input_file_path, output_file_name):
     # 正则表达式匹配从'//'开始到第一个'/'或第一个'::'结束的部分
     ip_or_domain_pattern = re.compile(r'//([^/:]*:[^/:]*::[^/:]*|[^/]*)')
@@ -425,6 +426,7 @@ parse_file('2.txt', '2.txt')
 
 
 
+
 import cv2
 import time
 from tqdm import tqdm
@@ -446,56 +448,47 @@ def merge_and_filter():
 
     total_lines = len(lines)
 
-import time
-import cv2
-from tqdm import tqdm
-
-# 处理输入文件中的数据并进行检测
-with open(output_file_path, 'a', encoding='utf-8') as output_file:
-    valid_line_count = 0
-    for i, line in tqdm(enumerate(lines), total=total_lines, desc="Processing", unit='line'):
-        if 'genre' in line:
-            output_file.write(line)
-            continue
-        parts = line.split(',', 1)
-        if len(parts) == 2:
-            channel_name, url = parts
-            channel_name = channel_name.strip()
-            url = url.strip()
-            ip_key = get_ip_key(url)
-            if ip_key and ip_key in detected_ips:
-                if detected_ips[ip_key]['status'] == 'ok':
-                    output_file.write(line)
-                    valid_line_count += 1
-            elif ip_key:
-                cap = cv2.VideoCapture(url)
-                start_time = time.time()
-                frame_count = 0
-                while frame_count < 50 and (time.time() - start_time) < 3:
-                    ret, frame = cap.read()
-                    if not ret:
-                        break
-                    frame_count += 1
-                cap.release()
-                if frame_count >= 50:
-                    detected_ips[ip_key] = {'status': 'ok'}
-                    output_file.write(line)
-                    valid_line_count += 1
-                else:
-                    detected_ips[ip_key] = {'status': 'fail'}
-print(f"有效的总行数为：{valid_line_count}")
-
-
+    # 处理输入文件中的数据并进行检测
+    with open(output_file_path, 'a', encoding='utf-8') as output_file:
+        for i, line in tqdm(enumerate(lines), total=total_lines, desc="Processing", unit='line'):
+            if 'genre' in line:
+                output_file.write(line)
+                continue
+            parts = line.split(',', 1)
+            if len(parts) == 2:
+                channel_name, url = parts
+                channel_name = channel_name.strip()
+                url = url.strip()
+                ip_key = get_ip_key(url)
+                if ip_key and ip_key in detected_ips:
+                    if detected_ips[ip_key]['status'] == 'ok':
+                        output_file.write(line)
+                elif ip_key:
+                    cap = cv2.VideoCapture(url)
+                    start_time = time.time()
+                    frame_count = 0
+                    while frame_count < 50 and (time.time() - start_time) < 3:
+                        ret, frame = cap.read()
+                        if not ret:
+                            break
+                        frame_count += 1
+                    cap.release()
+                    if frame_count >= 50:
+                        detected_ips[ip_key] = {'status': 'ok'}
+                        output_file.write(line)
+                    else:
+                        detected_ips[ip_key] = {'status': 'fail'}
+    print(f"有效的总行数为：{valid_line_count}")
     # 合并任意字符加上网络收集.txt 的文件
-all_files = [f for f in os.listdir(os.getcwd()) if f.endswith('网络收集.txt')]
-with open(output_file_path, 'a', encoding='utf-8') as main_output:
-    for file_name in all_files:
-        if file_name!= output_file_path:
-            with open(file_name, 'r', encoding='utf-8') as other_file:
-                content = other_file.read()
-                if content:
-                    main_output.write('\n')
-                    main_output.write(content)
+    all_files = [f for f in os.listdir(os.getcwd()) if f.endswith('网络收集.txt')]
+    with open(output_file_path, 'a', encoding='utf-8') as main_output:
+        for file_name in all_files:
+            if file_name!= output_file_path:
+                with open(file_name, 'r', encoding='utf-8') as other_file:
+                    content = other_file.read()
+                    if content:
+                        main_output.write('\n')
+                        main_output.write(content)
 
 detected_ips = {}
 merge_and_filter()
@@ -700,5 +693,3 @@ for file in files_to_remove:
     else:              # 如果文件不存在,则提示异常并打印提示信息
         print(f"文件 {file} 不存在,跳过删除。")
 print("任务运行完毕,频道列表可查看文件夹内源.txt文件！")
-
-
