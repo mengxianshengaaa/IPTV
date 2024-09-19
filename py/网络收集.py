@@ -522,13 +522,6 @@ remove_duplicates('网络收集.txt', '网络收集.txt')
 
 
 ############################################################################全部检测，防止IP段失效
-import requests
-from tqdm import tqdm
-import cv2
-import threading
-from queue import Queue
-from concurrent.futures import ThreadPoolExecutor
-import time
 
 
 # 函数：获取视频分辨率
