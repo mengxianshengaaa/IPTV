@@ -156,6 +156,7 @@ print('文件去重完成！移除存储的旧文件！')
 ######################################################
 #####################################################
 ######################################################################################################################
+######################################################################################################################
 # 获取rtp目录下的文件名,组播IP采集
 files = os.listdir('rtp')
 files_name = []
@@ -199,49 +200,53 @@ for keyword in keywords:
         org == "China Mobile communications corporation"
         isp_en = "cmcc"
         
-
-
-    current_time = datetime.datetime.now()
+    current_time = datetime.now()
     timeout_cnt = 0
-    while True:
+    result_urls = set() 
+    while len(result_urls) == 0 and timeout_cnt <= 5:
         try:
             search_url = 'https://fofa.info/result?qbase64='
-            search_txt = f'\"udpxy\" && country=\"CN\" && region=\"{province}\" && org=\"{org}\"'
+            search_txt = f'\"udpxy\" && country=\"CN\" && region=\"{province}\"'  # && org=\"{org}\"
+                # 将字符串编码为字节流
             bytes_string = search_txt.encode('utf-8')
+                # 使用 base64 进行编码
             search_txt = base64.b64encode(bytes_string).decode('utf-8')
             search_url += search_txt
-            print(f"{current_time} 查询运营商 : {province}{isp},查询网址 : {search_url}")
+            print(f"{current_time} 查询运营商 : {province}{isp} ,查询网址 : {search_url}")
             response = requests.get(search_url, timeout=5)
+            # 处理响应
             response.raise_for_status()
+            # 检查请求是否成功
             html_content = response.text
+            # 使用BeautifulSoup解析网页内容
             html_soup = BeautifulSoup(html_content, "html.parser")
+            # print(f"{current_time} html_content:{html_content}")
+            # 查找所有符合指定格式的网址
+            # 设置匹配的格式,如http://8.8.8.8:8888
             pattern = r"http://\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}:\d+"
             urls_all = re.findall(pattern, html_content)
+            # 去重得到唯一的URL列表
             result_urls = set(urls_all)
             print(f"{current_time} result_urls:{result_urls}")
-            if result_urls:
-                valid_ips = []
-                for url in result_urls:
-                    video_url = url + "/rtp/" + mcast
-                    cap = cv2.VideoCapture(video_url)
-                    if not cap.isOpened():
-                        print(f"{current_time} {video_url} 无效")
-                    else:
-                        width = int(cap.get(cv2.CAP_PROP_FRAME_WIDTH))
-                        height = int(cap.get(cv2.CAP_PROP_FRAME_HEIGHT))
-                        print(f"{current_time} {video_url} 的分辨率为 {width}x{height}")
-                        if width > 0 and height > 0:
-                            valid_ips.append(url)
+            valid_ips = []
+            # 遍历所有视频链接
+            for url in result_urls:
+                video_url = url + "/rtp/" + mcast
+                # 用OpenCV读取视频
+                cap = cv2.VideoCapture(video_url)
+                # 检查视频是否成功打开
+                if not cap.isOpened():
+                    print(f"{current_time} {video_url} 无效")
+                else:
+                    # 读取视频的宽度和高度
+                    width = int(cap.get(cv2.CAP_PROP_FRAME_WIDTH))
+                    height = int(cap.get(cv2.CAP_PROP_FRAME_HEIGHT))
+                    print(f"{current_time} {video_url} 的分辨率为 {width}x{height}")
+                    # 检查分辨率是否大于0
+                    if width > 0 and height > 0:
+                        valid_ips.append(url)
+                    # 关闭视频流
                     cap.release()
-                break
-            else:
-                break
-        except Exception as e:
-            print(f"{current_time} 出现错误：{e}")
-            if timeout_cnt > 5:
-                break
-            timeout_cnt += 1
-
                     
             if valid_ips:
                 #生成节目列表 省份运营商.txt
