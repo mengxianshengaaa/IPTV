@@ -399,7 +399,7 @@ def parse_file(input_file_path, output_file_name):
                 ip_or_domain_to_lines[ip_or_domain].append(line)
     ############################################################################### 过滤掉小于1500字节的IP或域名段
     filtered_ip_or_domain_to_lines = {ip_or_domain: lines for ip_or_domain, lines in ip_or_domain_to_lines.items()
-                                      if sum(len(line) for line in lines) >= 1000}
+                                      if sum(len(line) for line in lines) >= 500}
     # 如果没有满足条件的IP或域名段，则不生成文件
     if not filtered_ip_or_domain_to_lines:
         print("没有满足条件的IP或域名段，不生成文件。")
@@ -644,7 +644,7 @@ def parse_file(input_file_path, output_file_name):    #
                 ip_or_domain_to_lines[ip_or_domain].append(line)
     # 过滤掉小于1000字节的IP或域名段
     filtered_ip_or_domain_to_lines = {ip_or_domain: lines for ip_or_domain, lines in ip_or_domain_to_lines.items()
-                                      if sum(len(line) for line in lines) >= 800}   # 过滤掉小于1000字节的IP或域名段
+                                      if sum(len(line) for line in lines) >= 300}   # 过滤掉小于1000字节的IP或域名段
     # 如果没有满足条件的IP或域名段，则不生成文件
     if not filtered_ip_or_domain_to_lines:
         print("没有满足条件的IP或域名段，不生成文件。")
