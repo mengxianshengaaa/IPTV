@@ -382,7 +382,7 @@ import re
 def parse_file(input_file_path, output_file_name):
     # 正则表达式匹配从'//'开始到第一个'/'或第一个'::'结束的部分
     ip_or_domain_pattern = re.compile(r'//([^/:]*:[^/:]*::[^/:]*|[^/]*)')
-    # 用于存储每个IP或域名及其对应的行列表
+    # 用于存储每个 IP 或域名及其对应的行列表
     ip_or_domain_to_lines = {}
     # 读取原始文件内容
     with open(input_file_path, 'r', encoding='utf-8') as file:
@@ -391,32 +391,35 @@ def parse_file(input_file_path, output_file_name):
             # 如果行是分类标签行,则跳过
             if ",#genre#" in line:
                 continue
-            # 检查行是否包含IP或域名
+            # 检查行是否包含 IP 或域名
             match = ip_or_domain_pattern.search(line)
             if match:
-                # 提取匹配到的IP或域名
+                # 提取匹配到的 IP 或域名
                 matched_text = match.group(1)
-                # 去除IP或域名后的剩余部分,只保留匹配到的IP或域名
+                # 去除 IP 或域名后的剩余部分,只保留匹配到的 IP 或域名
                 ip_or_domain = matched_text.split('://')[-1].split('/')[0].split('::')[0]
-                # 将行添加到对应的IP或域名列表中
+                # 将行添加到对应的 IP 或域名列表中
                 if ip_or_domain not in ip_or_domain_to_lines:
                     ip_or_domain_to_lines[ip_or_domain] = []
                 ip_or_domain_to_lines[ip_or_domain].append(line)
-    ############################################################################### 过滤掉小于1500字节的IP或域名段
+    ############################################################################### 过滤掉小于 1500 字节的 IP 或域名段
     filtered_ip_or_domain_to_lines = {ip_or_domain: lines for ip_or_domain, lines in ip_or_domain_to_lines.items()
                                       if sum(len(line) for line in lines) >= 300}
-    # 如果没有满足条件的IP或域名段,则不生成文件
+    # 如果没有满足条件的 IP 或域名段,则不生成文件
     if not filtered_ip_or_domain_to_lines:
-        print("没有满足条件的IP或域名段,不生成文件。")
+        print("没有满足条件的 IP 或域名段,不生成文件。")
         return
-    # 合并所有满足条件的IP或域名的行到一个文件
+    # 合并所有满足条件的 IP 或域名的行到一个文件
     with open(output_file_name, 'w', encoding='utf-8') as output_file:
         for ip_or_domain, lines in filtered_ip_or_domain_to_lines.items():
-            # 写入IP或域名及其对应的行到输出文件
+            # 写入 IP 或域名及其对应的行到输出文件
             output_file.write(f"频道,#genre#\n")
             for line in lines:
                 output_file.write(line + '\n')
             output_file.write('\n')  # 在每个小段后添加一个空行作为分隔
+    line_count = sum(len(lines) for lines in filtered_ip_or_domain_to_lines.values())
+    print(f"过滤文件完成，一共有 {line_count} 行数据。")
+
 # 调用函数并传入文件路径和输出文件名
 parse_file('2.txt', '2.txt')
 
@@ -443,36 +446,45 @@ def merge_and_filter():
 
     total_lines = len(lines)
 
-    # 处理输入文件中的数据并进行检测
-    with open(output_file_path, 'a', encoding='utf-8') as output_file:
-        for i, line in tqdm(enumerate(lines), total=total_lines, desc="Processing", unit='line'):
-            if 'genre' in line:
-                output_file.write(line)
-                continue
-            parts = line.split(',', 1)
-            if len(parts) == 2:
-                channel_name, url = parts
-                channel_name = channel_name.strip()
-                url = url.strip()
-                ip_key = get_ip_key(url)
-                if ip_key and ip_key in detected_ips:
-                    if detected_ips[ip_key]['status'] == 'ok':
-                        output_file.write(line)
-                elif ip_key:
-                    cap = cv2.VideoCapture(url)
-                    start_time = time.time()
-                    frame_count = 0
-                    while frame_count < 50 and (time.time() - start_time) < 3:
-                        ret, frame = cap.read()
-                        if not ret:
-                            break
-                        frame_count += 1
-                    cap.release()
-                    if frame_count >= 50:
-                        detected_ips[ip_key] = {'status': 'ok'}
-                        output_file.write(line)
-                    else:
-                        detected_ips[ip_key] = {'status': 'fail'}
+import time
+import cv2
+from tqdm import tqdm
+
+# 处理输入文件中的数据并进行检测
+with open(output_file_path, 'a', encoding='utf-8') as output_file:
+    valid_line_count = 0
+    for i, line in tqdm(enumerate(lines), total=total_lines, desc="Processing", unit='line'):
+        if 'genre' in line:
+            output_file.write(line)
+            continue
+        parts = line.split(',', 1)
+        if len(parts) == 2:
+            channel_name, url = parts
+            channel_name = channel_name.strip()
+            url = url.strip()
+            ip_key = get_ip_key(url)
+            if ip_key and ip_key in detected_ips:
+                if detected_ips[ip_key]['status'] == 'ok':
+                    output_file.write(line)
+                    valid_line_count += 1
+            elif ip_key:
+                cap = cv2.VideoCapture(url)
+                start_time = time.time()
+                frame_count = 0
+                while frame_count < 50 and (time.time() - start_time) < 3:
+                    ret, frame = cap.read()
+                    if not ret:
+                        break
+                    frame_count += 1
+                cap.release()
+                if frame_count >= 50:
+                    detected_ips[ip_key] = {'status': 'ok'}
+                    output_file.write(line)
+                    valid_line_count += 1
+                else:
+                    detected_ips[ip_key] = {'status': 'fail'}
+print(f"有效的总行数为：{valid_line_count}")
+
 
     # 合并任意字符加上网络收集.txt 的文件
     all_files = [f for f in os.listdir(os.getcwd()) if f.endswith('网络收集.txt')]
