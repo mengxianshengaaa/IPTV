@@ -476,6 +476,7 @@ def merge_and_filter():
                     if frame_count >= 50:
                         detected_ips[ip_key] = {'status': 'ok'}
                         output_file.write(line)
+                        alid_line_count += 1
                     else:
                         detected_ips[ip_key] = {'status': 'fail'}
     print(f"有效的总行数为：{valid_line_count}")
