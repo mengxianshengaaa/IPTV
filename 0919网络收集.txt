@@ -171,7 +171,7 @@ momo,http://shuma004.chunfengyun.top:8080/live/3/hls.m3u8
 综艺,http://shuma004.chunfengyun.top:8080/live/67/hls.m3u8
 
 
-E1,#genre#
+F1,#genre#
 ELTV生活英语台,http://95.179.139.113:5566/4gtv/106
 HITS,http://95.179.139.113:5566/4gtv/186
 LUXETVChannel,http://95.179.139.113:5566/4gtv/175
