@@ -347,7 +347,7 @@ import os
 # 定义一个包含所有要排除的关键词的列表
 excluded_keywords = [
     'epg', 'mitv', 'udp', 'rtp', 'P2p', 'p2p', 'p3p', 'P2P', '新闻综合', 'P3p', 'jdshipin', '9930/qilu', 'gitcode.net', '151:99', '21dtv', '8.137', 'txmov2', 'gcw.bdcdn', 'metshop', 
-       'shandong', 'goodiptv', '购物', '[', 'P3P', '腔', '曲', '//1', '/hls/', '春节', 'free.xiptv', 'tw.ts138', 'hlspull', '95.179'
+       'shandong', 'goodiptv', '购物', '[', 'P3P', '腔', '曲', '//1', '/hls/', '春节', 'free.xiptv', 'tw.ts138', 'hlspull', '95.179', 'gat.zhou'
     # 在这里添加需要排除的关键词
 ]
 
@@ -399,7 +399,7 @@ def parse_file(input_file_path, output_file_name):
                 ip_or_domain_to_lines[ip_or_domain].append(line)
     ############################################################################### 过滤掉小于1500字节的IP或域名段
     filtered_ip_or_domain_to_lines = {ip_or_domain: lines for ip_or_domain, lines in ip_or_domain_to_lines.items()
-                                      if sum(len(line) for line in lines) >= 5}
+                                      if sum(len(line) for line in lines) >= 300}
     # 如果没有满足条件的IP或域名段，则不生成文件
     if not filtered_ip_or_domain_to_lines:
         print("没有满足条件的IP或域名段，不生成文件。")
@@ -652,7 +652,7 @@ def parse_file(input_file_path, output_file_name):    #
                 ip_or_domain_to_lines[ip_or_domain].append(line)
     # 过滤掉小于1000字节的IP或域名段
     filtered_ip_or_domain_to_lines = {ip_or_domain: lines for ip_or_domain, lines in ip_or_domain_to_lines.items()
-                                      if sum(len(line) for line in lines) >= 5}   # 过滤掉小于1000字节的IP或域名段
+                                      if sum(len(line) for line in lines) >= 200}   # 过滤掉小于1000字节的IP或域名段
     # 如果没有满足条件的IP或域名段，则不生成文件
     if not filtered_ip_or_domain_to_lines:
         print("没有满足条件的IP或域名段，不生成文件。")
