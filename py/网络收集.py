@@ -363,15 +363,15 @@ keywords = ['1905', '凤凰卫视', '人间卫视', '亚洲卫视', '香港卫�
 excluded_pattern = '|'.join(excluded_keywords)
 # 将关键词列表转换为正则表达式模式
 pattern = '|'.join(keywords)
-with open('2.txt', 'r', encoding='utf-8') as file, open('2.txt', 'w', encoding='utf-8') as 2:
-    #2.write('央视频道,#genre#\n')
+with open('2.txt', 'r', encoding='utf-8') as file, open('2.txt', 'w', encoding='utf-8') as a:
+    #a.write('央视频道,#genre#\n')
     for line in file:
         if 'genre' not in line:
             # 使用正则表达式检查该行是否不包含任何排除关键词
             if not re.search(excluded_pattern, line):
                 # 如果行中有任意关键字
                 if re.search(pattern, line):
-                    2.write(line)
+                    a.write(line)
 
 ###############################################################
 import re
