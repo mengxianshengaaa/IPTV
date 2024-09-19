@@ -84,7 +84,7 @@ def merge_txt_files(urls, output_filename='汇总.txt'):
                 try:
                     response = requests.get(url)
                     response.raise_for_status()  # 确保请求成功
-                    # 尝试将响应内容解码为UTF-8，如果失败则尝试其他编码
+                    # 尝试将响应内容解码为UTF-8,如果失败则尝试其他编码
                     try:
                         content = response.content.decode('utf-8')
                     except UnicodeDecodeError:
@@ -267,14 +267,14 @@ with open('汇总.txt', 'w', encoding='utf-8') as new_file:
     for line in lines:
         # 去除行尾的换行符
         line = line.rstrip('\n')
-        # 分割行，获取逗号前的字符串
+        # 分割行,获取逗号前的字符串
         parts = line.split(',', 1)
         if len(parts) > 0:
             # 替换逗号前的字符串
             before_comma = parts[0]
             for old, new in replacements.items():
                 before_comma = before_comma.replace(old, new)
-            # 将替换后的逗号前部分和逗号后部分重新组合成一行，并写入新文件
+            # 将替换后的逗号前部分和逗号后部分重新组合成一行,并写入新文件
             new_line = f'{before_comma},{parts[1]}\n' if len(parts) > 1 else f'{before_comma}\n'
             new_file.write(new_line)
 
@@ -326,7 +326,7 @@ def remove_duplicates(input_file, output_file):
             if urls and urls[0] not in seen_urls:
                 seen_urls.add(urls[0])
                 output_lines.append(line)
-            # 如果找到包含genre的行，无论是否已被记录，都写入新文件
+            # 如果找到包含genre的行,无论是否已被记录,都写入新文件
             if genre_line:
                 output_lines.append(line)
     # 将结果写入输出文件
@@ -347,14 +347,14 @@ import os
 # 定义一个包含所有要排除的关键词的列表
 excluded_keywords = [
     'epg', 'mitv', 'udp', 'rtp', 'P2p', 'p2p', 'p3p', 'P2P', '新闻综合', 'P3p', 'jdshipin', '9930/qilu', 'gitcode.net', '151:99', '21dtv', '8.137', 'txmov2', 'gcw.bdcdn', 'metshop', 
-       'shandong', 'goodiptv', '购物', '[', 'P3P', '腔', '曲', '//1', '/hls/', '春节', 'free.xiptv', 'tw.ts138', 'hlspull', '95.179', 'gat.zhou'
+       'shandong', 'goodiptv', '购物', '[', 'P3P', '腔', '曲', '//1', '/hls/', '春节', 'free', 'ts138', 'hlspull', '95.179', 'gat'
     # 在这里添加需要排除的关键词
 ]
 
 # 定义一个包含所有要提取的关键词的列表
 extract_keywords = ['1905', '凤凰卫视', '人间卫视', '亚洲卫视', '香港卫视', '神乐', '翡翠台', '凤凰香港', '凤凰中文', '凤凰资讯', 'AXN', 'AMC', '香蕉', '电影台', '大爱', '东森', 'MTV', 
                     '华视', '中天', '天良', '翡翠台', '美亚', '星影', '纬来', '天映', '无线', '华剧台', '华丽台', '剧台', 'Movie', '八大', '采昌', '靖天', '美亚', '民視', '探索', '旅游', '影视2', 
-                    '影视3', '中视', '豬哥亮', 'TVB', '东森', '公视', '华视', '寰宇', '戏剧', '靖', '龙华', '龙祥', '民视', '三立', '中视', '猪哥亮', '综艺', '新闻', '影迷', '影剧', '电视剧'
+                    '影视3', '中视', '豬哥亮', 'TVB', '东森', '公视', '华视', '寰宇', '戏剧', '靖', '龙华', '龙祥', '民视', '三立', '中视', '猪哥亮', '综艺', '新闻', '影迷', '影剧', '电视剧', 'ali'
     # 在这里添加需要提取的关键词
 ]
 
@@ -367,7 +367,7 @@ with open('2.txt', 'r', encoding='utf-8') as file:
         for line in lines:
             # 首先检查行是否包含任何提取关键词
             if any(keyword in line for keyword in extract_keywords):
-                # 如果包含提取关键词，进一步检查行是否不包含任何排除关键词
+                # 如果包含提取关键词,进一步检查行是否不包含任何排除关键词
                 if not any(keyword in line for keyword in excluded_keywords):
                     outfile.write(line)  # 写入符合条件的行到文件
 
@@ -383,7 +383,7 @@ def parse_file(input_file_path, output_file_name):
     with open(input_file_path, 'r', encoding='utf-8') as file:
         for line in file:
             line = line.strip()
-            # 如果行是分类标签行，则跳过
+            # 如果行是分类标签行,则跳过
             if ",#genre#" in line:
                 continue
             # 检查行是否包含IP或域名
@@ -391,7 +391,7 @@ def parse_file(input_file_path, output_file_name):
             if match:
                 # 提取匹配到的IP或域名
                 matched_text = match.group(1)
-                # 去除IP或域名后的剩余部分，只保留匹配到的IP或域名
+                # 去除IP或域名后的剩余部分,只保留匹配到的IP或域名
                 ip_or_domain = matched_text.split('://')[-1].split('/')[0].split('::')[0]
                 # 将行添加到对应的IP或域名列表中
                 if ip_or_domain not in ip_or_domain_to_lines:
@@ -400,9 +400,9 @@ def parse_file(input_file_path, output_file_name):
     ############################################################################### 过滤掉小于1500字节的IP或域名段
     filtered_ip_or_domain_to_lines = {ip_or_domain: lines for ip_or_domain, lines in ip_or_domain_to_lines.items()
                                       if sum(len(line) for line in lines) >= 300}
-    # 如果没有满足条件的IP或域名段，则不生成文件
+    # 如果没有满足条件的IP或域名段,则不生成文件
     if not filtered_ip_or_domain_to_lines:
-        print("没有满足条件的IP或域名段，不生成文件。")
+        print("没有满足条件的IP或域名段,不生成文件。")
         return
     # 合并所有满足条件的IP或域名的行到一个文件
     with open(output_file_name, 'w', encoding='utf-8') as output_file:
@@ -427,7 +427,7 @@ file_path = "2.txt"
 output_file_path = "网络收集.txt"
 
 def get_ip_key(url):
-    """从 URL 中提取 IP 地址，并构造一个唯一的键"""
+    """从 URL 中提取 IP 地址,并构造一个唯一的键"""
     start = url.find('://') + 3
     end = url.find('/', start)
     return url[start:end] if end!= -1 else None
@@ -521,7 +521,7 @@ remove_duplicates('网络收集.txt', '网络收集.txt')
 
 
 
-############################################################################全部检测，防止IP段失效
+############################################################################全部检测,防止IP段失效
 
 
 # 函数：获取视频分辨率
@@ -538,7 +538,7 @@ def get_video_resolution(video_path, timeout=0.8):
 def process_line(line, output_file, order_list, valid_count, invalid_count, total_lines):
     parts = line.strip().split(',')
     if '#genre#' in line:
-        # 如果行包含 '#genre#'，直接写入新文件
+        # 如果行包含 '#genre#',直接写入新文件
         with threading.Lock():
             output_file.write(line)
             print(f"已写入genre行：{line.strip()}")
@@ -592,7 +592,7 @@ def main(source_file_path, output_file_path):
             # 等待队列中的所有任务完成
             task_queue.join()
 
-    print(f"任务完成，有效频道数：{valid_count[0]}, 无效频道数：{invalid_count[0]}, 总频道数：{len(lines)}")
+    print(f"任务完成,有效频道数：{valid_count[0]}, 无效频道数：{invalid_count[0]}, 总频道数：{len(lines)}")
 
 if __name__ == "__main__":
     source_file_path = '网络收集.txt'  # 替换为你的源文件路径
@@ -610,11 +610,11 @@ from pypinyin import lazy_pinyin
 with open("网络收集.txt", "r", encoding="utf-8") as file:
     # 读取所有行并存储到列表中
     lines = file.readlines()
-# 定义一个函数，用于提取每行的第一个数字
+# 定义一个函数,用于提取每行的第一个数字
 def extract_first_number(line):
     match = re.search(r'\d+', line)
     return int(match.group()) if match else float('inf')
-# 对列表中的行进行排序，按照第一个数字的大小排列，其余行按中文排序
+# 对列表中的行进行排序,按照第一个数字的大小排列,其余行按中文排序
 sorted_lines = sorted(lines, key=lambda x: (not 'CCTV' in x, extract_first_number(x) if 'CCTV' in x else lazy_pinyin(x.strip())))
 # 将排序后的行写入新的utf-8编码的文本文件
 with open("网络收集.txt", "w", encoding="utf-8") as file:
@@ -630,13 +630,13 @@ def parse_file(input_file_path, output_file_name):    #
     # 用于存储每个IP或域名及其对应的行列表
     ip_or_domain_to_lines = {}
     # 用于生成分类名的字母和数字计数器
-    alphabet_counter = 0  # 字母计数器，从0开始
-    number_counter = 1     # 数字计数器，从1开始
+    alphabet_counter = 0  # 字母计数器,从0开始
+    number_counter = 1     # 数字计数器,从1开始
     # 读取原始文件内容
     with open(input_file_path, 'r', encoding='utf-8') as file:
         for line in file:
             line = line.strip()
-            # 如果行是分类标签行，则跳过
+            # 如果行是分类标签行,则跳过
             if ",#genre#" in line:
                 continue
             # 检查行是否包含IP或域名
@@ -644,7 +644,7 @@ def parse_file(input_file_path, output_file_name):    #
             if match:
                 # 提取匹配到的IP或域名
                 matched_text = match.group(1)
-                # 去除IP或域名后的剩余部分，只保留匹配到的IP或域名
+                # 去除IP或域名后的剩余部分,只保留匹配到的IP或域名
                 ip_or_domain = matched_text.split('://')[-1].split('/')[0].split('::')[0]
                 # 将行添加到对应的IP或域名列表中
                 if ip_or_domain not in ip_or_domain_to_lines:
@@ -653,9 +653,9 @@ def parse_file(input_file_path, output_file_name):    #
     # 过滤掉小于1000字节的IP或域名段
     filtered_ip_or_domain_to_lines = {ip_or_domain: lines for ip_or_domain, lines in ip_or_domain_to_lines.items()
                                       if sum(len(line) for line in lines) >= 200}   # 过滤掉小于1000字节的IP或域名段
-    # 如果没有满足条件的IP或域名段，则不生成文件
+    # 如果没有满足条件的IP或域名段,则不生成文件
     if not filtered_ip_or_domain_to_lines:
-        print("没有满足条件的IP或域名段，不生成文件。")
+        print("没有满足条件的IP或域名段,不生成文件。")
         return
     # 合并所有满足条件的IP或域名的行到一个文件
     with open(output_file_name, 'w', encoding='utf-8') as output_file:   #output_
@@ -686,13 +686,13 @@ with open(file_path, 'r+', encoding='utf-8') as f:
     f.write(f'{current_time}更新,#genre#\n')
     f.write(f'虚情的爱,https://vd2.bdstatic.com/mda-mi1dd05gmhwejdwn/sc/cae_h264/1630576203346678103/mda-mi1dd05gmhwejdwn.mp4\n{content}')
 
-################################################################################################任务结束，删除不必要的过程文件
+################################################################################################任务结束,删除不必要的过程文件
 files_to_remove = ["2.txt", "汇总.txt"]
 for file in files_to_remove:
     if os.path.exists(file):
         os.remove(file)
-    else:              # 如果文件不存在，则提示异常并打印提示信息
-        print(f"文件 {file} 不存在，跳过删除。")
-print("任务运行完毕，频道列表可查看文件夹内源.txt文件！")
+    else:              # 如果文件不存在,则提示异常并打印提示信息
+        print(f"文件 {file} 不存在,跳过删除。")
+print("任务运行完毕,频道列表可查看文件夹内源.txt文件！")
 
 
