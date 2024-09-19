@@ -352,25 +352,26 @@ excluded_keywords = [
 ]
 
 # 定义一个包含所有要提取的关键词的列表
-extract_keywords = ['1905', '凤凰卫视', '人间卫视', '亚洲卫视', '香港卫视', '神乐', '翡翠台', '凤凰香港', '凤凰中文', '凤凰资讯', 'AXN', 'AMC', '香蕉', '电影台', '大爱', '东森', 'MTV', 
+keywords = ['1905', '凤凰卫视', '人间卫视', '亚洲卫视', '香港卫视', '神乐', '翡翠台', '凤凰香港', '凤凰中文', '凤凰资讯', 'AXN', 'AMC', '香蕉', '电影台', '大爱', '东森', 'MTV', 
                     '华视', '中天', '天良', '翡翠台', '美亚', '星影', '纬来', '天映', '无线', '华剧台', '华丽台', '剧台', 'Movie', '八大', '采昌', '靖天', '美亚', '民視', '探索', '旅游', '影视2', 
                     '影视3', '中视', '豬哥亮', 'TVB', '东森', '公视', '华视', '寰宇', '戏剧', '靖', '龙华', '龙祥', '民视', '三立', '中视', '猪哥亮', '综艺', '新闻', '影迷', '影剧', '电视剧'
     # 在这里添加需要提取的关键词
 ]
 
 # 读取文件并处理每一行
-import re
-with open('2.txt', 'r', encoding='utf-8') as file:
-    lines = file.readlines()
-
-with open('2.txt', 'w', encoding='utf-8') as outfile:
-    for line in lines:
-        cleaned_line = re.sub(r'[^\w\s]', '', line)
-        lower_cleaned_line = cleaned_line.lower()
-        if any(keyword in lower_cleaned_line for keyword in extract_keywords):
-            if not any(keyword in lower_cleaned_line for keyword in [excluded_key.lower() for excluded_key in excluded_keywords]):
-                outfile.write(line)
-
+# 将排除关键词列表转换为正则表达式模式
+excluded_pattern = '|'.join(excluded_keywords)
+# 将关键词列表转换为正则表达式模式
+pattern = '|'.join(keywords)
+with open('2.txt', 'r', encoding='utf-8') as file, open('2.txt', 'w', encoding='utf-8') as 2:
+    #2.write('央视频道,#genre#\n')
+    for line in file:
+        if 'genre' not in line:
+            # 使用正则表达式检查该行是否不包含任何排除关键词
+            if not re.search(excluded_pattern, line):
+                # 如果行中有任意关键字
+                if re.search(pattern, line):
+                    2.write(line)
 
 ###############################################################
 import re
