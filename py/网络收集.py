@@ -487,15 +487,15 @@ print(f"有效的总行数为：{valid_line_count}")
 
 
     # 合并任意字符加上网络收集.txt 的文件
-    all_files = [f for f in os.listdir(os.getcwd()) if f.endswith('网络收集.txt')]
-    with open(output_file_path, 'a', encoding='utf-8') as main_output:
-        for file_name in all_files:
-            if file_name!= output_file_path:
-                with open(file_name, 'r', encoding='utf-8') as other_file:
-                    content = other_file.read()
-                    if content:
-                        main_output.write('\n')
-                        main_output.write(content)
+all_files = [f for f in os.listdir(os.getcwd()) if f.endswith('网络收集.txt')]
+with open(output_file_path, 'a', encoding='utf-8') as main_output:
+    for file_name in all_files:
+        if file_name!= output_file_path:
+            with open(file_name, 'r', encoding='utf-8') as other_file:
+                content = other_file.read()
+                if content:
+                    main_output.write('\n')
+                    main_output.write(content)
 
 detected_ips = {}
 merge_and_filter()
