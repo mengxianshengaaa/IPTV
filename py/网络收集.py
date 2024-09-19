@@ -476,10 +476,8 @@ def merge_and_filter():
                     if frame_count >= 50:
                         detected_ips[ip_key] = {'status': 'ok'}
                         output_file.write(line)
-                        valid_line_count += 1
                     else:
                         detected_ips[ip_key] = {'status': 'fail'}
-    print(f"有效的总行数为：{valid_line_count}")
     # 合并任意字符加上网络收集.txt 的文件
     all_files = [f for f in os.listdir(os.getcwd()) if f.endswith('网络收集.txt')]
     with open(output_file_path, 'a', encoding='utf-8') as main_output:
