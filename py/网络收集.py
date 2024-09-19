@@ -52,7 +52,7 @@ urls = [
        'https://raw.githubusercontent.com/junge3333/juds6/main/yszb1.txt',
        'https://raw.githubusercontent.com/zzmaze/iptv/main/iptv.txt',
        'https://raw.githubusercontent.com/xxoo-qx/IPTV/main/LIVE.txt',
-       '',
+       'https://raw.githubusercontent.com/frxz751113/AAAAA/main/IPTV/TW.txt',
        '',
        '',
        '',
