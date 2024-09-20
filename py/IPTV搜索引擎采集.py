@@ -225,7 +225,7 @@ for filename in os.listdir(folder_path):
                             break
                         frame_count += 1
                         # 如果在3秒内读取到63帧以上，设置成功标志
-                        if frame_count >= 63:
+                        if frame_count >= 60:
                             success = True
                             break
                     cap.release()
@@ -244,169 +244,13 @@ for ip_key, result in detected_ips.items():
 
 ######################################################################################################################
 ######################################################################################################################
-######################################################################################################################
-######################################################################################################################
-######################################################################################################################
-######################################################################################################################
 
-#  获取远程港澳台直播源文件
-url = "https://raw.githubusercontent.com/frxz751113/AAAAA/main/TW.txt"          #源采集地址
-r = requests.get(url)
-open('港澳.txt','wb').write(r.content)         #打开源文件并临时写入
-
-
-
-#从文本中截取省市段生成两个新文件#
-#  获取远程港澳台直播源文件,打开文件并输出临时文件并替换关键词
+#  获取远程直播源文件,打开文件并输出临时文件
 url = "https://raw.githubusercontent.com/frxz751113/AAAAA/main/IPTV/汇总.txt"          #源采集地址
 r = requests.get(url)
-open('TW.txt','wb').write(r.content)         #打开源文件并临时写入
+open('综合源.txt','wb').write(r.content)         #打开源文件并临时写入
 
-# 定义关键词
-start_keyword = '省市频道,#genre#'
-end_keyword = '港澳频道,#genre#'
-# 输入输出文件路径
-input_file_path = 'TW.txt'  # 替换为你的输入文件路径
-output_file_path = 'a.txt'  # 替换为你想要保存输出的文件路径
-deleted_lines_file_path = '省市.txt'  # 替换为你想要保存删除行的文件路径
-# 标记是否处于要删除的行范围内
-delete_range = False
-# 存储要删除的行,包括开始关键词行
-deleted_lines = []
-# 读取原始文件并过滤掉指定范围内的行
-with open(input_file_path, 'r', encoding='utf-8') as file:
-    lines = file.readlines()
-# 过滤掉不需要的行
-filtered_lines = []
-for line in lines:
-    if start_keyword in line:
-        delete_range = True
-        deleted_lines.append(line)  # 将开始关键词行添加到删除行列表
-        continue
-    if delete_range:
-        if end_keyword in line:
-            delete_range = False
-            filtered_lines.append(line)  # 将结束关键词行添加到输出文件列表
-        else:
-            deleted_lines.append(line)  # 添加到删除行列表
-    else:
-        filtered_lines.append(line)
-# 将过滤后的内容写入新文件
-with open(output_file_path, 'w', encoding='utf-8') as file:
-    file.writelines(filtered_lines)
-# 将删除的行写入到新的文件中
-with open(deleted_lines_file_path, 'w', encoding='utf-8') as file:
-    file.writelines(deleted_lines)
-print('过滤完成,结果已保存到:', output_file_path)
-print('提取的行已保存到:', deleted_lines_file_path)
-#
-#从文本中截取少儿段并生成两个新文件#
-# 定义关键词
-start_keyword = '少儿频道,#genre#'
-end_keyword = '港澳频道,#genre#'
-# 输入输出文件路径
-input_file_path = 'a.txt'  # 替换为你的输入文件路径
-output_file_path = '主.txt'  # 替换为你想要保存输出的文件路径
-deleted_lines_file_path = '少儿1.txt'  # 替换为你想要保存删除行的文件路径
-# 标记是否处于要删除的行范围内
-delete_range = False
-# 存储要删除的行,包括开始关键词行
-deleted_lines = []
-# 读取原始文件并过滤掉指定范围内的行
-with open(input_file_path, 'r', encoding='utf-8') as file:
-    lines = file.readlines()
-# 过滤掉不需要的行
-filtered_lines = []
-for line in lines:
-    if start_keyword in line:
-        delete_range = True
-        deleted_lines.append(line)  # 将开始关键词行添加到删除行列表
-        continue
-    if delete_range:
-        if end_keyword in line:
-            delete_range = False
-            filtered_lines.append(line)  # 将结束关键词行添加到输出文件列表
-        else:
-            deleted_lines.append(line)  # 添加到删除行列表
-    else:
-        filtered_lines.append(line)
-# 将过滤后的内容写入新文件
-with open(output_file_path, 'w', encoding='utf-8') as file:
-    file.writelines(filtered_lines)
-# 将删除的行写入到新的文件中
-with open(deleted_lines_file_path, 'w', encoding='utf-8') as file:
-    file.writelines(deleted_lines)
-print('过滤完成,结果已保存到:', output_file_path)
-print('提取的行已保存到:', deleted_lines_file_path)
-#
-#
-        
-#合并所有频道文件#
-# 读取要合并的频道文件,并生成临时文件#合并所有频道文件#
-file_contents = []
-file_paths = ["主.txt", "港澳.txt", "省市.txt"]  # 替换为实际的文件路径列表#
-for file_path in file_paths:                                                             #
-    with open(file_path, 'r', encoding="utf-8") as file:                                 #
-        content = file.read()
-        file_contents.append(content)
-# 生成合并后的文件
-with open("综合源.txt", "w", encoding="utf-8") as output:
-    output.write(''.join(file_contents))   #加入\n则多一空行
-#去重#
-#去重#
-with open('综合源.txt', 'r', encoding="utf-8") as file:
- lines = file.readlines()
-# 使用列表来存储唯一的行的顺序 
- unique_lines = [] 
- seen_lines = set() 
-# 遍历每一行,如果是新的就加入unique_lines 
-for line in lines:
- if line not in seen_lines:
-  unique_lines.append(line)
-  seen_lines.add(line)
-# 将唯一的行写入新的文档 
-with open('综合源.txt', 'w', encoding="utf-8") as file:
- file.writelines(unique_lines)
-#再次规范频道名#
-#从整理好的文本中进行特定关键词替换以规范频道名#
-for line in fileinput.input("综合源.txt", inplace=True):   #打开临时文件原地替换关键字
-    line = line.replace("CCTV1,", "CCTV1-综合,")  
-    line = line.replace("CCTV2,", "CCTV2-财经,")  
-    line = line.replace("CCTV3,", "CCTV3-综艺,")  
-    line = line.replace("CCTV4,", "CCTV4-国际,")  
-    line = line.replace("CCTV5,", "CCTV5-体育,")  
-    line = line.replace("CCTV5+,", "CCTV5-体育plus,")  
-    line = line.replace("CCTV6,", "CCTV6-电影,")  
-    line = line.replace("CCTV7,", "CCTV7-军事,")  
-    line = line.replace("CCTV8,", "CCTV8-电视剧,")  
-    line = line.replace("CCTV9,", "CCTV9-纪录,")  
-    line = line.replace("CCTV10,", "CCTV10-科教,")  
-    line = line.replace("CCTV11,", "CCTV11-戏曲,")  
-    line = line.replace("CCTV11+,", "CCTV11-戏曲,")  
-    line = line.replace("CCTV12,", "CCTV12-社会与法,")  
-    line = line.replace("CCTV13,", "CCTV13-新闻,")  
-    line = line.replace("CCTV14,", "CCTV14-少儿,")  
-    line = line.replace("CCTV15,", "CCTV15-音乐,")  
-    line = line.replace("CCTV16,", "CCTV16-奥林匹克,")  
-    line = line.replace("CCTV17,", "CCTV17-农业农村,") 
-    line = line.replace("CCTV风", "风")  
-    line = line.replace("CCTV兵", "兵")  
-    line = line.replace("CCTV世", "世")  
-    line = line.replace("CCTV女", "女")  
-    line = line.replace("008广", "广")
-    line = line.replace(" ", "")
-    line = line.replace("家庭电影", "家庭影院")    
-    line = line.replace("CHC", "")  
-    line = line.replace("科技生活", "科技")  
-    line = line.replace("财经生活", "财经")  
-    line = line.replace("新闻综合", "新闻")  
-    line = line.replace("公共新闻", "公共")  
-    line = line.replace("经济生活", "经济")  
-    line = line.replace("频道1", "频道") 
-    line = line.replace("省市频道", "湖北频道")    
-    line = line.replace("[720p]", "") 
-    line = line.replace("[1080p]", "")     
-    print(line, end="")   
+
 #简体转繁体#
 #简体转繁体
 # 创建一个OpenCC对象,指定转换的规则为繁体字转简体字
@@ -425,8 +269,7 @@ with open('综合源.txt', 'w', encoding='utf-8') as file:
 
 
 #任务结束,删除不必要的过程文件#
-files_to_remove = ['组播源.txt', "TW.txt", "a.txt", "主.txt", "b.txt", "b1.txt", "港澳.txt", "省市.txt", "df.txt", "df1.txt", "少儿1.txt", "sr2.txt", \
-                   "c2.txt", "c1.txt", "DD.txt", "f.txt", "f1.txt"]
+files_to_remove = ['组播源.txt', "TW.txt", "a.txt", "主.txt", "b.txt", "b1.txt", "港澳.txt"]
 for file in files_to_remove:
     if os.path.exists(file):
         os.remove(file)
