@@ -654,7 +654,7 @@ def parse_file(input_file_path, output_file_name):    #
 ############################################################
 
     alphabet_counter = 0
-    number_counter = -1
+    number_counter = 0
     with open(output_file_name, 'w', encoding='utf-8') as output_file:   #output_
         for ip_or_domain, lines in filtered_ip_or_domain_to_lines.items():
             # 检查是否需要递增数字计数器
@@ -681,14 +681,18 @@ parse_file('网络收集.txt', '网络收集.txt')
 def append_text_between_files(file1_path, file2_path):
     with open(file1_path, 'r', encoding='utf-8') as file1:
         content1 = file1.read()
-    with open(file2_path, 'a', encoding='utf-8') as file2:
-        if file2.tell()!= 0:
-            file2.write('\n')
-        file2.write(content1)
-
+        lines1 = content1.split('\n')
+        unique_lines1 = list(set(lines1))
+    with open(file2_path, 'r', encoding='utf-8') as file2:
+        content2 = file2.read()
+        lines2 = content2.split('\n')
+    combined_lines = list(set(lines2 + unique_lines1))
+    with open(file2_path, 'w', encoding='utf-8') as file2:
+        file2.write('\n'.join(combined_lines))
 file_path1 = '网络收集.txt'
 file_path2 = '综合源.txt'
 append_text_between_files(file_path1, file_path2)
+
 
 
 
