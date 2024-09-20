@@ -651,15 +651,24 @@ def parse_file(input_file_path, output_file_name):    #
         print("没有满足条件的IP或域名段，不生成文件。")
         return
     # 合并所有满足条件的IP或域名的行到一个文件
-    with open(output_file_name, 'w', encoding='utf-8') as output_file:   #output_
-        for ip_or_domain, lines in filtered_ip_or_domain_to_lines.items():
-            # 检查是否需要递增数字计数器
-            if alphabet_counter >= 26:
-                number_counter += 1
-                alphabet_counter = 0  # 重置字母计数器
+############################################################
+alphabet_counter = -1
+number_counter = -1
+with open(output_file_name, 'w', encoding='utf-8') as output_file:
+    for ip_or_domain, lines in filtered_ip_or_domain_to_lines.items():
+        # 检查是否需要递增数字计数器
+        if alphabet_counter >= 26:
+            number_counter += 1
+            alphabet_counter = 0  # 重置字母计数器
+        if alphabet_counter == 0 and number_counter == 0:
+            counter_value = ''
+        else:
+            counter_value = chr(ord('A') + alphabet_counter) if alphabet_counter < 26 else str(number_counter)
+        # 这里可以根据需要使用 counter_value
+ ######################################################              
             # 生成分类名
             genre_name = chr(65 + alphabet_counter) + str(number_counter)
-            output_file.write(f"{genre_name},#genre#\n")
+            output_file.write(f"港澳{genre_name}组,#genre#\n")
             for line in lines:
                 output_file.write(line + '\n')
             output_file.write('\n')  # 在每个小段后添加一个空行作为分隔
