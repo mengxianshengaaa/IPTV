@@ -317,7 +317,6 @@ iNews 新闻台,http://104.233.187.193:8278/inews_twn/playlist.m3u8?tid=MF7F5665
 三立台湾台,http://104.233.187.193:8278/sanlitaiwan/playlist.m3u8?tid=MF7F5665582956655829&ct=19396&tsum=f4e9908d71d1930ce389430ef387712e
 三立戏剧台,http://104.233.187.193:8278/sanlixiju_twn/playlist.m3u8?tid=MF7F5665582956655829&ct=19396&tsum=7c12470a2fc50c9bbbe18bfde805ae1b
 三立综合台,http://104.233.187.193:8278/sanlizhonghe/playlist.m3u8?tid=MF7F5665582956655829&ct=19396&tsum=2cfec3b545ed1903e5bdaae8adffa38e
-台视,http://104.233.187.193:8278/ttv_taiwan/playlist.m3u8?tid=MF7F5665582956655829&ct=19396&tsum=3f3f556a7c2a26b3273eaee8d1f95f91
 台视新闻台,http://104.233.187.193:8278/ttvnews_twn/playlist.m3u8?tid=MF7F5665582956655829&ct=19396&tsum=11d856fe3a6558587c6c4b25ca31b63b
 探索动力,http://104.233.187.193:8278/discoveryturbo_twn/playlist.m3u8?tid=MF7F5665582956655829&ct=19396&tsum=b0766374c65a09ee5a66d8775fe08061
 探索亚洲,http://104.233.187.193:8278/discoverytwn_twn/playlist.m3u8?tid=MF7F5665582956655829&ct=19396&tsum=b95992141dc506f074e185e82f92bcf4
