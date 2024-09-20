@@ -652,19 +652,20 @@ def parse_file(input_file_path, output_file_name):    #
         return
     # 合并所有满足条件的IP或域名的行到一个文件
 ############################################################
-alphabet_counter = -1
-number_counter = -1
-with open(output_file_name, 'w', encoding='utf-8') as output_file:
-    for ip_or_domain, lines in filtered_ip_or_domain_to_lines.items():
-        # 检查是否需要递增数字计数器
-        if alphabet_counter >= 26:
-            number_counter += 1
-            alphabet_counter = 0  # 重置字母计数器
-        if alphabet_counter == 0 and number_counter == 0:
-            counter_value = ''
-        else:
-            counter_value = chr(ord('A') + alphabet_counter) if alphabet_counter < 26 else str(number_counter)
-        # 这里可以根据需要使用 counter_value
+
+    alphabet_counter = -1
+    number_counter = -1
+    with open(output_file_name, 'w', encoding='utf-8') as output_file:   #output_
+        for ip_or_domain, lines in filtered_ip_or_domain_to_lines.items():
+            # 检查是否需要递增数字计数器
+            if alphabet_counter >= 26:
+                number_counter += 1
+                alphabet_counter = 0  # 重置字母计数器
+            if alphabet_counter == 0 and number_counter == 0:
+                counter_value = ''  
+            else:
+                counter_value = chr(ord('A') + alphabet_counter) if alphabet_counter < 26 else str(number_counter)   
+         # 这里可以根据需要使用 counter_value                  
  ######################################################              
             # 生成分类名
             genre_name = chr(65 + alphabet_counter) + str(number_counter)
@@ -675,6 +676,20 @@ with open(output_file_name, 'w', encoding='utf-8') as output_file:
             alphabet_counter += 1  # 递增字母计数器
 # 调用函数并传入文件路径和输出文件名
 parse_file('网络收集.txt', '网络收集.txt')
+
+
+def append_text_between_files(file1_path, file2_path):
+    with open(file1_path, 'r', encoding='utf-8') as file1:
+        content1 = file1.read()
+    with open(file2_path, 'a', encoding='utf-8') as file2:
+        if file2.tell()!= 0:
+            file2.write('\n')
+        file2.write(content1)
+
+file_path1 = '网络收集.txt'
+file_path2 = '综合源.txt'
+append_text_between_files(file_path1, file_path2)
+
 
 
 import datetime
