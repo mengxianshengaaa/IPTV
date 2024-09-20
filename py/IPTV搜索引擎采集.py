@@ -422,17 +422,12 @@ check_and_write_file('2.txt',  'a.txt',  keywords="央视频道, CCTV, CHC, 全�
 check_and_write_file('2.txt',  'b.txt',  keywords="卫视频道, 卫视, 凤凰, 星空")
 check_and_write_file('2.txt',  'c0.txt',  keywords="组播剧场, 第一剧场, 怀旧剧场, 风云音乐, 风云剧场, 欢笑剧场, 都市剧场, 高清电影, 家庭影院, 动作电影, 影迷, 峨眉, 重温, 女性, 地理")
 check_and_write_file('2.txt',  'c.txt',  keywords="组播剧场, 爱动漫, SiTV, 爱怀旧, 爱经典, 爱科幻, 爱青春, 爱悬疑, 爱幼教, 爱院线")
-#check_and_write_file('2.txt',  'd.txt',  keywords="少儿频道, 少儿, 卡通, 动漫, 宝贝, 哈哈, 学堂")
-#check_and_write_file('2.txt',  'e0.txt',  keywords="河北频道, 河南都市, 河南民生, 河南法治, 河南公共, 河南功夫, 河南影视, 中原, 河南国际, 河南梨园, 河南文, 河南武术, 河南戏曲, 河南乡村, 河南新闻, 河南移动")
-#check_and_write_file('2.txt',  'e.txt',  keywords="河北频道, 河南,郑州")
-check_and_write_file('2.txt',  'f0.txt',  keywords="河北频道, 石家庄")
-check_and_write_file('2.txt',  'f.txt',  keywords="河北频道, 河北")
-#check_and_write_file('2.txt',  'h.txt',  keywords="江苏频道, 江苏")
-check_and_write_file('2.txt',  'i.txt',  keywords="北京频道, 北京")
+check_and_write_file('2.txt',  'd.txt',  keywords="江苏频道, 江苏")
+check_and_write_file('2.txt',  'e.txt',  keywords="北京频道, 北京")
 ###############################################################################################################################################################################################################################
 ##############################################################对生成的文件进行合并
 file_contents = []
-file_paths = ["主.txt", "a.txt", "a1.txt", "b.txt", "c0.txt", "c.txt", "d.txt", "e0.txt", "e.txt", "f0.txt", "f.txt", "g.txt", "h.txt", "i.txt", "j.txt", "k.txt", "l.txt", "m.txt"]  # 替换为实际的文件路径列表
+file_paths = ["主.txt", "a.txt", "a1.txt", "b.txt", "c0.txt", "c.txt", "d.txt", "e0.txt", "e.txt"]  # 替换为实际的文件路径列表
 for file_path in file_paths:
     if os.path.exists(file_path):
         with open(file_path, 'r', encoding="utf-8") as file:
@@ -619,7 +614,7 @@ with open(file_path, 'r+', encoding='utf-8') as f:
 
 ################################################################################################任务结束,删除不必要的过程文件
 files_to_remove = ['去重.txt', '分类.txt', "2.txt", "4.txt", "5.txt", "主.txt", "a.txt", "a1.txt", "b.txt", "c0.txt", "c.txt", "d.txt", \
-                   "e0.txt", "e.txt", "f0.txt", "f.txt", "g.txt", "h.txt", "i.txt", "j.txt", "k.txt", "l.txt", "m.txt"]
+                   "e0.txt", "e.txt"]
 for file in files_to_remove:
     if os.path.exists(file):
         os.remove(file)
