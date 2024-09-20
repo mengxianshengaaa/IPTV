@@ -653,7 +653,7 @@ def parse_file(input_file_path, output_file_name):    #
     # 合并所有满足条件的IP或域名的行到一个文件
 ############################################################
 
-    alphabet_counter = -1
+    alphabet_counter = 0
     number_counter = -1
     with open(output_file_name, 'w', encoding='utf-8') as output_file:   #output_
         for ip_or_domain, lines in filtered_ip_or_domain_to_lines.items():
