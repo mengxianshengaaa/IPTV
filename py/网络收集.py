@@ -26,14 +26,12 @@ from translate import Translator  # 导入Translator类,用于文本翻译
 urls = [
        'https://dimaston.github.io/live.m3u',  #假m3u
        'https://raw.githubusercontent.com/gaotianliuyun/gao/master/list.txt',   #暂时保留
-       'https://raw.githubusercontent.com/kimwang1978/tvbox/main/%E5%A4%A9%E5%A4%A9%E5%BC%80%E5%BF%83/lives/%E2%91%AD%E5%BC%80%E5%BF%83%E7%BA%BF%E8%B7%AF.txt',
        'https://raw.githubusercontent.com/Fairy8o/IPTV/main/PDX-V4.txt',
        'https://raw.githubusercontent.com/ddhola/file/d7afb504b1ba4fef31813e1166cb892215a9c063/0609test',
        'https://raw.githubusercontent.com/vbskycn/iptv/2738b3bec8c298f57e0e2052b155846ab6ea3787/dsyy/hd.txt',
        'https://raw.githubusercontent.com/frxz751113/AAAAA/main/IPTV/TW.txt',
        'https://raw.githubusercontent.com/ljlfct01/ljlfct01.github.io/main/list.%E8%87%AA%E7%94%A8',
        'https://notabug.org/qcfree/TVBox-api/raw/main/live.txt', #通用源
-       'https://raw.githubusercontent.com/xiangjiao169/yf2025/main/yf169.txt',
        'https://raw.githubusercontent.com/KAN314go/A/e81a1c22cd1b9f459bc363bd916c13133e235510/tv/%E5%AE%89%E5%8D%9A8K.txt',
        'https://gitlab.com/tvtg/vip/-/raw/main/log.txt',
        'https://raw.githubusercontent.com/frxz751113/IPTVzb1/main/%E7%BB%BC%E5%90%88%E6%BA%90.txt',
@@ -51,7 +49,6 @@ urls = [
        'https://raw.githubusercontent.com/vbskycn/iptv/master/tv/iptv4.txt',
        'https://raw.githubusercontent.com/junge3333/juds6/main/yszb1.txt',
        'https://raw.githubusercontent.com/zzmaze/iptv/main/iptv.txt',
-       'https://raw.githubusercontent.com/xxoo-qx/IPTV/main/LIVE.txt',
        'https://raw.githubusercontent.com/kimwang1978/collect-tv-txt/main/others_output.txt',
        '',
        '',
@@ -346,7 +343,7 @@ import re
 import os
 # 定义一个包含所有要排除的关键词的列表
 excluded_keywords = ['epg', 'mitv', 'udp', 'rtp', 'P2p', 'p2p', 'p3p', 'P2P', '新闻综合', 'P3p', 'jdshipin', '9930/qilu', 'gitcode.net', '151:99', '21dtv', 'txmov2', 'gcw.bdcdn', 'metshop', 
-                     'shandong', 'goodiptv', '购物', '[', 'P3P', '腔', '曲', '//1', '/hls/', '春节', 'gat', '95.179', 'hlspull', 'github', 'lunbo']
+                     'shandong', 'goodiptv', '购物', '[', 'P3P', '腔', '曲', '//1', '/hls/', '春节', 'gat', '95.179', 'hlspull', 'github', 'lunbo', 'tw.ts138']
 
 # 定义一个包含所有要提取的关键词的列表
 extract_keywords = ['1905', '凤凰卫视', '人间卫视', '亚洲卫视', '香港卫视', '神乐', '翡翠台', '凤凰香港', '凤凰中文', '凤凰资讯', 'AXN', 'AMC', '香蕉', '电影台', '大爱', '东森', 'MTV', 
@@ -545,7 +542,8 @@ def process_line(line, output_file, order_list, valid_count, invalid_count, tota
         resolution = get_video_resolution(channel_url, timeout=8)
         if resolution and resolution[1] >= 720:  # 检查分辨率是否大于等于720p
             with threading.Lock():
-                output_file.write(f"{channel_name}[{resolution[1]}p],{channel_url}\n")
+                #output_file.write(f"{channel_name}[{resolution[1]}p],{channel_url}\n")
+                output_file.write(f"{channel_name},{channel_url}\n")
                 order_list.append((channel_name, resolution[1], channel_url))
                 valid_count[0] += 1
                 print(f"Channel '{channel_name}' accepted with resolution {resolution[1]}p at URL {channel_url}.")
