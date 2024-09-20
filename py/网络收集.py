@@ -652,23 +652,15 @@ def parse_file(input_file_path, output_file_name):    #
         return
     # 合并所有满足条件的IP或域名的行到一个文件
 ############################################################
-
-    alphabet_counter = 0
-    number_counter = 0
     with open(output_file_name, 'w', encoding='utf-8') as output_file:   #output_
         for ip_or_domain, lines in filtered_ip_or_domain_to_lines.items():
             # 检查是否需要递增数字计数器
             if alphabet_counter >= 26:
                 number_counter += 1
-                alphabet_counter = 0  # 重置字母计数器
-            if alphabet_counter == 0 and number_counter == 0:
-                counter_value = ''  
-            else:
-                counter_value = chr(ord('A') + alphabet_counter) if alphabet_counter < 26 else str(number_counter)   
-         # 这里可以根据需要使用 counter_value                  
+                alphabet_counter = 0  # 重置字母计数器          
  ######################################################              
             # 生成分类名
-            genre_name = chr(65 + alphabet_counter) + str(number_counter)
+            genre_name = chr(65 + alphabet_counter)# + str(number_counter)
             output_file.write(f"港澳{genre_name}组,#genre#\n")
             for line in lines:
                 output_file.write(line + '\n')
@@ -682,11 +674,22 @@ def append_text_between_files(file1_path, file2_path):
     with open(file1_path, 'r', encoding='utf-8') as file1:
         content1 = file1.read()
         lines1 = content1.split('\n')
-        unique_lines1 = list(set(lines1))
+        seen = set()
+        unique_lines1 = []
+        for line in lines1:
+            if line not in seen:
+                seen.add(line)
+                unique_lines1.append(line)
     with open(file2_path, 'r', encoding='utf-8') as file2:
         content2 = file2.read()
         lines2 = content2.split('\n')
-    combined_lines = list(set(lines2 + unique_lines1))
+        seen = set()
+        unique_lines2 = []
+        for line in lines2:
+            if line not in seen:
+                seen.add(line)
+                unique_lines2.append(line)
+    combined_lines = unique_lines2 + unique_lines1
     with open(file2_path, 'w', encoding='utf-8') as file2:
         file2.write('\n'.join(combined_lines))
 file_path1 = '网络收集.txt'
