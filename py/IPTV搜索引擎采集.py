@@ -424,55 +424,6 @@ with open('综合源.txt', 'w', encoding='utf-8') as file:
 
 
 
-#TXT转M3U#
-import datetime
-def txt_to_m3u(input_file, output_file):
-    # 读取txt文件内容
-    with open(input_file, 'r', encoding='utf-8') as f:
-        lines = f.readlines()
-    # 打开m3u文件并写入内容
-    now = datetime.datetime.utcnow() + datetime.timedelta(hours=8)
-    current_time = now.strftime("%m/%d %H:%M")
-    with open(output_file, 'w', encoding='utf-8') as f:  
-        f.write('#EXTM3U x-tvg-url="https://live.fanmingming.com/e.xml" catchup="append" catchup-source="?playseek=${(b)yyyyMMddHHmmss}-${(e)yyyyMMddHHmmss}"\n')
-        #f.write(f'#EXTINF:-1 group-title="更新时间",请您欣赏\n')    
-        #f.write(f'https://vd2.bdstatic.com/mda-nk3am8nwdgqfy6nh/sc/cae_h264/1667555203921394810/mda-nk3am8nwdgqfy6nh.mp4\n')    
-        #f.write(f'#EXTINF:-1 group-title="2024/{current_time}",虚情的爱\n')    
-        #f.write(f'https://vd2.bdstatic.com/mda-mi1dd05gmhwejdwn/sc/cae_h264/1630576203346678103/mda-mi1dd05gmhwejdwn.mp4\n')    
-        # 初始化genre变量
-        genre = ''
-        # 遍历txt文件内容
-        for line in lines:
-            line = line.strip()
-            if "," in line:  # 防止文件里面缺失",”号报错
-                # if line:
-                # 检查是否是genre行
-                channel_name, channel_url = line.split(',', 1)
-                if channel_url == '#genre#':
-                    genre = channel_name
-                    print(genre)
-                else:
-                    # 将频道信息写入m3u文件
-                    f.write(f'#EXTINF:-1 tvg-logo="https://live.fanmingming.com/tv/{channel_name}.png" group-title="{genre}",{channel_name}\n')
-                    f.write(f'{channel_url}\n')
-# 将txt文件转换为m3u文件
-txt_to_m3u('综合源.txt', '综合源.m3u')
-
-
-import datetime
-now = datetime.datetime.utcnow() + datetime.timedelta(hours=8)
-current_time = now.strftime("%m/%d %H")   #:%M
-# 打开文本文件并将时间添加到开头
-file_path = "综合源.m3u"
-with open(file_path, 'r+', encoding='utf-8') as f:
-    content = f.read()
-    f.seek(0, 0)
-    f.write(f'{content}\n')
-    #f.write(f'#EXTINF:-1 group-title="更新时间",请您欣赏\n')    
-    #f.write(f'http://em.21dtv.com/songs/60144971.mkv\n')    
-    f.write(f'#EXTINF:-1 group-title="2024/{current_time}:00更新",虚情的爱\n')    
-    f.write(f'https://vd2.bdstatic.com/mda-mi1dd05gmhwejdwn/sc/cae_h264/1630576203346678103/mda-mi1dd05gmhwejdwn.mp4\n')       
-
 #任务结束,删除不必要的过程文件#
 files_to_remove = ['组播源.txt', "TW.txt", "a.txt", "主.txt", "b.txt", "b1.txt", "港澳.txt", "省市.txt", "df.txt", "df1.txt", "少儿1.txt", "sr2.txt", \
                    "c2.txt", "c1.txt", "DD.txt", "f.txt", "f1.txt"]
@@ -629,12 +580,12 @@ check_and_write_file('2.txt',  'b.txt',  keywords="卫视频道, 卫视, 凤凰,
 check_and_write_file('2.txt',  'c0.txt',  keywords="组播剧场, 第一剧场, 怀旧剧场, 风云音乐, 风云剧场, 欢笑剧场, 都市剧场, 高清电影, 家庭影院, 动作电影, 影迷, 峨眉, 重温, 女性, 地理")
 check_and_write_file('2.txt',  'c.txt',  keywords="组播剧场, 爱动漫, SiTV, 爱怀旧, 爱经典, 爱科幻, 爱青春, 爱悬疑, 爱幼教, 爱院线")
 #check_and_write_file('2.txt',  'd.txt',  keywords="少儿频道, 少儿, 卡通, 动漫, 宝贝, 哈哈, 学堂")
-check_and_write_file('2.txt',  'e0.txt',  keywords="河北河南, 河南都市, 河南民生, 河南法治, 河南公共, 河南功夫, 河南影视, 中原, 河南国际, 河南梨园, 河南文, 河南武术, 河南戏曲, 河南乡村, 河南新闻, 河南移动")
-check_and_write_file('2.txt',  'e.txt',  keywords="河北河南, 河南,郑州")
-check_and_write_file('2.txt',  'f0.txt',  keywords="河北河南, 石家庄")
-check_and_write_file('2.txt',  'f.txt',  keywords="河北河南, 河北, 石家庄")
-check_and_write_file('2.txt',  'h.txt',  keywords="江苏北京, 江苏")
-check_and_write_file('2.txt',  'i.txt',  keywords="江苏北京, 北京")
+#check_and_write_file('2.txt',  'e0.txt',  keywords="河北频道, 河南都市, 河南民生, 河南法治, 河南公共, 河南功夫, 河南影视, 中原, 河南国际, 河南梨园, 河南文, 河南武术, 河南戏曲, 河南乡村, 河南新闻, 河南移动")
+#check_and_write_file('2.txt',  'e.txt',  keywords="河北频道, 河南,郑州")
+check_and_write_file('2.txt',  'f0.txt',  keywords="河北频道, 石家庄")
+check_and_write_file('2.txt',  'f.txt',  keywords="河北频道, 河北")
+#check_and_write_file('2.txt',  'h.txt',  keywords="江苏频道, 江苏")
+check_and_write_file('2.txt',  'i.txt',  keywords="北京频道, 北京")
 ###############################################################################################################################################################################################################################
 ##############################################################对生成的文件进行合并
 file_contents = []
@@ -755,6 +706,58 @@ for line in fileinput.input("综合源.txt", inplace=True):   #打开临时文�
     line = line.replace("CCTV164K", "CCTV16-4K")  
     line = line.replace("CCTV4K", "CCTV-4K")  
     print(line, end="")   
+
+#TXT转M3U#
+import datetime
+def txt_to_m3u(input_file, output_file):
+    # 读取txt文件内容
+    with open(input_file, 'r', encoding='utf-8') as f:
+        lines = f.readlines()
+    # 打开m3u文件并写入内容
+    now = datetime.datetime.utcnow() + datetime.timedelta(hours=8)
+    current_time = now.strftime("%m/%d %H:%M")
+    with open(output_file, 'w', encoding='utf-8') as f:  
+        f.write('#EXTM3U x-tvg-url="https://live.fanmingming.com/e.xml" catchup="append" catchup-source="?playseek=${(b)yyyyMMddHHmmss}-${(e)yyyyMMddHHmmss}"\n')
+        #f.write(f'#EXTINF:-1 group-title="更新时间",请您欣赏\n')    
+        #f.write(f'https://vd2.bdstatic.com/mda-nk3am8nwdgqfy6nh/sc/cae_h264/1667555203921394810/mda-nk3am8nwdgqfy6nh.mp4\n')    
+        #f.write(f'#EXTINF:-1 group-title="2024/{current_time}",虚情的爱\n')    
+        #f.write(f'https://vd2.bdstatic.com/mda-mi1dd05gmhwejdwn/sc/cae_h264/1630576203346678103/mda-mi1dd05gmhwejdwn.mp4\n')    
+        # 初始化genre变量
+        genre = ''
+        # 遍历txt文件内容
+        for line in lines:
+            line = line.strip()
+            if "," in line:  # 防止文件里面缺失",”号报错
+                # if line:
+                # 检查是否是genre行
+                channel_name, channel_url = line.split(',', 1)
+                if channel_url == '#genre#':
+                    genre = channel_name
+                    print(genre)
+                else:
+                    # 将频道信息写入m3u文件
+                    f.write(f'#EXTINF:-1 tvg-logo="https://live.fanmingming.com/tv/{channel_name}.png" group-title="{genre}",{channel_name}\n')
+                    f.write(f'{channel_url}\n')
+# 将txt文件转换为m3u文件
+txt_to_m3u('综合源.txt', '综合源.m3u')
+
+
+import datetime
+now = datetime.datetime.utcnow() + datetime.timedelta(hours=8)
+current_time = now.strftime("%m/%d %H")   #:%M
+# 打开文本文件并将时间添加到开头
+file_path = "综合源.m3u"
+with open(file_path, 'r+', encoding='utf-8') as f:
+    content = f.read()
+    f.seek(0, 0)
+    f.write(f'{content}\n')
+    #f.write(f'#EXTINF:-1 group-title="更新时间",请您欣赏\n')    
+    #f.write(f'http://em.21dtv.com/songs/60144971.mkv\n')    
+    f.write(f'#EXTINF:-1 group-title="2024/{current_time}:00更新",虚情的爱\n')    
+    f.write(f'https://vd2.bdstatic.com/mda-mi1dd05gmhwejdwn/sc/cae_h264/1630576203346678103/mda-mi1dd05gmhwejdwn.mp4\n')   
+
+
+
 
 import datetime
 now = datetime.datetime.utcnow() + datetime.timedelta(hours=8)
