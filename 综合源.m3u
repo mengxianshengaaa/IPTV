@@ -552,53 +552,41 @@ http://l.cztvcloud.com/channels/lantian/SXlongyou2/720p.m3u8
 #EXTINF:-1 tvg-logo="https://live.fanmingming.com/tv/浙江｜龙游生活娱乐.png" group-title="省市频道",浙江｜龙游生活娱乐
 http://l.cztvcloud.com/channels/lantian/SXlongyou2/720p.m3u8?zzhed
 #EXTINF:-1 tvg-logo="https://live.fanmingming.com/tv/第一剧场.png" group-title="组播剧场",第一剧场
-http://58.209.45.168:8800/rtp/239.49.8.94:8000?$江苏电信
+http://49.79.93.235:55555/rtp/239.49.8.94:8000?$江苏电信
 #EXTINF:-1 tvg-logo="https://live.fanmingming.com/tv/第一剧场.png" group-title="组播剧场",第一剧场
-http://58.219.238.60:8001/rtp/239.49.8.94:8000?$江苏电信
+http://49.80.173.223:4000/rtp/239.49.8.94:8000?$江苏电信
+#EXTINF:-1 tvg-logo="https://live.fanmingming.com/tv/第一剧场.png" group-title="组播剧场",第一剧场
+http://ds.shixd.cn:5957/rtp/239.49.8.94:8000?$江苏电信
 #EXTINF:-1 tvg-logo="https://live.fanmingming.com/tv/风云剧场.png" group-title="组播剧场",风云剧场
-http://58.209.45.168:8800/rtp/239.49.8.89:8000?$江苏电信
+http://49.79.93.235:55555/rtp/239.49.8.89:8000?$江苏电信
 #EXTINF:-1 tvg-logo="https://live.fanmingming.com/tv/风云剧场.png" group-title="组播剧场",风云剧场
-http://58.219.238.60:8001/rtp/239.49.8.89:8000?$江苏电信
-#EXTINF:-1 tvg-logo="https://live.fanmingming.com/tv/风云音乐.png" group-title="组播剧场",风云音乐
-http://58.209.45.168:8800/rtp/239.49.8.92:8000?$江苏电信
-#EXTINF:-1 tvg-logo="https://live.fanmingming.com/tv/风云音乐.png" group-title="组播剧场",风云音乐
-http://58.219.238.60:8001/rtp/239.49.8.92:8000?$江苏电信
+http://49.80.173.223:4000/rtp/239.49.8.89:8000?$江苏电信
+#EXTINF:-1 tvg-logo="https://live.fanmingming.com/tv/风云剧场.png" group-title="组播剧场",风云剧场
+http://ds.shixd.cn:5957/rtp/239.49.8.89:8000?$江苏电信
 #EXTINF:-1 tvg-logo="https://live.fanmingming.com/tv/怀旧剧场.png" group-title="组播剧场",怀旧剧场
-http://58.209.45.168:8800/rtp/239.49.8.91:8000?$江苏电信
+http://49.79.93.235:55555/rtp/239.49.8.91:8000?$江苏电信
 #EXTINF:-1 tvg-logo="https://live.fanmingming.com/tv/怀旧剧场.png" group-title="组播剧场",怀旧剧场
-http://58.219.238.60:8001/rtp/239.49.8.91:8000?$江苏电信
-#EXTINF:-1 tvg-logo="https://live.fanmingming.com/tv/女性时尚.png" group-title="组播剧场",女性时尚
-http://58.209.45.168:8800/rtp/239.49.8.93:8000?$江苏电信
-#EXTINF:-1 tvg-logo="https://live.fanmingming.com/tv/女性时尚.png" group-title="组播剧场",女性时尚
-http://58.219.238.60:8001/rtp/239.49.8.93:8000?$江苏电信
+http://49.80.173.223:4000/rtp/239.49.8.91:8000?$江苏电信
+#EXTINF:-1 tvg-logo="https://live.fanmingming.com/tv/怀旧剧场.png" group-title="组播剧场",怀旧剧场
+http://ds.shixd.cn:5957/rtp/239.49.8.91:8000?$江苏电信
 #EXTINF:-1 tvg-logo="https://live.fanmingming.com/tv/世界地理.png" group-title="组播剧场",世界地理
-http://58.209.45.168:8800/rtp/239.49.8.87:8000?$江苏电信
+http://49.79.93.235:55555/rtp/239.49.8.87:8000?$江苏电信
 #EXTINF:-1 tvg-logo="https://live.fanmingming.com/tv/世界地理.png" group-title="组播剧场",世界地理
-http://58.219.238.60:8001/rtp/239.49.8.87:8000?$江苏电信
-#EXTINF:-1 tvg-logo="https://live.fanmingming.com/tv/江苏城市.png" group-title="江苏频道",江苏城市
-http://58.209.45.168:8800/rtp/239.49.8.107:8000?$江苏电信
-#EXTINF:-1 tvg-logo="https://live.fanmingming.com/tv/江苏城市.png" group-title="江苏频道",江苏城市
-http://58.219.238.60:8001/rtp/239.49.8.107:8000?$江苏电信
-#EXTINF:-1 tvg-logo="https://live.fanmingming.com/tv/江苏教育.png" group-title="江苏频道",江苏教育
-http://58.209.45.168:8800/rtp/239.49.8.122:8000?$江苏电信
-#EXTINF:-1 tvg-logo="https://live.fanmingming.com/tv/江苏教育.png" group-title="江苏频道",江苏教育
-http://58.219.238.60:8001/rtp/239.49.8.122:8000?$江苏电信
-#EXTINF:-1 tvg-logo="https://live.fanmingming.com/tv/江苏体育.png" group-title="江苏频道",江苏体育
-http://58.209.45.168:8800/rtp/239.49.8.117:8000?$江苏电信
-#EXTINF:-1 tvg-logo="https://live.fanmingming.com/tv/江苏体育.png" group-title="江苏频道",江苏体育
-http://58.219.238.60:8001/rtp/239.49.8.117:8000?$江苏电信
-#EXTINF:-1 tvg-logo="https://live.fanmingming.com/tv/江苏新闻.png" group-title="江苏频道",江苏新闻
-http://58.209.45.168:8800/rtp/239.49.8.120:8000?$江苏电信
-#EXTINF:-1 tvg-logo="https://live.fanmingming.com/tv/江苏新闻.png" group-title="江苏频道",江苏新闻
-http://58.219.238.60:8001/rtp/239.49.8.120:8000?$江苏电信
+http://49.80.173.223:4000/rtp/239.49.8.87:8000?$江苏电信
+#EXTINF:-1 tvg-logo="https://live.fanmingming.com/tv/世界地理.png" group-title="组播剧场",世界地理
+http://ds.shixd.cn:5957/rtp/239.49.8.87:8000?$江苏电信
 #EXTINF:-1 tvg-logo="https://live.fanmingming.com/tv/江苏影视.png" group-title="江苏频道",江苏影视
-http://58.209.45.168:8800/rtp/239.49.8.118:8000?$江苏电信
+http://49.79.93.235:55555/rtp/239.49.8.118:8000?$江苏电信
 #EXTINF:-1 tvg-logo="https://live.fanmingming.com/tv/江苏影视.png" group-title="江苏频道",江苏影视
-http://58.219.238.60:8001/rtp/239.49.8.118:8000?$江苏电信
+http://49.80.173.223:4000/rtp/239.49.8.118:8000?$江苏电信
+#EXTINF:-1 tvg-logo="https://live.fanmingming.com/tv/江苏影视.png" group-title="江苏频道",江苏影视
+http://ds.shixd.cn:5957/rtp/239.49.8.118:8000?$江苏电信
 #EXTINF:-1 tvg-logo="https://live.fanmingming.com/tv/江苏综艺.png" group-title="江苏频道",江苏综艺
-http://58.209.45.168:8800/rtp/239.49.8.108:8000?$江苏电信
+http://49.79.93.235:55555/rtp/239.49.8.108:8000?$江苏电信
 #EXTINF:-1 tvg-logo="https://live.fanmingming.com/tv/江苏综艺.png" group-title="江苏频道",江苏综艺
-http://58.219.238.60:8001/rtp/239.49.8.108:8000?$江苏电信
+http://49.80.173.223:4000/rtp/239.49.8.108:8000?$江苏电信
+#EXTINF:-1 tvg-logo="https://live.fanmingming.com/tv/江苏综艺.png" group-title="江苏频道",江苏综艺
+http://ds.shixd.cn:5957/rtp/239.49.8.108:8000?$江苏电信
 
-#EXTINF:-1 group-title="2024/09/20 23:00更新",虚情的爱
+#EXTINF:-1 group-title="2024/09/21 00:00更新",虚情的爱
 https://vd2.bdstatic.com/mda-mi1dd05gmhwejdwn/sc/cae_h264/1630576203346678103/mda-mi1dd05gmhwejdwn.mp4
