@@ -565,7 +565,7 @@ print("频道列表文件iptv.txt追加写入成功！")
 
 ######################################################################
 #定义一个关键词组,用于排除掉含有关键词的行
-keywords = ['CCTV', '卫视', '广东', '广西', '南宁', '河南', '河北', '公共', '教育', '新闻', 'SCTV', '动漫', '卡通', '少儿', '中国', '玉林', '陆川', '新疆', '摄影']
+keywords = ['南宁', '公共', '教育', '新闻', 'SCTV', '动漫', '卡通', '少儿', '中国', '玉林', '陆川', '新疆', '摄影']
 with open('iptv.txt', 'r', encoding='utf-8') as infile:
     lines = infile.readlines()
 filtered_lines = [line for line in lines if not any(keyword in line for keyword in keywords)]
