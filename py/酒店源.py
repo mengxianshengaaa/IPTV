@@ -35,7 +35,7 @@ import requests
 urls = [
     "https://fofa.info/result?qbase64=IlpIR1hUViIgJiYgcG9ydD0iODA4Ig%3D%3D", #808
     "https://fofa.info/result?qbase64=IlpIR1hUViIgJiYgcG9ydD0iODg4OCI%3D" ,   #8888
-    "https://fofa.info/result?qbase64=IlpIR1hUViIgJiYgcG9ydD0iOTk5OSI%3D"，#9999
+    "https://fofa.info/result?qbase64=IlpIR1hUViIgJiYgcG9ydD0iOTk5OSI%3D",#9999
     "https://fofa.info/result?qbase64=IlpIR1hUViIgJiYgcG9ydD0iODgi" ,   #88
     "https://fofa.info/result?qbase64=IlpIR1hUViIgJiYgcG9ydD0iODAwMyI%3D" ,   #8003
     "https://fofa.info/result?qbase64=IlpIR1hUViIgJiYgcG9ydD0iODg4Ig%3D%3D" ,   #888
@@ -46,17 +46,17 @@ urls = [
 def modify_urls(url):
     # 创建一个空列表用于存储修改后的 URL
     modified_urls = []
-    # 找到 URL 中 IP 地址开始的索引位置，"//" 后两个字符开始为 IP 地址起始位置
+    # 找到 URL 中 IP 地址开始的索引位置,"//" 后两个字符开始为 IP 地址起始位置
     ip_start_index = url.find("//") + 2
-    # 找到 URL 中 IP 地址结束的索引位置，从 ip_start_index 开始查找第一个 ":" 的位置
+    # 找到 URL 中 IP 地址结束的索引位置,从 ip_start_index 开始查找第一个 ":" 的位置
     ip_end_index = url.find(":", ip_start_index)
-    # 找到 URL 中 IP 地址结束的索引位置，从 ip_start_index 开始查找第一个 ":" 的位置
+    # 找到 URL 中 IP 地址结束的索引位置,从 ip_start_index 开始查找第一个 ":" 的位置
     base_url = url[:ip_start_index]
     # 获取 URL 中的 IP 地址部分
     ip_address = url[ip_start_index:ip_end_index]
     # 获取 URL 中的端口部分
     port = url[ip_end_index:]
-    # 定义一个字符串，表示 IP 地址的结尾部分
+    # 定义一个字符串,表示 IP 地址的结尾部分
     ip_end = "/ZHGXTV/Public/json/live_interface.txt"
     # 遍历 1 到 255 的数字
     for i in range(1, 256):
@@ -71,13 +71,13 @@ def modify_urls(url):
 
 def is_url_accessible(url):
     try:
-        # 发送 GET 请求，设置超时时间为 3 秒
+        # 发送 GET 请求,设置超时时间为 3 秒
         response = requests.get(url, timeout=3)
-        # 如果响应状态码在 200 到 401 之间（包括 200 和 401），则认为 URL 可访问
+        # 如果响应状态码在 200 到 401 之间（包括 200 和 401）,则认为 URL 可访问
         if 200 <= response.status_code <= 401:
             return url
     except requests.exceptions.RequestException:
-        # 如果请求过程中出现异常，不做任何处理，直接跳过
+        # 如果请求过程中出现异常,不做任何处理,直接跳过
         pass
     return None
 
@@ -98,9 +98,9 @@ for url in urls:
     x_urls = []
     for url in urls:  # 对urls进行处理,ip第四位修改为1,并去重
         url = url.strip()
-        # 找到 URL 中 IP 地址开始的索引位置，"//" 后两个字符开始为 IP 地址起始位置
+        # 找到 URL 中 IP 地址开始的索引位置,"//" 后两个字符开始为 IP 地址起始位置
         ip_start_index = url.find("//") + 2
-        # 找到 URL 中 IP 地址结束的索引位置，从 ip_start_index 开始查找第一个 ":" 的位置
+        # 找到 URL 中 IP 地址结束的索引位置,从 ip_start_index 开始查找第一个 ":" 的位置
         ip_end_index = url.find(":", ip_start_index)
         # 找到 IP 地址中第一个 "." 的位置
         ip_dot_start = url.find(".") + 1
@@ -108,13 +108,13 @@ for url in urls:
         ip_dot_second = url.find(".", ip_dot_start) + 1
         # 找到 IP 地址中第三个 "." 的位置
         ip_dot_three = url.find(".", ip_dot_second) + 1
-        # 获取 URL 的基础部分，即从开头到 IP 地址开始的部分
+        # 获取 URL 的基础部分,即从开头到 IP 地址开始的部分
         base_url = url[:ip_start_index]  # http:// or https://
-        # 获取 URL 中的 IP 地址部分，截取到第三个 "." 的位置
+        # 获取 URL 中的 IP 地址部分,截取到第三个 "." 的位置
         ip_address = url[ip_start_index:ip_dot_three]
         # 获取 URL 中的端口部分
         port = url[ip_end_index:]
-        # 定义一个字符串，表示 IP 地址的结尾部分为 "1"
+        # 定义一个字符串,表示 IP 地址的结尾部分为 "1"
         ip_end = "1"
         # 修改 IP 地址的最后一位为 "1"
         modified_ip = f"{ip_address}{ip_end}"
@@ -132,12 +132,12 @@ for url in urls:
             # 获取修改后的 URL 列表
             modified_urls = modify_urls(url)
             for modified_url in modified_urls:
-                # 提交任务，检查每个修改后的 URL 是否可访问
+                # 提交任务,检查每个修改后的 URL 是否可访问
                 futures.append(executor.submit(is_url_accessible, modified_url))
         for future in concurrent.futures.as_completed(futures):
             result = future.result()
             if result:
-                # 如果 URL 可访问，将其添加到有效 URL 列表中
+                # 如果 URL 可访问,将其添加到有效 URL 列表中
                 valid_urls.append(result)
     for url in valid_urls:
         print(url)
@@ -163,7 +163,7 @@ for url in urls:
                                 urld = (f"{urls[0]}//{url_data[2]}/{urls[3]}")
                             else:
                                 urld = (f"{urls}")
-                            #print(f"{name},{urld}")  #关闭频道名称和频道地址打印，缩短运行时间
+                            #print(f"{name},{urld}")  #关闭频道名称和频道地址打印,缩短运行时间
                         if name and urld:
                             name = name.replace("高清电影", "影迷电影")                            
                             name = name.replace("中央", "CCTV")
@@ -285,7 +285,7 @@ for result in results:
 with open("iptv.txt", 'w', encoding='utf-8') as file:
     for result in results:
         file.write(result + "\n")
-        print(result)  #关闭频道名称和频道地址打印，缩短运行时间
+        print(result)  #关闭频道名称和频道地址打印,缩短运行时间
 print("频道列表文件iptv.txt获取完成！")
 
 
@@ -395,41 +395,41 @@ for url in urls:
     for url in valid_urls:
         try:
             ip_start_index = url.find("//") + 2
-            # 找到URL中"//"的位置，并从该位置的下一个字符开始截取，直到找到第一个"/"字符
+            # 找到URL中"//"的位置,并从该位置的下一个字符开始截取,直到找到第一个"/"字符
             ip_dot_start = url.find(".") + 1
-            # 从URL中找到第一个"."的位置，并从该位置的下一个字符开始截取，直到找到第二个"/"字符
+            # 从URL中找到第一个"."的位置,并从该位置的下一个字符开始截取,直到找到第二个"/"字符
             ip_index_second = url.find("/", ip_dot_start)
-            base_url = url[:ip_start_index]  # 截取URL中的协议部分，例如"http://"或"https://"
-            # 截取从"//"之后到第一个"/"之前的部分，这通常是IP地址或域名
+            base_url = url[:ip_start_index]  # 截取URL中的协议部分,例如"http://"或"https://"
+            # 截取从"//"之后到第一个"/"之前的部分,这通常是IP地址或域名
             ip_address = url[ip_start_index:ip_index_second]
-            # 构造一个新的URL，由基本URL和IP地址组成
+            # 构造一个新的URL,由基本URL和IP地址组成
             url_x = f"{base_url}{ip_address}"
             # 将原始URL赋值给json_url变量
             json_url = f"{url}"
-            # 使用requests库发起一个GET请求到json_url，超时时间设置为3秒
+            # 使用requests库发起一个GET请求到json_url,超时时间设置为3秒
             response = requests.get(json_url, timeout=3)
             # 将响应的内容解析为JSON格式
             json_data = response.json()
             try:
-            # 尝试执行以下代码块，如果发生错误则跳转至except部分
-                # 解析JSON文件，获取'data'键对应的列表中的每个元素
+            # 尝试执行以下代码块,如果发生错误则跳转至except部分
+                # 解析JSON文件,获取'data'键对应的列表中的每个元素
                 for item in json_data['data']:
                     # 检查每个元素是否为字典类型
                     if isinstance(item, dict):
-                        # 从字典中获取'name'键的值，如果键不存在则返回None
+                        # 从字典中获取'name'键的值,如果键不存在则返回None
                         name = item.get('name')
-                        # 从字典中获取'url'键的值，如果键不存在则返回None
+                        # 从字典中获取'url'键的值,如果键不存在则返回None
                         urlx = item.get('url')
-                        # 如果urlx包含'udp'或'rtp'字符串，则跳过当前循环的剩余部分
+                        # 如果urlx包含'udp'或'rtp'字符串,则跳过当前循环的剩余部分
                         if 'udp' in urlx or 'rtp' in urlx or 'CCTV' in name or '卫视' in name:
                             continue  # 跳过包含'udp'或'rtp'的url
-                        # 如果urlx以'http'开头，则直接使用这个url
+                        # 如果urlx以'http'开头,则直接使用这个url
                         if 'http' in urlx:
                             urld = f"{urlx}"
-                        # 如果urlx不以'http'开头，则在前面添加一个前缀（注意：这里的url_x变量未在代码中定义）
+                        # 如果urlx不以'http'开头,则在前面添加一个前缀（注意：这里的url_x变量未在代码中定义）
                         else:
                             urld = f"{url_x}{urlx}"
-                        #print(f"{name},{urld}")  #关闭频道名称和频道地址打印，缩短运行时间
+                        #print(f"{name},{urld}")  #关闭频道名称和频道地址打印,缩短运行时间
                         if name and urld:
                             name = name.replace("高清电影", "影迷电影")                            
                             name = name.replace("中央", "CCTV")
@@ -559,12 +559,12 @@ for result in results:
 with open("iptv.txt", 'a', encoding='utf-8') as file:
     for result in results:
         file.write(result + "\n")
-        print(result)  #关闭频道名称和频道地址打印，缩短运行时间
+        print(result)  #关闭频道名称和频道地址打印,缩短运行时间
 print("频道列表文件iptv.txt追加写入成功！")
 
 
 ######################################################################
-#定义一个关键词组，用于排除掉含有关键词的行
+#定义一个关键词组,用于排除掉含有关键词的行
 keywords = ['CCTV', '卫视', '广东', '广西', '南宁', '河南', '河北', '公共', '教育', '新闻', 'SCTV', '动漫', '卡通', '少儿', '中国', '玉林', '陆川', '新疆', '摄影']
 with open('iptv.txt', 'r', encoding='utf-8') as infile:
     lines = infile.readlines()
@@ -616,7 +616,7 @@ replacements = {
         "": "",
         "": ""
 }
-# 打开原始文件读取内容，并写入新文件
+# 打开原始文件读取内容,并写入新文件
 with open('iptv.txt', 'r', encoding='utf-8') as file:
     lines = file.readlines()
 # 创建新文件并写入替换后的内容
@@ -625,15 +625,15 @@ with open('iptv.txt', 'w', encoding='utf-8') as new_file:
         for old, new in replacements.items():
             line = line.replace(old, new)
         new_file.write(line)
-print("替换完成，新文件已保存。")
+print("替换完成,新文件已保存。")
 
 #####################################################################
-# 定义要搜索的关键词，从文件中提取包含这个关键词的行，然后添加到另一个文件尾
+# 定义要搜索的关键词,从文件中提取包含这个关键词的行,然后添加到另一个文件尾
 keywords = ['hls.m3u8', 'tsfile#']
 # 打开1.txt文件并读取内容
 with open('网络收集.txt', 'r', encoding='utf-8') as file:
     lines = file.readlines()
-# 创建一个新的列表，只包含包含关键词的行
+# 创建一个新的列表,只包含包含关键词的行
 filtered_lines = [line for line in lines if any(keyword in line for keyword in keywords)]
 # 将这些行追加写入到2.txt文件
 with open('iptv.txt', 'a', encoding='utf-8') as file:
@@ -661,7 +661,7 @@ def remove_duplicates(input_file, output_file):
             if urls and urls[0] not in seen_urls:
                 seen_urls.add(urls[0])
                 output_lines.append(line)
-            # 如果找到包含genre的行，无论是否已被记录，都写入新文件
+            # 如果找到包含genre的行,无论是否已被记录,都写入新文件
             if genre_line:
                 output_lines.append(line)
     # 将结果写入输出文件
@@ -887,7 +887,7 @@ for ip_key, result in detected_ips.items():
 file_path = '酒店优选.txt'
 # 检查文件是否存在
 if not os.path.isfile(file_path):
-    print("文件不存在，请重新输入.")
+    print("文件不存在,请重新输入.")
     exit(1)
 with open(file_path, 'r', encoding="utf-8") as file:
     # 读取所有行并存储到列表中
@@ -995,14 +995,14 @@ with open('酒店优选.txt', 'w', encoding='utf-8') as new_file:
     for line in lines:
         # 去除行尾的换行符
         line = line.rstrip('\n')
-        # 分割行，获取逗号前的字符串
+        # 分割行,获取逗号前的字符串
         parts = line.split(',', 1)
         if len(parts) > 0:
             # 替换逗号前的字符串
             before_comma = parts[0]
             for old, new in replacements.items():
                 before_comma = before_comma.replace(old, new)
-            # 将替换后的逗号前部分和逗号后部分重新组合成一行，并写入新文件
+            # 将替换后的逗号前部分和逗号后部分重新组合成一行,并写入新文件
             new_line = f'{before_comma},{parts[1]}\n' if len(parts) > 1 else f'{before_comma}\n'
             new_file.write(new_line)
 
@@ -1028,7 +1028,7 @@ replacements = {
         "": "",
         "": ""
 }
-# 打开原始文件读取内容，并写入新文件
+# 打开原始文件读取内容,并写入新文件
 with open('酒店优选.txt', 'r', encoding='utf-8') as file:
     lines = file.readlines()
 # 创建新文件并写入替换后的内容
@@ -1037,21 +1037,21 @@ with open('酒店优选.txt', 'w', encoding='utf-8') as new_file:
         for old, new in replacements.items():
             line = line.replace(old, new)
         new_file.write(line)
-print("替换完成，新文件已保存。")
+print("替换完成,新文件已保存。")
 
 
 ###############################################################################文本排序
-# 打开原始文件读取内容，并写入新文件
+# 打开原始文件读取内容,并写入新文件
 with open('酒店优选.txt', 'r', encoding='utf-8') as file:
     lines = file.readlines()
-# 定义一个函数，用于提取每行的第一个数字
+# 定义一个函数,用于提取每行的第一个数字
 def extract_first_number(line):
     match = re.search(r'\d+', line)
     return int(match.group()) if match else float('inf')
 # 对列表中的行进行排序
-# 按照第一个数字的大小排列，如果不存在数字则按中文拼音排序
+# 按照第一个数字的大小排列,如果不存在数字则按中文拼音排序
 sorted_lines = sorted(lines, key=lambda x: (not 'CCTV' in x, extract_first_number(x) if 'CCTV' in x else lazy_pinyin(x.strip())))
-# 将排序后的行写入新的utf-8编码的文本文件，文件名基于原文件名
+# 将排序后的行写入新的utf-8编码的文本文件,文件名基于原文件名
 output_file_path = "sorted_" + os.path.basename(file_path)
 # 写入新文件
 with open('酒店源.txt', "w", encoding="utf-8") as file:
@@ -1133,7 +1133,7 @@ file_path = "酒店优选.txt"
 with open(file_path, 'r+', encoding='utf-8') as f:
     content = f.read()
     f.seek(0, 0)
-    f.write(f'#鉴于酒店源的不实用性，本次最后一次更新。如果需要的话，请fork以后自行启用工作流程\n')
+    f.write(f'#鉴于酒店源的不实用性,本次最后一次更新。如果需要的话,请fork以后自行启用工作流程\n')
     f.write(f'最后更新时间{current_time},#genre#\n')
     f.write(f'虚情的爱,https://vd2.bdstatic.com/mda-mi1dd05gmhwejdwn/sc/cae_h264/1630576203346678103/mda-mi1dd05gmhwejdwn.mp4\n{content}')
 
