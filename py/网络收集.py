@@ -699,12 +699,12 @@ def txt_to_m3u(input_file, output_file):
         lines = f.readlines()
     # 打开m3u文件并写入内容
     now = datetime.datetime.utcnow() + datetime.timedelta(hours=8)
-    current_time = now.strftime("%m/%d %H:%M")
+    current_time = now.strftime("%Y/%m/%d %H:%M")
     with open(output_file, 'w', encoding='utf-8') as f:  
         f.write('#EXTM3U x-tvg-url="https://live.fanmingming.com/e.xml" catchup="append" catchup-source="?playseek=${(b)yyyyMMddHHmmss}-${(e)yyyyMMddHHmmss}"\n')
         #f.write(f'#EXTINF:-1 group-title="更新时间",请您欣赏\n')    
         #f.write(f'https://vd2.bdstatic.com/mda-nk3am8nwdgqfy6nh/sc/cae_h264/1667555203921394810/mda-nk3am8nwdgqfy6nh.mp4\n')    
-        #f.write(f'#EXTINF:-1 group-title="2024/{current_time}",虚情的爱\n')    
+        #f.write(f'#EXTINF:-1 group-title="{current_time}",虚情的爱\n')    
         #f.write(f'https://vd2.bdstatic.com/mda-mi1dd05gmhwejdwn/sc/cae_h264/1630576203346678103/mda-mi1dd05gmhwejdwn.mp4\n')    
         # 初始化genre变量
         genre = ''
@@ -728,7 +728,7 @@ txt_to_m3u('综合源.txt', '综合源.m3u')
 
 import datetime
 now = datetime.datetime.utcnow() + datetime.timedelta(hours=8)
-current_time = now.strftime("%m/%d %H")   #:%M
+current_time = now.strftime("%Y/%m/%d %H:%M")   #:%M
 # 打开文本文件并将时间添加到开头
 file_path = "综合源.m3u"
 with open(file_path, 'r+', encoding='utf-8') as f:
@@ -737,7 +737,7 @@ with open(file_path, 'r+', encoding='utf-8') as f:
     f.write(f'{content}\n')
     #f.write(f'#EXTINF:-1 group-title="更新时间",请您欣赏\n')    
     #f.write(f'http://em.21dtv.com/songs/60144971.mkv\n')    
-    f.write(f'#EXTINF:-1 group-title="2024/{current_time}:00更新",虚情的爱\n')    
+    f.write(f'#EXTINF:-1 group-title="{current_time}更新",虚情的爱\n')    
     f.write(f'https://vd2.bdstatic.com/mda-mi1dd05gmhwejdwn/sc/cae_h264/1630576203346678103/mda-mi1dd05gmhwejdwn.mp4\n')   
 
 
@@ -745,7 +745,7 @@ with open(file_path, 'r+', encoding='utf-8') as f:
 
 import datetime
 now = datetime.datetime.utcnow() + datetime.timedelta(hours=8)
-current_time = now.strftime("%m/%d %H:00")  #%M
+current_time = now.strftime("%Y/%m/%d %H:%M")
 # 打开文本文件并将时间添加到开头
 file_path = "综合源.txt"
 with open(file_path, 'r+', encoding='utf-8') as f:
@@ -754,13 +754,13 @@ with open(file_path, 'r+', encoding='utf-8') as f:
     f.write(f'{content}\n')
     f.write(f'')
     #f.write(f'请您欣赏,https://vd2.bdstatic.com/mda-mi1dd05gmhwejdwn/sc/cae_h264/1630576203346678103/mda-mi1dd05gmhwejdwn.mp4\n')
-    f.write(f'2024/{current_time}更新,#genre#\n')
+    f.write(f'{current_time}更新,#genre#\n')
     f.write(f'虚情的爱,https://vd2.bdstatic.com/mda-mi1dd05gmhwejdwn/sc/cae_h264/1630576203346678103/mda-mi1dd05gmhwejdwn.mp4\n')
 
 
 import datetime
 now = datetime.datetime.utcnow() + datetime.timedelta(hours=8)
-current_time = now.strftime("%m/%d %H:%M")
+current_time = now.strftime("%Y/%m/%d %H:%M")
 # 打开文本文件并将时间添加到开头
 file_path = "网络收集.txt"
 with open(file_path, 'r+', encoding='utf-8') as f:
