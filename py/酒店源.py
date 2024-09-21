@@ -35,7 +35,7 @@ import requests
 urls = [
     "https://fofa.info/result?qbase64=IlpIR1hUViIgJiYgcG9ydD0iODA4Ig%3D%3D", #808
     "https://fofa.info/result?qbase64=IlpIR1hUViIgJiYgcG9ydD0iODg4OCI%3D" ,   #8888
-    "https://fofa.info/result?qbase64=IlpIR1hUViIgJiYgcG9ydD0iOTk5OSI%3D”，#9999
+    "https://fofa.info/result?qbase64=IlpIR1hUViIgJiYgcG9ydD0iOTk5OSI%3D"，#9999
     "https://fofa.info/result?qbase64=IlpIR1hUViIgJiYgcG9ydD0iODgi" ,   #88
     "https://fofa.info/result?qbase64=IlpIR1hUViIgJiYgcG9ydD0iODAwMyI%3D" ,   #8003
     "https://fofa.info/result?qbase64=IlpIR1hUViIgJiYgcG9ydD0iODg4Ig%3D%3D" ,   #888
