@@ -32,7 +32,7 @@ def compare_and_write_uniques(file1_path, file2_path, output_path):
         # 查找域名
         domains_in_file1 = re.findall(domain_pattern, content1)
         for domain in domains_in_file1:
-            if domain not in file2_ips_and
+            if domain not in file2_ips_and:
                 unique_ips_and_domains.add(domain)
 
     # 将独特的IP地址和域名写入新文件
