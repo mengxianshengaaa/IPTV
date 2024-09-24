@@ -165,7 +165,11 @@ folder_path = 'playlist'  # 替换为你的文件夹路径
 remove_duplicates_keep_order(folder_path)
 print('文件去重完成！移除存储的旧文件！')
 
+######################################################
+#####################################################
+######################################################################################################################
 
+#################################################################################
 ###############检测playlist文件夹内所有txt文件内的组播
 ###############检测playlist文件夹内所有txt文件内的组播
 ###############检测playlist文件夹内所有txt文件内的组播
@@ -227,13 +231,13 @@ for filename in os.listdir(folder_path):
                     # 尝试打开视频流
                     cap = cv2.VideoCapture(url)
                     start_time = time.time()
-                    while (time.time() - start_time) < 5:
+                    while (time.time() - start_time) < 3:
                         ret, frame = cap.read()
                         if not ret:
                             break
                         frame_count += 1
-                        # 如果在3秒内读取到60帧以上，设置成功标志
-                        if frame_count >= 5:
+                        # 如果在3秒内读取到63帧以上，设置成功标志
+                        if frame_count >= 60:
                             success = True
                             break
                     cap.release()
@@ -250,171 +254,15 @@ for ip_key, result in detected_ips.items():
     print(f"IP Key: {ip_key}, Status: {result['status']}")
 
 
-
-######################################################################################################################
-######################################################################################################################
-######################################################################################################################
 ######################################################################################################################
 ######################################################################################################################
 
-#  获取远程港澳台直播源文件
-url = "https://raw.githubusercontent.com/frxz751113/AAAAA/main/TWW.txt"          #源采集地址
+#  获取远程直播源文件,打开文件并输出临时文件
+url = "https://raw.githubusercontent.com/frxz751113/AAAAA/main/IPTV/汇总.txt"          #源采集地址
 r = requests.get(url)
-open('港澳.txt','wb').write(r.content)         #打开源文件并临时写入
+open('综合源.txt','wb').write(r.content)         #打开源文件并临时写入
 
 
-
-#从文本中截取省市段生成两个新文件#
-#  获取远程港澳台直播源文件,打开文件并输出临时文件并替换关键词
-url = "https://raw.githubusercontent.com/frxz751113/AAAAA/main/IPTV/汇总汇总.txt"          #源采集地址
-r = requests.get(url)
-open('TWW.txt','wb').write(r.content)         #打开源文件并临时写入
-
-# 定义关键词
-start_keyword = '省市频道,#genre#'
-end_keyword = '港澳频道,#genre#'
-# 输入输出文件路径
-input_file_path = 'TWW.txt'  # 替换为你的输入文件路径
-output_file_path = 'a.txt'  # 替换为你想要保存输出的文件路径
-deleted_lines_file_path = '省市.txt'  # 替换为你想要保存删除行的文件路径
-# 标记是否处于要删除的行范围内
-delete_range = False
-# 存储要删除的行,包括开始关键词行
-deleted_lines = []
-# 读取原始文件并过滤掉指定范围内的行
-with open(input_file_path, 'r', encoding='utf-8') as file:
-    lines = file.readlines()
-# 过滤掉不需要的行
-filtered_lines = []
-for line in lines:
-    if start_keyword in line:
-        delete_range = True
-        deleted_lines.append(line)  # 将开始关键词行添加到删除行列表
-        continue
-    if delete_range:
-        if end_keyword in line:
-            delete_range = False
-            filtered_lines.append(line)  # 将结束关键词行添加到输出文件列表
-        else:
-            deleted_lines.append(line)  # 添加到删除行列表
-    else:
-        filtered_lines.append(line)
-# 将过滤后的内容写入新文件
-with open(output_file_path, 'w', encoding='utf-8') as file:
-    file.writelines(filtered_lines)
-# 将删除的行写入到新的文件中
-with open(deleted_lines_file_path, 'w', encoding='utf-8') as file:
-    file.writelines(deleted_lines)
-print('过滤完成,结果已保存到:', output_file_path)
-print('提取的行已保存到:', deleted_lines_file_path)
-#
-#从文本中截取少儿段并生成两个新文件#
-# 定义关键词
-start_keyword = '少儿频道,#genre#'
-end_keyword = '港澳频道,#genre#'
-# 输入输出文件路径
-input_file_path = 'a.txt'  # 替换为你的输入文件路径
-output_file_path = '主.txt'  # 替换为你想要保存输出的文件路径
-deleted_lines_file_path = '少儿1.txt'  # 替换为你想要保存删除行的文件路径
-# 标记是否处于要删除的行范围内
-delete_range = False
-# 存储要删除的行,包括开始关键词行
-deleted_lines = []
-# 读取原始文件并过滤掉指定范围内的行
-with open(input_file_path, 'r', encoding='utf-8') as file:
-    lines = file.readlines()
-# 过滤掉不需要的行
-filtered_lines = []
-for line in lines:
-    if start_keyword in line:
-        delete_range = True
-        deleted_lines.append(line)  # 将开始关键词行添加到删除行列表
-        continue
-    if delete_range:
-        if end_keyword in line:
-            delete_range = False
-            filtered_lines.append(line)  # 将结束关键词行添加到输出文件列表
-        else:
-            deleted_lines.append(line)  # 添加到删除行列表
-    else:
-        filtered_lines.append(line)
-# 将过滤后的内容写入新文件
-with open(output_file_path, 'w', encoding='utf-8') as file:
-    file.writelines(filtered_lines)
-# 将删除的行写入到新的文件中
-with open(deleted_lines_file_path, 'w', encoding='utf-8') as file:
-    file.writelines(deleted_lines)
-print('过滤完成,结果已保存到:', output_file_path)
-print('提取的行已保存到:', deleted_lines_file_path)
-#
-#
-        
-#合并所有频道文件#
-# 读取要合并的频道文件,并生成临时文件#合并所有频道文件#
-file_contents = []
-file_paths = ["主.txt", "港澳.txt", "省市.txt"]  # 替换为实际的文件路径列表#
-for file_path in file_paths:                                                             #
-    with open(file_path, 'r', encoding="utf-8") as file:                                 #
-        content = file.read()
-        file_contents.append(content)
-# 生成合并后的文件
-with open("综合源.txt", "w", encoding="utf-8") as output:
-    output.write(''.join(file_contents))   #加入\n则多一空行
-#去重#
-#去重#
-with open('综合源.txt', 'r', encoding="utf-8") as file:
- lines = file.readlines()
-# 使用列表来存储唯一的行的顺序 
- unique_lines = [] 
- seen_lines = set() 
-# 遍历每一行,如果是新的就加入unique_lines 
-for line in lines:
- if line not in seen_lines:
-  unique_lines.append(line)
-  seen_lines.add(line)
-# 将唯一的行写入新的文档 
-with open('综合源.txt', 'w', encoding="utf-8") as file:
- file.writelines(unique_lines)
-#再次规范频道名#
-#从整理好的文本中进行特定关键词替换以规范频道名#
-for line in fileinput.input("综合源.txt", inplace=True):   #打开临时文件原地替换关键字
-    line = line.replace("CCTV1,", "CCTV1-综合,")  
-    line = line.replace("CCTV2,", "CCTV2-财经,")  
-    line = line.replace("CCTV3,", "CCTV3-综艺,")  
-    line = line.replace("CCTV4,", "CCTV4-国际,")  
-    line = line.replace("CCTV5,", "CCTV5-体育,")  
-    line = line.replace("CCTV5+,", "CCTV5-体育plus,")  
-    line = line.replace("CCTV6,", "CCTV6-电影,")  
-    line = line.replace("CCTV7,", "CCTV7-军事,")  
-    line = line.replace("CCTV8,", "CCTV8-电视剧,")  
-    line = line.replace("CCTV9,", "CCTV9-纪录,")  
-    line = line.replace("CCTV10,", "CCTV10-科教,")  
-    line = line.replace("CCTV11,", "CCTV11-戏曲,")  
-    line = line.replace("CCTV11+,", "CCTV11-戏曲,")  
-    line = line.replace("CCTV12,", "CCTV12-社会与法,")  
-    line = line.replace("CCTV13,", "CCTV13-新闻,")  
-    line = line.replace("CCTV14,", "CCTV14-少儿,")  
-    line = line.replace("CCTV15,", "CCTV15-音乐,")  
-    line = line.replace("CCTV16,", "CCTV16-奥林匹克,")  
-    line = line.replace("CCTV17,", "CCTV17-农业农村,") 
-    line = line.replace("CCTV风", "风")  
-    line = line.replace("CCTV兵", "兵")  
-    line = line.replace("CCTV世", "世")  
-    line = line.replace("CCTV女", "女")  
-    line = line.replace("008广", "广")
-    line = line.replace(" ", "")
-    line = line.replace("家庭电影", "家庭影院")    
-    line = line.replace("CHC", "")  
-    line = line.replace("科技生活", "科技")  
-    line = line.replace("财经生活", "财经")  
-    line = line.replace("新闻综合", "新闻")  
-    line = line.replace("公共新闻", "公共")  
-    line = line.replace("经济生活", "经济")  
-    line = line.replace("频道1", "频道") 
-    line = line.replace("省市频道", "湖北频道")    
-    line = line.replace("[720p]", "") 
-    line = line.replace("[1080p]", "")     
-    print(line, end="")   
 #简体转繁体#
 #简体转繁体
 # 创建一个OpenCC对象,指定转换的规则为繁体字转简体字
@@ -432,58 +280,8 @@ with open('综合源.txt', 'w', encoding='utf-8') as file:
 
 
 
-#TXT转M3U#
-import datetime
-def txt_to_m3u(input_file, output_file):
-    # 读取txt文件内容
-    with open(input_file, 'r', encoding='utf-8') as f:
-        lines = f.readlines()
-    # 打开m3u文件并写入内容
-    now = datetime.datetime.utcnow() + datetime.timedelta(hours=8)
-    current_time = now.strftime("%m-%d %H:%M")
-    with open(output_file, 'w', encoding='utf-8') as f:  
-        f.write('#EXTM3U x-tvg-url="https://live.fanmingming.com/e.xml" catchup="append" catchup-source="?playseek=${(b)yyyyMMddHHmmss}-${(e)yyyyMMddHHmmss}"\n')
-        #f.write(f'#EXTINF:-1 group-title="更新时间",请您欣赏\n')    
-        #f.write(f'https://vd2.bdstatic.com/mda-nk3am8nwdgqfy6nh/sc/cae_h264/1667555203921394810/mda-nk3am8nwdgqfy6nh.mp4\n')    
-        #f.write(f'#EXTINF:-1 group-title="{current_time}",虚情的爱\n')    
-        #f.write(f'https://vd2.bdstatic.com/mda-mi1dd05gmhwejdwn/sc/cae_h264/1630576203346678103/mda-mi1dd05gmhwejdwn.mp4\n')    
-        # 初始化genre变量
-        genre = ''
-        # 遍历txt文件内容
-        for line in lines:
-            line = line.strip()
-            if "," in line:  # 防止文件里面缺失",”号报错
-                # if line:
-                # 检查是否是genre行
-                channel_name, channel_url = line.split(',', 1)
-                if channel_url == '#genre#':
-                    genre = channel_name
-                    print(genre)
-                else:
-                    # 将频道信息写入m3u文件
-                    f.write(f'#EXTINF:-1 tvg-logo="https://live.fanmingming.com/tv/{channel_name}.png" group-title="{genre}",{channel_name}\n')
-                    f.write(f'{channel_url}\n')
-# 将txt文件转换为m3u文件
-txt_to_m3u('综合源.txt', '综合源.m3u')
-
-
-import datetime
-now = datetime.datetime.utcnow() + datetime.timedelta(hours=8)
-current_time = now.strftime("%m/%d %H")   #:%M
-# 打开文本文件并将时间添加到开头
-file_path = "综合源.m3u"
-with open(file_path, 'r+', encoding='utf-8') as f:
-    content = f.read()
-    f.seek(0, 0)
-    f.write(f'{content}\n')
-    #f.write(f'#EXTINF:-1 group-title="更新时间",请您欣赏\n')    
-    #f.write(f'http://em.21dtv.com/songs/60144971.mkv\n')    
-    f.write(f'#EXTINF:-1 group-title="{current_time}:00更新",虚情的爱\n')    
-    f.write(f'https://vd2.bdstatic.com/mda-mi1dd05gmhwejdwn/sc/cae_h264/1630576203346678103/mda-mi1dd05gmhwejdwn.mp4\n')       
-
 #任务结束,删除不必要的过程文件#
-files_to_remove = ['组播源.txt', "TWW.txt", "a.txt", "主.txt", "b.txt", "b1.txt", "港澳.txt", "省市.txt", "df.txt", "df1.txt", "少儿1.txt", "sr2.txt", \
-                   "c2.txt", "c1.txt", "DD.txt", "f.txt", "f1.txt"]
+files_to_remove = ['组播源.txt', "TW.txt", "a.txt", "主.txt", "b.txt", "b1.txt", "港澳.txt"]
 for file in files_to_remove:
     if os.path.exists(file):
         os.remove(file)
@@ -631,22 +429,15 @@ def check_and_write_file(input_file, output_file, keywords):
         print(f"未提取到关键词,不创建输出文件 {output_file}。")
 
 # 按类别提取关键词并写入文件
-check_and_write_file('2.txt',  '主.txt',  keywords="央视频道, 8K, 4K, 4k")
-check_and_write_file('2.txt',  'a.txt',  keywords="央视频道, CCTV, CHC, 全球大片, 星光院线")
+check_and_write_file('2.txt',  'a.txt',  keywords="央视频道, CCTV, CHC, 全球大片, 星光院线, 8K, 4K, 4k")
 check_and_write_file('2.txt',  'b.txt',  keywords="卫视频道, 卫视, 凤凰, 星空")
 check_and_write_file('2.txt',  'c0.txt',  keywords="组播剧场, 第一剧场, 怀旧剧场, 风云音乐, 风云剧场, 欢笑剧场, 都市剧场, 高清电影, 家庭影院, 动作电影, 影迷, 峨眉, 重温, 女性, 地理")
 check_and_write_file('2.txt',  'c.txt',  keywords="组播剧场, 爱动漫, SiTV, 爱怀旧, 爱经典, 爱科幻, 爱青春, 爱悬疑, 爱幼教, 爱院线")
-#check_and_write_file('2.txt',  'd.txt',  keywords="少儿频道, 少儿, 卡通, 动漫, 宝贝, 哈哈, 学堂")
-check_and_write_file('2.txt',  'e0.txt',  keywords="河北河南, 河南都市, 河南民生, 河南法治, 河南公共, 河南功夫, 河南影视, 中原, 河南国际, 河南梨园, 河南文, 河南武术, 河南戏曲, 河南乡村, 河南新闻, 河南移动")
-check_and_write_file('2.txt',  'e.txt',  keywords="河北河南, 河南,郑州")
-check_and_write_file('2.txt',  'f0.txt',  keywords="河北河南, 石家庄")
-check_and_write_file('2.txt',  'f.txt',  keywords="河北河南, 河北, 石家庄")
-check_and_write_file('2.txt',  'h.txt',  keywords="江苏北京, 江苏")
-check_and_write_file('2.txt',  'i.txt',  keywords="江苏北京, 北京")
+check_and_write_file('2.txt',  'd.txt',  keywords="北京频道, 北京")
 ###############################################################################################################################################################################################################################
 ##############################################################对生成的文件进行合并
 file_contents = []
-file_paths = ["主.txt", "a.txt", "a1.txt", "b.txt", "c0.txt", "c.txt", "d.txt", "e0.txt", "e.txt", "f0.txt", "f.txt", "g.txt", "h.txt", "i.txt", "j.txt", "k.txt", "l.txt", "m.txt"]  # 替换为实际的文件路径列表
+file_paths = ["a.txt", "b.txt", "c0.txt", "c.txt", "d.txt"]  # 替换为实际的文件路径列表
 for file_path in file_paths:
     if os.path.exists(file_path):
         with open(file_path, 'r', encoding="utf-8") as file:
@@ -764,24 +555,10 @@ for line in fileinput.input("综合源.txt", inplace=True):   #打开临时文�
     line = line.replace("CCTV4K", "CCTV-4K")  
     print(line, end="")   
 
-import datetime
-now = datetime.datetime.utcnow() + datetime.timedelta(hours=8)
-current_time = now.strftime("%m/%d %H:00")  #%M
-# 打开文本文件并将时间添加到开头
-file_path = "综合源.txt"
-with open(file_path, 'r+', encoding='utf-8') as f:
-    content = f.read()
-    f.seek(0, 0)
-    f.write(f'{content}\n')
-    #f.write(f'更新时间,#genre#\n')
-    #f.write(f'请您欣赏,https://vd2.bdstatic.com/mda-mi1dd05gmhwejdwn/sc/cae_h264/1630576203346678103/mda-mi1dd05gmhwejdwn.mp4\n')
-    f.write(f'{current_time}更新,#genre#\n')
-    f.write(f'虚情的爱,https://vd2.bdstatic.com/mda-mi1dd05gmhwejdwn/sc/cae_h264/1630576203346678103/mda-mi1dd05gmhwejdwn.mp4\n')
 
 
 ################################################################################################任务结束,删除不必要的过程文件
-files_to_remove = ['去重.txt', '分类.txt', "2.txt", "4.txt", "5.txt", "主.txt", "a.txt", "a1.txt", "b.txt", "c0.txt", "c.txt", "d.txt", \
-                   "e0.txt", "e.txt", "f0.txt", "f.txt", "g.txt", "h.txt", "i.txt", "j.txt", "k.txt", "l.txt", "m.txt"]
+files_to_remove = ['去重.txt', '分类.txt', "2.txt", "4.txt", "5.txt", "a.txt", "b.txt", "c0.txt", "c.txt", "d.txt"]
 for file in files_to_remove:
     if os.path.exists(file):
         os.remove(file)
