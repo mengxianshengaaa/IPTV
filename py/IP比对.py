@@ -36,34 +36,4 @@ file2_path = '网络收集.txt'
 output_path = '无效IP.txt'
 extract_unique_lines(file1_path, file2_path, output_path)
 
-import re
 
-def extract_ips_and_domains(input_file_path, output_file_path):
-    # 正则表达式模式，用于匹配IP地址和域名
-    ip_pattern = r'\b(?:\d{1,3}\.){3}\d{1,3}\b'
-    domain_pattern = r'\b(?:[a-zA-Z0-9-]+\.)+[a-zA-Z]{2,}\b'
-
-    # 集合用于存储提取到的IP地址和域名，确保唯一性
-    ips_and_domains = set()
-
-    # 打开输入文件并读取内容
-    with open(input_file_path, 'r', encoding='utf-8') as input_file:
-        content = input_file.read()
-
-        # 查找IP地址并添加到集合
-        ips = re.findall(ip_pattern, content)
-        ips_and_domains.update(ips)
-
-        # 查找域名并添加到集合
-        domains = re.findall(domain_pattern, content)
-        ips_and_domains.update(domains)
-
-    # 打开输出文件并写入提取到的IP地址和域名
-    with open(output_file_path, 'w', encoding='utf-8') as output_file:
-        for item in ips_and_domains:
-            output_file.write(item + '\n')
-
-# 示例用法
-input_file_path = '无效IP.txt'
-output_file_path = '无效IP.txt'
-extract_ips_and_domains(input_file_path, output_file_path)
