@@ -437,8 +437,12 @@ def merge_and_filter():
 
     total_lines = len(lines)
 
-    # 读取上次保存的失败 IP 文件
+    # 检查并创建失败 IP 文件如果不存在
     failed_ips_file_path = "failed_ips.txt"
+    if not os.path.exists(failed_ips_file_path):
+        open(failed_ips_file_path, 'w', encoding='utf-8').close()
+
+    # 读取上次保存的失败 IP 文件
     failed_ips = set()
     if os.path.exists(failed_ips_file_path):
         with open(failed_ips_file_path, 'r', encoding='utf-8') as failed_file:
@@ -493,6 +497,7 @@ def merge_and_filter():
     with open(failed_ips_file_path, 'w', encoding='utf-8') as failed_ips_file:
         for failed_line in failed_ips:
             failed_ips_file.write(failed_line)
+
 
 
 
