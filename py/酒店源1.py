@@ -386,7 +386,7 @@ for url in urls:
                         # 从字典中获取'url'键的值，如果键不存在则返回None
                         urlx = item.get('url')
                         # 如果urlx包含'udp'或'rtp'字符串，则跳过当前循环的剩余部分
-                        if 'udp' in urlx or 'rtp' in urlx or 'CCTV' in name or '卫视' in name:
+                        if 'udp' in urlx or 'rtp' in urlx:  # or 'CCTV' in name or '卫视' in name
                             continue  # 跳过包含'udp'或'rtp'的url
                         # 如果urlx以'http'开头，则直接使用这个url
                         if 'http' in urlx:
@@ -536,8 +536,8 @@ print("频道列表文件iptv.txt追加写入成功！")
 
 
 ######################################################################
-#定义一个关键词组，用于排除掉含有关键词的行
-keywords = ['CCTV', '卫视', '广东', '广西', '南宁', '河南', '河北', '公共', '教育', '新闻', 'SCTV', '动漫', '卡通', '少儿', '中国', '玉林', '陆川', '新疆', '摄影']
+#定义一个关键词组,用于排除掉含有关键词的行
+keywords = ['南宁#', '公共#', '教育', '新闻', 'SCTV#', '动漫', '卡通', '少儿', '中国', '玉林', '陆川', '新疆', '摄影']
 with open('iptv.txt', 'r', encoding='utf-8') as infile:
     lines = infile.readlines()
 filtered_lines = [line for line in lines if not any(keyword in line for keyword in keywords)]
@@ -545,18 +545,72 @@ with open('iptv.txt', 'w', encoding='utf-8') as outfile:
     outfile.writelines(filtered_lines)
 #####################################################################
 
-#####################################################################
-# 定义要搜索的关键词，从文件中提取包含这个关键词的行，然后添加到另一个文件尾
-keywords = ['hls', 'tsfile']
-# 打开1.txt文件并读取内容
-with open('网络收集.txt', 'r', encoding='utf-8') as file:
+#####################################定义替换规则的字典,对整行内的多余标识内容进行替换
+replacements = {
+    	"2珠江": "TVB星河",
+        "T[": "T",
+    	"BM20": "",
+    	"1ZX": "凤凰资讯HD",
+    	"2ZW）": "凤凰中文HD",
+    	"3XG": "凤凰香港",
+    	"4ZW": "凤凰中文",
+    	"5ZX": "凤凰资讯", 
+        "星河台": "星河",   
+        "dx[": "[",
+        "g[": "[",
+        "P[": "+[",
+        "lt[": "[",
+        "电信": "",
+        "卫视高清": "卫视",
+        "SCTV5": "",
+        "T,": ",",
+        "dx,": ",",
+        "g,": ",",
+        "TVBTVB星河": "TVB星河",
+        "5音乐台": "CCTV15",
+        "天映": "天映经典[🏠]",
+        "星河": "星河[🏠]",
+        "翡翠台": "翡翠台[🏠]",
+        "环球旅游": "环球旅游[🏠]",
+        "凤凰香港": "凤凰香港[🏠]",
+        "凤凰中文": "凤凰中文[🏠]",
+        "凤凰资讯": "凤凰资讯[🏠]",
+    	"BM9家庭影院": "东森电影[🏠]",
+    	"BM15广东影视": "广东影视[🏠]",
+    	"3X电影": "龙祥时代[🏠]",
+    	"4DS": "东森电影[🏠]",
+        "电影[🏠]电影": "电影[🏠]",
+        "": "",
+        "": "",
+        "": "",
+        "": "",
+        "": "",
+        "": "",
+        "": ""
+}
+# 打开原始文件读取内容,并写入新文件
+with open('iptv.txt', 'r', encoding='utf-8') as file:
     lines = file.readlines()
-# 创建一个新的列表，只包含包含关键词的行
-filtered_lines = [line for line in lines if any(keyword in line for keyword in keywords)]
+# 创建新文件并写入替换后的内容
+with open('iptv.txt', 'w', encoding='utf-8') as new_file:
+    for line in lines:
+        for old, new in replacements.items():
+            line = line.replace(old, new)
+        new_file.write(line)
+print("替换完成,新文件已保存。")
+
+#####################################################################
+# 定义要搜索的关键词,从文件中提取包含这个关键词的行,然后添加到另一个文件尾
+#keywords = [',', 'tsfile#']
+# 打开1.txt文件并读取内容
+#with open('网络收集.txt', 'r', encoding='utf-8') as file:
+    #lines = file.readlines()
+# 创建一个新的列表,只包含包含关键词的行
+#filtered_lines = [line for line in lines if any(keyword in line for keyword in keywords)]
 # 将这些行追加写入到2.txt文件
-with open('iptv.txt', 'a', encoding='utf-8') as file:
-    file.writelines(filtered_lines)
-print("频道列表文件iptv.txt再次追加写入成功！")
+#with open('iptv.txt', 'a', encoding='utf-8') as file:
+    #file.writelines(filtered_lines)
+#print("频道列表文件iptv.txt再次追加写入成功！")
 #####################################################################
 
 ################################################按网址去除重复行#####
@@ -579,7 +633,7 @@ def remove_duplicates(input_file, output_file):
             if urls and urls[0] not in seen_urls:
                 seen_urls.add(urls[0])
                 output_lines.append(line)
-            # 如果找到包含genre的行，无论是否已被记录，都写入新文件
+            # 如果找到包含genre的行,无论是否已被记录,都写入新文件
             if genre_line:
                 output_lines.append(line)
     # 将结果写入输出文件
@@ -606,47 +660,7 @@ def filter_lines(input_file, output_file):
 filter_lines("iptv.txt", "iptv.txt")
 
 
-#####################################定义替换规则的字典,对整行内的多余标识内容进行替换
-replacements = {
-    	"2珠江": "TVB星河",
-        "T[": "T",
-    	"BM9家庭影院": "东森电影",
-    	"BM15广东影视": "广东影视",
-    	"BM20": "",
-    	"3X电影": "龙祥时代",
-    	"4DS": "东森",
-    	"1ZX": "凤凰资讯HD",
-    	"2ZW）": "凤凰中文HD",
-    	"3XG": "凤凰香港",
-    	"4ZW": "凤凰中文",
-    	"5ZX": "凤凰资讯",    
-        "dx[": "[",
-        "g[": "[",
-        "P[": "+[",
-        "lt[": "[",
-        "电信": "",
-        "卫视高清": "卫视",
-        "SCTV5": "",
-        "T,": ",",
-        "dx,": ",",
-        "g,": ",",
-        "TVBTVB": "TVB",
-        "5音乐台": "CCTV15",
-        "": "",
-        "": "",
-        "": "",
-        "": ""
-}
-# 打开原始文件读取内容，并写入新文件
-with open('iptv.txt', 'r', encoding='utf-8') as file:
-    lines = file.readlines()
-# 创建新文件并写入替换后的内容
-with open('iptv.txt', 'w', encoding='utf-8') as new_file:
-    for line in lines:
-        for old, new in replacements.items():
-            line = line.replace(old, new)
-        new_file.write(line)
-print("替换完成，新文件已保存。")
+
 
 #################################################### 对整理好的频道列表测试HTTP连接
 def test_connectivity(url, max_attempts=2): #定义测试HTTP连接的次数
@@ -820,7 +834,7 @@ with open(output_file_path, 'w', encoding='utf-8') as output_file:
                 start_time = time.time()
                 frame_count = 0
                 # 尝试捕获5秒内的帧
-                while frame_count < 50 and (time.time() - start_time) < 5:#//////////////////////////////////////////////////////////////////////////////////////###########
+                while frame_count < 50 and (time.time() - start_time) < 3:#//////////////////////////////////////////////////////////////////////////////////////###########
                     ret, frame = cap.read()
                     if not ret:
                         break
@@ -845,7 +859,7 @@ for ip_key, result in detected_ips.items():
 file_path = '酒店优选.txt'
 # 检查文件是否存在
 if not os.path.isfile(file_path):
-    print("文件不存在，请重新输入.")
+    print("文件不存在,请重新输入.")
     exit(1)
 with open(file_path, 'r', encoding="utf-8") as file:
     # 读取所有行并存储到列表中
@@ -953,23 +967,20 @@ with open('酒店优选.txt', 'w', encoding='utf-8') as new_file:
     for line in lines:
         # 去除行尾的换行符
         line = line.rstrip('\n')
-        # 分割行，获取逗号前的字符串
+        # 分割行,获取逗号前的字符串
         parts = line.split(',', 1)
         if len(parts) > 0:
             # 替换逗号前的字符串
             before_comma = parts[0]
             for old, new in replacements.items():
                 before_comma = before_comma.replace(old, new)
-            # 将替换后的逗号前部分和逗号后部分重新组合成一行，并写入新文件
+            # 将替换后的逗号前部分和逗号后部分重新组合成一行,并写入新文件
             new_line = f'{before_comma},{parts[1]}\n' if len(parts) > 1 else f'{before_comma}\n'
             new_file.write(new_line)
 
 #####################################定义替换规则的字典,对整行内的多余标识内容进行替换
 replacements = {
     	"（）": "",
-        "湖北,": "湖北卫视,",
-        "广东,": "广东卫视,",
-        "安徽,": "安徽卫视,",
         "峨眉电影": "峨眉电影[50FPS]",
         "T[": "T",
         "dx[": "[",
@@ -989,7 +1000,7 @@ replacements = {
         "": "",
         "": ""
 }
-# 打开原始文件读取内容，并写入新文件
+# 打开原始文件读取内容,并写入新文件
 with open('酒店优选.txt', 'r', encoding='utf-8') as file:
     lines = file.readlines()
 # 创建新文件并写入替换后的内容
@@ -998,21 +1009,21 @@ with open('酒店优选.txt', 'w', encoding='utf-8') as new_file:
         for old, new in replacements.items():
             line = line.replace(old, new)
         new_file.write(line)
-print("替换完成，新文件已保存。")
+print("替换完成,新文件已保存。")
 
 
 ###############################################################################文本排序
-# 打开原始文件读取内容，并写入新文件
+# 打开原始文件读取内容,并写入新文件
 with open('酒店优选.txt', 'r', encoding='utf-8') as file:
     lines = file.readlines()
-# 定义一个函数，用于提取每行的第一个数字
+# 定义一个函数,用于提取每行的第一个数字
 def extract_first_number(line):
     match = re.search(r'\d+', line)
     return int(match.group()) if match else float('inf')
 # 对列表中的行进行排序
-# 按照第一个数字的大小排列，如果不存在数字则按中文拼音排序
+# 按照第一个数字的大小排列,如果不存在数字则按中文拼音排序
 sorted_lines = sorted(lines, key=lambda x: (not 'CCTV' in x, extract_first_number(x) if 'CCTV' in x else lazy_pinyin(x.strip())))
-# 将排序后的行写入新的utf-8编码的文本文件，文件名基于原文件名
+# 将排序后的行写入新的utf-8编码的文本文件,文件名基于原文件名
 output_file_path = "sorted_" + os.path.basename(file_path)
 # 写入新文件
 with open('酒店源.txt', "w", encoding="utf-8") as file:
@@ -1045,17 +1056,17 @@ def check_and_write_file(input_file, output_file, keywords):
     else:
         print(f"文件已提取关键词并保存为: {output_file}")
 # 按类别提取关键词并写入文件
-#check_and_write_file('酒店源.txt',  'a0.txt',  keywords="央视频道, 8K, 4K, 4k")
-#check_and_write_file('酒店源.txt',  'a.txt',  keywords="央视频道, CCTV, 风云, 女性时尚, 地理世界, 音乐")
-#check_and_write_file('酒店源.txt',  'a1.txt',  keywords="央视频道")
-#check_and_write_file('酒店源.txt',  'b.txt',  keywords="卫视频道, 卫视, 凤凰, 星空")
+check_and_write_file('酒店源.txt',  'a0.txt',  keywords="央视频道, 8K, 4K, 4k")
+check_and_write_file('酒店源.txt',  'a.txt',  keywords="央视频道, CCTV, 风云, 女性时尚, 地理世界, 音乐")
+check_and_write_file('酒店源.txt',  'a1.txt',  keywords="央视频道")
+check_and_write_file('酒店源.txt',  'b.txt',  keywords="卫视频道, 卫视, 凤凰, 星空")
 check_and_write_file('酒店源.txt',  'c.txt',  keywords="影视频道, 剧, 选, 影")
 check_and_write_file('酒店源.txt',  'e.txt',  keywords="港澳频道, shuma, TVB, 珠江台, 澳门, 龙华, 广场舞, 动物杂技, 民视, 中视, 华视, AXN, MOMO, 采昌, 耀才, 靖天, 镜新闻, 靖洋, 莲花, 年代, 爱尔达, 好莱坞, 华丽, 非凡, 公视, \
 寰宇, 无线, EVEN, MoMo, 爆谷, 面包, momo, 唐人, 中华小, 三立, 37.27, 猪哥亮, 综艺, Movie, 八大, 中天, 中视, 东森, 凤凰, 天映, 美亚, 环球, 翡翠, ZIPP, 大爱, 大愛, 明珠, jdshipin, AMC, 龙祥, 台视, 1905, 纬来, 神话, 经典都市, 视界, \
 番薯, 私人, 酒店, TVB, 凤凰, 半岛, 星光视界, 大愛, 新加坡, 星河, 明珠, 环球, 翡翠台")
 #check_and_write_file('酒店源.txt',  'f.txt',  keywords="省市频道, 湖北, 武汉, 河北, 广东, 河南, 陕西, 四川, 湖南, 广西, 山西, 石家庄, 南宁, 汕头, 揭阳, 普宁, 福建, 辽宁")
 #check_and_write_file('酒店源.txt',  'o1.txt',  keywords="其他频道, 新闻, 综合, 文艺, 电视, 公共, 科教, 教育, 民生, 轮播, 套, 法制, 文化, 经济, 生活")
-#check_and_write_file('酒店源.txt',  'o.txt',  keywords="其他频道, , ")
+check_and_write_file('酒店源.txt',  'o.txt',  keywords="其他频道, , ")
 #
 #对生成的文件进行合并
 file_contents = []
@@ -1085,6 +1096,20 @@ for line in lines:
 # 将唯一的行写入新的文档 
 with open('酒店优选.txt', 'w', encoding="utf-8") as file:
  file.writelines(unique_lines)
+
+import datetime
+now = datetime.datetime.utcnow() + datetime.timedelta(hours=8)
+current_time = now.strftime("%Y-%m-%d %H:%M")
+# 打开文本文件并将时间添加到开头
+file_path = "酒店优选.txt"
+with open(file_path, 'r+', encoding='utf-8') as f:
+    content = f.read()
+    f.seek(0, 0)
+    f.write(f'#鉴于酒店源的不实用性,本次最后一次更新。如果需要的话,请fork以后自行启用工作流程\n')
+    f.write(f'最后更新时间{current_time},#genre#\n')
+    f.write(f'虚情的爱,https://vd2.bdstatic.com/mda-mi1dd05gmhwejdwn/sc/cae_h264/1630576203346678103/mda-mi1dd05gmhwejdwn.mp4\n{content}')
+
+
 #任务结束,删除不必要的过程文件
 files_to_remove = ['去重.txt', "2.txt", "iptv.txt", "e.txt", "a0.txt", "a.txt", "a1.txt", "b.txt", "c.txt", "c1.txt", "c2.txt", "d.txt", "f.txt", "o1.txt", "o.txt", "酒店源.txt"]
 for file in files_to_remove:
