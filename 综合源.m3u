@@ -2815,8 +2815,6 @@ http://zb.qc.to/?id=4gtv-4gtv040
 http://zb.qc.to/?id=4gtv-4gtv074
 #EXTINF:-1 tvg-logo="https://live.fanmingming.com/tv/中天新闻.png" group-title="港澳A组",中天新闻
 http://zb.qc.to/?id=4gtv-4gtv009
-#EXTINF:-1 tvg-logo="https://live.fanmingming.com/tv/猪哥亮歌厅.png" group-title="港澳A组",猪哥亮歌厅
-http://zb.qc.to/?id=4gtv-4gtv006
 #EXTINF:-1 tvg-logo="https://live.fanmingming.com/tv/AMC电影台.png" group-title="港澳B组",AMC电影台
 https://litv.zapi.us.kg/?id=4gtv-4gtv017
 #EXTINF:-1 tvg-logo="https://live.fanmingming.com/tv/CAT电影台.png" group-title="港澳B组",CAT电影台
@@ -3230,5 +3228,5 @@ http://38.46.221.138:80/play/bP3gOc5Zx4Ta2V7BzZrTKtIenAsKhGIKE3dj_eOtDtE/.m3u8
 #EXTINF:-1 tvg-logo="https://live.fanmingming.com/tv/无线新闻台.png" group-title="港澳E组",无线新闻台
 http://38.46.221.138:80/play/bP3gOc5Zx4Ta2V7BzZrTKgwV4TJIF_9h7joKw3O6VW4/.m3u8
 
-#EXTINF:-1 group-title="2024/09/25 17:05更新",虚情的爱
+#EXTINF:-1 group-title="2024/09/25 17:37更新",虚情的爱
 https://vd2.bdstatic.com/mda-mi1dd05gmhwejdwn/sc/cae_h264/1630576203346678103/mda-mi1dd05gmhwejdwn.mp4
