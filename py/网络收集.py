@@ -437,10 +437,18 @@ def merge_and_filter():
 
     total_lines = len(lines)
 
+    # 读取上次保存的失败 IP 文件
+    failed_ips_file_path = "failed_ips.txt"
+    failed_ips = set()
+    if os.path.exists(failed_ips_file_path):
+        with open(failed_ips_file_path, 'r', encoding='utf-8') as failed_file:
+            for line in failed_file.readlines():
+                failed_ips.add(line)
+
     # 处理输入文件中的数据并进行检测
     with open(output_file_path, 'a', encoding='utf-8') as output_file:
         for i, line in tqdm(enumerate(lines), total=total_lines, desc="Processing", unit='line'):
-            if 'genre' in line:
+            if 'genre' in line or line in failed_ips:
                 output_file.write(line)
                 continue
             parts = line.split(',', 1)
@@ -467,6 +475,8 @@ def merge_and_filter():
                         output_file.write(line)
                     else:
                         detected_ips[ip_key] = {'status': 'fail'}
+                        # 将失败的行添加到失败 IP 文件集合中
+                        failed_ips.add(line)
 
     # 合并任意字符加上网络收集.txt 的文件
     all_files = [f for f in os.listdir(os.getcwd()) if f.endswith('网络收集.txt')]
@@ -479,11 +489,10 @@ def merge_and_filter():
                         main_output.write('\n')
                         main_output.write(content)
 
-detected_ips = {}
-merge_and_filter()
-
-for ip_key, result in detected_ips.items():
-    print(f"IP Key: {ip_key}, Status: {result['status']}")
+    # 将检测失败的 IP 行保存到另一个文件
+    with open(failed_ips_file_path, 'w', encoding='utf-8') as failed_ips_file:
+        for failed_line in failed_ips:
+            failed_ips_file.write(failed_line)
 
 
 
