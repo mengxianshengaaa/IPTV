@@ -151,7 +151,7 @@ for url in urls:
             try:
                     # 按行分割数据
              lines = json_data.split('\n')
-             excluded_keywords = ['udp', 'rtp', '东森', '龙祥']   
+             excluded_keywords = ['udp', 'rtp']   
              for line in lines:
                  if 'hls' in line and all(keyword not in line for keyword in excluded_keywords):
                         line = line.strip()
@@ -419,7 +419,7 @@ for url in urls:
                         # 从字典中获取'url'键的值,如果键不存在则返回None
                         urlx = item.get('url')
                         # 如果urlx包含'udp'或'rtp'字符串,则跳过当前循环的剩余部分
-                        if 'udp' in urlx or 'rtp' in urlx or 'CCTV' in name or '卫视' in name:
+                        if 'udp' in urlx or 'rtp' in urlx:   # or 'CCTV' in name or '卫视' in name
                             continue  # 跳过包含'udp'或'rtp'的url
                         # 如果urlx以'http'开头,则直接使用这个url
                         if 'http' in urlx:
@@ -563,7 +563,7 @@ print("频道列表文件iptv.txt追加写入成功！")
 
 ######################################################################
 #定义一个关键词组,用于排除掉含有关键词的行
-keywords = ['南宁', '公共', '教育', '新闻', 'SCTV', '动漫', '卡通', '少儿', '中国', '玉林', '陆川', '新疆', '摄影']
+keywords = ['南宁#', '公共#', '教育', '新闻', 'SCTV#', '动漫', '卡通', '少儿', '中国', '玉林', '陆川', '新疆', '摄影']
 with open('iptv.txt', 'r', encoding='utf-8') as infile:
     lines = infile.readlines()
 filtered_lines = [line for line in lines if not any(keyword in line for keyword in keywords)]
@@ -627,16 +627,16 @@ print("替换完成,新文件已保存。")
 
 #####################################################################
 # 定义要搜索的关键词,从文件中提取包含这个关键词的行,然后添加到另一个文件尾
-keywords = ['hls.m3u8', 'tsfile#']
+#keywords = [',', 'tsfile#']
 # 打开1.txt文件并读取内容
-with open('网络收集.txt', 'r', encoding='utf-8') as file:
-    lines = file.readlines()
+#with open('网络收集.txt', 'r', encoding='utf-8') as file:
+    #lines = file.readlines()
 # 创建一个新的列表,只包含包含关键词的行
-filtered_lines = [line for line in lines if any(keyword in line for keyword in keywords)]
+#filtered_lines = [line for line in lines if any(keyword in line for keyword in keywords)]
 # 将这些行追加写入到2.txt文件
-with open('iptv.txt', 'a', encoding='utf-8') as file:
-    file.writelines(filtered_lines)
-print("频道列表文件iptv.txt再次追加写入成功！")
+#with open('iptv.txt', 'a', encoding='utf-8') as file:
+    #file.writelines(filtered_lines)
+#print("频道列表文件iptv.txt再次追加写入成功！")
 #####################################################################
 
 ################################################按网址去除重复行#####
@@ -860,7 +860,7 @@ with open(output_file_path, 'w', encoding='utf-8') as output_file:
                 start_time = time.time()
                 frame_count = 0
                 # 尝试捕获5秒内的帧
-                while frame_count < 60 and (time.time() - start_time) < 3:#//////////////////////////////////////////////////////////////////////////////////////###########
+                while frame_count < 50 and (time.time() - start_time) < 3:#//////////////////////////////////////////////////////////////////////////////////////###########
                     ret, frame = cap.read()
                     if not ret:
                         break
@@ -868,7 +868,7 @@ with open(output_file_path, 'w', encoding='utf-8') as output_file:
                 # 释放资源
                 cap.release()
                 # 根据捕获的帧数判断状态并记录结果#////////////////////////////////////////////////////////////////////////////////////////////////////////////////###########
-                if frame_count >= 60:  #5秒内超过100帧则写入#/////////////////////////////////////////////////////////////////////////////////////////////////////###########
+                if frame_count >= 50:  #5秒内超过100帧则写入#/////////////////////////////////////////////////////////////////////////////////////////////////////###########
                     detected_ips[ip_key] = {'status': 'ok'}
                     output_file.write(line)  # 写入检测通过的行
                 else:
@@ -1092,7 +1092,7 @@ check_and_write_file('酒店源.txt',  'e.txt',  keywords="港澳频道, shuma, 
 番薯, 私人, 酒店, TVB, 凤凰, 半岛, 星光视界, 大愛, 新加坡, 星河, 明珠, 环球, 翡翠台")
 #check_and_write_file('酒店源.txt',  'f.txt',  keywords="省市频道, 湖北, 武汉, 河北, 广东, 河南, 陕西, 四川, 湖南, 广西, 山西, 石家庄, 南宁, 汕头, 揭阳, 普宁, 福建, 辽宁")
 #check_and_write_file('酒店源.txt',  'o1.txt',  keywords="其他频道, 新闻, 综合, 文艺, 电视, 公共, 科教, 教育, 民生, 轮播, 套, 法制, 文化, 经济, 生活")
-#check_and_write_file('酒店源.txt',  'o.txt',  keywords="其他频道, , ")
+check_and_write_file('酒店源.txt',  'o.txt',  keywords="其他频道, , ")
 #
 #对生成的文件进行合并
 file_contents = []
