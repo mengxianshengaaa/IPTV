@@ -48,13 +48,13 @@ urls = [
 
 def is_url_accessible(url):
     try:
-        # 发送 GET 请求，设置超时时间为 3 秒
+        # 发送 GET 请求,设置超时时间为 3 秒
         response = requests.get(url, timeout=3)
-        # 如果响应状态码在 200 到 401 之间（包括 200 和 401），则认为 URL 可访问
+        # 如果响应状态码在 200 到 401 之间（包括 200 和 401）,则认为 URL 可访问
         if 200 <= response.status_code <= 401:
             return url
     except requests.exceptions.RequestException:
-        # 如果请求过程中出现异常，不做任何处理，直接跳过
+        # 如果请求过程中出现异常,不做任何处理,直接跳过
         pass
     return None
 
@@ -94,8 +94,8 @@ for url in urls:
     page_content = response.text
 
     # 查找所有符合指定格式的网址
-    # 匹配纯域名，可能带有http://或https://前缀，但不包含端口
-    # 匹配纯数字IP地址，后面跟着端口号
+    # 匹配纯域名,可能带有http://或https://前缀,但不包含端口
+    # 匹配纯数字IP地址,后面跟着端口号
     pattern = r"(https?://[\w-]+(?:\.[\w-]+)*(?::\d+)?|\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}(?::\d+)?)"
     # 使用正则表达式在页面内容中查找所有符合格式的 URL
     urls_all = re.findall(pattern, page_content)
@@ -135,7 +135,7 @@ for url in urls:
                                 urld = (f"{urls[0]}//{url_data[2]}/{urls[3]}")
                             else:
                                 urld = (f"{urls}")
-                            #print(f"{name},{urld}")  #关闭频道名称和频道地址打印，缩短运行时间
+                            #print(f"{name},{urld}")  #关闭频道名称和频道地址打印,缩短运行时间
                         if name and urld:
                             name = name.replace("高清电影", "影迷电影")                            
                             name = name.replace("中央", "CCTV")
@@ -257,7 +257,7 @@ for result in results:
 with open("iptv.txt", 'w', encoding='utf-8') as file:
     for result in results:
         file.write(result + "\n")
-        print(result)  #关闭频道名称和频道地址打印，缩短运行时间
+        print(result)  #关闭频道名称和频道地址打印,缩短运行时间
 print("频道列表文件iptv.txt获取完成！")
 
 
@@ -295,13 +295,13 @@ urls = [
 ]
 def is_url_accessible(url):
     try:
-        # 发送 GET 请求，设置超时时间为 3 秒
+        # 发送 GET 请求,设置超时时间为 3 秒
         response = requests.get(url, timeout=3)
-        # 如果响应状态码在 200 到 401 之间（包括 200 和 401），则认为 URL 可访问
+        # 如果响应状态码在 200 到 401 之间（包括 200 和 401）,则认为 URL 可访问
         if 200 <= response.status_code <= 401:
             return url
     except requests.exceptions.RequestException:
-        # 如果请求过程中出现异常，不做任何处理，直接跳过
+        # 如果请求过程中出现异常,不做任何处理,直接跳过
         pass
     return None
 
@@ -340,8 +340,8 @@ for url in urls:
     # 获取响应的文本内容
     page_content = response.text
     # 查找所有符合指定格式的网址
-    # 匹配纯域名，可能带有http://或https://前缀，但不包含端口
-    # 匹配纯数字IP地址，后面跟着端口号
+    # 匹配纯域名,可能带有http://或https://前缀,但不包含端口
+    # 匹配纯数字IP地址,后面跟着端口号
     pattern = r"(https?://[\w-]+(?:\.[\w-]+)*(?::\d+)?|\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}(?::\d+)?)"
     # 使用正则表达式在页面内容中查找所有符合格式的 URL
     urls_all = re.findall(pattern, page_content)
@@ -359,41 +359,41 @@ for url in urls:
     for url in valid_urls:
         try:
             ip_start_index = url.find("//") + 2
-            # 找到URL中"//"的位置，并从该位置的下一个字符开始截取，直到找到第一个"/"字符
+            # 找到URL中"//"的位置,并从该位置的下一个字符开始截取,直到找到第一个"/"字符
             ip_dot_start = url.find(".") + 1
-            # 从URL中找到第一个"."的位置，并从该位置的下一个字符开始截取，直到找到第二个"/"字符
+            # 从URL中找到第一个"."的位置,并从该位置的下一个字符开始截取,直到找到第二个"/"字符
             ip_index_second = url.find("/", ip_dot_start)
-            base_url = url[:ip_start_index]  # 截取URL中的协议部分，例如"http://"或"https://"
-            # 截取从"//"之后到第一个"/"之前的部分，这通常是IP地址或域名
+            base_url = url[:ip_start_index]  # 截取URL中的协议部分,例如"http://"或"https://"
+            # 截取从"//"之后到第一个"/"之前的部分,这通常是IP地址或域名
             ip_address = url[ip_start_index:ip_index_second]
-            # 构造一个新的URL，由基本URL和IP地址组成
+            # 构造一个新的URL,由基本URL和IP地址组成
             url_x = f"{base_url}{ip_address}"
             # 将原始URL赋值给json_url变量
             json_url = f"{url}"
-            # 使用requests库发起一个GET请求到json_url，超时时间设置为3秒
+            # 使用requests库发起一个GET请求到json_url,超时时间设置为3秒
             response = requests.get(json_url, timeout=3)
             # 将响应的内容解析为JSON格式
             json_data = response.json()
             try:
-            # 尝试执行以下代码块，如果发生错误则跳转至except部分
-                # 解析JSON文件，获取'data'键对应的列表中的每个元素
+            # 尝试执行以下代码块,如果发生错误则跳转至except部分
+                # 解析JSON文件,获取'data'键对应的列表中的每个元素
                 for item in json_data['data']:
                     # 检查每个元素是否为字典类型
                     if isinstance(item, dict):
-                        # 从字典中获取'name'键的值，如果键不存在则返回None
+                        # 从字典中获取'name'键的值,如果键不存在则返回None
                         name = item.get('name')
-                        # 从字典中获取'url'键的值，如果键不存在则返回None
+                        # 从字典中获取'url'键的值,如果键不存在则返回None
                         urlx = item.get('url')
-                        # 如果urlx包含'udp'或'rtp'字符串，则跳过当前循环的剩余部分
+                        # 如果urlx包含'udp'或'rtp'字符串,则跳过当前循环的剩余部分
                         if 'udp' in urlx or 'rtp' in urlx:  # or 'CCTV' in name or '卫视' in name
                             continue  # 跳过包含'udp'或'rtp'的url
-                        # 如果urlx以'http'开头，则直接使用这个url
+                        # 如果urlx以'http'开头,则直接使用这个url
                         if 'http' in urlx:
                             urld = f"{urlx}"
-                        # 如果urlx不以'http'开头，则在前面添加一个前缀（注意：这里的url_x变量未在代码中定义）
+                        # 如果urlx不以'http'开头,则在前面添加一个前缀（注意：这里的url_x变量未在代码中定义）
                         else:
                             urld = f"{url_x}{urlx}"
-                        print(f"{name},{urld}")  #关闭频道名称和频道地址打印，缩短运行时间
+                        print(f"{name},{urld}")  #关闭频道名称和频道地址打印,缩短运行时间
                         if name and urld:
                             name = name.replace("高清电影", "影迷电影")                            
                             name = name.replace("中央", "CCTV")
@@ -530,7 +530,7 @@ for result in results:
 with open("iptv.txt", 'a', encoding='utf-8') as file:
     for result in results:
         file.write(result + "\n")
-        print(result)  #关闭频道名称和频道地址打印，缩短运行时间
+        print(result)  #关闭频道名称和频道地址打印,缩短运行时间
 print("频道列表文件iptv.txt追加写入成功！")
 
 
@@ -593,13 +593,13 @@ replacements = {
         "[🏠][🏠]": "[🏠]",
         "经典[🏠]电影": "经典[🏠]",
         "": "",
-        "": ""，
         "": "",
-        "": ""，
         "": "",
-        "": ""，
         "": "",
-        "": ""，
+        "": "",
+        "": "",
+        "": "",
+        "": "",
         "": "",
         "": ""
 }
