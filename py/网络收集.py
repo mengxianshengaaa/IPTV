@@ -25,31 +25,31 @@ from translate import Translator  # 导入Translator类,用于文本翻译
 ## 定义txt文件的URL列表
 urls = [
        'https://dimaston.github.io/live.m3u',  #假m3u
-       'https://raw.githubusercontent.com/gaotianliuyun/gao/master/list.txt',   #暂时保留
-       'https://raw.githubusercontent.com/Fairy8o/IPTV/main/PDX-V4.txt',
-       'https://raw.githubusercontent.com/ddhola/file/d7afb504b1ba4fef31813e1166cb892215a9c063/0609test',
-       'https://raw.githubusercontent.com/vbskycn/iptv/2738b3bec8c298f57e0e2052b155846ab6ea3787/dsyy/hd.txt',
-       'https://raw.githubusercontent.com/frxz751113/AAAAA/main/IPTV/TW.txt',
-       'https://raw.githubusercontent.com/ljlfct01/ljlfct01.github.io/main/list.%E8%87%AA%E7%94%A8',
+       'https://raw.bgithub.xyz/gaotianliuyun/gao/master/list.txt',   #暂时保留
+       'https://raw.bgithub.xyz/Fairy8o/IPTV/main/PDX-V4.txt',
+       'https://raw.bgithub.xyz/ddhola/file/d7afb504b1ba4fef31813e1166cb892215a9c063/0609test',
+       'https://raw.bgithub.xyz/vbskycn/iptv/2738b3bec8c298f57e0e2052b155846ab6ea3787/dsyy/hd.txt',
+       'https://raw.bgithub.xyz/frxz751113/AAAAA/main/IPTV/TW.txt',
+       'https://raw.bgithub.xyz/ljlfct01/ljlfct01.github.io/main/list.%E8%87%AA%E7%94%A8',
        'https://notabug.org/qcfree/TVBox-api/raw/main/live.txt', #通用源
-       'https://raw.githubusercontent.com/KAN314go/A/e81a1c22cd1b9f459bc363bd916c13133e235510/tv/%E5%AE%89%E5%8D%9A8K.txt',
+       'https://raw.bgithub.xyz/KAN314go/A/e81a1c22cd1b9f459bc363bd916c13133e235510/tv/%E5%AE%89%E5%8D%9A8K.txt',
        'https://gitlab.com/tvtg/vip/-/raw/main/log.txt',
-       'https://raw.githubusercontent.com/frxz751113/IPTVzb1/main/%E7%BB%BC%E5%90%88%E6%BA%90.txt',
-       'https://raw.githubusercontent.com/ssili126/tv/main/itvlist.txt',
-       'https://raw.githubusercontent.com/Supprise0901/TVBox_live/main/live.txt',
-       'https://raw.githubusercontent.com/Guovin/TV/gd/result.txt',
-       'https://raw.githubusercontent.com/gaotianliuyun/gao/master/list.txt',
+       'https://raw.bgithub.xyz/frxz751113/IPTVzb1/main/%E7%BB%BC%E5%90%88%E6%BA%90.txt',
+       'https://raw.bgithub.xyz/ssili126/tv/main/itvlist.txt',
+       'https://raw.bgithub.xyz/Supprise0901/TVBox_live/main/live.txt',
+       'https://raw.bgithub.xyz/Guovin/TV/gd/result.txt',
+       'https://raw.bgithub.xyz/gaotianliuyun/gao/master/list.txt',
        'https://gitee.com/xxy002/zhiboyuan/raw/master/zby.txt',
-       'https://raw.githubusercontent.com/mlvjfchen/TV/main/iptv_list.txt',
-       'https://raw.githubusercontent.com/fenxp/iptv/main/live/tvlive.txt',
-       'https://raw.githubusercontent.com/zwc456baby/iptv_alive/master/live.txt',
+       'https://raw.bgithub.xyz/mlvjfchen/TV/main/iptv_list.txt',
+       'https://raw.bgithub.xyz/fenxp/iptv/main/live/tvlive.txt',
+       'https://raw.bgithub.xyz/zwc456baby/iptv_alive/master/live.txt',
        'https://gitlab.com/p2v5/wangtv/-/raw/main/lunbo.txt',
-       'https://raw.githubusercontent.com/PizazzGY/TVBox/main/live.txt',
+       'https://raw.bgithub.xyz/PizazzGY/TVBox/main/live.txt',
        'https://gitcode.net/MZ011/BHJK/-/raw/master/BHZB1.txt',
-       'https://raw.githubusercontent.com/vbskycn/iptv/master/tv/iptv4.txt',
-       'https://raw.githubusercontent.com/junge3333/juds6/main/yszb1.txt',
-       'https://raw.githubusercontent.com/zzmaze/iptv/main/iptv.txt',
-       'https://raw.githubusercontent.com/kimwang1978/collect-tv-txt/main/others_output.txt',
+       'https://raw.bgithub.xyz/vbskycn/iptv/master/tv/iptv4.txt',
+       'https://raw.bgithub.xyz/junge3333/juds6/main/yszb1.txt',
+       'https://raw.bgithub.xyz/zzmaze/iptv/main/iptv.txt',
+       'https://raw.bgithub.xyz/kimwang1978/collect-tv-txt/main/others_output.txt',
        '',
        '',
        '',
@@ -344,7 +344,7 @@ import os
 # 定义一个包含所有要排除的关键词的列表
 excluded_keywords = ['epg', 'mitv', 'udp', 'rtp', 'P2p', 'p2p', 'p3p', 'P2P', '新闻综合', 'P3p', 'jdshipin', '9930/qilu', 'gitcode.net', '151:99', '21dtv', 'txmov2', 'gcw.bdcdn', 'metshop', 
                      'shandong', 'goodiptv', '购物', '[', 'P3P', '腔', '曲', '//1', '/hls/', '春节', 'gat', '95.179', 'hlspull', 'github', 'lunbo', 'tw.ts138', '114:8278', '//tvb', 'extraott', 
-                     '22:8891', 'fanmingming', '43:22222', 'etv.xhgvip', 'free.xiptv', 'www.zhixun', 'xg.52sw', 'iptv.yjxfz.com']   #, '', '', ''
+                     '22:8891', 'fanmingming', '43:22222', 'etv.xhgvip', 'free.xiptv', 'www.zhixun', 'xg.52sw', 'iptv.yjxfz.com', 'zb.qc']   #, '', ''
 
 # 定义一个包含所有要提取的关键词的列表
 extract_keywords = ['1905', '凤凰卫视', '人间卫视', '亚洲卫视', '香港卫视', '神乐', '翡翠台', '凤凰香港', '凤凰中文', '凤凰资讯', 'AXN', 'AMC', '香蕉', '电影台', '大爱', '东森', 'MTV', 
