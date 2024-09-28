@@ -1,0 +1,40 @@
+name: 酒店源
+
+on:
+  schedule:
+    - cron: '0 3 */1 * *'        #这里更改自动运行的时间，没这两行的话只能手动运行
+  workflow_dispatch:
+    分支:
+      - main
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+    
+      - name: Set up Python
+        uses: actions/setup-python@v2
+        with:
+          python-version: 3.x
+
+      - name: Install dependencies
+        run: |
+          pip install --upgrade pip
+          pip install selenium requests futures eventlet opencv-python Beautifulsoup4 translate termcolor func_timeout replace input opencc pypinyin pytz tqdm
+      - name: Run py
+        run: | 
+          python ${{ github.workspace }}/py/GAT.py       
+      - name: 提交更改
+        run: |
+          git config --local user.email "actions@163.com"
+          git config --local user.name "GitHub Action"
+          #git reset --hard origin/main
+          git add .
+          git commit -m "Add generated file"
+          #git commit *.txt -m "Add generated file"
+          #git commit *.m3u -m "Add generated file"
+          #git pull --rebase
+          git push -f
