@@ -11,8 +11,14 @@ from concurrent.futures import ThreadPoolExecutor
 import time
 
 
-keywords = ['凤凰卫视', '人间卫视', '亚洲卫视', '香港卫视', '翡翠台', '凤凰香港', '凤凰中文', '凤凰资讯', 'AXN', 'AMC', '好莱坞',  '东森', 'TVB', \
-            '龙华', '龙祥', '猪哥亮', '数位', '美亚',  '番薯',  '八大', '三立',  '电影台',  '戏剧台']  # 这里定义你的搜索关键词列表
+keywords = ['凤凰卫视', '人间卫视', '亚洲卫视', '香港卫视', '神乐', '翡翠台', '凤凰香港', '凤凰中文', '凤凰资讯', 'AXN', 'AMC', '香蕉', '电影台', '大爱', '东森', 'MTV', 
+                    '华视', '中天', '天良', '美亚', '星影', '纬来', '天映', '无线', '华剧台', '华丽台', '剧台', 'Movie', '八大', '采昌', '靖天', '民视', '探索', '旅游', '影视2', 
+                    '影视3', '中视', '豬哥亮', 'TVB', '公视', '寰宇', '戏剧', '靖', '龙华', '龙祥', '猪哥亮', '综艺', '新闻', '影迷', '影剧', '电视剧', '49号', '欢喜', '珍珠', '台视', '华视', 
+                    'AMC电影台', 'BLOOM', 'CINEM', 'CMUSIC音乐台', 'CNBC', 'DWNEWS', 'Dbox', 'ELTV', 'FEST', 'GOOD2', 'HISTORY', 'HITS', 'HakkaTV', 'KOREA', 'LIFETIME', 'LISTENONSPOTIFY', 'LOVENATURE', 
+                    'LUXE', 'MCE', 'Nickelodeon', 'PETCLUB', 'ROCK', 'ROCKACTION', 'TECHSTORM', 'TV5MONDE', 'TVBS', 'TiTV', 'VOA', 'elta', 'hokkotv', 'momo', 'nhkworld', 'nickjr', 
+                    '中华小当家', '中天娱乐', '互动英语', '亚洲旅游', '全球财经', '公视戏剧', '动漫', '动物星球', '动画台', '博斯', 
+                    '哆啦A梦', '壹新闻', '大立电视', '天良综合台', '幸福空间', '探案', '探索亚洲', '智林体育', '東森新聞', '环球电视', 
+                    '美亚C+', '超人', '镜新闻', '番薯']  # 这里定义你的搜索关键词列表
 output_file = 'gat.txt'
 
 with open(output_file, 'w', encoding='utf-8') as f:
