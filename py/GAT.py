@@ -155,80 +155,53 @@ with open('gat.txt', 'w', encoding='utf-8') as new_file:
 
 
 
-# 函数：获取视频分辨率
-def get_video_resolution(video_path, timeout=0.8):
-    cap = cv2.VideoCapture(video_path)
-    if not cap.isOpened():
-        return None
-    width = int(cap.get(cv2.CAP_PROP_FRAME_WIDTH))
-    height = int(cap.get(cv2.CAP_PROP_FRAME_HEIGHT))
-    cap.release()
-    return (width, height)
+import cv2
+import time
+from tqdm import tqdm
 
-# 函数：处理每一行
-def process_line(line, output_file, order_list, valid_count, invalid_count, total_lines):
-    parts = line.strip().split(',')
-    if '#genre#' in line:
-        # 如果行包含 '#genre#'，直接写入新文件
-        with threading.Lock():
+# 存储文件路径
+file_path = "gat.txt"
+output_file_path = "gat.txt"
+
+# 打开输入文件和输出文件
+with open(file_path, 'r', encoding='utf-8') as file:
+    lines = file.readlines()
+
+# 获取总行数用于进度条
+total_lines = len(lines)
+
+# 写入通过检测的行到新文件
+with open(output_file_path, 'w', encoding='utf-8') as output_file:
+    # 使用tqdm显示进度条
+    for i, line in tqdm(enumerate(lines), total=total_lines, desc="Processing", unit='line'):
+        # 检查是否包含 'genre'
+        if 'genre' in line:
             output_file.write(line)
-            print(f"已写入genre行：{line.strip()}")
-    elif len(parts) == 2:
-        channel_name, channel_url = parts
-        resolution = get_video_resolution(channel_url, timeout=8)
-        if resolution and resolution[1] >= 720:  # 检查分辨率是否大于等于720p
-            with threading.Lock():
-                output_file.write(f"{channel_name}[{resolution[1]}p],{channel_url}\n")
-                order_list.append((channel_name, resolution[1], channel_url))
-                valid_count[0] += 1
-                print(f"Channel '{channel_name}' accepted with resolution {resolution[1]}p at URL {channel_url}.")
-        else:
-            invalid_count[0] += 1
-    with threading.Lock():
-        print(f"有效: {valid_count[0]}, 无效: {invalid_count[0]}, 总数: {total_lines}, 进度: {(valid_count[0] + invalid_count[0]) / total_lines * 100:.2f}%")
+            continue
+        # 分割频道名称和URL,并去除空白字符
+        parts = line.split(',', 1)
+        if len(parts) == 2:
+            channel_name, url = parts
+            channel_name = channel_name.strip()
+            url = url.strip()
+            # 进行检测
+            cap = cv2.VideoCapture(url)
+            start_time = time.time()
+            frame_count = 0
+            # 尝试捕获10秒内的帧
+            while frame_count < 40 and (time.time() - start_time) < 3:
+                ret, frame = cap.read()
+                if not ret:
+                    break
+                frame_count += 1
+            # 释放资源
+            cap.release()
+            # 根据捕获的帧数判断状态并记录结果
+            if frame_count >= 40:  # 10秒内超过200帧则写入
+                output_file.write(line)  # 写入检测通过的行
 
-# 函数：多线程工作
-def worker(task_queue, output_file, order_list, valid_count, invalid_count, total_lines):
-    while True:
-        try:
-            line = task_queue.get(timeout=1)
-            process_line(line, output_file, order_list, valid_count, invalid_count, total_lines)
-        except Queue.Empty:
-            break
-        finally:
-            task_queue.task_done()
+# 无需再打印酒店源，因为这里是对所有URL进行检测，而不是基于IP分组检测
 
-# 主函数
-def main(source_file_path, output_file_path):
-    order_list = []
-    valid_count = [0]
-    invalid_count = [0]
-    task_queue = Queue()
-
-    # 读取源文件
-    with open(source_file_path, 'r', encoding='utf-8') as source_file:
-        lines = source_file.readlines()
-
-    with open(output_file_path + '.txt', 'w', encoding='utf-8') as output_file:
-        # 创建线程池
-        with ThreadPoolExecutor(max_workers=64) as executor:
-            # 创建并启动工作线程
-            for _ in range(64):
-                executor.submit(worker, task_queue, output_file, order_list, valid_count, invalid_count, len(lines))
-
-            # 将所有行放入队列
-            for line in lines:
-                task_queue.put(line)
-
-            # 等待队列中的所有任务完成
-            task_queue.join()
-
-    print(f"任务完成，有效频道数：{valid_count[0]}, 无效频道数：{invalid_count[0]}, 总频道数：{len(lines)}")
-
-if __name__ == "__main__":
-    source_file_path = 'gat.txt'  # 替换为你的源文件路径
-    output_file_path = 'gat'  # 替换为你的输出文件路径,不要后缀名
-    main(source_file_path, output_file_path)
 
 
 with open('gat.txt', 'r', encoding='UTF-8') as f:
