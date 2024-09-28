@@ -3,8 +3,8 @@ import time
 import datetime
 from datetime import datetime, timedelta  # 确保 timedelta 被导入
 import concurrent.futures
-from selenium import webdriver
-from selenium.webdriver.chrome.options import Options
+#from selenium import webdriver
+#from selenium.webdriver.chrome.options import Options
 from concurrent.futures import ThreadPoolExecutor
 import requests
 import re
