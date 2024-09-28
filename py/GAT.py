@@ -14,9 +14,7 @@ import time
 keywords = ['凤凰卫视', '人间卫视', '亚洲卫视', '香港卫视', '神乐', '翡翠台', '凤凰香港', '凤凰中文', '凤凰资讯', 'AXN', 'AMC', '香蕉', '电影台', '大爱', '东森', 'MTV', 
                     '华视', '中天', '天良', '美亚', '星影', '纬来', '天映', '无线', '华剧台', '华丽台', '剧台', 'Movie', '八大', '采昌', '靖天', '民视', '探索', '旅游', '影视2', 
                     '影视3', '中视', '豬哥亮', 'TVB', '公视', '寰宇', '戏剧', '靖', '龙华', '龙祥', '猪哥亮', '综艺', '新闻', '影迷', '影剧', '电视剧', '49号', '欢喜', '珍珠', '台视', '华视', 
-                    'AMC电影台', 'BLOOM', 'CINEM', 'CMUSIC音乐台', 'CNBC', 'DWNEWS', 'Dbox', 'ELTV', 'FEST', 'GOOD2', 'HISTORY', 'HITS', 'HakkaTV', 'KOREA', 'LIFETIME', 'LISTENONSPOTIFY', 'LOVENATURE', 
-                    'LUXE', 'MCE', 'Nickelodeon', 'PETCLUB', 'ROCK', 'ROCKACTION', 'TECHSTORM', 'TV5MONDE', 'TVBS', 'TiTV', 'VOA', 'elta', 'hokkotv', 'momo', 'nhkworld', 'nickjr', 
-                    '中华小当家', '中天娱乐', '互动英语', '亚洲旅游', '全球财经', '公视戏剧', '动漫', '动物星球', '动画台', '博斯', 
+                    'AMC电影台', '中华小当家', '中天娱乐', '互动英语', '亚洲旅游', '全球财经', '公视戏剧', '动漫', '动物星球', '动画台', '博斯', 
                     '哆啦A梦', '壹新闻', '大立电视', '天良综合台', '幸福空间', '探案', '探索亚洲', '智林体育', '東森新聞', '环球电视', 
                     '美亚C+', '超人', '镜新闻', '番薯']  # 这里定义你的搜索关键词列表
 output_file = 'gat.txt'
@@ -109,7 +107,7 @@ print("处理完成，繁体转换完成")
 import re
 import os
 # 定义一个包含所有要排除的关键词的列表
-excluded_keywords = ['zhoujie218', 'service', 'udp', 'rtp', 'P2p', 'p2p', 'p3p', 'P2P', '新闻综合', 'P3p', 'jdshipin', '9930/qilu', 'gitcode.net', '151:99', '21dtv', 'txmov2', 'gcw.bdcdn', 'metshop', 
+excluded_keywords = ['zhoujie218', 'service', 'ZIPP', '112114', 'xfjcHD', 'stream8.jlntv', 'live.cooltv', 'P2P', '新闻综合', 'P3p', 'jdshipin', '9930/qilu', 'gitcode.net', '151:99', '21dtv', 'txmov2', 'gcw.bdcdn', 'metshop', 
                      'shandong', 'goodiptv', '购物', '[', 'P3P', '腔', '曲', '//1', '/hls/', '春节', 'gat', '95.179', 'hlspull', 'github', 'lunbo', 'tw.ts138', '114:8278', '//tvb', 'extraott', 
                      '22:8891', 'fanmingming', '43:22222', 'etv.xhgvip', 'free.xiptv', 'www.zhixun', 'xg.52sw', 'iptv.yjxfz.com', 'zb.qc']   #, '', ''
 # 定义一个包含所有要提取的关键词的列表
