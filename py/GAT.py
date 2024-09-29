@@ -12,8 +12,8 @@ import time
 
 
 keywords = ['凤凰卫视', '人间卫视', '香港卫视', '翡翠', '凤凰香港', '凤凰中文', '凤凰资讯', 'AXNHD', 'AMC电影', '电影台', '大爱', '东森', 'MTV', '好莱坞', '纬来', '天映', '八大', 
-            '华视', '中天', '天良', '美亚', '无线', '影剧', '戏剧台', '靖天', '民视', '三立', '影视2', 'NewTV', 'iHot', 
-            '影视3', '中视', '豬哥亮', 'TVB', '公视', '寰宇', '靖天', '靖洋', '龙华', '龙祥', '猪哥亮', '综艺', '影迷', '台视', '华视', 
+            '华视', '中天', '天良', '美亚', '无线', '影剧', '戏剧台', '靖天', '民视', '三立', '影视2', '综艺', '影迷', '台视', '华视', 
+            '影视3', '中视', '豬哥亮', 'TVB', '公视', '寰宇', '靖天', '靖洋', '龙华', '龙祥', '猪哥亮', 
             '中华小当家', '中天娱乐', '动漫', '动物星球', '动画台', '壹新闻', '大立电视', '天良', '探案', '超人', '番薯']  # 这里定义你的搜索关键词列表
 output_file = 'gat.txt'
 
@@ -105,8 +105,8 @@ print("处理完成，繁体转换完成")
 import re
 import os
 # 定义一个包含所有要排除的关键词的列表
-excluded_keywords = ['zhoujie218', 'service', '112114', 'xfjcHD', 'stream8.jlntv', 'live.cooltv', 'P2P', '新闻综合', 
-                     'P3p', 'cookies', '9930/qilu', 'gitcode.net', 'Classic天']   #, ', '', ', '', ', '', ', '', ', '', ', '', ''
+excluded_keywords = ['zhoujie218', 'service', '112114', 'xfjcHD', 'stream8.jlntv', 'live.cooltv', 'P2P', 'tsfile', 'P3p', 'cookies', '9930/qilu', 'gitcode.net', 'Classic天']
+#, ', '', ', '', ', '', ', '', ', '', ', '', ''
 # 定义一个包含所有要提取的关键词的列表
 extract_keywords = [',']
 # 读取文件并处理每一行
@@ -131,7 +131,7 @@ def filter_lines(file_path):
     filtered_lines = []
     for line in lines:
         if ',' in line:
-         if 'epg' not in line and 'mitv' not in line and 'udp' not in line and 'rtp' not in line \
+         if 'epg' not in line and 'mitv' not in line and 'udp' not in line and 'rtp' not in line and 'Classic天' not in line \
             and 'P2p' not in line and 'p2p' not in line and 'p3p' not in line and 'P2P' not in line and 'P3p' not in line and 'P3P' not in line:
           filtered_lines.append(line)
     
@@ -181,7 +181,7 @@ import cv2
 from urllib.parse import urlparse
 from tqdm import tqdm
 # 测试HTTP连接并尝试下载数据
-def test_connectivity_and_download(url, initial_timeout=1, retry_timeout=1):
+def test_connectivity_and_download(url, initial_timeout=0.5, retry_timeout=1):
     parsed_url = urlparse(url)
     if parsed_url.scheme not in ['http', 'https']:
         # 非HTTP(s)协议，尝试RTSP检测
@@ -193,7 +193,7 @@ def test_connectivity_and_download(url, initial_timeout=1, retry_timeout=1):
                 if response.status_code == 200:
                     start_time = time.time()
                     while time.time() - start_time < initial_timeout:
-                        chunk = response.raw.read(512)  # 尝试下载1KB数据
+                        chunk = response.raw.read(4096)  # 尝试下载1KB数据
                         if chunk:
                             return True  # 成功下载数据
         except requests.RequestException as e:
