@@ -17,17 +17,20 @@ keywords = ['凤凰卫视', '人间卫视', '香港卫视', '翡翠', '凤凰香
             '中华小当家', '中天娱乐', '动漫', '动物星球', '动画台', '壹新闻', '大立电视', '天良', '探案', '超人', '番薯']  # 这里定义你的搜索关键词列表
 output_file = 'gat.txt'
 
+keywords = ['凤凰卫视', '人间卫视', '香港卫视']  # 这里定义你的搜索关键词列表
+output_file = 'gat.txt'
+
 with open(output_file, 'w', encoding='utf-8') as f:
     for keyword in keywords:
-        for page in range(1, 2):
-            url = f'http://tonkiang.us/?page={page}&iqtv={keyword}'
-            response = requests.get(url)
-            if response.status_code == 200:
-                soup = BeautifulSoup(response.text, 'html.parser')
-                text_content = soup.get_text()
-                f.write(text_content + '\n')
-            else:
-                print(f'请求 {url} 失败，状态码：{response.status_code}')
+        url = f'http://tonkiang.us/?&iqtv={keyword}'
+        response = requests.get(url)
+        if response.status_code == 200:
+            # 使用BeautifulSoup解析网页内容并提取文本
+            soup = BeautifulSoup(response.text, 'html.parser')
+            text_content = soup.get_text()
+            f.write(text_content + '\n')
+        else:
+            print(f'请求 {url} 失败，状态码：{response.status_code}')
 
             
 with open('gat.txt', 'r', encoding='utf-8') as infile:
