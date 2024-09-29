@@ -219,7 +219,7 @@ with open(output_file_path, 'w', encoding='utf-8') as output_file:
             start_time = time.time()
             frame_count = 0
             # 尝试捕获10秒内的帧
-            while frame_count < 40 and (time.time() - start_time) < 3:
+            while frame_count < 35 and (time.time() - start_time) < 2:
                 ret, frame = cap.read()
                 if not ret:
                     break
@@ -227,7 +227,7 @@ with open(output_file_path, 'w', encoding='utf-8') as output_file:
             # 释放资源
             cap.release()
             # 根据捕获的帧数判断状态并记录结果
-            if frame_count >= 40:  # 10秒内超过200帧则写入
+            if frame_count >= 35:  # 10秒内超过200帧则写入
                 output_file.write(line)  # 写入检测通过的行
 
 # 无需再打印酒店源，因为这里是对所有URL进行检测，而不是基于IP分组检测
