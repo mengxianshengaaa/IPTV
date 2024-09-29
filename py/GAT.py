@@ -29,7 +29,7 @@ with open(output_file, 'w', encoding='utf-8') as f:
             f.write(text_content + '\n')
         else:
             print(f'请求 {url} 失败，状态码：{response.status_code}')
-        time.sleep(1)  # 添加 1 秒的延迟
+        time.sleep(2)  # 添加 1 秒的延迟
 
 
             
