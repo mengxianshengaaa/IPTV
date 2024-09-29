@@ -19,15 +19,15 @@ output_file = 'gat.txt'
 
 with open(output_file, 'w', encoding='utf-8') as f:
     for keyword in keywords:
-        url = f'http://tonkiang.us/?&iqtv={keyword}'
-        response = requests.get(url)
-        if response.status_code == 200:
-            # 使用BeautifulSoup解析网页内容并提取文本
-            soup = BeautifulSoup(response.text, 'html.parser')
-            text_content = soup.get_text()
-            f.write(text_content + '\n')
-        else:
-            print(f'请求 {url} 失败，状态码：{response.status_code}')
+        for page in range(1, 11):
+            url = f'http://tonkiang.us/?page={page}&iqtv={keyword}'
+            response = requests.get(url)
+            if response.status_code == 200:
+                soup = BeautifulSoup(response.text, 'html.parser')
+                text_content = soup.get_text()
+                f.write(text_content + '\n')
+            else:
+                print(f'请求 {url} 失败，状态码：{response.status_code}')
 
             
 with open('gat.txt', 'r', encoding='utf-8') as infile:
