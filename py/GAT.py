@@ -19,7 +19,7 @@ output_file = 'gat.txt'
 
 with open(output_file, 'w', encoding='utf-8') as f:
     for keyword in keywords:
-        for page in range(1, 3):
+        for page in range(1, 2):
             url = f'http://tonkiang.us/?page={page}&iqtv={keyword}'
             response = requests.get(url)
             if response.status_code == 200:
