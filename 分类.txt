@@ -6,6 +6,7 @@ CCTV6,https://api.olelive.com/dis/live/CCTV6HD/hls.m3u8
 CCTV6,http://183.185.252.91:9999/tsfile/live/0006_1.m3u8
 CCTV6,http://58.48.37.158:1111/tsfile/live/0006_1.m3u8
 CCTV8,http://210.22.75.86:9901/tsfile/live/0008_1.m3u8
+央视频道,#genre#
 湖北卫视,http://36.32.174.67:60080/newlive/live/hls/28/live.m3u8
 湖北卫视,http://111.198.33.228:880/chs032.m3u8
 湖南卫视,http://111.198.33.228:880/chs028.m3u8
