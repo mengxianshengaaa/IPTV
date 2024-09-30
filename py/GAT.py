@@ -105,7 +105,7 @@ print("处理完成，繁体转换完成")
 import re
 import os
 # 定义一个包含所有要排除的关键词的列表
-excluded_keywords = ['zhoujie218', 'service', '112114', 'xfjcHD', 'stream8.jlntv', 'live.cooltv', 'P2P', '新闻综合', 'P3p', 'cookies', 'tsfile', 'gitcode.net']   #, '', ''
+excluded_keywords = ['zhoujie218', 'service', '112114', 'xfjcHD', 'stream8.jlntv', 'live.cooltv', 'P2P', '新闻综合', 'P3p', 'cookies', '9930/qilu', 'gitcode.net']   #, '', ''
 # 定义一个包含所有要提取的关键词的列表
 extract_keywords = [',']
 # 读取文件并处理每一行
@@ -178,7 +178,7 @@ import requests
 from tqdm import tqdm
 import threading
 import re
-def test_connectivity(url, max_attempts=4):
+def test_connectivity(url, max_attempts=2):
     video_formats = ["m3u", "/", "rtsp"]
     if not any(re.search(keyword, url, re.I) for keyword in video_formats):
         print("\n特殊网址: 跳过检测")
