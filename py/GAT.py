@@ -178,14 +178,14 @@ import requests
 from tqdm import tqdm
 import threading
 import re
-def test_connectivity(url, max_attempts=1):
+def test_connectivity(url, max_attempts=4):
     video_formats = ["m3u", "/", "rtsp"]
     if not any(re.search(keyword, url, re.I) for keyword in video_formats):
         print("\n特殊网址: 跳过检测")
         return False
     for _ in range(max_attempts):
         try:
-            response = requests.get(url, timeout=3)
+            response = requests.get(url, timeout=0.3)
             return response.status_code == 200
         except requests.RequestException:
             pass
