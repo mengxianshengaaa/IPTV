@@ -8,11 +8,11 @@ print("程序已经自动过滤了特殊协议和组播以及酒店源，支持h
 print("/" * 80)
 
 # 保留原始的文件名输入部分
-a = input('FileName(DragHere):')
+#a = input('FileName(DragHere):')
 #with open(a, 'r', encoding="utf-8") as f:#拖入文件操作
 
 def filter_lines(file_path):
-    with open(a, 'r', encoding='utf-8') as file:
+    with open('综合源.txt', 'r', encoding='utf-8') as file:
         lines = file.readlines()
     
     filtered_lines = []
