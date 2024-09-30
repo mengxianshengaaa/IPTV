@@ -1,16 +1,5 @@
 ﻿import re
 import os
-
-
-# 原始的print语句和注释
-print("程序已经自动过滤了特殊协议和组播以及酒店源，支持http(s)/rts(m)p检测\n\n")
-# 保留的分隔线
-print("/" * 80)
-
-# 保留原始的文件名输入部分
-#a = input('FileName(DragHere):')
-#with open(a, 'r', encoding="utf-8") as f:#拖入文件操作
-
 def filter_lines(file_path):
     with open('综合源.txt', 'r', encoding='utf-8') as file:
         lines = file.readlines()
@@ -82,8 +71,6 @@ def test_connectivity_and_download(url, initial_timeout=1, retry_timeout=1):
 
     return False  # 默认返回False
 
-print("/" * 80)
-
 # 测试RTSP连接并尝试读取流
 def test_rtsp_connectivity(url, timeout=3):
     cap = cv2.VideoCapture(url)
@@ -130,8 +117,6 @@ if __name__ == "__main__":
     输出 = "有效检测结果.txt"
     main(输入, 输出)
 
-print("/" * 80)
-
 # ###########################################定义替换规则的字典,对整行内的内容进行替换
 replacements = {
         ",None": "",
@@ -150,7 +135,3 @@ with open('有效检测结果.txt', 'w', encoding='utf-8') as new_file:
             line = line.replace(old, new)
         new_file.write(line)    
 
-# 等待用户输入，然后退出
-print("/" * 80)
-
-input("按任意键退出...")
