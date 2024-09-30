@@ -366,8 +366,8 @@ if __name__ == "__main__":
     # 获取上一层目录
     parent_dir = os.path.dirname(current_dir)
 
-    input_file1 = os.path.join(parent_dir, 'merged_output.txt')  # 输入文件路径1
-    input_file2 = os.path.join(current_dir, 'blacklist_auto.txt')  # 输入文件路径2 
+    input_file1 = os.path.join(parent_dir, '综合源.txt')  # 输入文件路径1
+    input_file2 = os.path.join(current_dir, 'gat.txt')  # 输入文件路径2 
     success_file = os.path.join(current_dir, 'whitelist_auto.txt')  # 成功清单文件路径
     success_file_tv = os.path.join(current_dir, 'whitelist_auto_tv.txt')  # 成功清单文件路径（另存一份直接引用源）
     blacklist_file = os.path.join(current_dir, 'blacklist_auto.txt')  # 黑名单文件路径
