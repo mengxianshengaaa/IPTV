@@ -493,109 +493,6 @@ print("替换完成，新文件已保存。")
 
 
 
-
-########################################################################################################################################################################################
-# ###########################################定义替换规则的字典,对整行内的内容进行替换
-replacements = {
-        "$4.0M1080": "",
-    	"$5.5M1080": "",
-    	"$海南移动V4": "",
-    	"$4.1M1080": "",
-    	"$8.1M1080": "",
-    	"$4.0M_1080": "",
-    	"$5.5M_1080": "",
-    	"$4.1M_1080": "",
-    	"$8.0M_1080": "",
-    	"": "",
-        "": "",
-        "": "",
-        "": "",
-        "": "",
-        "": "",
-        "": "",
-        "": "",
-        "": "",
-        "": "",
-        "": "",
-        "": "",
-        "": "",
-        "": "",
-        "": "",
-        "": "",
-        "": "",
-        "": "",
-        "$7.9M1080": "",
-    	"$未知480P": "",
-    	"$8.0M1080": "",
-    	"$7.6M1080": "",
-    	"$7.0M1080": "",
-    	"$6.9M1080": "",
-    	"$7.8M1080": "",
-    	"$7.9M_1080": ""
-}
-
-# 打开原始文件读取内容，并写入新文件
-with open('2.txt', 'r', encoding='utf-8') as file:
-    lines = file.readlines()
-
-# 创建新文件并写入替换后的内容
-with open('2.txt', 'w', encoding='utf-8') as new_file:
-    for line in lines:
-        for old, new in replacements.items():
-            line = line.replace(old, new)
-        new_file.write(line)
-
-print("替换完成，新文件已保存。")
-
-
-
-
-
-########################################################################################################################################################################################
-#################文本排序
-
-# 打开原始文件读取内容，并写入新文件
-with open('2.txt', 'r', encoding='utf-8') as file:
-    lines = file.readlines()
-
-
-# 定义一个函数，用于提取每行的第一个数字
-def extract_first_number(line):
-    match = re.search(r'\d+', line)
-    return int(match.group()) if match else float('inf')
-
-# 对列表中的行进行排序
-# 按照第一个数字的大小排列，如果不存在数字则按中文拼音排序
-sorted_lines = sorted(lines, key=lambda x: (not 'CCTV' in x, extract_first_number(x) if 'CCTV' in x else lazy_pinyin(x.strip())))
-
-# 将排序后的行写入新的utf-8编码的文本文件，文件名基于原文件名
-output_file_path = "sorted_" + os.path.basename(file_path)
-
-# 写入新文件
-with open('2.txt', "w", encoding="utf-8") as file:
-    for line in sorted_lines:
-        file.write(line)
-
-print(f"文件已排序并保存为: {output_file_path}")
-
-
-########################################################################################################################################################################################
-################################################################简体转繁体
-# 创建一个OpenCC对象，指定转换的规则为繁体字转简体字
-converter = OpenCC('t2s.json')#繁转简
-#converter = OpenCC('s2t.json')#简转繁
-# 打开txt文件
-with open('2.txt', 'r', encoding='utf-8') as file:
-    traditional_text = file.read()
-
-# 进行繁体字转简体字的转换
-simplified_text = converter.convert(traditional_text)
-
-# 将转换后的简体字写入txt文件
-with open('2.txt', 'w', encoding='utf-8') as file:
-    file.write(simplified_text)
-
-
 ########################################################################################################################################################################################
 ################################################################定义关键词分割规则
 def check_and_write_file(input_file, output_file, keywords):
@@ -624,7 +521,7 @@ def check_and_write_file(input_file, output_file, keywords):
         file_size = os.path.getsize(output_file)
         
         # 如果文件大小小于30字节（假设的最小文件大小），删除文件
-        if file_size < 800:
+        if file_size < 20:
             os.remove(output_file)
             print(f"文件只包含头部信息，{output_file} 已被删除。")
         else:
