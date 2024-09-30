@@ -169,12 +169,55 @@ with open('gat.txt', 'w', encoding='utf-8') as new_file:
         for old, new in replacements.items():
             line = line.replace(old, new)
         new_file.write(line)   
+######################连通性检测
+import requests
+import queue
+import threading
+from tqdm import tqdm
+def test_connectivity(url, max_attempts=2):
+    for _ in range(max_attempts):
+        try:
+            response = requests.head(url, timeout=3)
+            return response.status_code == 200
+        except requests.RequestException:
+            pass
+    return False
+def process_line(line, result_queue):
+    parts = line.strip().split(",")
+    if len(parts) == 2 and parts[1]:
+        channel_name, channel_url = parts
+        if test_connectivity(channel_url):
+            result_queue.put((channel_name, channel_url))
+    else:
+        pass
+def main(source_file_path, output_file_path):
+    with open(source_file_path, "r", encoding="utf-8") as source_file:
+        lines = source_file.readlines()
+    result_queue = queue.Queue()
+    threads = []
+    for line in tqdm(lines, desc="检测进行中"):
+        thread = threading.Thread(target=process_line, args=(line, result_queue))
+        thread.start()
+        threads.append(thread)
+    for thread in threads:
+        thread.join()
+    with open(output_file_path, "w", encoding="utf-8") as output_file:
+        while not result_queue.empty():
+            item = result_queue.get()
+            if item[0] and item[1]:
+                output_file.write(f"{item[0]},{item[1]}\n")
+if __name__ == "__main__":
+    try:
+        source_file_path = "gat.txt"
+        output_file_path = "gat.txt"
+        main(source_file_path, output_file_path)
+    except Exception as e:
+        print(f"程序发生错误: {e}")
 
 
 
 
-
-# 函数：获取视频分辨率
+########################## 函数：获取视频分辨率
 def get_video_resolution(video_path, timeout=0.8):
     cap = cv2.VideoCapture(video_path)
     if not cap.isOpened():
