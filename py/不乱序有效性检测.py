@@ -29,7 +29,7 @@ def write_filtered_lines(output_file_path, filtered_lines):
         output_file.writelines(filtered_lines)
 
 if __name__ == "__main__":
-    input_file_path = a
+    input_file_path = '综合源.txt'
     output_file_path = "有效检测结果.txt"
     
     filtered_lines = filter_lines(input_file_path)
