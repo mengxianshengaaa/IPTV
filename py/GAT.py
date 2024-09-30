@@ -11,7 +11,7 @@ from concurrent.futures import ThreadPoolExecutor
 import time
 
 
-keywords = ['CCTV15', 'CCTV1', 'CCTV3', 'CCTV6', 'CCTV8', 'newtv', 'ihot', '动作电影', '家庭影院', '高清电影', '影迷电影', '湖北卫视', '湖南卫视', '凤凰卫视', '人间卫视', '香港卫视', '翡翠台', '凤凰香港', '凤凰中文', '凤凰资讯', 'AXN', 'AMC电影台', '电影台', '大爱', '东森', 'MTV', '好莱坞', '纬来', '天映', '八大', 
+keywords = ['CCTV15', 'CCTV1', 'CCTV3', 'CCTV6', 'CCTV8', 'NewTV', 'iHot', '动作电影', '家庭影院', '高清电影', '影迷电影', '湖北卫视', '湖南卫视', '凤凰卫视', '人间卫视', '香港卫视', '翡翠台', '凤凰香港', '凤凰中文', '凤凰资讯', 'AXN', 'AMC电影台', '电影台', '大爱', '东森', 'MTV', '好莱坞', '纬来', '天映', '八大', 
             '华视', '中天', '天良', '美亚', '星影', '无线', '华剧台', '华丽台', 'Movie', '采昌', '靖天', '民视', '三立', '影视2', 
             '影视3', '中视', '豬哥亮', 'TVB', '公视', '寰宇', '戏剧台', '靖天', '靖洋', '龙华', '龙祥', '猪哥亮', '影迷', '影剧', '台视', '华视', 
             '中华小当家', '中天娱乐', '公视戏剧', '动漫', '动物星球', '动画台', '壹新闻', '大立电视', '天良', '探案', '超人', '番薯']  # 这里定义你的搜索关键词列表
@@ -105,7 +105,7 @@ print("处理完成，繁体转换完成")
 import re
 import os
 # 定义一个包含所有要排除的关键词的列表
-excluded_keywords = ['zhoujie218', 'service', '112114', 'xfjcHD', 'stream8.jlntv', 'live.cooltv', 'P2P', '新闻综合', 'P3p', 'cookies', '9930/qilu', 'gitcode.net']   #, '', ''
+excluded_keywords = ['zhoujie218', 'service', '112114', 'xfjcHD', 'stream8.jlntv', 'live.cooltv', 'P2P', '新闻综合', 'P3p', 'cookies', 'tsfile', 'gitcode.net']   #, '', ''
 # 定义一个包含所有要提取的关键词的列表
 extract_keywords = [',']
 # 读取文件并处理每一行
@@ -185,7 +185,7 @@ def test_connectivity(url, max_attempts=1):
         return False
     for _ in range(max_attempts):
         try:
-            response = requests.get(url, timeout=0.3)
+            response = requests.get(url, timeout=3)
             return response.status_code == 200
         except requests.RequestException:
             pass
