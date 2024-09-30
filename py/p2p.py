@@ -287,8 +287,7 @@ def remove_duplicates_url(lines):
     return newlines
 
 
-python
- 复制
+
 # 处理带$的 URL，把$之后的内容都去掉（包括$也去掉） 【2024-08-08 22:29:11】
 def clean_url(lines):
     urls =[]
