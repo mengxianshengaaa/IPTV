@@ -261,11 +261,12 @@ def extract_first_number(line):
 
 # 对列表中的行进行排序，按照第一个数字的大小排列，其余行按中文排序
 sorted_lines = sorted(lines, key=lambda x: (not 'CCTV' in x, extract_first_number(x) if 'CCTV' in x else lazy_pinyin(x.strip())))
-
 # 将排序后的行写入新的utf-8编码的文本文件
 with open("gat.txt", "w", encoding="utf-8") as file:
     for line in sorted_lines:
         file.write(line)
+
+
 from pypinyin import lazy_pinyin
 import re
 import os
