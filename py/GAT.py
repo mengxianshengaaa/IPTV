@@ -648,10 +648,10 @@ def remove_duplicates(input_file, output_file):
     print("去重后的行数：", len(output_lines))
 
 # 使用方法
-remove_duplicates('去重.txt', '分类.txt')
+remove_duplicates('去重.txt', 'GAT.txt')
 
 # 打开文档并读取所有行 
-with open('分类.txt', 'r', encoding="utf-8") as file:
+with open('GAT.txt', 'r', encoding="utf-8") as file:
  lines = file.readlines()
  
 # 使用列表来存储唯一的行的顺序 
@@ -683,11 +683,11 @@ for file in files_to_remove:
     else:              # 如果文件不存在，则提示异常并打印提示信息
         print(f"文件 {file} 不存在，跳过删除。")
 
-print("任务运行完毕，分类频道列表可查看文件夹内综合源.txt文件！")
+print("任务运行完毕，GAT频道列表可查看文件夹内综合源.txt文件！")
 
 
 
 
 
 
-print("任务运行完毕，分类频道列表可查看文件夹内综合源.txt文件！")
+print("任务运行完毕，GAT频道列表可查看文件夹内综合源.txt文件！")
