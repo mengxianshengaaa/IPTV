@@ -10,9 +10,6 @@ import subprocess
 # 当前日期
 timestart = datetime.now()
 
-# 定义需屏蔽 IP 域名
-BlackHost = ["127.0.0.1:8080", "live3.lalifeier.eu.org", "newcntv.qcloudcdn.com"]
-
 ################################################ 读取文件内容
 def read_txt_file(file_path):
     with open(file_path, 'r', encoding='utf-8') as file:
@@ -65,7 +62,7 @@ def check_rtp_url(url, timeout):
         parsed_url = urlparse(url)
         host = parsed_url.hostname
         port = parsed_url.port
-        with socket.socket(socket.AF_INET, socket.SOCK_DGRAM) as s:
+        with socket.socket(socket.AF_INET, socket.SOCK_DUDP) as s:
             s.settimeout(timeout)
             s.connect((host, port))
             s.sendto(b'', (host, port))
@@ -112,7 +109,7 @@ def check_p2p_url(url, timeout):
         print(f"Error checking {url}: {e}")
     return False
 
-################################################# 处理单行文本并检测 URL
+################################################# 处理单行文本并检测URL
 def process_line(line):
     if "#genre#" in line:
         return line.strip()
@@ -121,10 +118,10 @@ def process_line(line):
         name, url = parts
         elapsed_time, is_valid = check_url(url.strip())
         if is_valid:
-            return f"{elapsed_time:.2f}ms,{name},{url.strip()}"
+            return line.strip()  # 修改这里，输出原始行
     return None
 
-################################################# 多线程处理文本并检测 URL
+################################################# 多线程处理文本并检测URL
 def process_urls_multithreaded(lines, max_workers=30):
     results = []
     with ThreadPoolExecutor(max_workers=max_workers) as executor:
@@ -137,13 +134,13 @@ def process_urls_multithreaded(lines, max_workers=30):
 
 ################################################# 写入文件
 def write_list(file_path, data_list):
-    with open(file_path, 'w', encoding='utf-8') as file:
+    with open(file_path, 'w', encoding='utf-8') as:
         for item in data_list:
             file.write(item + '\n')
 
 if __name__ == "__main__":
     input_file_path = "综合源.txt"  # 替换为你的输入文件路径
-    output_file_path = "your.txt"  # 替换为你的输出文件路径
+    output_file_path = "y.txt"  # 替换为你的输出文件路径
     lines = read_txt_file(input_file_path)
     results = process_urls_multithreaded(lines)
     write_list(output_file_path, results)
