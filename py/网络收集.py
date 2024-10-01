@@ -362,7 +362,7 @@ with open('2.txt', 'r', encoding='utf-8') as file:
     lines = file.readlines()
 
     # 创建或打开一个输出文件用于写入处理后的数据
-    with open('无效IP.txt', 'w', encoding='utf-8') as outfile:
+    with open('网络收集.txt', 'w', encoding='utf-8') as outfile:
         for line in lines:
             # 首先检查行是否包含任何提取关键词
             if any(keyword in line for keyword in extract_keywords):
@@ -412,7 +412,7 @@ def parse_file(input_file_path, output_file_name):
                 output_file.write(line + '\n')
             output_file.write('\n')  # 在每个小段后添加一个空行作为分隔
 # 调用函数并传入文件路径和输出文件名
-parse_file('无效IP.txt', '无效IP.txt')
+parse_file('网络收集.txt', '网络收集.txt')
 
 
 
@@ -422,7 +422,7 @@ from tqdm import tqdm
 import os
 
 # 存储文件路径
-file_path = "无效IP.txt"
+file_path = "网络收集.txt"
 output_file_path = "网络收集.txt"
 
 def get_ip_key(url):
