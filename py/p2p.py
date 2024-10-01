@@ -139,7 +139,7 @@ def write_list(file_path, data_list):
             file.write(item + '\n')
 
 if __name__ == "__main__":
-    input_file_path = "综合源.txt"  # 替换为你的输入文件路径
+    input_file_path = "y.txt"  # 替换为你的输入文件路径
     output_file_path = "y.txt"  # 替换为你的输出文件路径
     lines = read_txt_file(input_file_path)
     results = process_urls_multithreaded(lines)
