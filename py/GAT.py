@@ -31,8 +31,7 @@ with open(output_file, 'w', encoding='utf-8') as f:
 
             
 with open('gat.txt', 'r', encoding='utf-8') as infile:
-    lines = infile.readlines()
-
+    lines = infile.readlines
 new_lines = []
 for i in range(len(lines)):
     line = lines[i]
@@ -44,10 +43,48 @@ for i in range(len(lines)):
                 break
         channel_url = line.strip()
         new_lines.append(f'{channel_name},{channel_url}\n')
-
 with open('gat.txt', 'w', encoding='utf-8') as outfile:
     outfile.writelines(new_lines)
 
+keywords = ['凤凰卫视', '人间卫视', '香港卫视', '翡翠台', '凤凰香港', '凤凰中文', '凤凰资讯', '电影台', '电影台', '大爱', '东森', '好莱坞', '纬来', '天映', '八大',
+            '华视', '中天', '天良', '美亚', '星影', '无线', '华剧台', '华丽台', '采昌', '靖天', '民视', '三立', '中视', '猪哥亮', 'TVB', '公视', '寰宇', '戏剧台', '靖天', '靖洋', '龙华', '龙祥', '猪哥亮', '影迷', '影剧', '台视', '华视',
+            '中华小当家', '中天娱乐', '公视戏剧', '动漫', '动物星球', '动画台', '壹新闻', '大立电视', '天良', '探案', '超人', '番薯']  # 这里定义你的搜索关键词列表
+output_file = '2.txt'
+
+with open(output_file, 'w', encoding='utf-8') as f:
+    for keyword in keywords:
+        url = f'https://api.pearktrue.cn/api/tv/search.php?name={keyword}'
+        try:
+            response = requests.get(url)
+            if response.status_code == 200:
+                print(response.content)  # 打印响应内容
+                try:
+                    soup = BeautifulSoup(response.content, 'html.parser')
+                    text_content = soup.get_text()
+                    f.write(text_content + '\n')
+                except Exception as e:
+                    print(f"Error parsing content for keyword {keyword}: {e}")
+            else:
+                print(f'请求 {url} 失败，状态码：{response.status_code}')
+        except Exception as e:
+            print(f"Error fetching URL for keyword {keyword}: {e}")
+        time.sleep(1)  # 添加 1 秒的延迟
+
+result = []
+with open('2.txt', 'r', encoding='utf-8') as f:
+    for line in f:
+        if '"videoname":' in line:
+            videoname_start = line.find('"videoname":') + len('"videoname": "')
+            videoname_end = line.find('",', videoname_start)
+            videoname = line[videoname_start:videoname_end]
+        elif '"link":' in line:
+            link_start = line.find('"link":') + len('"link": "')
+            link_end = line.find('"', link_start)
+            link = line[link_start:link_end]
+            result.append(f"{videoname},{link}\n")
+
+with open('gat.txt', 'a', encoding='utf-8') as f:
+    f.writelines(result)
 
 
 def remove_duplicates(input_file, output_file):
