@@ -50,7 +50,7 @@ urls = [
        'https://raw.bgithub.xyz/junge3333/juds6/main/yszb1.txt',
        'https://raw.bgithub.xyz/zzmaze/iptv/main/iptv.txt',
        'https://raw.bgithub.xyz/kimwang1978/collect-tv-txt/main/others_output.txt',
-       '',
+       'https://raw.bgithub.xyz/newrecha/TVBOX/5cdd7dcc228f14e4c7f343278e330481aae84eee/live/free.txt',
        '',
        '',
        '',
@@ -342,7 +342,7 @@ remove_duplicates('汇总.txt', '2.txt')
 import re
 import os
 # 定义一个包含所有要排除的关键词的列表
-excluded_keywords = ['epg', 'mitv', 'udp', 'rtp', 'P2p', 'p2p', 'p3p', 'P2P', '新闻综合', 'P3p', 'jdshipin', '9930/qilu', 'gitcode.net', '151:99', '21dtv', 'txmov2', 'gcw.bdcdn', 'metshop', 
+excluded_keywords = ['epg', 'mitv', 'udp', 'rtp', 'P2p', 'p2p', 'p3p', 'P2P', '新闻综合', 'P3p', 'jdshipin#', '9930/qilu', 'gitcode.net', '151:99', '21dtv', 'txmov2', 'gcw.bdcdn', 'metshop', 
                      'shandong', 'goodiptv', '购物', '[', 'P3P', '腔', '曲', '//1', '/hls/', '春节', 'gat', '95.179', 'hlspull', 'github', 'lunbo', 'tw.ts138', '114:8278', '//tvb', 'extraott', 
                      '22:8891', 'fanmingming', '43:22222', 'etv.xhgvip', 'free.xiptv', 'www.zhixun', 'xg.52sw', 'iptv.yjxfz.com', 'zb.qc']   #, '', ''
 
