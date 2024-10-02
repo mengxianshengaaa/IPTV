@@ -783,7 +783,7 @@ with open(file_path, 'r+', encoding='utf-8') as f:
      
 
 ################################################################################################任务结束，删除不必要的过程文件
-files_to_remove = ["GAT.txt", "汇总.txt"]
+files_to_remove = ["gat.txt", "汇总.txt"]
 for file in files_to_remove:
     if os.path.exists(file):
         os.remove(file)
