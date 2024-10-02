@@ -25,6 +25,7 @@ with open(output_file, 'w', encoding='utf-8') as f:
             soup = BeautifulSoup(response.text, 'html.parser')
             text_content = soup.get_text()
             f.write(text_content + '\n')
+            print(f"{keyword}获取完成")        
         else:
             print(f'请求 {url} 失败，状态码：{response.status_code}')
         time.sleep(1)  # 添加 1 秒的延迟
@@ -57,7 +58,7 @@ with open(output_file, 'w', encoding='utf-8') as f:
         try:
             response = requests.get(url)
             if response.status_code == 200:
-                print(response.content)  # 打印响应内容
+                print(f"{keyword}获取完成")  # 打印响应内容
                 try:
                     soup = BeautifulSoup(response.content, 'html.parser')
                     text_content = soup.get_text()
