@@ -31,7 +31,7 @@ with open(output_file, 'w', encoding='utf-8') as f:
 
             
 with open('gat.txt', 'r', encoding='utf-8') as infile:
-    lines = infile.readlines
+    lines = infile.readlines()
 new_lines = []
 for i in range(len(lines)):
     line = lines[i]
