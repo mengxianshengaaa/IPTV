@@ -582,9 +582,9 @@ def check_and_write_file(input_file, output_file, keywords):
         print(f"未提取到关键词，不创建输出文件 {output_file}。")
 
 # 按类别提取关键词并写入文件
-check_and_write_file('2.txt','a0.txt',keywords="央视频道,CCTV")
-check_and_write_file('2.txt','a.txt',keywords="央视频道,湖北,湖南")
-#check_and_write_file('2.txt','a1.txt',keywords="央视频道,动作电影,高清电影,家庭影院,影迷电影")
+check_and_write_file('2.txt','a0.txt',keywords="央视频道1,CCTV")
+check_and_write_file('2.txt','a.txt',keywords="央视频道1,湖北,湖南")
+#check_and_write_file('2.txt','a1.txt',keywords="央视频道1,动作电影,高清电影,家庭影院,影迷电影")
 
 check_and_write_file('2.txt','c.txt',keywords="影视频道,爱情喜剧,爱喜喜剧,惊嫊悬疑,东北热剧,动作电影,无名,都市剧场,iHOT,海外剧场,欢笑剧场,重温经典,明星大片,中国功夫,军旅,东北热剧,中国功夫,军旅剧场,古装剧场,\
 家庭剧场,惊悚悬疑,欢乐剧场,潮妈辣婆,爱情喜剧,精品大剧,超级影视,超级电影,黑莓动画,黑莓电影,海外剧场,精彩影视,无名影视,潮婆辣妈,超级剧,热播精选")
