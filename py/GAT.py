@@ -636,15 +636,15 @@ def remove_duplicates(input_file, output_file):
             if genre_line:
                 output_lines.append(line)
     # 将结果写入输出文件
-    with open(output_file, 'w', encoding='utf-8') as f:
+    with open(output_file, 'a', encoding='utf-8') as f:
         f.writelines(output_lines)
     print("去重后的行数：", len(output_lines))
 
 # 使用方法
-remove_duplicates('去重.txt', 'gat.txt')
+remove_duplicates('去重.txt', '网络收集.txt')
 
 # 打开文档并读取所有行 
-with open('gat.txt', 'r', encoding="utf-8") as file:
+with open('网络收集.txt', 'r', encoding="utf-8") as file:
  lines = file.readlines()
  
 # 使用列表来存储唯一的行的顺序 
@@ -658,7 +658,7 @@ for line in lines:
   seen_lines.add(line)
 
 # 将唯一的行写入新的文档 
-with open('gat.txt', 'w', encoding="utf-8") as file:
+with open('网络收集.txt', 'w', encoding="utf-8") as file:
  file.writelines(unique_lines)
 
 
@@ -701,7 +701,7 @@ def append_text_between_files(file1_path, file2_path):
     combined_lines = unique_lines2 + unique_lines1
     with open(file2_path, 'w', encoding='utf-8') as file2:
         file2.write('\n'.join(combined_lines))
-file_path1 = 'gat.txt'
+file_path1 = '网络收集.txt'
 file_path2 = '综合源.txt'
 append_text_between_files(file_path1, file_path2)
 
