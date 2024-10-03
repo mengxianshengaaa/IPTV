@@ -47,7 +47,7 @@ for i in range(len(lines)):
 with open('gat.txt', 'w', encoding='utf-8') as outfile:
     outfile.writelines(new_lines)
 
-keywords = ['电影台', '戏剧台', '东森', '八大']  # 这里定义你的搜索关键词列表
+keywords = ['电影', '戏剧', '影院', '八大']  # 这里定义你的搜索关键词列表
 output_file = '2.txt'
 
 with open(output_file, 'w', encoding='utf-8') as f:
@@ -582,15 +582,8 @@ def check_and_write_file(input_file, output_file, keywords):
         print(f"未提取到关键词，不创建输出文件 {output_file}。")
 
 # 按类别提取关键词并写入文件
-check_and_write_file('2.txt','a0.txt',keywords="央视频道1,CCTV")
-check_and_write_file('2.txt','a.txt',keywords="央视频道1,湖北,湖南")
-#check_and_write_file('2.txt','a1.txt',keywords="央视频道1,动作电影,高清电影,家庭影院,影迷电影")
-
-check_and_write_file('2.txt','c.txt',keywords="影视频道,爱情喜剧,爱喜喜剧,惊嫊悬疑,东北热剧,动作电影,无名,都市剧场,iHOT,海外剧场,欢笑剧场,重温经典,明星大片,中国功夫,军旅,东北热剧,中国功夫,军旅剧场,古装剧场,\
-家庭剧场,惊悚悬疑,欢乐剧场,潮妈辣婆,爱情喜剧,精品大剧,超级影视,超级电影,黑莓动画,黑莓电影,海外剧场,精彩影视,无名影视,潮婆辣妈,超级剧,热播精选")
-check_and_write_file('2.txt','c1.txt',keywords="影视频道,求索动物,求索,求索科学,求索记录,爱谍战,爱动漫,爱科幻,爱青春,爱自然,爱科学,爱浪漫,爱历史,爱旅行,爱奇谈,爱怀旧,爱赛车,爱都市,爱体育,爱经典,\
-爱玩具,爱喜剧,爱悬疑,爱幼教,爱院线")
-
+#check_and_write_file('2.txt','a0.txt',keywords="央视频道1,CCTV")
+check_and_write_file('2.txt','a.txt',keywords="港澳频道,影,剧")
 
 check_and_write_file('2.txt','e.txt',keywords="港澳频道,TVB,澳门,龙华,民视,中视,华视,AXN,MOMO,采昌,耀才,靖天,镜新闻,靖洋,莲花,年代,爱尔达,好莱坞,华丽,非凡,公视,寰宇,无线,EVEN,MoMo,爆谷,面包,momo,唐人,\
 中华小,三立,CNA,FOX,RTHK,Movie,八大,中天,中视,东森,凤凰,天映,美亚,环球,翡翠,亚洲,大爱,大愛,明珠,半岛,AMC,龙祥,台视,1905,纬来,神话,经典都市,视界,番薯,私人,酒店,TVB,凤凰,半岛,星光视界,\
