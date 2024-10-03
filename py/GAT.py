@@ -47,7 +47,7 @@ for i in range(len(lines)):
 with open('gat.txt', 'w', encoding='utf-8') as outfile:
     outfile.writelines(new_lines)
 
-keywords = ['CCTV1', 'CCTV2', 'CCTV3', 'CCTV4', 'CCTV5', 'CCTV6', 'CCTV7', 'CCTV8', 'CCTV9', 'CCTV15', '湖北卫视', '湖南卫视', '江苏卫视', '北京卫视', '动作电影', '影迷电影', '家庭影院', '高清电影']  # 这里定义你的搜索关键词列表
+keywords = ['电影台', '戏剧台', '东森', '八大']  # 这里定义你的搜索关键词列表
 output_file = '2.txt'
 
 with open(output_file, 'w', encoding='utf-8') as f:
