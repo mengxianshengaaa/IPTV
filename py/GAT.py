@@ -12,7 +12,7 @@ import time
 
 
 keywords = ['凤凰卫视', '人间卫视', '香港卫视', '翡翠台', '凤凰香港', '凤凰中文', '凤凰资讯', 'AMC电影台', '电影台', '大爱', '东森', '好莱坞', '纬来', '天映', '八大', 
-            '华视', '中天', '天良', '美亚', '星影', '无线', '华剧台', '华丽台', '采昌', '靖天', '民视', '三立', '影视2', 
+            '华视', '中天', '天良', '美亚', '星影', '无线', '华剧台', '华丽台', '采昌', '靖天', '民视', '三立', '37.27.111.214', 
             '影视3', '中视', '豬哥亮', 'TVB', '公视', '寰宇', '戏剧台', '靖天', '靖洋', '龙华', '龙祥', '猪哥亮', '影迷', '影剧', '台视', '华视', 
             '中华小当家', '中天娱乐', '公视戏剧', '动漫', '动物星球', '动画台', '壹新闻', '大立电视', '天良', '探案', '超人', '番薯']  # 这里定义你的搜索关键词列表
 output_file = 'gat.txt'
@@ -47,9 +47,7 @@ for i in range(len(lines)):
 with open('gat.txt', 'w', encoding='utf-8') as outfile:
     outfile.writelines(new_lines)
 
-keywords = ['凤凰卫视', '人间卫视', '香港卫视', '翡翠台', '凤凰香港', '凤凰中文', '凤凰资讯', '电影台', '电影台', '大爱', '东森', '好莱坞', '纬来', '天映', '八大',
-            '华视', '中天', '天良', '美亚', '星影', '无线', '华剧台', '华丽台', '采昌', '靖天', '民视', '三立', '中视', '猪哥亮', 'TVB', '公视', '寰宇', '戏剧台', '靖天', '靖洋', '龙华', '龙祥', '猪哥亮', '影迷', '影剧', '台视', '华视',
-            '中华小当家', '中天娱乐', '公视戏剧', '动漫', '动物星球', '动画台', '壹新闻', '大立电视', '天良', '探案', '超人', '番薯']  # 这里定义你的搜索关键词列表
+keywords = ['CCTV1', 'CCTV2', 'CCTV3', 'CCTV4', 'CCTV5', 'CCTV6', 'CCTV7', 'CCTV8', 'CCTV9', 'CCTV15', '湖北卫视', '湖南卫视', '江苏卫视', '北京卫视', '动作电影', '影迷电影', '家庭影院', '高清电影']  # 这里定义你的搜索关键词列表
 output_file = '2.txt'
 
 with open(output_file, 'w', encoding='utf-8') as f:
@@ -168,7 +166,7 @@ def filter_lines(file_path):
     filtered_lines = []
     for line in lines:
         if ',' in line:
-         if 'epg' not in line and 'mitv' not in line and 'udp' not in line and 'rtp' not in line and '[' not in line \
+         if 'epg' not in line and 'mitv' not in line and 'udp' not in line and 'rtp' not in line and '[' not in line and 'tsfile' not in line \
             and 'P2p' not in line and 'p2p' not in line and 'p3p' not in line and 'P2P' not in line and 'P3p' not in line and 'P3P' not in line:
           filtered_lines.append(line)
     
