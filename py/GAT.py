@@ -636,7 +636,7 @@ def remove_duplicates(input_file, output_file):
             if genre_line:
                 output_lines.append(line)
     # 将结果写入输出文件
-    with open(output_file, 'a', encoding='utf-8') as f:
+    with open(output_file, 'w', encoding='utf-8') as f:
         f.writelines(output_lines)
     print("去重后的行数：", len(output_lines))
 
