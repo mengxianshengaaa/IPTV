@@ -110,8 +110,26 @@ def remove_duplicates(input_file, output_file):
         f.writelines(output_lines)
     print("去重后的行数：", len(output_lines))
 # 使用方法
-remove_duplicates('gat.txt', '网络收集.txt')
+remove_duplicates('gat.txt', 'gat.txt')
 print("处理完成，去重完成")
+
+############################################ 假设要打开的文本文件名为*.txt
+with open('gat.txt', 'r', encoding='utf-8') as f:
+    content1 = f.read()
+# 查找以'网络收集'命名的文件，可以遍历当前目录进行查找
+for filename in os.listdir():
+    if '网络收集' in filename:
+        with open(filename, 'r', encoding='utf-8') as f:
+            content2 = f.read()
+            break
+else:
+    print("未找到以'网络收集'命名的文件")
+    exit()
+# 将两个文件内容合并并输出到网络收集.txt
+with open('网络收集.txt', 'w', encoding='utf-8') as f:
+    f.write(content1 + content2)
+
+
 
 #################################################################
 # 打开文档并读取所有行 
