@@ -29,8 +29,6 @@ with open(output_file, 'w', encoding='utf-8') as f:
         else:
             print(f'请求 {url} 失败，状态码：{response.status_code}')
         time.sleep(1)  # 添加 1 秒的延迟
-
-            
 with open('gat.txt', 'r', encoding='utf-8') as infile:
     lines = infile.readlines()
 new_lines = []
@@ -46,10 +44,9 @@ for i in range(len(lines)):
         new_lines.append(f'{channel_name},{channel_url}\n')
 with open('gat.txt', 'w', encoding='utf-8') as outfile:
     outfile.writelines(new_lines)
-
+#################################################################
 keywords = ['电影', '戏剧', '影院', '八大']  # 这里定义你的搜索关键词列表
 output_file = '2.txt'
-
 with open(output_file, 'w', encoding='utf-8') as f:
     for keyword in keywords:
         url = f'https://api.pearktrue.cn/api/tv/search.php?name={keyword}'
@@ -68,7 +65,6 @@ with open(output_file, 'w', encoding='utf-8') as f:
         except Exception as e:
             print(f"Error fetching URL for keyword {keyword}: {e}")
         time.sleep(1)  # 添加 1 秒的延迟
-
 result = []
 with open('2.txt', 'r', encoding='utf-8') as f:
     for line in f:
@@ -86,6 +82,7 @@ with open('gat.txt', 'a', encoding='utf-8') as f:
     f.writelines(result)
 
 
+#################################################################
 def remove_duplicates(input_file, output_file):
     # 用于存储已经遇到的URL和包含genre的行
     seen_urls = set()
@@ -109,30 +106,48 @@ def remove_duplicates(input_file, output_file):
             if genre_line:
                 output_lines.append(line)
     # 将结果写入输出文件
-    with open(output_file, 'w', encoding='utf-8') as f:
+    with open(output_file, 'a', encoding='utf-8') as f:
         f.writelines(output_lines)
     print("去重后的行数：", len(output_lines))
-
 # 使用方法
-remove_duplicates('gat.txt', 'gat.txt')
+remove_duplicates('gat.txt', '网络收集.txt')
 print("处理完成，去重完成")
 
+#################################################################
+# 打开文档并读取所有行 
+with open('网络收集.txt', 'r', encoding="utf-8") as file:
+    lines = file.readlines()
+# 使用列表来存储唯一的行的顺序 
+unique_lines = [] 
+seen_lines = set() 
+# 打印去重前的行数
+print(f"去重前的行数: {len(lines)}")
+# 遍历每一行，如果是新的就加入unique_lines 
+for line in lines:
+    line_stripped = line.strip()  # 去除行尾的换行符
+    if line_stripped not in seen_lines:
+        unique_lines.append(line)  # 保持原始行的格式，包括换行符
+        seen_lines.add(line_stripped)
+# 将唯一的行写入新的文档 
+with open('网络收集.txt', 'w', encoding="utf-8") as file:
+    file.writelines(unique_lines)
+# 打印去重后的行数
+print(f"去重后的行数: {len(unique_lines)}")
 
 
 
 ################简体转繁体
+#################################################################
 # 创建一个OpenCC对象，指定转换的规则为繁体字转简体字
 converter = OpenCC('t2s.json')#繁转简
 #converter = OpenCC('s2t.json')#简转繁
 # 打开txt文件
-with open('gat.txt', 'r', encoding='utf-8') as file:
+with open('网络收集.txt', 'r', encoding='utf-8') as file:
     traditional_text = file.read()
-
 # 进行繁体字转简体字的转换
 simplified_text = converter.convert(traditional_text)
-
 # 将转换后的简体字写入txt文件
-with open('gat.txt', 'w', encoding='utf-8') as file:
+with open('网络收集.txt', 'w', encoding='utf-8') as file:
     file.write(simplified_text)
 print("处理完成，繁体转换完成")
 
@@ -145,10 +160,10 @@ excluded_keywords = ['zhoujie218', 'service', '112114', 'xfjcHD', 'stream8.jlntv
 # 定义一个包含所有要提取的关键词的列表
 extract_keywords = [',']
 # 读取文件并处理每一行
-with open('gat.txt', 'r', encoding='utf-8') as file:
+with open('网络收集.txt', 'r', encoding='utf-8') as file:
     lines = file.readlines()
     # 创建或打开一个输出文件用于写入处理后的数据
-    with open('gat.txt', 'w', encoding='utf-8') as outfile:
+    with open('网络收集.txt', 'w', encoding='utf-8') as outfile:
         for line in lines:
             # 首先检查行是否包含任何提取关键词
             if any(keyword in line for keyword in extract_keywords):
@@ -159,30 +174,25 @@ with open('gat.txt', 'r', encoding='utf-8') as file:
 
 
 
+#################################################################
 def filter_lines(file_path):
-    with open('gat.txt', 'r', encoding='utf-8') as file:
+    with open('网络收集.txt', 'r', encoding='utf-8') as file:
         lines = file.readlines()
-    
     filtered_lines = []
     for line in lines:
         if ',' in line:
          if 'epg' not in line and 'mitv' not in line and 'udp' not in line and 'rtp' not in line and '[' not in line and 'tsfile' not in line \
             and 'P2p' not in line and 'p2p' not in line and 'p3p' not in line and 'P2P' not in line and 'P3p' not in line and 'P3P' not in line:
           filtered_lines.append(line)
-    
     return filtered_lines
-
 def write_filtered_lines(output_file_path, filtered_lines):
     with open(output_file_path, 'w', encoding='utf-8') as output_file:
         output_file.writelines(filtered_lines)
-
 if __name__ == "__main__":
-    input_file_path = 'gat.txt'
-    output_file_path = "gat.txt"
-    
+    input_file_path = '网络收集.txt'
+    output_file_path = "网络收集.txt"
     filtered_lines = filter_lines(input_file_path)
     write_filtered_lines(output_file_path, filtered_lines)
-
 print("/" * 80)
 
 
@@ -194,25 +204,23 @@ print("/" * 80)
 replacements = {
         " ": "",
 }
-
 # 打开原始文件读取内容，并写入新文件
-with open('gat.txt', 'r', encoding='utf-8') as file:
+with open('网络收集.txt', 'r', encoding='utf-8') as file:
     lines = file.readlines()
-
 # 创建新文件并写入替换后的内容
-with open('gat.txt', 'w', encoding='utf-8') as new_file:
+with open('网络收集.txt', 'w', encoding='utf-8') as new_file:
     for line in lines:
         for old, new in replacements.items():
             line = line.replace(old, new)
         new_file.write(line)   
-######################连通性检测
 
+######################连通性检测
+#################################################################
 import requests
 import time
 import cv2
 from urllib.parse import urlparse
 from tqdm import tqdm
-
 # 测试HTTP连接并尝试下载数据
 def test_connectivity_and_download(url, initial_timeout=1, retry_timeout=1):
     parsed_url = urlparse(url)
@@ -232,11 +240,8 @@ def test_connectivity_and_download(url, initial_timeout=1, retry_timeout=1):
         except requests.RequestException as e:
             print(f"请求异常: {e}")
             pass #这行删掉则会在下载不到数据流的时候进行连通性测试
-
     return False  # 默认返回False
-
 print("/" * 80)
-
 # 测试RTSP连接并尝试读取流
 def test_rtsp_connectivity(url, timeout=3):
     cap = cv2.VideoCapture(url)
@@ -249,12 +254,10 @@ def test_rtsp_connectivity(url, timeout=3):
             return True  # 成功读取帧
     cap.release()
     return False
-
 # 主函数
 def main(输入, 输出):
     with open(输入, "r", encoding="utf-8") as source_file:
         lines = source_file.readlines()
-
     results = []
     for line_number, line in enumerate(tqdm(lines, desc="检测中")):
         parts = line.strip().split(",")
@@ -265,34 +268,27 @@ def main(输入, 输出):
             except Exception as e:
                 print(f"检测URL {channel_url} 时发生错误: {e}")
                 is_valid = False  # 将异常的URL视为无效
-
             status = "有效" if is_valid else "无效"
-
             if "genre" in line.lower() or status == "有效":
                 results.append((channel_name.strip(), channel_url.strip(), status))
-
     # 写入文件
     with open(输出, "w", encoding="utf-8") as output_file:
         for channel_name, channel_url, status in results:
             output_file.write(f"{channel_name},{channel_url}\n")
-
     print(f"任务完成, 有效源数量: {len([x for x in results if x[2] == '有效'])}, 无效源数量: {len([x for x in results if x[2] == '无效'])}")
-
 if __name__ == "__main__":
-    输入 =  "gat.txt"    #input('请输入utf-8编码的直播源文件路径:')
-    输出 = "gat.txt"
+    输入 =  "网络收集.txt"    #input('请输入utf-8编码的直播源文件路径:')
+    输出 = "网络收集.txt"
     main(输入, 输出)
 
 
 
 
 
-with open('gat.txt', 'r', encoding='UTF-8') as f:
+with open('网络收集.txt', 'r', encoding='UTF-8') as f:
     lines = f.readlines()
-
 lines.sort()
-
-with open('gat.txt', 'w', encoding='UTF-8') as f:
+with open('网络收集.txt', 'w', encoding='UTF-8') as f:
     for line in lines:
         f.write(line)
 
@@ -300,21 +296,18 @@ with open('gat.txt', 'w', encoding='UTF-8') as f:
 
 import re
 from pypinyin import lazy_pinyin
-
 # 打开一个utf-8编码的文本文件
-with open("gat.txt", "r", encoding="utf-8") as file:
+with open("网络收集.txt", "r", encoding="utf-8") as file:
     # 读取所有行并存储到列表中
     lines = file.readlines()
-
 # 定义一个函数，用于提取每行的第一个数字
 def extract_first_number(line):
     match = re.search(r'\d+', line)
     return int(match.group()) if match else float('inf')
-
 # 对列表中的行进行排序，按照第一个数字的大小排列，其余行按中文排序
 sorted_lines = sorted(lines, key=lambda x: (not 'CCTV' in x, extract_first_number(x) if 'CCTV' in x else lazy_pinyin(x.strip())))
 # 将排序后的行写入新的utf-8编码的文本文件
-with open("gat.txt", "w", encoding="utf-8") as file:
+with open("网络收集.txt", "w", encoding="utf-8") as file:
     for line in sorted_lines:
         file.write(line)
 
@@ -326,7 +319,7 @@ from opencc import OpenCC
 import fileinput
 ########################################################################################################################################################################################
 ########################################## 打开用户指定的文件打开用户指定的文件打开用户指定的文件
-with open("gat.txt", 'r', encoding="utf-8") as file:
+with open("网络收集.txt", 'r', encoding="utf-8") as file:
     # 读取所有行并存储到列表中
     lines = file.readlines()
 # ###########################################定义替换规则的字典对频道名替换
@@ -776,7 +769,7 @@ with open(file_path, 'r+', encoding='utf-8') as f:
      
 
 ################################################################################################任务结束，删除不必要的过程文件
-files_to_remove = ["gat.txt", "汇总.txt"]
+files_to_remove = ["网络收集.txt", "汇总.txt"]
 for file in files_to_remove:
     if os.path.exists(file):
         os.remove(file)
