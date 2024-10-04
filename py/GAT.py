@@ -234,7 +234,7 @@ def test_connectivity_and_download(url, initial_timeout=1, retry_timeout=1):
                 if response.status_code == 200:
                     start_time = time.time()
                     while time.time() - start_time < initial_timeout:
-                        chunk = response.raw.read(512)  # 尝试下载1KB数据
+                        chunk = response.raw.read(51200)  # 尝试下载1KB数据
                         if chunk:
                             return True  # 成功下载数据
         except requests.RequestException as e:
