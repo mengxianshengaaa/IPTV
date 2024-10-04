@@ -25,32 +25,32 @@ from translate import Translator  # 导入Translator类,用于文本翻译
 ## 定义txt文件的URL列表
 urls = [
        'https://dimaston.github.io/live.m3u',  #假m3u
-       'https://raw.bgithub.xyz/gaotianliuyun/gao/master/list.txt',   #暂时保留
-       'https://raw.bgithub.xyz/Fairy8o/IPTV/main/PDX-V4.txt',
-       'https://raw.bgithub.xyz/ddhola/file/d7afb504b1ba4fef31813e1166cb892215a9c063/0609test',
-       'https://raw.bgithub.xyz/vbskycn/iptv/2738b3bec8c298f57e0e2052b155846ab6ea3787/dsyy/hd.txt',
-       'https://raw.bgithub.xyz/frxz751113/AAAAA/main/IPTV/TW.txt',
-       'https://raw.bgithub.xyz/ljlfct01/ljlfct01.github.io/main/list.%E8%87%AA%E7%94%A8',
+       'https://raw.github.com/gaotianliuyun/gao/master/list.txt',   #暂时保留
+       'https://raw.github.com/Fairy8o/IPTV/main/PDX-V4.txt',
+       'https://raw.github.com/ddhola/file/d7afb504b1ba4fef31813e1166cb892215a9c063/0609test',
+       'https://raw.github.com/vbskycn/iptv/2738b3bec8c298f57e0e2052b155846ab6ea3787/dsyy/hd.txt',
+       'https://raw.github.com/frxz751113/AAAAA/main/IPTV/TW.txt',
+       'https://raw.github.com/ljlfct01/ljlfct01.github.io/main/list.%E8%87%AA%E7%94%A8',
        'https://notabug.org/qcfree/TVBox-api/raw/main/live.txt', #通用源
-       'https://raw.bgithub.xyz/KAN314go/A/e81a1c22cd1b9f459bc363bd916c13133e235510/tv/%E5%AE%89%E5%8D%9A8K.txt',
+       'https://raw.github.com/KAN314go/A/e81a1c22cd1b9f459bc363bd916c13133e235510/tv/%E5%AE%89%E5%8D%9A8K.txt',
        'https://gitlab.com/tvtg/vip/-/raw/main/log.txt',
-       'https://raw.bgithub.xyz/frxz751113/IPTVzb1/main/%E7%BB%BC%E5%90%88%E6%BA%90.txt',
-       'https://raw.bgithub.xyz/ssili126/tv/main/itvlist.txt',
-       'https://raw.bgithub.xyz/Supprise0901/TVBox_live/main/live.txt',
-       'https://raw.bgithub.xyz/Guovin/TV/gd/result.txt',
-       'https://raw.bgithub.xyz/gaotianliuyun/gao/master/list.txt',
+       'https://raw.github.com/frxz751113/IPTVzb1/main/%E7%BB%BC%E5%90%88%E6%BA%90.txt',
+       'https://raw.github.com/ssili126/tv/main/itvlist.txt',
+       'https://raw.github.com/Supprise0901/TVBox_live/main/live.txt',
+       'https://raw.github.com/Guovin/TV/gd/result.txt',
+       'https://raw.github.com/gaotianliuyun/gao/master/list.txt',
        'https://gitee.com/xxy002/zhiboyuan/raw/master/zby.txt',
-       'https://raw.bgithub.xyz/mlvjfchen/TV/main/iptv_list.txt',
-       'https://raw.bgithub.xyz/fenxp/iptv/main/live/tvlive.txt',
-       'https://raw.bgithub.xyz/zwc456baby/iptv_alive/master/live.txt',
+       'https://raw.github.com/mlvjfchen/TV/main/iptv_list.txt',
+       'https://raw.github.com/fenxp/iptv/main/live/tvlive.txt',
+       'https://raw.github.com/zwc456baby/iptv_alive/master/live.txt',
        'https://gitlab.com/p2v5/wangtv/-/raw/main/lunbo.txt',
-       'https://raw.bgithub.xyz/PizazzGY/TVBox/main/live.txt',
+       'https://raw.github.com/PizazzGY/TVBox/main/live.txt',
        'https://gitcode.net/MZ011/BHJK/-/raw/master/BHZB1.txt',
-       'https://raw.bgithub.xyz/vbskycn/iptv/master/tv/iptv4.txt',
-       'https://raw.bgithub.xyz/junge3333/juds6/main/yszb1.txt',
-       'https://raw.bgithub.xyz/zzmaze/iptv/main/iptv.txt',
-       'https://raw.bgithub.xyz/kimwang1978/collect-tv-txt/main/others_output.txt',
-       'https://raw.bgithub.xyz/newrecha/TVBOX/5cdd7dcc228f14e4c7f343278e330481aae84eee/live/free.txt',
+       'https://raw.github.com/vbskycn/iptv/master/tv/iptv4.txt',
+       'https://raw.github.com/junge3333/juds6/main/yszb1.txt',
+       'https://raw.github.com/zzmaze/iptv/main/iptv.txt',
+       'https://raw.github.com/kimwang1978/collect-tv-txt/main/others_output.txt',
+       'https://raw.github.com/newrecha/TVBOX/5cdd7dcc228f14e4c7f343278e330481aae84eee/live/free.txt',
        'https://bbs.ysctv.cn/tv/live.txt',
        'https://axzzz-my.sharepoint.com/personal/axzzzpan4_axzzz_top/_layouts/15/download.aspx?UniqueId=a357e310-4e3d-45ee-aa68-6913ec533fcc&Translate=false&tempauth=v1.eyJzaXRlaWQiOiIzZGU4M2VmZS0xYWNlLTQ1YWEtODVhNS02YmVlMWM4MTVhZjMiLCJhcHBfZGlzcGxheW5hbWUiOiJBeHp6euS6keebmChvZDQpIiwiYXBwaWQiOiI2NjM3NjZiNi1kYjgwLTQwZjYtYjRkMi1kNWM2NDY0NmQxMjYiLCJhdWQiOiIwMDAwMDAwMy0wMDAwLTBmZjEtY2UwMC0wMDAwMDAwMDAwMDAvYXh6enotbXkuc2hhcmVwb2ludC5jb21AYzdhMzU1YTUtODgxMS00YzQwLWI1NTktMDk0ZDIzMDMxMjdiIiwiZXhwIjoiMTcyNzkyMjY5MCJ9.CgoKBHNuaWQSAjY0EgsI0ITAwqTVsT0QBRoOMjAuMTkwLjE0NC4xNzEqLGpUa2s3dW1UWFJxYUdMbm9KSVdYS28wbzZnUjJFSWdHemRmcGlpNkliSVk9MJQBOAFCEKFWItxKYAAw1b_et5n_RcNKEGhhc2hlZHByb29mdG9rZW5yKTBoLmZ8bWVtYmVyc2hpcHwxMDAzMjAwMzJjNzIwZWQ2QGxpdmUuY29tegEyggESCaVVo8cRiEBMEbVZCU0jAxJ7kgEEcGFuNJoBBUF4enp6ogETYXh6enpwYW40QGF4enp6LnRvcKoBEDEwMDMyMDAzMkM3MjBFRDayAQ5hbGxmaWxlcy53cml0ZcgBAQ._ZmDMLJ917RtVteaBChKC03v2IfufJb1x2SSLpDihu4&ApiVersion=2.0',
        'https://d.kstore.space/download/8209/港澳台终极版.txt',
@@ -368,7 +368,7 @@ import os
 # 定义一个包含所有要排除的关键词的列表
 excluded_keywords = ['epg', 'mitv', 'udp', 'rtp', 'P2p', 'p2p', 'p3p', 'P2P', '新闻综合', 'P3p', 'jdshipin#', '9930/qilu', 'gitcode.net', '151:99', '21dtv', 'txmov2', 'gcw.bdcdn', 'metshop', 
                      'shandong', 'goodiptv', '购物', '[', 'P3P', '腔', '曲', '//1', '/hls/', '春节', '网络收集', '95.179', 'hlspull', 'github', 'lunbo', 'tw.ts138', '114:8278', '//tvb', 'extraott', 
-                     '22:8891', 'fanmingming', '43:22222', 'etv.xhgvip', 'free.xiptv', 'www.zhixun', 'xg.52sw', 'iptv.yjxfz.com', 'zb.qc']   #, '', ''
+                     '22:8891', 'fanmingming', '43:22222', 'etv.xhgvip', 'free.xiptv', 'www.zhixun', 'xg.52sw', 'iptv.yjxfz.com', 'zb.qc', 'CHC', '/vd', '/TV2/']   #, 'CHC', '/TV2/'
 
 # 定义一个包含所有要提取的关键词的列表
 extract_keywords = ['1905', '凤凰卫视', '人间卫视', '亚洲卫视', '香港卫视', '神乐', '翡翠台', '凤凰香港', '凤凰中文', '凤凰资讯', 'AXN', 'AMC', '电影台', '大爱', '东森', 
@@ -669,7 +669,7 @@ def parse_file(input_file_path, output_file_name):    #
                 ip_or_domain_to_lines[ip_or_domain].append(line)
     # 过滤掉小于1000字节的IP或域名段
     filtered_ip_or_domain_to_lines = {ip_or_domain: lines for ip_or_domain, lines in ip_or_domain_to_lines.items()
-                                      if sum(len(line) for line in lines) >= 200}   # 过滤掉小于1000字节的IP或域名段
+                                      if sum(len(line) for line in lines) >= 250}   # 过滤掉小于1000字节的IP或域名段
     # 如果没有满足条件的IP或域名段，则不生成文件
     if not filtered_ip_or_domain_to_lines:
         print("没有满足条件的IP或域名段，不生成文件。")
