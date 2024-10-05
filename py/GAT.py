@@ -81,7 +81,7 @@ def merge_txt_files(urls, output_filename='汇总.txt'):
                 try:
                     response = requests.get(url)
                     response.raise_for_status()  # 确保请求成功
-                    # 尝试将响应内容解码为UTF-8，如果失败则尝试其他编码
+                    # 尝试将响应内容解码为UTF-8,如果失败则尝试其他编码
                     try:
                         content = response.content.decode('utf-8')
                     except UnicodeDecodeError:
@@ -264,14 +264,14 @@ with open('汇总.txt', 'w', encoding='utf-8') as new_file:
     for line in lines:
         # 去除行尾的换行符
         line = line.rstrip('\n')
-        # 分割行，获取逗号前的字符串
+        # 分割行,获取逗号前的字符串
         parts = line.split(',', 1)
         if len(parts) > 0:
             # 替换逗号前的字符串
             before_comma = parts[0]
             for old, new in replacements.items():
                 before_comma = before_comma.replace(old, new)
-            # 将替换后的逗号前部分和逗号后部分重新组合成一行，并写入新文件
+            # 将替换后的逗号前部分和逗号后部分重新组合成一行,并写入新文件
             new_line = f'{before_comma},{parts[1]}\n' if len(parts) > 1 else f'{before_comma}\n'
             new_file.write(new_line)
 
@@ -323,7 +323,7 @@ def remove_duplicates(input_file, output_file):
             if urls and urls[0] not in seen_urls:
                 seen_urls.add(urls[0])
                 output_lines.append(line)
-            # 如果找到包含genre的行，无论是否已被记录，都写入新文件
+            # 如果找到包含genre的行,无论是否已被记录,都写入新文件
             if genre_line:
                 output_lines.append(line)
     # 将结果写入输出文件
@@ -362,7 +362,7 @@ with open('2.txt', 'r', encoding='utf-8') as file:
         for line in lines:
             # 首先检查行是否包含任何提取关键词
             if any(keyword in line for keyword in extract_keywords):
-                # 如果包含提取关键词，进一步检查行是否不包含任何排除关键词
+                # 如果包含提取关键词,进一步检查行是否不包含任何排除关键词
                 if not any(keyword in line for keyword in excluded_keywords):
                     outfile.write(line)  # 写入符合条件的行到文件
 
@@ -378,7 +378,7 @@ def parse_file(input_file_path, output_file_name):
     with open(input_file_path, 'r', encoding='utf-8') as file:
         for line in file:
             line = line.strip()
-            # 如果行是分类标签行，则跳过
+            # 如果行是分类标签行,则跳过
             if ",#genre#" in line:
                 continue
             # 检查行是否包含IP或域名
@@ -386,7 +386,7 @@ def parse_file(input_file_path, output_file_name):
             if match:
                 # 提取匹配到的IP或域名
                 matched_text = match.group(1)
-                # 去除IP或域名后的剩余部分，只保留匹配到的IP或域名
+                # 去除IP或域名后的剩余部分,只保留匹配到的IP或域名
                 ip_or_domain = matched_text.split('://')[-1].split('/')[0].split('::')[0]
                 # 将行添加到对应的IP或域名列表中
                 if ip_or_domain not in ip_or_domain_to_lines:
@@ -395,9 +395,9 @@ def parse_file(input_file_path, output_file_name):
     ############################################################################### 过滤掉小于1500字节的IP或域名段
     filtered_ip_or_domain_to_lines = {ip_or_domain: lines for ip_or_domain, lines in ip_or_domain_to_lines.items()
                                       if sum(len(line) for line in lines) >= 300}
-    # 如果没有满足条件的IP或域名段，则不生成文件
+    # 如果没有满足条件的IP或域名段,则不生成文件
     if not filtered_ip_or_domain_to_lines:
-        print("没有满足条件的IP或域名段，不生成文件。")
+        print("没有满足条件的IP或域名段,不生成文件。")
         return
     # 合并所有满足条件的IP或域名的行到一个文件
     with open(output_file_name, 'w', encoding='utf-8') as output_file:
@@ -426,7 +426,7 @@ with open(output_file, 'w', encoding='utf-8') as f:
             f.write(text_content + '\n')
             print(f"{keyword}获取完成")        
         else:
-            print(f'请求 {url} 失败，状态码：{response.status_code}')
+            print(f'请求 {url} 失败,状态码：{response.status_code}')
         time.sleep(1)  # 添加 1 秒的延迟
 with open('gat.txt', 'r', encoding='utf-8') as infile:
     lines = infile.readlines()
@@ -460,7 +460,7 @@ with open(output_file, 'w', encoding='utf-8') as f:
                 except Exception as e:
                     print(f"Error parsing content for keyword {keyword}: {e}")
             else:
-                print(f'请求 {url} 失败，状态码：{response.status_code}')
+                print(f'请求 {url} 失败,状态码：{response.status_code}')
         except Exception as e:
             print(f"Error fetching URL for keyword {keyword}: {e}")
         time.sleep(1)  # 添加 1 秒的延迟
@@ -501,7 +501,7 @@ def remove_duplicates(input_file, output_file):
             if urls and urls[0] not in seen_urls:
                 seen_urls.add(urls[0])
                 output_lines.append(line)
-            # 如果找到包含genre的行，无论是否已被记录，都写入新文件
+            # 如果找到包含genre的行,无论是否已被记录,都写入新文件
             if genre_line:
                 output_lines.append(line)
     # 将结果写入输出文件
@@ -510,12 +510,12 @@ def remove_duplicates(input_file, output_file):
     print("去重后的行数：", len(output_lines))
 # 使用方法
 remove_duplicates('gat.txt', '网络收集.txt')
-print("处理完成，去重完成")
+print("处理完成,去重完成")
 
 ############################################ 假设要打开的文本文件名为*.txt
 with open('网络收集.txt', 'r', encoding='utf-8') as f:
     content1 = f.read()
-# 查找以'网络收集'命名的文件，可以遍历当前目录进行查找
+# 查找以'网络收集'命名的文件,可以遍历当前目录进行查找
 for filename in os.listdir():
     if '网络收集' in filename:
         with open(filename, 'r', encoding='utf-8') as f:
@@ -539,11 +539,11 @@ unique_lines = []
 seen_lines = set() 
 # 打印去重前的行数
 print(f"去重前的行数: {len(lines)}")
-# 遍历每一行，如果是新的就加入unique_lines 
+# 遍历每一行,如果是新的就加入unique_lines 
 for line in lines:
     line_stripped = line.strip()  # 去除行尾的换行符
     if line_stripped not in seen_lines:
-        unique_lines.append(line)  # 保持原始行的格式，包括换行符
+        unique_lines.append(line)  # 保持原始行的格式,包括换行符
         seen_lines.add(line_stripped)
 # 将唯一的行写入新的文档 
 with open('网络收集.txt', 'w', encoding="utf-8") as file:
@@ -555,7 +555,7 @@ print(f"去重后的行数: {len(unique_lines)}")
 
 ################简体转繁体
 #################################################################
-# 创建一个OpenCC对象，指定转换的规则为繁体字转简体字
+# 创建一个OpenCC对象,指定转换的规则为繁体字转简体字
 converter = OpenCC('t2s.json')#繁转简
 #converter = OpenCC('s2t.json')#简转繁
 # 打开txt文件
@@ -566,14 +566,14 @@ simplified_text = converter.convert(traditional_text)
 # 将转换后的简体字写入txt文件
 with open('网络收集.txt', 'w', encoding='utf-8') as file:
     file.write(simplified_text)
-print("处理完成，繁体转换完成")
+print("处理完成,繁体转换完成")
 
 
 ######################################################################################提取goodiptv
 import re
 import os
 # 定义一个包含所有要排除的关键词的列表
-excluded_keywords = ['zhoujie218', 'service', '112114', 'xfjcHD', '安徽', '文化', '电影台61', 'stream8.jlntv', 'live.cooltv', 'P2P', 'Plus', '38.64.72.148', '新闻综合', 'P3p', 'cookies', '9930/qilu', 'gitcode.net', 'free.xiptv']   #, '', ''
+excluded_keywords = ['zhoujie218', 'service', '112114', 'xfjcHD', '安徽', '七彩', '文化', '电影台61', 'youtube', 'stream8.jlntv', 'live.cooltv', 'P2P', 'Plus', '38.64.72.148', '新闻综合', 'P3p', 'cookies', '9930/qilu', 'gitcode.net', 'free.xiptv']   #, '', ''
 # 定义一个包含所有要提取的关键词的列表
 extract_keywords = [',']
 # 读取文件并处理每一行
@@ -584,7 +584,7 @@ with open('网络收集.txt', 'r', encoding='utf-8') as file:
         for line in lines:
             # 首先检查行是否包含任何提取关键词
             if any(keyword in line for keyword in extract_keywords):
-                # 如果包含提取关键词，进一步检查行是否不包含任何排除关键词
+                # 如果包含提取关键词,进一步检查行是否不包含任何排除关键词
                 if not any(keyword in line for keyword in excluded_keywords):
                     outfile.write(line)  # 写入符合条件的行到文件
 
@@ -621,7 +621,7 @@ print("/" * 80)
 replacements = {
         " ": "",
 }
-# 打开原始文件读取内容，并写入新文件
+# 打开原始文件读取内容,并写入新文件
 with open('网络收集.txt', 'r', encoding='utf-8') as file:
     lines = file.readlines()
 # 创建新文件并写入替换后的内容
@@ -642,10 +642,10 @@ from tqdm import tqdm
 def test_connectivity_and_download(url, initial_timeout=1, retry_timeout=1):
     parsed_url = urlparse(url)
     if parsed_url.scheme not in ['http', 'https']:
-        # 非HTTP(s)协议，尝试RTSP检测
+        # 非HTTP(s)协议,尝试RTSP检测
         return test_rtsp_connectivity(url, retry_timeout)
     else:
-        # HTTP(s)协议，使用原始方法
+        # HTTP(s)协议,使用原始方法
         try:
             with requests.get(url, stream=True, timeout=initial_timeout) as response:
                 if response.status_code == 200:
@@ -678,7 +678,7 @@ def main(输入, 输出):
     results = []
     for line_number, line in enumerate(tqdm(lines, desc="检测中")):
         parts = line.strip().split(",")
-        if len(parts) == 2 and parts[1]:  # 确保有URL，并且URL不为空
+        if len(parts) == 2 and parts[1]:  # 确保有URL,并且URL不为空
             channel_name, channel_url = parts
             try:
                 is_valid = test_connectivity_and_download(channel_url)
@@ -717,11 +717,11 @@ from pypinyin import lazy_pinyin
 with open("网络收集.txt", "r", encoding="utf-8") as file:
     # 读取所有行并存储到列表中
     lines = file.readlines()
-# 定义一个函数，用于提取每行的第一个数字
+# 定义一个函数,用于提取每行的第一个数字
 def extract_first_number(line):
     match = re.search(r'\d+', line)
     return int(match.group()) if match else float('inf')
-# 对列表中的行进行排序，按照第一个数字的大小排列，其余行按中文排序
+# 对列表中的行进行排序,按照第一个数字的大小排列,其余行按中文排序
 sorted_lines = sorted(lines, key=lambda x: (not 'CCTV' in x, extract_first_number(x) if 'CCTV' in x else lazy_pinyin(x.strip())))
 # 将排序后的行写入新的utf-8编码的文本文件
 with open("网络收集.txt", "w", encoding="utf-8") as file:
@@ -753,11 +753,17 @@ replacements = {
     	"」": "",
     	"标清": "",
     	"-": "",
-    	"": "",
-    	"": "",
-    	"": "",
-    	"": "",
-    	"": "",
+    	"NEWS": "新闻",
+    	"台,": ",",
+    	"歌厅": "",
+    	"秀,": ",",
+    	"TVBJade": "TVB",
+    	"CantoneseSubtitles": "",
+    	"+": "",
+    	"财经新闻": "财经",
+    	"番薯,": "番薯音乐,",
+    	"番薯111,": "番薯音乐,",
+    	"凤凰资讯,http://61.221": "中天娱乐,http://61.221",
     	"": "",
     	"": "",
     	"[1080p]": "",
@@ -940,18 +946,18 @@ with open('2.txt', 'w', encoding='utf-8') as new_file:
     for line in lines:
         # 去除行尾的换行符
         line = line.rstrip('\n')
-        # 分割行，获取逗号前的字符串
+        # 分割行,获取逗号前的字符串
         parts = line.split(',', 1)
         if len(parts) > 0:
             # 替换逗号前的字符串
             before_comma = parts[0]
             for old, new in replacements.items():
                 before_comma = before_comma.replace(old, new)
-            # 将替换后的逗号前部分和逗号后部分重新组合成一行，并写入新文件
+            # 将替换后的逗号前部分和逗号后部分重新组合成一行,并写入新文件
             new_line = f'{before_comma},{parts[1]}\n' if len(parts) > 1 else f'{before_comma}\n'
             new_file.write(new_line)
 
-print("替换完成，新文件已保存。")
+print("替换完成,新文件已保存。")
 
 
 
@@ -970,7 +976,7 @@ def check_and_write_file(input_file, output_file, keywords):
             if re.search(pattern, line):
                 extracted_lines.append(line)
 
-    # 如果至少提取到一行，写入头部信息和提取的行到输出文件
+    # 如果至少提取到一行,写入头部信息和提取的行到输出文件
     if extracted_lines:
         with open(output_file, 'w', encoding='utf-8') as out_file:
             out_file.write(f"{keywords_list[0]},#genre#\n")  # 写入头部信息
@@ -982,14 +988,14 @@ def check_and_write_file(input_file, output_file, keywords):
         # 检查文件的总大小
         file_size = os.path.getsize(output_file)
         
-        # 如果文件大小小于30字节（假设的最小文件大小），删除文件
+        # 如果文件大小小于30字节（假设的最小文件大小）,删除文件
         if file_size < 20:
             os.remove(output_file)
-            print(f"文件只包含头部信息，{output_file} 已被删除。")
+            print(f"文件只包含头部信息,{output_file} 已被删除。")
         else:
             print(f"文件已提取关键词并保存为: {output_file}")
     else:
-        print(f"未提取到关键词，不创建输出文件 {output_file}。")
+        print(f"未提取到关键词,不创建输出文件 {output_file}。")
 
 # 按类别提取关键词并写入文件
 #check_and_write_file('2.txt','a0.txt',keywords="央视频道1,CCTV")
@@ -1014,14 +1020,14 @@ for file_path in file_paths:
         with open(file_path, 'r', encoding="utf-8") as file:
             content = file.read()
             file_contents.append(content)
-    else:                # 如果文件不存在，则提示异常并打印提示信息
-        print(f"文件 {file_path} 不存在，跳过")
+    else:                # 如果文件不存在,则提示异常并打印提示信息
+        print(f"文件 {file_path} 不存在,跳过")
 # 写入合并后的文件
 with open("去重.txt", "w", encoding="utf-8") as output:
     output.write('\n'.join(file_contents))
 
 ###############################################################################################################################################################################################################################
-##############################################################对生成的文件进行网址及文本去重复，避免同一个频道出现在不同的类中
+##############################################################对生成的文件进行网址及文本去重复,避免同一个频道出现在不同的类中
 
 def remove_duplicates(input_file, output_file):
     # 用于存储已经遇到的URL和包含genre的行
@@ -1042,7 +1048,7 @@ def remove_duplicates(input_file, output_file):
             if urls and urls[0] not in seen_urls:
                 seen_urls.add(urls[0])
                 output_lines.append(line)
-            # 如果找到包含genre的行，无论是否已被记录，都写入新文件
+            # 如果找到包含genre的行,无论是否已被记录,都写入新文件
             if genre_line:
                 output_lines.append(line)
     # 将结果写入输出文件
@@ -1061,7 +1067,7 @@ with open('网络收集.txt', 'r', encoding="utf-8") as file:
  unique_lines = [] 
  seen_lines = set() 
 
-# 遍历每一行，如果是新的就加入unique_lines 
+# 遍历每一行,如果是新的就加入unique_lines 
 for line in lines:
  if line not in seen_lines:
   unique_lines.append(line)
@@ -1075,7 +1081,7 @@ with open('网络收集.txt', 'w', encoding="utf-8") as file:
 
 
 
-################################################################################################任务结束，删除不必要的过程文件
+################################################################################################任务结束,删除不必要的过程文件
 files_to_remove = ['去重.txt', "2.txt", "a0.txt", "a.txt", "a1.txt", "b0.txt", "b.txt", "c.txt", "c1.txt", "c2.txt", "d.txt", "e.txt", "f0.txt", "f.txt", "f1.txt", "g0.txt", "g.txt", "g1.txt", "h0.txt", "h.txt", "h1.txt", "i.txt", \
               "i1.txt", "j.txt", "j1.txt", "k.txt", "l0.txt", "l.txt", "l1.txt", "m.txt", "m1.txt",  \
               "n0.txt","n.txt","n1.txt", "o1.txt", "o.txt", "p.txt"]
@@ -1083,10 +1089,10 @@ files_to_remove = ['去重.txt', "2.txt", "a0.txt", "a.txt", "a1.txt", "b0.txt",
 for file in files_to_remove:
     if os.path.exists(file):
         os.remove(file)
-    else:              # 如果文件不存在，则提示异常并打印提示信息
-        print(f"文件 {file} 不存在，跳过删除。")
+    else:              # 如果文件不存在,则提示异常并打印提示信息
+        print(f"文件 {file} 不存在,跳过删除。")
 
-print("任务运行完毕，gat频道列表可查看文件夹内综合源.txt文件！")
+print("任务运行完毕,gat频道列表可查看文件夹内综合源.txt文件！")
 
 
 def append_text_between_files(file1_path, file2_path):
@@ -1115,7 +1121,7 @@ file_path1 = '网络收集.txt'
 file_path2 = '综合源.txt'
 append_text_between_files(file_path1, file_path2)
 
-##############################################################对生成的文件进行网址及文本去重复，避免同一个频道出现在不同的类中
+##############################################################对生成的文件进行网址及文本去重复,避免同一个频道出现在不同的类中
 
 def remove_duplicates(input_file, output_file):
     # 用于存储已经遇到的URL和包含genre的行
@@ -1136,7 +1142,7 @@ def remove_duplicates(input_file, output_file):
             if urls and urls[0] not in seen_urls:
                 seen_urls.add(urls[0])
                 output_lines.append(line)
-            # 如果找到包含genre的行，无论是否已被记录，都写入新文件
+            # 如果找到包含genre的行,无论是否已被记录,都写入新文件
             if genre_line:
                 output_lines.append(line)
     # 将结果写入输出文件
@@ -1216,14 +1222,14 @@ with open(file_path, 'r+', encoding='utf-8') as f:
 
      
 
-################################################################################################任务结束，删除不必要的过程文件
+################################################################################################任务结束,删除不必要的过程文件
 files_to_remove = ["gat.txt", "汇总.txt"]
 for file in files_to_remove:
     if os.path.exists(file):
         os.remove(file)
-    else:              # 如果文件不存在，则提示异常并打印提示信息
-        print(f"文件 {file} 不存在，跳过删除。")
-print("任务运行完毕，频道列表可查看文件夹内源.txt文件！")
+    else:              # 如果文件不存在,则提示异常并打印提示信息
+        print(f"文件 {file} 不存在,跳过删除。")
+print("任务运行完毕,频道列表可查看文件夹内源.txt文件！")
 
 import os
 import datetime
@@ -1270,4 +1276,4 @@ delete_nonstandard_files()
 rename_standard_files()
 
 
-print("任务运行完毕，gat频道列表可查看文件夹内综合源.txt文件！")
+print("任务运行完毕,gat频道列表可查看文件夹内综合源.txt文件！")
