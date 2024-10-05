@@ -1077,7 +1077,29 @@ for line in lines:
 with open('网络收集.txt', 'w', encoding="utf-8") as file:
  file.writelines(unique_lines)
 
-
+#从整理好的文本中进行特定关键词替换以规范频道名#
+for line in fileinput.input("网络收集.txt", inplace=True):   #打开临时文件原地替换关键字
+    line = line.replace("电影,", "电影台,")  
+    line = line.replace("戏剧,", "戏剧台,")  
+    line = line.replace("综艺,", "综艺台,")  
+    line = line.replace("精彩,", "精彩台,")  
+    line = line.replace("影剧,", "影剧台,")  
+    line = line.replace("欢乐,", "欢乐台,")  
+    line = line.replace("资讯,", "资讯台,")  
+    line = line.replace("CCTV7,", "CCTV7-军事,")  
+    line = line.replace("CCTV8,", "CCTV8-电视剧,")  
+    line = line.replace("CCTV9,", "CCTV9-纪录,")  
+    line = line.replace("CCTV10,", "CCTV10-科教,")  
+    line = line.replace("CCTV11,", "CCTV11-戏曲,")  
+    line = line.replace("CCTV11+,", "CCTV11-戏曲,")  
+    line = line.replace("CCTV12,", "CCTV12-社会与法,")  
+    line = line.replace("CCTV13,", "CCTV13-新闻,")  
+    line = line.replace("CCTV14,", "CCTV14-少儿,")  
+    line = line.replace("CCTV15,", "CCTV15-音乐,")  
+    line = line.replace("CCTV16,", "CCTV16-奥林匹克,")  
+    line = line.replace("CCTV17,", "CCTV17-农业农村,") 
+    line = line.replace("CHC", "") 
+    print(line, end="")   
 
 
 
