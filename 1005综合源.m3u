@@ -2716,6 +2716,8 @@ http://114.246.193.16:8888/rtp/239.3.1.249:8001?$北京联通
 #EXTINF:-1 tvg-logo="https://live.fanmingming.com/tv/4K.png" group-title="港澳频道",4K
 http://114.246.199.171:8888/rtp/239.3.1.249:8001?$北京联通
 #EXTINF:-1 tvg-logo="https://live.fanmingming.com/tv/4K.png" group-title="港澳频道",4K
+http://114.252.227.154:8000/rtp/239.3.1.249:8001?$北京联通
+#EXTINF:-1 tvg-logo="https://live.fanmingming.com/tv/4K.png" group-title="港澳频道",4K
 http://114.254.188.49:9999/rtp/239.3.1.249:8001?$北京联通
 #EXTINF:-1 tvg-logo="https://live.fanmingming.com/tv/4K.png" group-title="港澳频道",4K
 http://124.65.6.160:20000/rtp/239.3.1.249:8001?$北京联通
@@ -2726,13 +2728,13 @@ http://114.246.193.16:8888/rtp/239.3.1.236:2000?$北京联通
 #EXTINF:-1 tvg-logo="https://live.fanmingming.com/tv/华数4K.png" group-title="港澳频道",华数4K
 http://114.246.199.171:8888/rtp/239.3.1.236:2000?$北京联通
 #EXTINF:-1 tvg-logo="https://live.fanmingming.com/tv/华数4K.png" group-title="港澳频道",华数4K
+http://114.252.227.154:8000/rtp/239.3.1.236:2000?$北京联通
+#EXTINF:-1 tvg-logo="https://live.fanmingming.com/tv/华数4K.png" group-title="港澳频道",华数4K
 http://114.254.188.49:9999/rtp/239.3.1.236:2000?$北京联通
 #EXTINF:-1 tvg-logo="https://live.fanmingming.com/tv/华数4K.png" group-title="港澳频道",华数4K
 http://124.65.6.160:20000/rtp/239.3.1.236:2000?$北京联通
 #EXTINF:-1 tvg-logo="https://live.fanmingming.com/tv/华数4K.png" group-title="港澳频道",华数4K
 http://221.219.96.192:8012/rtp/239.3.1.236:2000?$北京联通
-#EXTINF:-1 tvg-logo="https://live.fanmingming.com/tv/第一剧场.png" group-title="组播剧场",第一剧场
-http://114.221.238.189:8888/rtp/239.49.8.94:8000?$江苏电信
 #EXTINF:-1 tvg-logo="https://live.fanmingming.com/tv/第一剧场.png" group-title="组播剧场",第一剧场
 http://114.232.24.128:8888/rtp/239.49.8.94:8000?$江苏电信
 #EXTINF:-1 tvg-logo="https://live.fanmingming.com/tv/第一剧场.png" group-title="组播剧场",第一剧场
@@ -2746,13 +2748,9 @@ http://180.103.165.68:8888/rtp/239.49.8.94:8000?$江苏电信
 #EXTINF:-1 tvg-logo="https://live.fanmingming.com/tv/第一剧场.png" group-title="组播剧场",第一剧场
 http://180.104.168.46:3000/rtp/239.49.8.94:8000?$江苏电信
 #EXTINF:-1 tvg-logo="https://live.fanmingming.com/tv/第一剧场.png" group-title="组播剧场",第一剧场
-http://49.68.204.12:4022/rtp/239.49.8.94:8000?$江苏电信
-#EXTINF:-1 tvg-logo="https://live.fanmingming.com/tv/第一剧场.png" group-title="组播剧场",第一剧场
 http://49.69.151.181:8001/rtp/239.49.8.94:8000?$江苏电信
 #EXTINF:-1 tvg-logo="https://live.fanmingming.com/tv/第一剧场.png" group-title="组播剧场",第一剧场
 http://58.212.40.72:6500/rtp/239.49.8.94:8000?$江苏电信
-#EXTINF:-1 tvg-logo="https://live.fanmingming.com/tv/风云剧场.png" group-title="组播剧场",风云剧场
-http://114.221.238.189:8888/rtp/239.49.8.89:8000?$江苏电信
 #EXTINF:-1 tvg-logo="https://live.fanmingming.com/tv/风云剧场.png" group-title="组播剧场",风云剧场
 http://114.232.24.128:8888/rtp/239.49.8.89:8000?$江苏电信
 #EXTINF:-1 tvg-logo="https://live.fanmingming.com/tv/风云剧场.png" group-title="组播剧场",风云剧场
@@ -2766,13 +2764,9 @@ http://180.103.165.68:8888/rtp/239.49.8.89:8000?$江苏电信
 #EXTINF:-1 tvg-logo="https://live.fanmingming.com/tv/风云剧场.png" group-title="组播剧场",风云剧场
 http://180.104.168.46:3000/rtp/239.49.8.89:8000?$江苏电信
 #EXTINF:-1 tvg-logo="https://live.fanmingming.com/tv/风云剧场.png" group-title="组播剧场",风云剧场
-http://49.68.204.12:4022/rtp/239.49.8.89:8000?$江苏电信
-#EXTINF:-1 tvg-logo="https://live.fanmingming.com/tv/风云剧场.png" group-title="组播剧场",风云剧场
 http://49.69.151.181:8001/rtp/239.49.8.89:8000?$江苏电信
 #EXTINF:-1 tvg-logo="https://live.fanmingming.com/tv/风云剧场.png" group-title="组播剧场",风云剧场
 http://58.212.40.72:6500/rtp/239.49.8.89:8000?$江苏电信
-#EXTINF:-1 tvg-logo="https://live.fanmingming.com/tv/风云音乐.png" group-title="组播剧场",风云音乐
-http://114.221.238.189:8888/rtp/239.49.8.92:8000?$江苏电信
 #EXTINF:-1 tvg-logo="https://live.fanmingming.com/tv/风云音乐.png" group-title="组播剧场",风云音乐
 http://114.232.24.128:8888/rtp/239.49.8.92:8000?$江苏电信
 #EXTINF:-1 tvg-logo="https://live.fanmingming.com/tv/风云音乐.png" group-title="组播剧场",风云音乐
@@ -2786,13 +2780,9 @@ http://180.103.165.68:8888/rtp/239.49.8.92:8000?$江苏电信
 #EXTINF:-1 tvg-logo="https://live.fanmingming.com/tv/风云音乐.png" group-title="组播剧场",风云音乐
 http://180.104.168.46:3000/rtp/239.49.8.92:8000?$江苏电信
 #EXTINF:-1 tvg-logo="https://live.fanmingming.com/tv/风云音乐.png" group-title="组播剧场",风云音乐
-http://49.68.204.12:4022/rtp/239.49.8.92:8000?$江苏电信
-#EXTINF:-1 tvg-logo="https://live.fanmingming.com/tv/风云音乐.png" group-title="组播剧场",风云音乐
 http://49.69.151.181:8001/rtp/239.49.8.92:8000?$江苏电信
 #EXTINF:-1 tvg-logo="https://live.fanmingming.com/tv/风云音乐.png" group-title="组播剧场",风云音乐
 http://58.212.40.72:6500/rtp/239.49.8.92:8000?$江苏电信
-#EXTINF:-1 tvg-logo="https://live.fanmingming.com/tv/怀旧剧场.png" group-title="组播剧场",怀旧剧场
-http://114.221.238.189:8888/rtp/239.49.8.91:8000?$江苏电信
 #EXTINF:-1 tvg-logo="https://live.fanmingming.com/tv/怀旧剧场.png" group-title="组播剧场",怀旧剧场
 http://114.232.24.128:8888/rtp/239.49.8.91:8000?$江苏电信
 #EXTINF:-1 tvg-logo="https://live.fanmingming.com/tv/怀旧剧场.png" group-title="组播剧场",怀旧剧场
@@ -2806,13 +2796,9 @@ http://180.103.165.68:8888/rtp/239.49.8.91:8000?$江苏电信
 #EXTINF:-1 tvg-logo="https://live.fanmingming.com/tv/怀旧剧场.png" group-title="组播剧场",怀旧剧场
 http://180.104.168.46:3000/rtp/239.49.8.91:8000?$江苏电信
 #EXTINF:-1 tvg-logo="https://live.fanmingming.com/tv/怀旧剧场.png" group-title="组播剧场",怀旧剧场
-http://49.68.204.12:4022/rtp/239.49.8.91:8000?$江苏电信
-#EXTINF:-1 tvg-logo="https://live.fanmingming.com/tv/怀旧剧场.png" group-title="组播剧场",怀旧剧场
 http://49.69.151.181:8001/rtp/239.49.8.91:8000?$江苏电信
 #EXTINF:-1 tvg-logo="https://live.fanmingming.com/tv/怀旧剧场.png" group-title="组播剧场",怀旧剧场
 http://58.212.40.72:6500/rtp/239.49.8.91:8000?$江苏电信
-#EXTINF:-1 tvg-logo="https://live.fanmingming.com/tv/女性时尚.png" group-title="组播剧场",女性时尚
-http://114.221.238.189:8888/rtp/239.49.8.93:8000?$江苏电信
 #EXTINF:-1 tvg-logo="https://live.fanmingming.com/tv/女性时尚.png" group-title="组播剧场",女性时尚
 http://114.232.24.128:8888/rtp/239.49.8.93:8000?$江苏电信
 #EXTINF:-1 tvg-logo="https://live.fanmingming.com/tv/女性时尚.png" group-title="组播剧场",女性时尚
@@ -2826,13 +2812,9 @@ http://180.103.165.68:8888/rtp/239.49.8.93:8000?$江苏电信
 #EXTINF:-1 tvg-logo="https://live.fanmingming.com/tv/女性时尚.png" group-title="组播剧场",女性时尚
 http://180.104.168.46:3000/rtp/239.49.8.93:8000?$江苏电信
 #EXTINF:-1 tvg-logo="https://live.fanmingming.com/tv/女性时尚.png" group-title="组播剧场",女性时尚
-http://49.68.204.12:4022/rtp/239.49.8.93:8000?$江苏电信
-#EXTINF:-1 tvg-logo="https://live.fanmingming.com/tv/女性时尚.png" group-title="组播剧场",女性时尚
 http://49.69.151.181:8001/rtp/239.49.8.93:8000?$江苏电信
 #EXTINF:-1 tvg-logo="https://live.fanmingming.com/tv/女性时尚.png" group-title="组播剧场",女性时尚
 http://58.212.40.72:6500/rtp/239.49.8.93:8000?$江苏电信
-#EXTINF:-1 tvg-logo="https://live.fanmingming.com/tv/世界地理.png" group-title="组播剧场",世界地理
-http://114.221.238.189:8888/rtp/239.49.8.87:8000?$江苏电信
 #EXTINF:-1 tvg-logo="https://live.fanmingming.com/tv/世界地理.png" group-title="组播剧场",世界地理
 http://114.232.24.128:8888/rtp/239.49.8.87:8000?$江苏电信
 #EXTINF:-1 tvg-logo="https://live.fanmingming.com/tv/世界地理.png" group-title="组播剧场",世界地理
@@ -2846,8 +2828,6 @@ http://180.103.165.68:8888/rtp/239.49.8.87:8000?$江苏电信
 #EXTINF:-1 tvg-logo="https://live.fanmingming.com/tv/世界地理.png" group-title="组播剧场",世界地理
 http://180.104.168.46:3000/rtp/239.49.8.87:8000?$江苏电信
 #EXTINF:-1 tvg-logo="https://live.fanmingming.com/tv/世界地理.png" group-title="组播剧场",世界地理
-http://49.68.204.12:4022/rtp/239.49.8.87:8000?$江苏电信
-#EXTINF:-1 tvg-logo="https://live.fanmingming.com/tv/世界地理.png" group-title="组播剧场",世界地理
 http://49.69.151.181:8001/rtp/239.49.8.87:8000?$江苏电信
 #EXTINF:-1 tvg-logo="https://live.fanmingming.com/tv/世界地理.png" group-title="组播剧场",世界地理
 http://58.212.40.72:6500/rtp/239.49.8.87:8000?$江苏电信
@@ -2855,6 +2835,8 @@ http://58.212.40.72:6500/rtp/239.49.8.87:8000?$江苏电信
 http://114.246.193.16:8888/rtp/239.3.1.235:8000?$北京联通
 #EXTINF:-1 tvg-logo="https://live.fanmingming.com/tv/BTV国际.png" group-title="北京频道",BTV国际
 http://114.246.199.171:8888/rtp/239.3.1.235:8000?$北京联通
+#EXTINF:-1 tvg-logo="https://live.fanmingming.com/tv/BTV国际.png" group-title="北京频道",BTV国际
+http://114.252.227.154:8000/rtp/239.3.1.235:8000?$北京联通
 #EXTINF:-1 tvg-logo="https://live.fanmingming.com/tv/BTV国际.png" group-title="北京频道",BTV国际
 http://114.254.188.49:9999/rtp/239.3.1.235:8000?$北京联通
 #EXTINF:-1 tvg-logo="https://live.fanmingming.com/tv/BTV国际.png" group-title="北京频道",BTV国际
@@ -2866,6 +2848,8 @@ http://114.246.193.16:8888/rtp/239.3.1.116:8000?$北京联通
 #EXTINF:-1 tvg-logo="https://live.fanmingming.com/tv/北京财经.png" group-title="北京频道",北京财经
 http://114.246.199.171:8888/rtp/239.3.1.116:8000?$北京联通
 #EXTINF:-1 tvg-logo="https://live.fanmingming.com/tv/北京财经.png" group-title="北京频道",北京财经
+http://114.252.227.154:8000/rtp/239.3.1.116:8000?$北京联通
+#EXTINF:-1 tvg-logo="https://live.fanmingming.com/tv/北京财经.png" group-title="北京频道",北京财经
 http://114.254.188.49:9999/rtp/239.3.1.116:8000?$北京联通
 #EXTINF:-1 tvg-logo="https://live.fanmingming.com/tv/北京财经.png" group-title="北京频道",北京财经
 http://124.65.6.160:20000/rtp/239.3.1.116:8000?$北京联通
@@ -2875,6 +2859,8 @@ http://221.219.96.192:8012/rtp/239.3.1.116:8000?$北京联通
 http://114.246.193.16:8888/rtp/239.3.1.243:8000?$北京联通
 #EXTINF:-1 tvg-logo="https://live.fanmingming.com/tv/北京冬奥纪实.png" group-title="北京频道",北京冬奥纪实
 http://114.246.199.171:8888/rtp/239.3.1.243:8000?$北京联通
+#EXTINF:-1 tvg-logo="https://live.fanmingming.com/tv/北京冬奥纪实.png" group-title="北京频道",北京冬奥纪实
+http://114.252.227.154:8000/rtp/239.3.1.243:8000?$北京联通
 #EXTINF:-1 tvg-logo="https://live.fanmingming.com/tv/北京冬奥纪实.png" group-title="北京频道",北京冬奥纪实
 http://114.254.188.49:9999/rtp/239.3.1.243:8000?$北京联通
 #EXTINF:-1 tvg-logo="https://live.fanmingming.com/tv/北京冬奥纪实.png" group-title="北京频道",北京冬奥纪实
@@ -2886,6 +2872,8 @@ http://114.246.193.16:8888/rtp/239.3.1.115:8000?$北京联通
 #EXTINF:-1 tvg-logo="https://live.fanmingming.com/tv/北京纪实科教.png" group-title="北京频道",北京纪实科教
 http://114.246.199.171:8888/rtp/239.3.1.115:8000?$北京联通
 #EXTINF:-1 tvg-logo="https://live.fanmingming.com/tv/北京纪实科教.png" group-title="北京频道",北京纪实科教
+http://114.252.227.154:8000/rtp/239.3.1.115:8000?$北京联通
+#EXTINF:-1 tvg-logo="https://live.fanmingming.com/tv/北京纪实科教.png" group-title="北京频道",北京纪实科教
 http://114.254.188.49:9999/rtp/239.3.1.115:8000?$北京联通
 #EXTINF:-1 tvg-logo="https://live.fanmingming.com/tv/北京纪实科教.png" group-title="北京频道",北京纪实科教
 http://124.65.6.160:20000/rtp/239.3.1.115:8000?$北京联通
@@ -2895,6 +2883,8 @@ http://221.219.96.192:8012/rtp/239.3.1.115:8000?$北京联通
 http://114.246.193.16:8888/rtp/239.3.1.189:8000?$北京联通
 #EXTINF:-1 tvg-logo="https://live.fanmingming.com/tv/北京卡酷少儿.png" group-title="北京频道",北京卡酷少儿
 http://114.246.199.171:8888/rtp/239.3.1.189:8000?$北京联通
+#EXTINF:-1 tvg-logo="https://live.fanmingming.com/tv/北京卡酷少儿.png" group-title="北京频道",北京卡酷少儿
+http://114.252.227.154:8000/rtp/239.3.1.189:8000?$北京联通
 #EXTINF:-1 tvg-logo="https://live.fanmingming.com/tv/北京卡酷少儿.png" group-title="北京频道",北京卡酷少儿
 http://114.254.188.49:9999/rtp/239.3.1.189:8000?$北京联通
 #EXTINF:-1 tvg-logo="https://live.fanmingming.com/tv/北京卡酷少儿.png" group-title="北京频道",北京卡酷少儿
@@ -2906,6 +2896,8 @@ http://114.246.193.16:8888/rtp/239.3.1.117:8000?$北京联通
 #EXTINF:-1 tvg-logo="https://live.fanmingming.com/tv/北京生活.png" group-title="北京频道",北京生活
 http://114.246.199.171:8888/rtp/239.3.1.117:8000?$北京联通
 #EXTINF:-1 tvg-logo="https://live.fanmingming.com/tv/北京生活.png" group-title="北京频道",北京生活
+http://114.252.227.154:8000/rtp/239.3.1.117:8000?$北京联通
+#EXTINF:-1 tvg-logo="https://live.fanmingming.com/tv/北京生活.png" group-title="北京频道",北京生活
 http://114.254.188.49:9999/rtp/239.3.1.117:8000?$北京联通
 #EXTINF:-1 tvg-logo="https://live.fanmingming.com/tv/北京生活.png" group-title="北京频道",北京生活
 http://124.65.6.160:20000/rtp/239.3.1.117:8000?$北京联通
@@ -2915,6 +2907,8 @@ http://221.219.96.192:8012/rtp/239.3.1.117:8000?$北京联通
 http://114.246.193.16:8888/rtp/239.3.1.242:8000?$北京联通
 #EXTINF:-1 tvg-logo="https://live.fanmingming.com/tv/北京文艺.png" group-title="北京频道",北京文艺
 http://114.246.199.171:8888/rtp/239.3.1.242:8000?$北京联通
+#EXTINF:-1 tvg-logo="https://live.fanmingming.com/tv/北京文艺.png" group-title="北京频道",北京文艺
+http://114.252.227.154:8000/rtp/239.3.1.242:8000?$北京联通
 #EXTINF:-1 tvg-logo="https://live.fanmingming.com/tv/北京文艺.png" group-title="北京频道",北京文艺
 http://114.254.188.49:9999/rtp/239.3.1.242:8000?$北京联通
 #EXTINF:-1 tvg-logo="https://live.fanmingming.com/tv/北京文艺.png" group-title="北京频道",北京文艺
@@ -2926,6 +2920,8 @@ http://114.246.193.16:8888/rtp/239.3.1.159:8000?$北京联通
 #EXTINF:-1 tvg-logo="https://live.fanmingming.com/tv/北京新闻.png" group-title="北京频道",北京新闻
 http://114.246.199.171:8888/rtp/239.3.1.159:8000?$北京联通
 #EXTINF:-1 tvg-logo="https://live.fanmingming.com/tv/北京新闻.png" group-title="北京频道",北京新闻
+http://114.252.227.154:8000/rtp/239.3.1.159:8000?$北京联通
+#EXTINF:-1 tvg-logo="https://live.fanmingming.com/tv/北京新闻.png" group-title="北京频道",北京新闻
 http://114.254.188.49:9999/rtp/239.3.1.159:8000?$北京联通
 #EXTINF:-1 tvg-logo="https://live.fanmingming.com/tv/北京新闻.png" group-title="北京频道",北京新闻
 http://124.65.6.160:20000/rtp/239.3.1.159:8000?$北京联通
@@ -2935,6 +2931,8 @@ http://221.219.96.192:8012/rtp/239.3.1.159:8000?$北京联通
 http://114.246.193.16:8888/rtp/239.3.1.158:8000?$北京联通
 #EXTINF:-1 tvg-logo="https://live.fanmingming.com/tv/北京影视.png" group-title="北京频道",北京影视
 http://114.246.199.171:8888/rtp/239.3.1.158:8000?$北京联通
+#EXTINF:-1 tvg-logo="https://live.fanmingming.com/tv/北京影视.png" group-title="北京频道",北京影视
+http://114.252.227.154:8000/rtp/239.3.1.158:8000?$北京联通
 #EXTINF:-1 tvg-logo="https://live.fanmingming.com/tv/北京影视.png" group-title="北京频道",北京影视
 http://114.254.188.49:9999/rtp/239.3.1.158:8000?$北京联通
 #EXTINF:-1 tvg-logo="https://live.fanmingming.com/tv/北京影视.png" group-title="北京频道",北京影视
@@ -2946,6 +2944,8 @@ http://114.246.193.16:8888/rtp/239.3.1.128:8001?$北京联通
 #EXTINF:-1 tvg-logo="https://live.fanmingming.com/tv/睛彩广场舞.png" group-title="北京频道",睛彩广场舞
 http://114.246.199.171:8888/rtp/239.3.1.128:8001?$北京联通
 #EXTINF:-1 tvg-logo="https://live.fanmingming.com/tv/睛彩广场舞.png" group-title="北京频道",睛彩广场舞
+http://114.252.227.154:8000/rtp/239.3.1.128:8001?$北京联通
+#EXTINF:-1 tvg-logo="https://live.fanmingming.com/tv/睛彩广场舞.png" group-title="北京频道",睛彩广场舞
 http://114.254.188.49:9999/rtp/239.3.1.128:8001?$北京联通
 #EXTINF:-1 tvg-logo="https://live.fanmingming.com/tv/睛彩广场舞.png" group-title="北京频道",睛彩广场舞
 http://124.65.6.160:20000/rtp/239.3.1.128:8001?$北京联通
@@ -2955,6 +2955,8 @@ http://221.219.96.192:8012/rtp/239.3.1.128:8001?$北京联通
 http://114.246.193.16:8888/rtp/239.3.1.238:8001?$北京联通
 #EXTINF:-1 tvg-logo="https://live.fanmingming.com/tv/淘宝贝.png" group-title="北京频道",淘宝贝
 http://114.246.199.171:8888/rtp/239.3.1.238:8001?$北京联通
+#EXTINF:-1 tvg-logo="https://live.fanmingming.com/tv/淘宝贝.png" group-title="北京频道",淘宝贝
+http://114.252.227.154:8000/rtp/239.3.1.238:8001?$北京联通
 #EXTINF:-1 tvg-logo="https://live.fanmingming.com/tv/淘宝贝.png" group-title="北京频道",淘宝贝
 http://114.254.188.49:9999/rtp/239.3.1.238:8001?$北京联通
 #EXTINF:-1 tvg-logo="https://live.fanmingming.com/tv/淘宝贝.png" group-title="北京频道",淘宝贝
@@ -2966,6 +2968,8 @@ http://114.246.193.16:8888/rtp/239.3.1.250:8001?$北京联通
 #EXTINF:-1 tvg-logo="https://live.fanmingming.com/tv/淘电影.png" group-title="北京频道",淘电影
 http://114.246.199.171:8888/rtp/239.3.1.250:8001?$北京联通
 #EXTINF:-1 tvg-logo="https://live.fanmingming.com/tv/淘电影.png" group-title="北京频道",淘电影
+http://114.252.227.154:8000/rtp/239.3.1.250:8001?$北京联通
+#EXTINF:-1 tvg-logo="https://live.fanmingming.com/tv/淘电影.png" group-title="北京频道",淘电影
 http://114.254.188.49:9999/rtp/239.3.1.250:8001?$北京联通
 #EXTINF:-1 tvg-logo="https://live.fanmingming.com/tv/淘电影.png" group-title="北京频道",淘电影
 http://124.65.6.160:20000/rtp/239.3.1.250:8001?$北京联通
@@ -2975,6 +2979,8 @@ http://221.219.96.192:8012/rtp/239.3.1.250:8001?$北京联通
 http://114.246.193.16:8888/rtp/239.3.1.178:8001?$北京联通
 #EXTINF:-1 tvg-logo="https://live.fanmingming.com/tv/淘精彩.png" group-title="北京频道",淘精彩
 http://114.246.199.171:8888/rtp/239.3.1.178:8001?$北京联通
+#EXTINF:-1 tvg-logo="https://live.fanmingming.com/tv/淘精彩.png" group-title="北京频道",淘精彩
+http://114.252.227.154:8000/rtp/239.3.1.178:8001?$北京联通
 #EXTINF:-1 tvg-logo="https://live.fanmingming.com/tv/淘精彩.png" group-title="北京频道",淘精彩
 http://114.254.188.49:9999/rtp/239.3.1.178:8001?$北京联通
 #EXTINF:-1 tvg-logo="https://live.fanmingming.com/tv/淘精彩.png" group-title="北京频道",淘精彩
@@ -2986,6 +2992,8 @@ http://114.246.193.16:8888/rtp/239.3.1.95:8001?$北京联通
 #EXTINF:-1 tvg-logo="https://live.fanmingming.com/tv/淘剧场.png" group-title="北京频道",淘剧场
 http://114.246.199.171:8888/rtp/239.3.1.95:8001?$北京联通
 #EXTINF:-1 tvg-logo="https://live.fanmingming.com/tv/淘剧场.png" group-title="北京频道",淘剧场
+http://114.252.227.154:8000/rtp/239.3.1.95:8001?$北京联通
+#EXTINF:-1 tvg-logo="https://live.fanmingming.com/tv/淘剧场.png" group-title="北京频道",淘剧场
 http://114.254.188.49:9999/rtp/239.3.1.95:8001?$北京联通
 #EXTINF:-1 tvg-logo="https://live.fanmingming.com/tv/淘剧场.png" group-title="北京频道",淘剧场
 http://124.65.6.160:20000/rtp/239.3.1.95:8001?$北京联通
@@ -2995,6 +3003,8 @@ http://221.219.96.192:8012/rtp/239.3.1.95:8001?$北京联通
 http://114.246.193.16:8888/rtp/239.3.1.100:8001?$北京联通
 #EXTINF:-1 tvg-logo="https://live.fanmingming.com/tv/淘娱乐.png" group-title="北京频道",淘娱乐
 http://114.246.199.171:8888/rtp/239.3.1.100:8001?$北京联通
+#EXTINF:-1 tvg-logo="https://live.fanmingming.com/tv/淘娱乐.png" group-title="北京频道",淘娱乐
+http://114.252.227.154:8000/rtp/239.3.1.100:8001?$北京联通
 #EXTINF:-1 tvg-logo="https://live.fanmingming.com/tv/淘娱乐.png" group-title="北京频道",淘娱乐
 http://114.254.188.49:9999/rtp/239.3.1.100:8001?$北京联通
 #EXTINF:-1 tvg-logo="https://live.fanmingming.com/tv/淘娱乐.png" group-title="北京频道",淘娱乐
@@ -3009,12 +3019,8 @@ http://61.221.215.25:8800/hls/43/index.m3u8
 https://litv.zapi.us.kg/?id=4gtv-4gtv017
 #EXTINF:-1 tvg-logo="https://live.fanmingming.com/tv/CAT电影台.png" group-title="港澳频道",CAT电影台
 https://litv.zapi.us.kg/?id=4gtv-4gtv076
-#EXTINF:-1 tvg-logo="https://live.fanmingming.com/tv/SiTV七彩戏剧.png" group-title="港澳频道",SiTV七彩戏剧
-http://gslbservzqhsw.itv.cmvideo.cn/5000000011000031116/1.m3u8?channel-id=bestzb&Contentid=5000000011000031116&livemode=1&stbId=3
 #EXTINF:-1 tvg-logo="https://live.fanmingming.com/tv/八大戏剧.png" group-title="港澳频道",八大戏剧
 http://61.221.215.25:8800/hls/39/index.m3u8
-#EXTINF:-1 tvg-logo="https://live.fanmingming.com/tv/八大戏剧.png" group-title="港澳频道",八大戏剧
-http://tianhewan.top/ZIPP.php?url=http://211.72.65.236:8531/.m3u8
 #EXTINF:-1 tvg-logo="https://live.fanmingming.com/tv/榜单电影.png" group-title="港澳频道",榜单电影
 http://allinone.netsite.cc/douyu/8770422
 #EXTINF:-1 tvg-logo="https://live.fanmingming.com/tv/采昌影剧.png" group-title="港澳频道",采昌影剧
@@ -3025,14 +3031,8 @@ https://litv.zapi.us.kg/?id=4gtv-4gtv049
 http://37.27.111.214:8080/live/11/hls.m3u8
 #EXTINF:-1 tvg-logo="https://live.fanmingming.com/tv/电影.png" group-title="港澳频道",电影
 http://pull.kktv8.com/livekktv/99350550.flv
-#EXTINF:-1 tvg-logo="https://live.fanmingming.com/tv/东森各地影像.png" group-title="港澳频道",东森各地影像
-https://www.youtube.com/watch?v=yR7h7xmFVLQ
-#EXTINF:-1 tvg-logo="https://live.fanmingming.com/tv/东森戏剧.png" group-title="港澳频道",东森戏剧
-http://tianhewan.top/ZIPP.php?url=http://211.72.65.236:8530/.m3u8
 #EXTINF:-1 tvg-logo="https://live.fanmingming.com/tv/公视戏剧.png" group-title="港澳频道",公视戏剧
 http://litv.zapi.us.kg/?id=4gtv-4gtv042
-#EXTINF:-1 tvg-logo="https://live.fanmingming.com/tv/好莱坞电影.png" group-title="港澳频道",好莱坞电影
-http://tianhewan.top/ZIPP.php?url=http://211.72.65.236:8554/.m3u8
 #EXTINF:-1 tvg-logo="https://live.fanmingming.com/tv/靖天电影.png" group-title="港澳频道",靖天电影
 http://litv.zapi.us.kg/?id=4gtv-4gtv061
 #EXTINF:-1 tvg-logo="https://live.fanmingming.com/tv/靖天电影台.png" group-title="港澳频道",靖天电影台
@@ -3069,28 +3069,22 @@ http://61.221.215.25:8800/hls/41/index.m3u8
 http://litv.zapi.us.kg/?id=4gtv-4gtv011
 #EXTINF:-1 tvg-logo="https://live.fanmingming.com/tv/台湾戏剧台.png" group-title="港澳频道",台湾戏剧台
 https://litv.zapi.us.kg/?id=litv-longturn22
-#EXTINF:-1 tvg-logo="https://live.fanmingming.com/tv/纬来电影.png" group-title="港澳频道",纬来电影
-http://tianhewan.top/ZIPP.php?url=http://211.72.65.236:8579/.m3u8
-#EXTINF:-1 tvg-logo="https://live.fanmingming.com/tv/纬来戏剧.png" group-title="港澳频道",纬来戏剧
-http://tianhewan.top/ZIPP.php?url=http://211.72.65.236:8533/.m3u8
 #EXTINF:-1 tvg-logo="https://live.fanmingming.com/tv/BLOOMBERG.png" group-title="港澳频道",BLOOMBERG
 http://37.27.111.214:8080/live/34/hls.m3u8
 #EXTINF:-1 tvg-logo="https://live.fanmingming.com/tv/CinemaWorld.png" group-title="港澳频道",CinemaWorld
 http://37.27.111.214:8080/live/30/hls.m3u8
 #EXTINF:-1 tvg-logo="https://live.fanmingming.com/tv/TVB翡翠台.png" group-title="港澳频道",TVB翡翠台
 http://php.jdshipin.com:8880/smt.php?id=jade_twn
-#EXTINF:-1 tvg-logo="https://live.fanmingming.com/tv/TVB华丽台.png" group-title="港澳频道",TVB华丽台
-http://php.jdshipin.com:8880/smt.php?id=Tvbjade
 #EXTINF:-1 tvg-logo="https://live.fanmingming.com/tv/TVB星河.png" group-title="港澳频道",TVB星河
 http://php.jdshipin.com:8880/smt.php?id=Xinhe
 #EXTINF:-1 tvg-logo="https://live.fanmingming.com/tv/TVB星河.png" group-title="港澳频道",TVB星河
 http://php.jdshipin.com:8880/smt.php?id=tvbxinhe_twn
-#EXTINF:-1 tvg-logo="https://live.fanmingming.com/tv/TVB星河国语.png" group-title="港澳频道",TVB星河国语
-http://php.jdshipin.com:8880/TVOD/iptv.php?id=xinghe
-#EXTINF:-1 tvg-logo="https://live.fanmingming.com/tv/TVBJade翡翠台.png" group-title="港澳频道",TVBJade翡翠台
+#EXTINF:-1 tvg-logo="https://live.fanmingming.com/tv/TVB翡翠台.png" group-title="港澳频道",TVB翡翠台
 https://cloudfront41.lexanetwork.com:1344/relay01/livestream002.sdp/playlist.m3u8
-#EXTINF:-1 tvg-logo="https://live.fanmingming.com/tv/TVBJade翡翠台CantoneseSubtitles.png" group-title="港澳频道",TVBJade翡翠台CantoneseSubtitles
+#EXTINF:-1 tvg-logo="https://live.fanmingming.com/tv/TVB翡翠台.png" group-title="港澳频道",TVB翡翠台
 http://162.244.81.145:3333/live/telebostonrtb/playlist.m3u8
+#EXTINF:-1 tvg-logo="https://live.fanmingming.com/tv/TVB.png" group-title="港澳频道",TVB
+http://php.jdshipin.com:8880/smt.php?id=Tvbjade
 #EXTINF:-1 tvg-logo="https://live.fanmingming.com/tv/TVBRICS.png" group-title="港澳频道",TVBRICS
 http://brics.bonus-tv.ru/cdn/brics/chinese/tracks-v1a1/index.m3u8
 #EXTINF:-1 tvg-logo="https://live.fanmingming.com/tv/TVBS欢乐台.png" group-title="港澳频道",TVBS欢乐台
@@ -3099,13 +3093,13 @@ http://37.27.111.214:8080/live/24/hls.m3u8
 https://litv.zapi.us.kg/?id=4gtv-4gtv068
 #EXTINF:-1 tvg-logo="https://live.fanmingming.com/tv/TVBS精彩台.png" group-title="港澳频道",TVBS精彩台
 https://litv.zapi.us.kg/?id=4gtv-4gtv067
-#EXTINF:-1 tvg-logo="https://live.fanmingming.com/tv/TVBS新闻台.png" group-title="港澳频道",TVBS新闻台
-https://www.youtube.com/watch?v=m_dhMSvUCIc
+#EXTINF:-1 tvg-logo="https://live.fanmingming.com/tv/TVBS新闻.png" group-title="港澳频道",TVBS新闻
+http://tianhewan.top/ZIPP.php?url=http://211.72.65.236:8574/.m3u8
 #EXTINF:-1 tvg-logo="https://live.fanmingming.com/tv/TVBS.png" group-title="港澳频道",TVBS
 http://37.27.111.214:8080/live/23/hls.m3u8
 #EXTINF:-1 tvg-logo="https://live.fanmingming.com/tv/TVBS.png" group-title="港澳频道",TVBS
 https://litv.zapi.us.kg/?id=4gtv-4gtv073
-#EXTINF:-1 tvg-logo="https://live.fanmingming.com/tv/TVBSNEWS.png" group-title="港澳频道",TVBSNEWS
+#EXTINF:-1 tvg-logo="https://live.fanmingming.com/tv/TVBS新闻.png" group-title="港澳频道",TVBS新闻
 http://61.221.215.25:8800/hls/9/index.m3u8
 #EXTINF:-1 tvg-logo="https://live.fanmingming.com/tv/八大第一.png" group-title="港澳频道",八大第一
 http://61.221.215.25:8800/hls/55/index.m3u8
@@ -3135,20 +3129,16 @@ http://www.dalitv.com.tw:4568/live/dali/index.m3u8
 http://103.193.151.158:8500/live.m3u8?c=6
 #EXTINF:-1 tvg-logo="https://live.fanmingming.com/tv/东森财经.png" group-title="港澳频道",东森财经
 http://litv.zapi.us.kg/?id=4gtv-4gtv153
-#EXTINF:-1 tvg-logo="https://live.fanmingming.com/tv/东森财经新闻台.png" group-title="港澳频道",东森财经新闻台
-https://www.youtube.com/watch?v=LbS-xQ67fos
 #EXTINF:-1 tvg-logo="https://live.fanmingming.com/tv/东森新闻.png" group-title="港澳频道",东森新闻
 http://37.27.111.214:8080/live/20/hls.m3u8
 #EXTINF:-1 tvg-logo="https://live.fanmingming.com/tv/东森新闻.png" group-title="港澳频道",东森新闻
 http://litv.zapi.us.kg/?id=4gtv-4gtv152
 #EXTINF:-1 tvg-logo="https://live.fanmingming.com/tv/东森新闻.png" group-title="港澳频道",东森新闻
-http://tianhewan.top/ZIPP.php?url=http://211.72.65.236:8540/.m3u8
-#EXTINF:-1 tvg-logo="https://live.fanmingming.com/tv/东森新闻.png" group-title="港澳频道",东森新闻
 https://litv.zapi.us.kg/?id=4gtv-4gtv152
-#EXTINF:-1 tvg-logo="https://live.fanmingming.com/tv/东森新闻台.png" group-title="港澳频道",东森新闻台
-https://www.youtube.com/live/V1p33hqPrUk?si=IyGTwsTSIL7hXDKN
 #EXTINF:-1 tvg-logo="https://live.fanmingming.com/tv/动物星球.png" group-title="港澳频道",动物星球
 http://61.221.215.25:8800/hls/57/index.m3u8
+#EXTINF:-1 tvg-logo="https://live.fanmingming.com/tv/动物星球.png" group-title="港澳频道",动物星球
+http://tianhewan.top/ZIPP.php?url=http://211.72.65.236:8512/.m3u8
 #EXTINF:-1 tvg-logo="https://live.fanmingming.com/tv/番薯.png" group-title="港澳频道",番薯
 http://61.216.67.119:1935/TWHG/E1/chunklist_w70581102.m3u8
 #EXTINF:-1 tvg-logo="https://live.fanmingming.com/tv/番薯台.png" group-title="港澳频道",番薯台
@@ -3178,17 +3168,17 @@ http://php.jdshipin.com:8880/jydx.php?id=37
 #EXTINF:-1 tvg-logo="https://live.fanmingming.com/tv/凤凰资讯.png" group-title="港澳频道",凤凰资讯
 http://61.221.215.25:8800/hls/47/index.m3u8
 #EXTINF:-1 tvg-logo="https://live.fanmingming.com/tv/凤凰资讯.png" group-title="港澳频道",凤凰资讯
+http://php.jdshipin.com:8880/jydx.php?id=36
+#EXTINF:-1 tvg-logo="https://live.fanmingming.com/tv/凤凰资讯.png" group-title="港澳频道",凤凰资讯
 http://php.jdshipin.com:8880/smt.php?id=phoenixinfo_hd
 #EXTINF:-1 tvg-logo="https://live.fanmingming.com/tv/公视.png" group-title="港澳频道",公视
+http://tianhewan.top/ZIPP.php?url=http://211.72.65.236:8505/.m3u8
+#EXTINF:-1 tvg-logo="https://live.fanmingming.com/tv/公视.png" group-title="港澳频道",公视
 https://litv.zapi.us.kg/?id=4gtv-4gtv042
-#EXTINF:-1 tvg-logo="https://live.fanmingming.com/tv/公视新闻.png" group-title="港澳频道",公视新闻
-http://103.193.151.158:8500/live.m3u8?c=19
 #EXTINF:-1 tvg-logo="https://live.fanmingming.com/tv/互动英语.png" group-title="港澳频道",互动英语
 http://37.27.111.214:8080/live/54/hls.m3u8
 #EXTINF:-1 tvg-logo="https://live.fanmingming.com/tv/华视.png" group-title="港澳频道",华视
 http://37.27.111.214:8080/live/8/hls.m3u8
-#EXTINF:-1 tvg-logo="https://live.fanmingming.com/tv/华视.png" group-title="港澳频道",华视
-http://tianhewan.top/ZIPP.php?url=http://211.72.65.236:8503/.m3u8
 #EXTINF:-1 tvg-logo="https://live.fanmingming.com/tv/华视.png" group-title="港澳频道",华视
 https://litv.zapi.us.kg/?id=4gtv-4gtv041
 #EXTINF:-1 tvg-logo="https://live.fanmingming.com/tv/华视闽南.png" group-title="港澳频道",华视闽南
@@ -3199,8 +3189,6 @@ http://103.193.151.158:8500/live.m3u8?c=7
 http://litv.zapi.us.kg/?id=4gtv-4gtv052
 #EXTINF:-1 tvg-logo="https://live.fanmingming.com/tv/华视新闻台.png" group-title="港澳频道",华视新闻台
 https://litv.zapi.us.kg/?id=4gtv-4gtv052
-#EXTINF:-1 tvg-logo="https://live.fanmingming.com/tv/华视新闻台.png" group-title="港澳频道",华视新闻台
-https://www.youtube.com/watch?v=wM0g8EoUZ_E
 #EXTINF:-1 tvg-logo="https://live.fanmingming.com/tv/寰宇闽南.png" group-title="港澳频道",寰宇闽南
 http://litv.zapi.us.kg/?id=litv-longturn15
 #EXTINF:-1 tvg-logo="https://live.fanmingming.com/tv/寰宇闽南台.png" group-title="港澳频道",寰宇闽南台
@@ -3209,8 +3197,6 @@ https://litv.zapi.us.kg/?id=litv-longturn15
 http://litv.zapi.us.kg/?id=litv-longturn14
 #EXTINF:-1 tvg-logo="https://live.fanmingming.com/tv/寰宇新闻.png" group-title="港澳频道",寰宇新闻
 https://raw.githubusercontent.com/ChiSheng9/iptv/master/TV02.m3u8
-#EXTINF:-1 tvg-logo="https://live.fanmingming.com/tv/寰宇新闻台.png" group-title="港澳频道",寰宇新闻台
-https://www.youtube.com/watch?v=6IquAgfvYmc
 #EXTINF:-1 tvg-logo="https://live.fanmingming.com/tv/靖天.png" group-title="港澳频道",靖天
 http://litv.zapi.us.kg/?id=4gtv-4gtv063
 #EXTINF:-1 tvg-logo="https://live.fanmingming.com/tv/靖天欢乐.png" group-title="港澳频道",靖天欢乐
@@ -3266,6 +3252,8 @@ https://litv.zapi.us.kg/?id=litv-longturn11
 #EXTINF:-1 tvg-logo="https://live.fanmingming.com/tv/民视.png" group-title="港澳频道",民视
 http://37.27.111.214:8080/live/6/hls.m3u8
 #EXTINF:-1 tvg-logo="https://live.fanmingming.com/tv/民视.png" group-title="港澳频道",民视
+http://tianhewan.top/ZIPP.php?url=http://211.72.65.236:8504/.m3u8
+#EXTINF:-1 tvg-logo="https://live.fanmingming.com/tv/民视.png" group-title="港澳频道",民视
 rtmp://twcdn.top/sat/tv051
 #EXTINF:-1 tvg-logo="https://live.fanmingming.com/tv/民视第一.png" group-title="港澳频道",民视第一
 http://37.27.111.214:8080/live/4/hls.m3u8
@@ -3296,23 +3284,17 @@ http://103.193.151.158:8500/live.m3u8?c=4
 #EXTINF:-1 tvg-logo="https://live.fanmingming.com/tv/民视新闻.png" group-title="港澳频道",民视新闻
 http://litv.zapi.us.kg/?id=litv-ftv13
 #EXTINF:-1 tvg-logo="https://live.fanmingming.com/tv/民视新闻.png" group-title="港澳频道",民视新闻
+http://tianhewan.top/ZIPP.php?url=http://211.72.65.236:8542/.m3u8
+#EXTINF:-1 tvg-logo="https://live.fanmingming.com/tv/民视新闻.png" group-title="港澳频道",民视新闻
 https://litv.zapi.us.kg/?id=litv-ftv13
-#EXTINF:-1 tvg-logo="https://live.fanmingming.com/tv/民视新闻台.png" group-title="港澳频道",民视新闻台
-https://www.youtube.com/watch?v=ylYJSBUgaMA
 #EXTINF:-1 tvg-logo="https://live.fanmingming.com/tv/民视综艺.png" group-title="港澳频道",民视综艺
 http://litv.zapi.us.kg/?id=4gtv-4gtv004
 #EXTINF:-1 tvg-logo="https://live.fanmingming.com/tv/民视综艺台.png" group-title="港澳频道",民视综艺台
 https://litv.zapi.us.kg/?id=4gtv-4gtv004
 #EXTINF:-1 tvg-logo="https://live.fanmingming.com/tv/三立.png" group-title="港澳频道",三立
 http://37.27.111.214:8080/live/31/hls.m3u8
-#EXTINF:-1 tvg-logo="https://live.fanmingming.com/tv/三立NEWS+.png" group-title="港澳频道",三立NEWS+
-https://www.youtube.com/watch?v=oZdzzvxTfUY
-#EXTINF:-1 tvg-logo="https://live.fanmingming.com/tv/三立iNEWS.png" group-title="港澳频道",三立iNEWS
-https://www.youtube.com/watch?v=CKjSm5ZeehE
 #EXTINF:-1 tvg-logo="https://live.fanmingming.com/tv/三立台湾.png" group-title="港澳频道",三立台湾
 http://tianhewan.top/ZIPP.php?url=http://211.72.65.236:8521/.m3u8
-#EXTINF:-1 tvg-logo="https://live.fanmingming.com/tv/三立新闻台.png" group-title="港澳频道",三立新闻台
-https://www.youtube.com/watch?v=FoBfXvlOR6I
 #EXTINF:-1 tvg-logo="https://live.fanmingming.com/tv/台视.png" group-title="港澳频道",台视
 https://litv.zapi.us.kg/?id=4gtv-4gtv066
 #EXTINF:-1 tvg-logo="https://live.fanmingming.com/tv/台视.png" group-title="港澳频道",台视
@@ -3327,14 +3309,12 @@ http://litv.zapi.us.kg/?id=4gtv-4gtv066
 http://litv.zapi.us.kg/?id=4gtv-4gtv051
 #EXTINF:-1 tvg-logo="https://live.fanmingming.com/tv/台视新闻.png" group-title="港澳频道",台视新闻
 https://litv.zapi.us.kg/?id=4gtv-4gtv051
-#EXTINF:-1 tvg-logo="https://live.fanmingming.com/tv/台视新闻台.png" group-title="港澳频道",台视新闻台
-https://www.youtube.com/watch?v=xL0ch83RAK8
 #EXTINF:-1 tvg-logo="https://live.fanmingming.com/tv/纬来精彩.png" group-title="港澳频道",纬来精彩
 http://61.221.215.25:8800/hls/48/index.m3u8
-#EXTINF:-1 tvg-logo="https://live.fanmingming.com/tv/纬来体育.png" group-title="港澳频道",纬来体育
-http://tianhewan.top/ZIPP.php?url=http://211.72.65.236:8585/.m3u8
 #EXTINF:-1 tvg-logo="https://live.fanmingming.com/tv/纬来育乐台.png" group-title="港澳频道",纬来育乐台
 rtmp://twcdn.top/sat/tv701
+#EXTINF:-1 tvg-logo="https://live.fanmingming.com/tv/无线财经.png" group-title="港澳频道",无线财经
+https://nothingbe.serv00.net/tvb.php?id=A&type=hd
 #EXTINF:-1 tvg-logo="https://live.fanmingming.com/tv/无线华丽.png" group-title="港澳频道",无线华丽
 http://php.jdshipin.com:8880/TVOD/iptv.php?id=huali
 #EXTINF:-1 tvg-logo="https://live.fanmingming.com/tv/无线新闻.png" group-title="港澳频道",无线新闻
@@ -3367,24 +3347,18 @@ http://litv.zapi.us.kg/?id=4gtv-4gtv040
 http://litv.zapi.us.kg/?id=4gtv-4gtv074
 #EXTINF:-1 tvg-logo="https://live.fanmingming.com/tv/中视新闻台.png" group-title="港澳频道",中视新闻台
 https://litv.zapi.us.kg/?id=4gtv-4gtv074
-#EXTINF:-1 tvg-logo="https://live.fanmingming.com/tv/中视新闻台.png" group-title="港澳频道",中视新闻台
-https://www.youtube.com/watch?v=TCnaIE_SAtM
 #EXTINF:-1 tvg-logo="https://live.fanmingming.com/tv/中天新闻.png" group-title="港澳频道",中天新闻
 http://211.72.65.236:8541/.m3u8
 #EXTINF:-1 tvg-logo="https://live.fanmingming.com/tv/中天新闻.png" group-title="港澳频道",中天新闻
 http://litv.zapi.us.kg/?id=4gtv-4gtv009
-#EXTINF:-1 tvg-logo="https://live.fanmingming.com/tv/中天新闻1台.png" group-title="港澳频道",中天新闻1台
-https://www.youtube.com/watch?v=oIgbl7t0S_w
-#EXTINF:-1 tvg-logo="https://live.fanmingming.com/tv/中天新闻2台.png" group-title="港澳频道",中天新闻2台
-https://www.youtube.com/watch?v=WPfPjbOLNfE
 #EXTINF:-1 tvg-logo="https://live.fanmingming.com/tv/中天新闻台.png" group-title="港澳频道",中天新闻台
 https://litv.zapi.us.kg/?id=4gtv-4gtv009
 #EXTINF:-1 tvg-logo="https://live.fanmingming.com/tv/猪哥亮.png" group-title="港澳频道",猪哥亮
 http://37.27.111.214:8080/live/35/hls.m3u8
-#EXTINF:-1 tvg-logo="https://live.fanmingming.com/tv/猪哥亮歌厅台.png" group-title="港澳频道",猪哥亮歌厅台
+#EXTINF:-1 tvg-logo="https://live.fanmingming.com/tv/猪哥亮台.png" group-title="港澳频道",猪哥亮台
 http://litv.zapi.us.kg/?id=4gtv-4gtv006
-#EXTINF:-1 tvg-logo="https://live.fanmingming.com/tv/猪哥亮歌厅秀.png" group-title="港澳频道",猪哥亮歌厅秀
+#EXTINF:-1 tvg-logo="https://live.fanmingming.com/tv/猪哥亮秀.png" group-title="港澳频道",猪哥亮秀
 https://litv.zapi.us.kg/?id=4gtv-4gtv006
 
-#EXTINF:-1 group-title="2024/10/05 10:07更新",虚情的爱
+#EXTINF:-1 group-title="2024/10/05 10:50更新",虚情的爱
 https://vd2.bdstatic.com/mda-mi1dd05gmhwejdwn/sc/cae_h264/1630576203346678103/mda-mi1dd05gmhwejdwn.mp4
