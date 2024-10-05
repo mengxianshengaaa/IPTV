@@ -754,16 +754,11 @@ replacements = {
     	"标清": "",
     	"-": "",
     	"NEWS": "新闻",
-    	"台,": ",",
     	"歌厅": "",
-    	"秀,": ",",
     	"TVBJade": "TVB",
     	"CantoneseSubtitles": "",
     	"+": "",
     	"财经新闻": "财经",
-    	"番薯,": "番薯音乐,",
-    	"番薯111,": "番薯音乐,",
-    	"凤凰资讯,http://61.221": "中天娱乐,http://61.221",
     	"": "",
     	"": "",
     	"[1080p]": "",
@@ -1086,19 +1081,21 @@ for line in fileinput.input("网络收集.txt", inplace=True):   #打开临时�
     line = line.replace("影剧,", "影剧台,")  
     line = line.replace("欢乐,", "欢乐台,")  
     line = line.replace("资讯,", "资讯台,")  
-    line = line.replace("CCTV7,", "CCTV7-军事,")  
-    line = line.replace("CCTV8,", "CCTV8-电视剧,")  
-    line = line.replace("CCTV9,", "CCTV9-纪录,")  
-    line = line.replace("CCTV10,", "CCTV10-科教,")  
-    line = line.replace("CCTV11,", "CCTV11-戏曲,")  
-    line = line.replace("CCTV11+,", "CCTV11-戏曲,")  
-    line = line.replace("CCTV12,", "CCTV12-社会与法,")  
-    line = line.replace("CCTV13,", "CCTV13-新闻,")  
-    line = line.replace("CCTV14,", "CCTV14-少儿,")  
-    line = line.replace("CCTV15,", "CCTV15-音乐,")  
-    line = line.replace("CCTV16,", "CCTV16-奥林匹克,")  
-    line = line.replace("CCTV17,", "CCTV17-农业农村,") 
-    line = line.replace("CHC", "") 
+    line = line.replace("新闻,", "新闻台,")  
+    line = line.replace("菁采,", "菁采台,")  
+    line = line.replace("音乐,", "音乐台,")  
+    line = line.replace("映画,", "映画台,")  
+    line = line.replace("综合,", "综合台,")  
+    line = line.replace("卡通,", "卡通台,")  
+    line = line.replace("猪哥亮台,", "猪哥亮音乐秀,")  
+    line = line.replace("猪哥亮秀,", "猪哥亮音乐秀,")  
+    line = line.replace("猪哥亮,", "猪哥亮音乐秀,")  
+    line = line.replace("日本,", "日本台,")  
+    line = line.replace("台湾,", "台湾台,")  
+    line = line.replace("闽南,", "闽南台,")  
+    line = line.replace("第一,", "第一台,")  
+    line = line.replace("日韩,", "日韩台,")  
+    line = line.replace("偶像,", "偶像台,")  
     print(line, end="")   
 
 
