@@ -12,7 +12,6 @@ import time
 ## 定义txt文件的URL列表
 urls = [
        'https://dimaston.github.io/live.m3u',  #假m3u
-       'https://raw.github.com/gaotianliuyun/gao/master/list.txt',   #暂时保留
        'https://raw.github.com/Fairy8o/IPTV/main/PDX-V4.txt',
        'https://raw.github.com/ddhola/file/d7afb504b1ba4fef31813e1166cb892215a9c063/0609test',
        'https://raw.github.com/vbskycn/iptv/2738b3bec8c298f57e0e2052b155846ab6ea3787/dsyy/hd.txt',
@@ -49,8 +48,8 @@ urls = [
        'https://bbs.ysctv.cn/tv/live.txt',
        'https://d.kstore.space/download/8209/%E6%B8%AF%E6%BE%B3%E5%8F%B0%E7%BB%88%E6%9E%81%E7%89%88.txt',
        'https://fs-im-kefu.7moor-fs1.com/ly/4d2c3f00-7d4c-11e5-af15-41bf63ae4ea0/1724505579710/%E6%80%BB%E7%BB%9F%E7%94%B5%E8%A7%8627.txt',
-       '',
-       '',
+       'https://raw.githubusercontent.com/yescopys/box/a2ca0b52fc850466c75bfd78e9506af4c01f3bc8/PG/lives/live.txt',
+       'https://raw.githubusercontent.com/yescopys/box/a2ca0b52fc850466c75bfd78e9506af4c01f3bc8/0000/lives/live.txt',
        '',
        '',
        '',
