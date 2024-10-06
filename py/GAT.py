@@ -1083,6 +1083,10 @@ with open('网络收集.txt', 'w', encoding="utf-8") as file:
 
 #从整理好的文本中进行特定关键词替换以规范频道名#
 for line in fileinput.input("网络收集.txt", inplace=True):   #打开临时文件原地替换关键字
+    line = line.replace("频国", "")   
+    line = line.replace("频闽", "")   
+    line = line.replace("频粤", "")   
+    line = line.replace("国,", ",")   
     line = line.replace("电影,", "电影台,")  
     line = line.replace("戏剧,", "戏剧台,")  
     line = line.replace("综艺,", "综艺台,")  
@@ -1105,9 +1109,6 @@ for line in fileinput.input("网络收集.txt", inplace=True):   #打开临时�
     line = line.replace("第一,", "第一台,")  
     line = line.replace("日韩,", "日韩台,")  
     line = line.replace("偶像,", "偶像台,")  
-    line = line.replace("频国", "")   
-    line = line.replace("频闽", "")   
-    line = line.replace("频粤", "")   
     line = line.replace("经典,", "经典台,")   
     line = line.replace("", "")   
     line = line.replace("", "")   
