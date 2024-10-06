@@ -48,8 +48,8 @@ urls = [
        'https://bbs.ysctv.cn/tv/live.txt',
        'https://d.kstore.space/download/8209/%E6%B8%AF%E6%BE%B3%E5%8F%B0%E7%BB%88%E6%9E%81%E7%89%88.txt',
        'https://fs-im-kefu.7moor-fs1.com/ly/4d2c3f00-7d4c-11e5-af15-41bf63ae4ea0/1724505579710/%E6%80%BB%E7%BB%9F%E7%94%B5%E8%A7%8627.txt',
-       'https://raw.githubusercontent.com/yescopys/box/a2ca0b52fc850466c75bfd78e9506af4c01f3bc8/PG/lives/live.txt',
-       'https://raw.githubusercontent.com/yescopys/box/a2ca0b52fc850466c75bfd78e9506af4c01f3bc8/0000/lives/live.txt',
+       'https://raw.bgithub.xyz/yescopys/box/a2ca0b52fc850466c75bfd78e9506af4c01f3bc8/PG/lives/live.txt',
+       'https://raw.bgithub.xyz/yescopys/box/a2ca0b52fc850466c75bfd78e9506af4c01f3bc8/0000/lives/live.txt',
        '',
        '',
        '',
@@ -1105,6 +1105,21 @@ for line in fileinput.input("网络收集.txt", inplace=True):   #打开临时�
     line = line.replace("第一,", "第一台,")  
     line = line.replace("日韩,", "日韩台,")  
     line = line.replace("偶像,", "偶像台,")  
+    line = line.replace("频国", "")   
+    line = line.replace("频闽", "")   
+    line = line.replace("频粤", "")   
+    line = line.replace("经典,", "经典台,")   
+    line = line.replace("", "")   
+    line = line.replace("", "")   
+    line = line.replace("", "")   
+    line = line.replace("", "")   
+    line = line.replace("", "")   
+    line = line.replace("", "")   
+    line = line.replace("", "")   
+    line = line.replace("", "")   
+    line = line.replace("", "")   
+    line = line.replace("", "")   
+    line = line.replace("", "")  
     print(line, end="")   
 
 
