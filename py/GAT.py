@@ -572,7 +572,12 @@ print("处理完成,繁体转换完成")
 import re
 import os
 # 定义一个包含所有要排除的关键词的列表
-excluded_keywords = ['zhoujie218', 'service', '112114', 'xfjcHD', '安徽', '七彩', '文化', '电影台61', 'youtube', 'stream8.jlntv', 'live.cooltv', 'P2P', 'Plus', '38.64.72.148', '新闻综合', 'P3p', 'cookies', '9930/qilu', 'gitcode.net', 'free.xiptv']   #, '', ''
+excluded_keywords = ['zhoujie218', 'service', '112114', 'xfjcHD', '安徽', '七彩', '文化', '电影台61', 'youtube', 'stream8.jlntv', 'live.cooltv', 'P2P', 'Plus', '38.64.72.148', '新闻综合', 'P3p', 
+                     'cookies', '9930/qilu', 'gitcode.net', 'free.xiptv', '4gtv017', '4gtv076', '4gtv049', '4gtv042', '4gtv061', '4gtv058', '4gtv045', 'longturn03', 'longturn18', 'longturn22', 
+                     'ftv09', '4gtv011', 'golden', 'tvbxinhe_twn', '4gtv068', '4gtv073', '4gtv034', '4gtv039', '4gtv153', '4gtv152', 'phoenixtv_hd', '153402', 'hkphoenix_twn', 'tvbcaijing_twn', 
+                     'phoenixinfo_hd', 'uWRW1HvPSb', '4gtv041', '4gtv052', 'longturn15', 'longturn14', '4gtv063', '4gtv054', '4gtv044', '4gtv047', '4gtv055', '4gtv062', '4gtv065', '4gtv046', '4gtv057', 
+                     'longturn21', 'longturn01', 'longturn12', 'longturn11', 'ftv07', '4gtv002', '4gtv155', '4gtv001', '4gtv156', 'ftv13', '4gtv004', '4gtv066', '4gtv056', '4gtv051', 'A&type', '4gtv040', 
+                     '4gtv064', '4gtv080', '4gtv074', '4gtv009', 'ctinews', '4gtv006']   #, '', ''
 # 定义一个包含所有要提取的关键词的列表
 extract_keywords = [',']
 # 读取文件并处理每一行
@@ -683,7 +688,7 @@ def process_line(line):
         name, url = parts
         elapsed_time, is_valid = check_url(url.strip())
         if is_valid:
-            return line.strip()  # 修改这里，输出原始行
+            return line.strip()  # 修改这里,输出原始行
     return None
 ################################################# 多线程处理文本并检测URL
 def process_urls_multithreaded(lines, max_workers=30):
