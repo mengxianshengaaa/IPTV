@@ -58,6 +58,8 @@ for province_isp in provinces_isps:
     except FileNotFoundError:
     # 如果文件不存在,则捕获 FileNotFoundError 异常并打印提示信息
         print(f"文件 '{province_isp}.txt' 不存在. 跳过此文件.")
+requested_urls = set()  # 用于记录已经请求过的地址
+parse_count = {}  # 用于记录每个 URL 的解析次数
 for keyword in keywords:
     province, isp, mcast = keyword.split("_")
     #将省份转成英文小写
@@ -72,37 +74,58 @@ for keyword in keywords:
         org = "Chinanet"
         isp_en = "ctcc"
     elif isp == "移动":
-        org == "China Mobile communications corporation"
+        org = "China Mobile communications corporation"
         isp_en = "cmcc"
         
     current_time = datetime.now()
     timeout_cnt = 0
     result_urls = set() 
-    while len(result_urls) == 0 and timeout_cnt <= 5:
+    should_continue_while = True
+    while should_continue_while and len(result_urls) == 0 and timeout_cnt <= 5:
         try:
             search_url = 'https://fofa.info/result?qbase64='
             search_txt = f'\"udpxy\" && country=\"CN\" && region=\"{province}\"'  # && org=\"{org}\"
-                # 将字符串编码为字节流
+            # 将字符串编码为字节流
             bytes_string = search_txt.encode('utf-8')
-                # 使用 base64 进行编码
+            # 使用 base64 进行编码
             search_txt = base64.b64encode(bytes_string).decode('utf-8')
             search_url += search_txt
-            print(f"{current_time} 查询运营商 : {province}{isp} ,查询网址 : {search_url}")
-            response = requests.get(search_url, timeout=5)
-            # 处理响应
-            response.raise_for_status()
-            # 检查请求是否成功
-            html_content = response.text
-            # 使用BeautifulSoup解析网页内容
-            html_soup = BeautifulSoup(html_content, "html.parser")
-            # print(f"{current_time} html_content:{html_content}")
-            # 查找所有符合指定格式的网址
-            # 设置匹配的格式,如http://8.8.8.8:8888
-            pattern = r"http://\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}:\d+"
-            urls_all = re.findall(pattern, html_content)
-            # 去重得到唯一的URL列表
-            result_urls = set(urls_all)
-            print(f"{current_time} result_urls:{result_urls}")
+            if search_url not in requested_urls:  # 仅当地址未被请求过时才进行请求
+                print(f"{current_time} 查询运营商 : {province}{isp},查询网址 : {search_url}")
+                response = requests.get(search_url, timeout=5)
+                # 处理响应
+                response.raise_for_status()
+                # 检查请求是否成功
+                html_content = response.text
+                requested_urls.add(search_url)  # 将请求过的地址添加到记录集合中
+
+            if search_url not in parse_count:
+                parse_count[search_url] = 0
+            if parse_count[search_url] < 2:
+                # 使用BeautifulSoup解析网页内容
+                html_soup = BeautifulSoup(html_content, "html.parser")
+                # print(f"{current_time} html_content:{html_content}")
+                # 查找所有符合指定格式的网址
+                # 设置匹配的格式,如http://8.8.8.8:8888
+                pattern = r"http://\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}:\d+"
+                urls_all = re.findall(pattern, html_content)
+                # 去重得到唯一的URL列表
+                result_urls = set(urls_all)
+                print(f"{current_time} result_urls:{result_urls}")
+                parse_count[search_url] += 1
+            else:
+                print(f"{current_time} 已达到对 {search_url} 的最大解析次数（2次）")
+                should_continue_while = False  # 当达到最大解析次数，修改循环条件
+        except (requests.Timeout, requests.RequestException) as e:
+            timeout_cnt += 1
+            print(f"{current_time} [{province}]搜索请求发生超时,异常次数：{timeout_cnt}")
+            if timeout_cnt <= 5:
+                # 退出循环迭代
+                break
+            else:
+                print(f"{current_time} 搜索IPTV频道源[],超时次数过多：{timeout_cnt} 次,停止处理")
+
+
             valid_ips = []
             # 遍历所有视频链接
             for url in result_urls:
@@ -258,7 +281,7 @@ for ip_key, result in detected_ips.items():
 ######################################################################################################################
 
 #  获取远程直播源文件,打开文件并输出临时文件
-url = "https://raw.githubusercontent.com/frxz751113/AAAAA/main/IPTV/汇汇.txt"          #源采集地址
+url = "https://raw.bgithub.xyz/frxz751113/AAAAA/main/IPTV/汇汇.txt"          #源采集地址
 r = requests.get(url)
 open('综合源.txt','wb').write(r.content)         #打开源文件并临时写入
 
