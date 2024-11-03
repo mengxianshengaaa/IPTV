@@ -297,7 +297,7 @@ for ip_key, result in detected_ips.items():
 ######################################################################################################################
 
 #  获取远程直播源文件,打开文件并输出临时文件
-url = "https://raw.bgithub.xyz/frxz751113/AAAAA/main/IPTV/汇汇.txt"          #源采集地址
+url = "https://raw.githubusercontent.com/frxz751113/AAAAA/refs/heads/main/IPTV/%E6%B1%87%E6%B1%87.txt"          #源采集地址
 r = requests.get(url)
 open('综合源.txt','wb').write(r.content)         #打开源文件并临时写入
 
