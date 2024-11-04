@@ -51,7 +51,7 @@ urls = [
        'https://raw.bgithub.xyz/yescopys/box/a2ca0b52fc850466c75bfd78e9506af4c01f3bc8/PG/lives/live.txt',
        'https://raw.bgithub.xyz/yescopys/box/a2ca0b52fc850466c75bfd78e9506af4c01f3bc8/0000/lives/live.txt',
        'https://raw.githubusercontent.com/tansuotv/IPTVindex/869d6d43ae2316cc4b0628affc9b87650a783c5a/tv.txt',
-       '',
+       'https://raw.githubusercontent.com/sqspot/tac/f6c5b0609478755435437a6ac40428a5e5bd8727/smt.txt',
        '',
        '',
        '',
