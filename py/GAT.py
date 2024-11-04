@@ -50,7 +50,7 @@ urls = [
        'https://fs-im-kefu.7moor-fs1.com/ly/4d2c3f00-7d4c-11e5-af15-41bf63ae4ea0/1724505579710/%E6%80%BB%E7%BB%9F%E7%94%B5%E8%A7%8627.txt',
        'https://raw.bgithub.xyz/yescopys/box/a2ca0b52fc850466c75bfd78e9506af4c01f3bc8/PG/lives/live.txt',
        'https://raw.bgithub.xyz/yescopys/box/a2ca0b52fc850466c75bfd78e9506af4c01f3bc8/0000/lives/live.txt',
-       '',
+       'https://raw.githubusercontent.com/tansuotv/IPTVindex/869d6d43ae2316cc4b0628affc9b87650a783c5a/tv.txt',
        '',
        '',
        '',
