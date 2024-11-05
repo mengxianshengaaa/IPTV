@@ -1299,6 +1299,8 @@ def txt_to_m3u(input_file, output_file):
                     f.write(f'{channel_url}\n')
 # 将txt文件转换为m3u文件
 txt_to_m3u('综合源.txt', '综合源.m3u')
+txt_to_m3u('组播优选.txt', '组播优选.m3u')
+txt_to_m3u('网络收集.txt', '网络收集.m3u')
 
 
 import datetime
@@ -1348,7 +1350,7 @@ import os
 import datetime
 
 # 定义一组固定字符
-fixed_characters = ['综合源.txt', '组播优选.txt', '网络收集.txt', '综合源.m3u']
+fixed_characters = ['综合源.txt', '组播优选.txt', '网络收集.txt', '组播优选.m3u', '网络收集.m3u', '综合源.m3u']
 
 def delete_nonstandard_files():
     # 获取当前目录下的所有文件
