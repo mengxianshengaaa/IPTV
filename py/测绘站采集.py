@@ -276,7 +276,7 @@ for filename in os.listdir(folder_path):
                             break
                         frame_count += 1
                         # 如果在3秒内读取到30帧以上，设置成功标志
-                        if frame_count >= 30:
+                        if frame_count >= 10:
                             success = True
                             break
                     cap.release()
