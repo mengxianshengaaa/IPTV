@@ -8,7 +8,8 @@ git仓库部署后直接分配域名后面加文件名即可访问
 自己域名站添加CNAME记录时 名称：自定义别名 数据：x.x.x. 最后必须加上. 否则CNAME配置失败
 ***
 # 安装运行库清华源附加代码
- *  -i https://pypi.tuna.tsinghua.edu.cn/simple
+ *python.exe -m pip install --upgrade pip
+          pip install selenium requests futures eventlet opencv-python Beautifulsoup4 translate termcolor func_timeout replace input opencc pypinyin pytz tqdm -i https://pypi.tuna.tsinghua.edu.cn/simple -i https://pypi.tuna.tsinghua.edu.cn/simple
 
 ***
  # py打包exe代码
