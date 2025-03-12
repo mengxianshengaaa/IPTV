@@ -33,37 +33,26 @@ header = {
 import requests
 from lxml import etree
 
-
-# 假设header已经定义好，这里简单示例一个User-Agent
-header = {
-    "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36"
-}
-
 def via_tonking(url):
     headers = {
         'Referer': 'http://tonkiang.us/hotellist.html',
         'User-Agent': header["User-Agent"],
     }
     try:
-        cities = ['北京市', '江苏省']
-        for city in cities:
-            # 提取 IP 地址部分，去除协议
-            ip_address = url.split("//")[-1]
-            response = requests.get(
-                url=f'https://tonkiang.us/hoteliptv.php?page=1&iphone16={city}&code=',
-                headers=headers,
-                timeout=10
-            )
-            response.raise_for_status()
-            et = etree.HTML(response.text)
-            div_text = et.xpath('//div[@class="result"]/div/text()')[1]
-            if "暂时失效" not in div_text:
-                return True
-        return False
+        # 提取 IP 地址部分，去除协议
+        ip_address = url.split("//")[-1]
+        response = requests.get(
+            url=f'https://tonkiang.us/hoteliptv.php?page=1&iphone1=%E5%8C%97%E4%BA%AC%E5%B8%82&code=',
+            headers=headers,
+            timeout=10
+        )
+        response.raise_for_status()
+        et = etree.HTML(response.text)
+        div_text = et.xpath('//div[@class="result"]/div/text()')[1]
+        return "暂时失效" not in div_text
     except Exception as e:
         print(f"验证 IP 时发生错误: {e}")
         return False
-
 
 
 # 从tonkiang获取可用IP
