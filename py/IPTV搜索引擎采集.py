@@ -42,7 +42,8 @@ def via_tonking(url):
         # 提取 IP 地址部分，去除协议
         ip_address = url.split("//")[-1]
         response = requests.get(
-            url=f'http://tonkiang.us/hoteliptv.php?s={ip_address}&c=false&y=false',
+            #url=f'http://tonkiang.us/hoteliptv.php?s={ip_address}&c=false&y=false',
+            url=f'https://tonkiang.us/hoteliptv.php?page=1&iphone16={ip_address}&code=',
             headers=headers,
             timeout=10
         )
