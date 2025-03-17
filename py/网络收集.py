@@ -62,7 +62,7 @@ urls = [
        'https://bbs.ysctv.cn/tv/live.txt',
        'https://d.kstore.space/download/8209/%E6%B8%AF%E6%BE%B3%E5%8F%B0%E7%BB%88%E6%9E%81%E7%89%88.txt',
        'https://fs-im-kefu.7moor-fs1.com/ly/4d2c3f00-7d4c-11e5-af15-41bf63ae4ea0/1724505579710/%E6%80%BB%E7%BB%9F%E7%94%B5%E8%A7%8627.txt',
-       '',
+       'https://raw.bgithub.xyz/luoye20230624/NETZB/6d8798a6a9aef8fce48597b283011e123e0caa2f/%E7%BB%BC%E5%90%88%E6%BA%90.txt',
        '',
        '',
        '',
