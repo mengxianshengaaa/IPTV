@@ -1,4 +1,4 @@
-2025/06/29 10:39更新,#genre#
+2025/06/30 10:36更新,#genre#
 虚情的爱,https://vd2.bdstatic.com/mda-mi1dd05gmhwejdwn/sc/cae_h264/1630576203346678103/mda-mi1dd05gmhwejdwn.mp4
 港澳A组,#genre#
 AMC最爱电影,https://tv.iill.top/litv/4gtv-4gtv017
@@ -97,6 +97,7 @@ TVBPlus,https://live.tvfix.org/live/tvbplus/index.m3u8
 凤凰中文,https://live.tvfix.org/live/fhzw/1/v4000000/index.m3u8
 美亚电影,https://live.tvfix.org/live/mydy/index.m3u8
 天映经典,https://live.tvfix.org/live/tyjd/1/v1000000/index.m3u8
+天映经典,https://live.tvfix.org/live/tyjd/index.m3u8
 无线亚洲,https://live.tvfix.org/live/tvbs/2/v4000000/index.m3u8
 
 港澳E组,#genre#
@@ -135,14 +136,9 @@ TVBS,https://s2.m16tv.cfd/taiwan/tvbs/AKTV.m3u8
 台视,https://s2.m16tv.cfd/taiwan/CH-2/AKTV.m3u8
 天映电影,https://s2.m16tv.cfd/aktv2/CH-3/AKTV.m3u8
 中视,https://s2.m16tv.cfd/taiwan/CH-3/AKTV.m3u8
+中天新闻,https://s2.m16tv.cfd/zhongtian/CH-0/AKTV.m3u8
 
 港澳G组,#genre#
-NOW星影,http://push-rtmp-hs-spe-f5.douyincdn.com/live/77889904.flv
-TVB功夫国,http://push-rtmp-hs-spe-f5.douyincdn.com/live/77889928.flv
-天映经典,http://push-rtmp-hs-spe-f5.douyincdn.com/live/77889902.flv
-中天新闻,http://push-rtmp-hs-spe-f5.douyincdn.com/live/77889911.flv
-
-港澳H组,#genre#
 TVB翡翠剧集,http://kkk.jjjj.jiduo.me/api.php?n=tttt&id=9478&tk=97475bb89d45
 TVB明珠剧集,http://kkk.jjjj.jiduo.me/api.php?n=tttt&id=5300&tk=97475bb89d45
 东森超视,http://kkk.jjjj.jiduo.me/api.php?n=tttt&id=9639&tk=e640d0a1bf70
@@ -155,7 +151,7 @@ TVB明珠剧集,http://kkk.jjjj.jiduo.me/api.php?n=tttt&id=5300&tk=97475bb89d45
 纬来体育,http://kkk.jjjj.jiduo.me/api.php?n=tttt&id=1978&tk=e640d0a1bf70
 中华小当家,http://kkk.jjjj.jiduo.me/api.php?n=tttt&id=8291&tk=e640d0a1bf70
 
-港澳I组,#genre#
+港澳H组,#genre#
 TVB翡翠台4K,http://cdn.163189.xyz/live/fct4k/stream.m3u8
 TVBPlus,http://cdn.163189.xyz/live/tvbp/stream.m3u8
 TVBPlus,https://cdn.163189.xyz/live/tvbp/stream.m3u8
@@ -163,16 +159,16 @@ TVBPlus,https://cdn.163189.xyz/live/tvbp/stream.m3u8
 凤凰中文,http://cdn.163189.xyz/live/fhzw/stream.m3u8
 凤凰中文,https://cdn.163189.xyz/live/fhzw/stream.m3u8
 
-港澳J组,#genre#
+港澳I组,#genre#
 TVB华丽台,http://php.jdshipin.com:8880/smt.php?id=Tvbjade
 TVB星河,http://php.jdshipin.com:8880/PLTV/iptv.php?id=xinghe
 TVB星河国语,http://php.jdshipin.com:8880/TVOD/iptv.php?id=xinghe
-TVB星河国语,http://php.jdshipin.com:8880/smt.php?id=Xinhe
 TVBPlus,http://php.jdshipin.com:8880/TVOD/iptv.php?id=tvbp
 翡翠台,http://php.jdshipin.com:8880/PLTV/iptv.php?id=fct3
 翡翠台,http://php.jdshipin.com:8880/TVOD/iptv.php?id=fct
 翡翠台,http://php.jdshipin.com:8880/TVOD/iptv.php?id=fct2
 翡翠台,http://php.jdshipin.com:8880/TVOD/iptv.php?id=fct3
+翡翠台,http://php.jdshipin.com:8880/TVOD/iptv.php?id=fct4
 凤凰卫视,http://php.jdshipin.com:8880/TVOD/iptv.php?id=fhzw
 凤凰香港,http://php.jdshipin.com:8880/TVOD/iptv.php?id=fhhk
 凤凰香港,http://php.jdshipin.com:8880/TVOD/iptv.php?id=fhhk2
@@ -187,10 +183,11 @@ TVBPlus,http://php.jdshipin.com:8880/TVOD/iptv.php?id=tvbp
 无线新闻,http://php.jdshipin.com:8880/TVOD/iptv.php?id=tvbxw
 无线新闻台,http://php.jdshipin.com:8880/smt.php?id=inews_twn
 
-港澳K组,#genre#
+港澳J组,#genre#
 TVB明珠,http://php.jdshipin.com/smt.php?id=pearl_twn
 TVB无线新闻,http://php.jdshipin.com/TVOD/iptv.php?id=tvbxw
 TVB星河,http://php.jdshipin.com/TVOD/iptv.php?id=xinghe
+TVB星河,http://php.jdshipin.com/smt.php?id=Xinhe
 TVB亚洲武侠,http://php.jdshipin.com/TVOD/iptv.php?id=yzwx
 TVB娱乐新闻,http://php.jdshipin.com/TVOD/iptv.php?id=tvbylxw
 TVB娱乐新闻,http://php.jdshipin.com/smt.php?id=Tvbentertainment
@@ -208,6 +205,7 @@ TVBPlus,http://php.jdshipin.com/TVOD/iptv.php?id=tvbp
 凤凰香港,http://php.jdshipin.com/TVOD/iptv.php?id=fhhk
 凤凰香港,http://php.jdshipin.com/TVOD/iptv.php?id=fhhk2
 凤凰中文,http://php.jdshipin.com/TVOD/iptv.php?id=fhzw
+凤凰中文,http://php.jdshipin.com/TVOD/iptv.php?id=fhzw2
 凤凰资讯,http://php.jdshipin.com/TVOD/iptv.php?id=fhzx
 凤凰资讯,http://php.jdshipin.com/TVOD/iptv.php?id=fhzx2
 美亚电影,http://php.jdshipin.com/TVOD/iptv.php?id=meiya
@@ -219,7 +217,7 @@ TVBPlus,http://php.jdshipin.com/TVOD/iptv.php?id=tvbp
 无线新闻台备用,http://php.jdshipin.com/TVOD/iptv.php?id=wxxwt
 无线娱乐,http://php.jdshipin.com/PLTV/iptv.php?id=tvbylxw
 
-港澳L组,#genre#
+港澳K组,#genre#
 TVB无线新闻,http://cdn.iptv8k.top/dl/jspd.php?id=2
 TVB无线新闻,https://cdn.iptv8k.top/dl/jspd.php?id=2&time=20240926215313&ip=111.229.253.40
 东森超视,https://cdn.iptv8k.top/dl/jrys.php?id=216&time=20240926215313&ip=111.229.253.40
@@ -230,7 +228,6 @@ TVB无线新闻,https://cdn.iptv8k.top/dl/jspd.php?id=2&time=20240926215313&ip=1
 翡翠台,https://cdn.iptv8k.top/dl/jrys.php?id=3&time=20240926215313&ip=111.229.253.40
 凤凰香港,https://cdn.iptv8k.top/dl/jrys.php?id=18&time=20240926215313&ip=111.229.253.40
 凤凰中文,https://cdn.iptv8k.top/dl/jrys.php?id=19&time=20240926215313&ip=111.229.253.40
-靖天戏剧,https://cdn.iptv8k.top/dl/jrys.php?id=318&amp;amp;time=20240926215313&amp;amp;ip=111.229.253.40
 靖天戏剧,https://cdn.iptv8k.top/dl/jrys.php?id=318&time=20240926215313&ip=111.229.253.40
 靖天映画,https://cdn.iptv8k.top/dl/jrys.php?id=320&time=20240926215313&ip=111.229.253.40
 靖天资讯,https://cdn.iptv8k.top/dl/jrys.php?id=315&time=20240926215313&ip=111.229.253.40
@@ -241,7 +238,7 @@ TVB无线新闻,https://cdn.iptv8k.top/dl/jspd.php?id=2&time=20240926215313&ip=1
 纬来体育,https://cdn.iptv8k.top/dl/jrys.php?id=292&time=20240926215313&ip=111.229.253.40
 纬来育乐,https://cdn.iptv8k.top/dl/jrys.php?id=289&time=20240926215313&ip=111.229.253.40
 
-港澳M组,#genre#
+港澳L组,#genre#
 TVBS新闻台,https://www.youtube.com/watch?v=m_dhMSvUCIc
 东森财经新闻台,https://www.youtube.com/watch?v=LbS-xQ67fos
 东森新闻台,https://www.youtube.com/live/V1p33hqPrUk?si=IyGTwsTSIL7hXDKN
@@ -256,7 +253,7 @@ TVBS新闻台,https://www.youtube.com/watch?v=m_dhMSvUCIc
 中天新闻1台,https://www.youtube.com/watch?v=oIgbl7t0S_w
 中天新闻2台,https://www.youtube.com/watch?v=WPfPjbOLNfE
 
-港澳N组,#genre#
+港澳M组,#genre#
 TVBS选新闻,https://live.iill.top/youtube/@TVBSNEWS02
 TVBS选新闻,https://live.iill.top/youtube/TVBSNEWS01
 TVBS选新闻,https://live.iill.top/youtube/d1jUeoc3pio
@@ -274,30 +271,31 @@ TVBSNEWS,https://live.iill.top/youtube/m_dhMSvUCIc
 公视新闻,https://live.iill.top/youtube/@PNNPTS
 寰宇财经,https://live.iill.top/youtube/WTRQiVWK1jY
 寰宇新闻,http://live.iill.top/youtube/@globalnewstw/live
+iTVB大后宫,https://live.iill.top/huya/23863804
 三立INEWS,https://live.iill.top/youtube/@setinews
 三立INEWS,https://live.iill.top/youtube/pF507BLtbqU
 三立新闻,http://live.iill.top/youtube/@setnews/live
 台视新闻,http://live.iill.top/youtube/@TTV_NEWS/live
 中视新闻,http://live.iill.top/youtube/@twctvnews/live
 
-港澳O组,#genre#
+港澳N组,#genre#
 番薯111,http://61.216.67.119:1935/TWHG/E1/chunklist_w70581102.m3u8
 番薯音乐,http://61.216.67.119:1935/TWHG/E1/chunklist_w7058102.m3u8#http://61.216.67.119:1935/TWHG/E1/chunklist_w70581102.m3u8
 人间卫视,http://61.216.67.119:1935/bltvhd/bltv1/chunklist_w1266569526.m3u
 人间卫视,http://61.216.67.119:1935/bltvhd/bltv1/chunklist_w1266569526.m3u8
 
-港澳P组,#genre#
+港澳O组,#genre#
 凤凰香港,http://203.205.191.53/qctv.fengshows.cn/live/0701phk72.flv
 凤凰香港,http://203.205.191.53/qctv.fengshows.cn/live/0701phk72.m3u8
 凤凰中文,http://203.205.191.53/qctv.fengshows.cn/live/0701pcc72.m3u8
 凤凰资讯,http://203.205.191.53/qctv.fengshows.cn/live/0701pin72.flv
 凤凰资讯,http://203.205.191.53/qctv.fengshows.cn/live/0701pin72.m3u8
 
-港澳Q组,#genre#
+港澳P组,#genre#
 凤凰香港,http://wo.xiang.lai.ge.bi.jiao.chang.de.yu.ming.wan.wan.jie.xi.bu.zhi.dao.ke.bu.ke.xing.hk3.345888.xyz.cdn.cloudflare.net/gt/aktv.php?variable=null-5
 凤凰资讯,http://wo.xiang.lai.ge.bi.jiao.chang.de.yu.ming.wan.wan.jie.xi.bu.zhi.dao.ke.bu.ke.xing.hk3.345888.xyz.cdn.cloudflare.net/gt/aktv.php?variable=null-4
 
-港澳R组,#genre#
+港澳Q组,#genre#
 华视,http://docker.livednow.dpdns.org/4gtv-4gtv041/index.m3u8
 华视,http://docker.livednow.dpdns.org/li-4gtv-4gtv041/index.m3u8
 华视,http://docker.livednow.dpdns.org/of-4gtv-4gtv041/index.m3u8
@@ -305,7 +303,7 @@ TVBSNEWS,https://live.iill.top/youtube/m_dhMSvUCIc
 中视,http://docker.livednow.dpdns.org/li-4gtv-4gtv040/index.m3u8
 中视,http://docker.livednow.dpdns.org/of-4gtv-4gtv040/index.m3u8
 
-港澳S组,#genre#
+港澳R组,#genre#
 龙华电影,https://cdn8.163189.xyz/live/lhdy/stream.m3u8
 龙华经典,https://cdn8.163189.xyz/live/lhjd/stream.m3u8
 龙华卡通,https://cdn8.163189.xyz/live/lhkt/stream.m3u8
@@ -314,10 +312,10 @@ TVBSNEWS,https://live.iill.top/youtube/m_dhMSvUCIc
 龙华戏剧,https://cdn8.163189.xyz/live/lhxj/stream.m3u8
 龙华洋片,https://cdn8.163189.xyz/live/lhyp/stream.m3u8
 
-港澳T组,#genre#
+港澳S组,#genre#
 神乐欧美影院,http://tc-tct.douyucdn2.cn/dyliveflv1a/20415rnWbjg6Ex1K_2000.flv?wsAuth=3b64dd17d293b133c58bda21e3147e5b&token=cpn-androidmpro-0-20415-b6774b3b3249db1768f0ac048c5ed218ac54e1f82b04b2bf&logo=0&expire=0&did=d010b07dcb997ada9934081c873542f0&origin=tct&vhost=play2
 
-港澳U组,#genre#
+港澳T组,#genre#
 香港卫视,http://zhibo.hkstv.tv/livestream/mutfysrq.flv
 香港卫视,http://zhibo.hkstv.tv/livestream/mutfysrq/playlist.m3u8
 香港卫视,http://zhibo.hkstv.tv/livestream/mutfysrq/playlist.m3u8?wsSession=3c732f93c14e1bc0c07641df-156388849014752&wsIPSercert=8de23d0849e78e3b16ec92a809235421&wsMonitor=0
