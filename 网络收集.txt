@@ -1,4 +1,4 @@
-2026/07/16 11:27更新,#genre#
+2026/07/17 11:30更新,#genre#
 虚情的爱,https://vd2.bdstatic.com/mda-mi1dd05gmhwejdwn/sc/cae_h264/1630576203346678103/mda-mi1dd05gmhwejdwn.mp4
 港澳A组,#genre#
 1905国内电影,http://php.jdshipin.com:8880/1905.php?id=1905dy
@@ -14,6 +14,9 @@ TVB娱乐新闻,http://php.jdshipin.com:8880/TVOD/iptv.php?id=fct2
 无线华丽,http://php.jdshipin.com:8880/TVOD/iptv.php?id=huali
 
 港澳B组,#genre#
+BWF石宇奇、陈雨菲晋级梁王组合挺进八强【回放】乌拜迪拉0-2安东森15:50,http://hlsztemgspvod.miguvideo.com:8080/depository_eos_wxlz04/asset/zhengshi/5106/635/005/5106635005/media/5106635005_5339443031_594.mg001.mp4.m3u8?msisdn=2be6b2ec9fcf10d2c2457e2c710e172c&mdspid=&spid=800033&netType=0&sid=5701820025&pid=2028597139&timestamp=20260717100211&Channel_ID=0116_2600034600-99000-201600010010028&ProgramID=966226227&ParentNodeID=-99&assertID=5701820025&client_ip=171.8.79.254&SecurityKey=20260717100211&promotionId=&mvid=5106635005&mcid=1003&mpid=120000582851&playurlVersion=WX-A1-9.6.1.6-SNAPSHOT&userid=&jmhm=&videocodec=h265&appCode=miguvideo_android&bean=mgspad&tid=android&conFee=0&encrypt=d581e340d3a562b66e76d63048258240&sv=10004&ct=android
+
+港澳C组,#genre#
 TVB明珠,http://php.jdshipin.com/TVOD/iptv.php?id=mzt
 TVB千禧经典,http://php.jdshipin.com/TVOD/iptv.php?id=tvbc
 TVB星河,http://php.jdshipin.com/TVOD/iptv.php?id=tvbxh
@@ -31,7 +34,7 @@ TVBPlus源2,http://php.jdshipin.com/TVOD/iptv.php?id=tvbp
 无线新闻,http://php.jdshipin.com/TVOD/iptv.php?id=wxxw
 无线新闻台源2,http://php.jdshipin.com/TVOD/iptv.php?id=wxxwt
 
-港澳C组,#genre#
+港澳D组,#genre#
 TVB明珠,http://r.jdshipin.com/jUx8K
 TVB星河,http://r.jdshipin.com/Voac4
 TVB星河,http://r.jdshipin.com/sXuuD
@@ -47,7 +50,7 @@ TVBPlus,http://r.jdshipin.com/ndGgS
 凤凰资讯,http://r.jdshipin.com/0Rp07
 无线新闻,http://r.jdshipin.com/CkuBd
 
-港澳D组,#genre#
+港澳E组,#genre#
 TVB千禧经典,http://o11.163189.xyz/stream/live/tvbc/
 TVB千禧经典,https://o11.163189.xyz/stream/live/tvbc/
 TVB星河,https://o11.163189.xyz/stream/live/tvbxh/
@@ -59,7 +62,7 @@ TVBlus,http://o11.163189.xyz/stream/tvb/tvbp/
 天映,https://o11.163189.xyz/stream/live/typd/
 天映经典,http://o11.163189.xyz/stream/live/ccm/
 
-港澳E组,#genre#
+港澳F组,#genre#
 TVB武侠,https://cdn6.163189.xyz/163189/yzwx
 翡翠台,http://cdn6.163189.xyz/163189/fct4k
 翡翠台,https://cdn6.163189.xyz/163189/fct
@@ -71,7 +74,7 @@ TVB武侠,https://cdn6.163189.xyz/163189/yzwx
 凤凰资讯,https://cdn6.163189.xyz/163189/fhzx
 无线新闻,https://cdn6.163189.xyz/163189/wxxw
 
-港澳F组,#genre#
+港澳G组,#genre#
 TVBPlus,http://aktv.top/AKTV/live/aktv/tvbplus/AKTV.m3u8
 TVBS新闻,http://aktv.top/AKTV/live/aktv/tvbs-1/AKTV.m3u8
 TVBS,http://aktv.top/AKTV/live/aktv/tvbs/AKTV.m3u8
@@ -93,7 +96,7 @@ TVBS,http://aktv.top/AKTV/live/aktv/tvbs/AKTV.m3u8
 中天新闻,http://aktv.top/AKTV/live/aktv/null-8/AKTV.m3u8
 中天亚洲,http://aktv.top/AKTV/live/aktv/null-12/AKTV.m3u8
 
-港澳G组,#genre#
+港澳H组,#genre#
 TVBS新闻台,https://www.youtube.com/watch?v=m_dhMSvUCIc
 东森财经新闻台,https://www.youtube.com/watch?v=LbS-xQ67fos
 东森新闻台,https://www.youtube.com/live/V1p33hqPrUk?si=IyGTwsTSIL7hXDKN
@@ -108,7 +111,7 @@ TVBS新闻台,https://www.youtube.com/watch?v=m_dhMSvUCIc
 中天新闻1台,https://www.youtube.com/watch?v=oIgbl7t0S_w
 中天新闻2台,https://www.youtube.com/watch?v=WPfPjbOLNfE
 
-港澳H组,#genre#
+港澳I组,#genre#
 公视,http://74.91.26.218:82/live/pts.m3u8
 公视台语,http://74.91.26.218:82/live/ptsty.m3u8
 华视,http://74.91.26.218:82/live/cts.m3u8
@@ -120,7 +123,7 @@ TVBS新闻台,https://www.youtube.com/watch?v=m_dhMSvUCIc
 小公视,http://74.91.26.218:82/live/ptsse.m3u8
 中视,http://74.91.26.218:82/live/ctv.m3u8
 
-港澳I组,#genre#
+港澳J组,#genre#
 龙华电影,http://cdn8.163189.xyz/163189/lhdy
 龙华电影,https://cdn8.163189.xyz/live/lhdy/stream.m3u8
 龙华经典,http://cdn8.163189.xyz/163189/lhjd
