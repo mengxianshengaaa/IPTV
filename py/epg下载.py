@@ -4,7 +4,8 @@ import gzip
 import io
 
 urls = {
-    "http://epg.51zmt.top:8000/e.xml.gz": "pp.xml"   # ✅ 最终保存的文件名
+    #"http://epg.51zmt.top:8000/e.xml.gz": "pp.xml"   # ✅ 最终保存的文件名
+    "https://p.xbta.cc/https://raw.githubusercontent.com/kuke31/xmlgz/main/e.xml.gz": "pp.xml"
 }
 
 for url, filename in urls.items():
